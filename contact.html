@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お問い合わせ | 株式会社Opus.net</title>
   <meta name="description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
+  <link rel="canonical" href="https://opus-net.net/contact.html">
+  <meta property="og:title" content="お問い合わせ | 株式会社Opus.net">
+  <meta property="og:description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://opus-net.net/contact.html">
+  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta property="og:site_name" content="株式会社Opus.net">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お問い合わせ | 株式会社Opus.net">
+  <meta name="twitter:description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
+  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +37,7 @@
       <nav class="header__nav">
         <a href="company.html" class="header__nav-link">企業情報</a>
         <a href="service.html" class="header__nav-link">事業内容</a>
-        <a href="case.html" class="header__nav-link">実績紹介</a>
+        <a href="case.html" class="header__nav-link">支援事例</a>
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
@@ -54,7 +66,7 @@
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
     <a href="service.html" class="mobile-nav__link">事業内容</a>
-    <a href="case.html" class="mobile-nav__link">実績紹介</a>
+    <a href="case.html" class="mobile-nav__link">支援事例</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
     <a href="news/20251201.html" class="mobile-nav__link">採用状況</a>
     <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
@@ -83,8 +95,9 @@
   <section class="section">
     <div class="container">
       <p class="section-subtitle contact-lead reveal">弊社へのお問い合わせは下記よりご入力ください。お問い合わせ内容の確認後、担当者よりご連絡させていただきます。返信には数日かかる場合もございますので、あらかじめご了承くださいませ。</p>
-      <p class="section-subtitle contact-lead reveal">メールソフトが開かない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
-      <form class="contact-form reveal" data-contact-mailto="contact@opus-net.net">
+      <p class="section-subtitle contact-lead reveal">送信できない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
+      <form class="contact-form reveal" data-contact-mailto="contact@opus-net.net" data-contact-endpoint="">
+        <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-group">
           <label class="form-label">お問い合わせ内容</label>
           <div class="form-radio-group">
@@ -132,6 +145,7 @@
             <span>「<a href="privacypolicy.html" target="_blank">個人情報の取扱いに関する同意書</a>」を読み、同意しました</span>
           </label>
         </div>
+        <p class="form-status" aria-live="polite"></p>
         <button type="submit" class="form-submit">入力内容を送信</button>
       </form>
     </div>
@@ -155,7 +169,7 @@
           <ul class="footer__nav-list">
             <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
             <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
-            <li><a href="case.html" class="footer__nav-link">事例紹介</a></li>
+            <li><a href="case.html" class="footer__nav-link">支援事例</a></li>
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>

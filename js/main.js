@@ -382,16 +382,65 @@ function initParallax() {
   window.addEventListener('scroll', update, { passive: true });
 }
 
-// --- Contact form mail fallback ---
+// --- Contact form submission ---
 function initContactForm() {
-  const form = document.querySelector('[data-contact-mailto]');
+  const form = document.querySelector('.contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const submitButton = form.querySelector('.form-submit');
+  const status = form.querySelector('.form-status');
+  const startedAt = Date.now();
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
+    const endpoint = (form.dataset.contactEndpoint || '').trim();
+
+    if (endpoint) {
+      await submitContactToEndpoint(form, formData, endpoint, submitButton, status, startedAt);
+      return;
+    }
+
+    openContactMail(form, formData);
+  });
+}
+
+async function submitContactToEndpoint(form, formData, endpoint, submitButton, status, startedAt) {
+  if (formData.get('website')) return;
+
+  const payload = Object.fromEntries(formData.entries());
+  payload.elapsed_ms = Date.now() - startedAt;
+
+  setContactStatus(status, 'sending', '送信中です。しばらくお待ちください。');
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = '送信中';
+  }
+
+  try {
+    await fetch(endpoint, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    });
+
+    form.reset();
+    setContactStatus(status, 'success', 'お問い合わせを受け付けました。担当者よりご連絡いたします。');
+  } catch {
+    setContactStatus(status, 'error', '送信できませんでした。メールでのお問い合わせ画面を開きます。');
+    openContactMail(form, formData);
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = '入力内容を送信';
+    }
+  }
+}
+
+function openContactMail(form, formData) {
     const to = form.dataset.contactMailto;
     const subject = `【Opus.net公式サイト】${formData.get('inquiry_type') || 'お問い合わせ'}`;
     const body = [
@@ -406,5 +455,11 @@ function initContactForm() {
     ].join('\n');
 
     window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+}
+
+function setContactStatus(status, type, message) {
+  if (!status) return;
+
+  status.textContent = message;
+  status.className = `form-status form-status--${type}`;
 }

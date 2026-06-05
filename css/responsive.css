@@ -157,6 +157,10 @@
     grid-template-columns: 1fr;
   }
 
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
   .cta-card {
     padding: 32px;
   }
