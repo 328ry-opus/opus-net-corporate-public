@@ -1067,7 +1067,7 @@ button {
 
 .home-services__panel {
   display: grid;
-  grid-template-columns: minmax(230px, 0.78fr) repeat(4, minmax(210px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   padding: 18px;
   border: 1px solid rgba(226, 232, 240, 0.86);
@@ -1078,7 +1078,7 @@ button {
 
 .home-services__intro,
 .home-service-card {
-  min-height: 250px;
+  min-height: 272px;
   border-radius: 18px;
 }
 
@@ -1681,24 +1681,76 @@ button {
 /* ========================================
    Company Page
    ======================================== */
-.mission-block {
-  text-align: center;
-  padding: 60px 0;
+.mission-vision {
+  background: var(--color-bg-alt);
+  padding: clamp(88px, 8vw, 128px) 0;
 }
 
-.mission-block__title {
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 700;
-  line-height: 1.5;
-  margin-bottom: 20px;
+.mission-vision__row {
+  display: grid;
+  grid-template-columns: minmax(200px, 270px) minmax(0, 1fr);
+  gap: clamp(48px, 5vw, 72px);
+  align-items: start;
 }
 
-.mission-block__text {
-  font-size: 15px;
-  color: var(--color-text-secondary);
-  line-height: 2;
-  max-width: 600px;
-  margin: 0 auto;
+.mission-vision__row + .mission-vision__row {
+  margin-top: clamp(96px, 10vw, 150px);
+}
+
+.mission-vision__label p {
+  font-family: 'Lato', var(--font-en);
+  font-size: clamp(38px, 3.8vw, 54px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.mission-vision__label::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin-top: 34px;
+  background: var(--color-primary);
+}
+
+.mission-vision__content {
+  padding-top: 4px;
+}
+
+.mission-vision__title {
+  font-size: clamp(32px, 2.9vw, 44px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  margin-bottom: 38px;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.mission-vision__text {
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.company-section-label {
+  color: var(--color-primary);
+  font-size: clamp(38px, 3.8vw, 54px);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 34px;
+}
+
+.company-section-label::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin-top: 28px;
+  background: var(--color-primary);
 }
 
 .message-section {

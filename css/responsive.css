@@ -203,6 +203,54 @@
     padding: 16px 0;
   }
 
+  /* Mission / Vision */
+  .mission-vision {
+    padding: 72px 0;
+  }
+
+  .mission-vision__row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mission-vision__row + .mission-vision__row {
+    margin-top: 72px;
+  }
+
+  .mission-vision__label p {
+    font-size: 38px;
+  }
+
+  .mission-vision__label::after {
+    width: 64px;
+    margin-top: 22px;
+  }
+
+  .mission-vision__content {
+    padding-top: 0;
+  }
+
+  .mission-vision__title {
+    font-size: 30px;
+    line-height: 1.45;
+    margin-bottom: 24px;
+    white-space: normal;
+  }
+
+  .company-section-label {
+    font-size: 38px;
+    margin-bottom: 28px;
+  }
+
+  .company-section-label::after {
+    width: 64px;
+    margin-top: 22px;
+  }
+
+  .mission-vision__text {
+    font-size: 16px;
+  }
+
   /* Values */
   .values-grid {
     grid-template-columns: 1fr;
@@ -381,6 +429,31 @@
     font-size: 28px;
     line-height: 1.5;
     white-space: normal;
+  }
+
+  .mission-vision {
+    padding: 64px 0;
+  }
+
+  .mission-vision__row + .mission-vision__row {
+    margin-top: 64px;
+  }
+
+  .mission-vision__label p {
+    font-size: 34px;
+  }
+
+  .mission-vision__title {
+    font-size: 27px;
+  }
+
+  .mission-vision__text {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .company-section-label {
+    font-size: 34px;
   }
 
   .hero__title {
