@@ -377,6 +377,12 @@
     font-size: 32px;
   }
 
+  .section-title--message {
+    font-size: 28px;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
   .hero__title {
     font-size: 32px;
   }

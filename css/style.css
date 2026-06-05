@@ -193,6 +193,14 @@ button {
   line-height: 1.5;
 }
 
+.section-title--message {
+  font-family: var(--font-ja);
+  font-size: clamp(32px, 3.4vw, 44px);
+  letter-spacing: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
 .section-subtitle {
   font-size: clamp(15px, 1.6vw, 17px);
   color: var(--color-text-secondary);
