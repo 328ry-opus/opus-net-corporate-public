@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>お問い合わせ | 株式会社Opus.net</title>
+  <meta name="description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="header__logo-mark">
+      </a>
+      <nav class="header__nav">
+        <a href="company.html" class="header__nav-link">企業情報</a>
+        <a href="service.html" class="header__nav-link">事業内容</a>
+        <a href="case.html" class="header__nav-link">実績紹介</a>
+        <a href="news.html" class="header__nav-link">お知らせ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="news/20251201.html" class="btn btn--outline header__cta">
+          採用状況
+          <span class="material-symbols-outlined material-symbols-outlined--sm">open_in_new</span>
+        </a>
+        <a href="contact.html" class="btn btn--primary header__cta">
+          お問い合わせ
+          <span class="material-symbols-outlined">mail</span>
+        </a>
+      </div>
+      <button class="header__menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <button class="mobile-nav__close" aria-label="メニューを閉じる">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <a href="index.html" class="mobile-nav__link">ホーム</a>
+    <a href="company.html" class="mobile-nav__link">企業情報</a>
+    <a href="service.html" class="mobile-nav__link">事業内容</a>
+    <a href="case.html" class="mobile-nav__link">実績紹介</a>
+    <a href="news.html" class="mobile-nav__link">お知らせ</a>
+    <a href="news/20251201.html" class="mobile-nav__link">採用状況</a>
+    <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
+  </div>
+
+  <main>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__label reveal">CONTACT</h1>
+      <p class="page-header__title reveal">お問い合わせ</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator">&gt;</span>
+      <span>お問い合わせ</span>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <section class="section">
+    <div class="container">
+      <p class="section-subtitle contact-lead reveal">弊社へのお問い合わせは下記よりご入力ください。お問い合わせ内容の確認後、担当者よりご連絡させていただきます。返信には数日かかる場合もございますので、あらかじめご了承くださいませ。</p>
+      <p class="section-subtitle contact-lead reveal">メールソフトが開かない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
+      <form class="contact-form reveal" data-contact-mailto="contact@opus-net.net">
+        <div class="form-group">
+          <label class="form-label">お問い合わせ内容</label>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="inquiry_type" value="サービス内容について" required>
+              サービス内容について
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="inquiry_type" value="取材・プレス関連について">
+              取材・プレス関連について
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="inquiry_type" value="採用について">
+              採用について
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="inquiry_type" value="その他">
+              その他
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="company_name">法人名・団体名<span class="required">*</span></label>
+          <input type="text" id="company_name" name="company_name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="name">お名前<span class="required">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">ご連絡先メールアドレス<span class="required">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">ご連絡先電話番号</label>
+          <input type="tel" id="phone" name="phone" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">お問い合わせ詳細<span class="required">*</span></label>
+          <textarea id="message" name="message" class="form-textarea" required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-checkbox">
+            <input type="checkbox" name="privacy_agree" required>
+            <span>「<a href="privacypolicy.html" target="_blank">個人情報の取扱いに関する同意書</a>」を読み、同意しました</span>
+          </label>
+        </div>
+        <button type="submit" class="form-submit">入力内容を送信</button>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <p class="footer__brand">株式会社Opus.net</p>
+          <div class="footer__info">
+            <p>株式会社Opus.net</p>
+            <p>〒111-0053</p>
+            <p>東京都台東区浅草橋5-5-5 6F</p>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <ul class="footer__nav-list">
+            <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
+            <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
+            <li><a href="case.html" class="footer__nav-link">事例紹介</a></li>
+          </ul>
+          <ul class="footer__nav-list">
+            <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
+            <li><a href="news/20251201.html" class="footer__nav-link">採用状況 <span class="material-symbols-outlined material-symbols-outlined--xs">open_in_new</span></a></li>
+            <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 株式会社Opus.net</span>
+        <a href="privacypolicy.html">個人情報保護方針</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

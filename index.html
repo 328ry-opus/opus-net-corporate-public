@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>株式会社Opus.net</title>
+  <meta name="description" content="株式会社Opus.netは、正確なナレッジと誠実なサポートを通じて、人々の「困った」を「よかった」に変える事業を展開しています。">
+  <meta property="og:title" content="株式会社Opus.net">
+  <meta property="og:description" content="知識と誠実さで、未来を変える。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://opus-net.net/">
+  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__bubbles" id="loaderBubbles"></div>
+    <div class="loader__content">
+      <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="loader__logo-img">
+      <p class="loader__tagline">知識と誠実さで、未来を変える。</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="header__logo-mark">
+      </a>
+      <nav class="header__nav">
+        <a href="company.html" class="header__nav-link">企業情報</a>
+        <a href="service.html" class="header__nav-link">事業内容</a>
+        <a href="case.html" class="header__nav-link">実績紹介</a>
+        <a href="news.html" class="header__nav-link">お知らせ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="news/20251201.html" class="btn btn--outline header__cta">
+          採用状況
+          <span class="material-symbols-outlined material-symbols-outlined--sm">open_in_new</span>
+        </a>
+        <a href="contact.html" class="btn btn--primary header__cta">
+          お問い合わせ
+          <span class="material-symbols-outlined material-symbols-outlined--sm">mail</span>
+        </a>
+      </div>
+      <button class="header__menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <button class="mobile-nav__close" aria-label="メニューを閉じる">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <a href="index.html" class="mobile-nav__link">ホーム</a>
+    <a href="company.html" class="mobile-nav__link">企業情報</a>
+    <a href="service.html" class="mobile-nav__link">事業内容</a>
+    <a href="case.html" class="mobile-nav__link">実績紹介</a>
+    <a href="news.html" class="mobile-nav__link">お知らせ</a>
+    <a href="news/20251201.html" class="mobile-nav__link">採用状況</a>
+    <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
+  </div>
+
+  <main>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="heroCanvas"></canvas>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title" data-split>
+          <span class="hero__title-line" data-split-line>知識と誠実さで、</span>
+          <span class="hero__title-line" data-split-line>未来を変える。</span>
+        </h1>
+        <p class="hero__label">Changing the future with knowledge and integrity.</p>
+      </div>
+      <div class="hero__image-wrap" data-parallax>
+        <img src="assets/images/optimized/hero-opus-meeting.webp" alt="Opus.netの事業支援イメージ" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Service Section -->
+  <section class="home-services" id="service">
+    <div class="container">
+      <a href="news/20260529.html" class="home-news-bar reveal">
+        <span class="home-news-bar__label">News</span>
+        <time class="home-news-bar__date" datetime="2026-05-29">2026.05.29</time>
+        <span class="home-news-bar__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
+        <span class="material-symbols-outlined home-news-bar__arrow">arrow_forward</span>
+      </a>
+      <div class="home-services__panel reveal">
+        <div class="home-services__intro">
+          <p class="home-services__label">Service</p>
+          <h2 class="home-services__title">サービス</h2>
+          <p class="home-services__text">事故後の安心サポートから、AI・広告・システム活用まで、事業成長を支えるサービスを提供します。</p>
+        </div>
+        <a href="service.html" class="home-service-card">
+          <div class="home-service-card__media">
+            <img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" class="home-service-card__logo" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-card__body">
+            <span class="home-service-card__category">交通事故サポート</span>
+            <span class="home-service-card__title">事故なび</span>
+            <span class="home-service-card__text">交通事故被害者を支える安心サポート。</span>
+            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+          </div>
+        </a>
+        <a href="service.html" class="home-service-card">
+          <div class="home-service-card__media">
+            <img src="assets/images/optimized/generated-service-sns.webp" alt="SNS・広告運用支援" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-card__body">
+            <span class="home-service-card__category">マーケティング支援</span>
+            <span class="home-service-card__title">SNS・広告運用支援</span>
+            <span class="home-service-card__text">SNS、Meta広告、リスティング広告を活用した集客支援。</span>
+            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+          </div>
+        </a>
+        <a href="service.html" class="home-service-card">
+          <div class="home-service-card__media">
+            <img src="assets/images/optimized/generated-service-dx.webp" alt="AI研修・導入支援" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-card__body">
+            <span class="home-service-card__category">AI活用支援</span>
+            <span class="home-service-card__title">AI研修・導入支援</span>
+            <span class="home-service-card__text">現場で使える生成AI活用を研修から導入まで伴走。</span>
+            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+          </div>
+        </a>
+        <a href="service.html" class="home-service-card">
+          <div class="home-service-card__media">
+            <img src="assets/images/optimized/generated-service-dx.webp" alt="業務システム開発" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-card__body">
+            <span class="home-service-card__category">自社プロダクト開発</span>
+            <span class="home-service-card__title">業務システム開発</span>
+            <span class="home-service-card__text">CRMや業務効率化ツールを自社知見で設計・開発。</span>
+            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Section -->
+  <section class="home-company section" id="company">
+    <div class="container">
+      <div class="home-company__inner reveal">
+        <div class="home-company__content">
+          <p class="section-label section-label--sm">Company</p>
+          <h2 class="section-title--ja">知識と誠実さで、<br>事業の前進を支える。</h2>
+          <p class="section-subtitle">
+            株式会社Opus.netは、交通事故被害者サポート、SNS・広告運用、AI活用、業務システム開発を通じて、人と企業の「困った」を解決へ導きます。正確な知識を扱い、誠実に向き合い、現場で使える形まで落とし込むことを大切にしています。
+          </p>
+          <a href="company.html" class="btn btn--ghost mt-24">
+            <span class="material-symbols-outlined">arrow_forward</span>
+            企業情報をみる
+          </a>
+        </div>
+        <div class="home-company__points">
+          <div class="home-company__point">
+            <span class="material-symbols-outlined">verified</span>
+            <h3>正確な知識</h3>
+            <p>専門性が必要な領域でも、情報を整理し、判断しやすい形で届けます。</p>
+          </div>
+          <div class="home-company__point">
+            <span class="material-symbols-outlined">diversity_1</span>
+            <h3>誠実な伴走</h3>
+            <p>短期的な見栄えではなく、相手の状況に合わせて継続的に支援します。</p>
+          </div>
+          <div class="home-company__point">
+            <span class="material-symbols-outlined">build_circle</span>
+            <h3>実装する力</h3>
+            <p>AIやシステムを、現場の業務に組み込んで使える状態まで整えます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updates Section -->
+  <section class="home-updates section section--alt" id="case-news">
+    <div class="container">
+      <div class="home-section-head reveal">
+        <div>
+          <p class="section-label section-label--sm">Updates</p>
+          <h2 class="section-title--ja">お知らせと実績紹介</h2>
+        </div>
+        <a href="news.html" class="btn btn--ghost">
+          <span class="material-symbols-outlined">arrow_forward</span>
+          お知らせ一覧
+        </a>
+      </div>
+      <div class="home-updates__grid reveal">
+        <div class="home-updates__news">
+          <div class="news-list">
+            <a href="news/20260529.html" class="news-list__item">
+              <time class="news-list__date" datetime="2026-05-29">2026.05.29</time>
+              <span class="news-list__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
+              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="news/20260424.html" class="news-list__item">
+              <time class="news-list__date" datetime="2026-04-24">2026.04.24</time>
+              <span class="news-list__title">4月の整骨院向けAI活用セミナーを実施しました</span>
+              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="news/20251201.html" class="news-list__item">
+              <time class="news-list__date" datetime="2025-12-01">2025.12.1</time>
+              <span class="news-list__title">新規採用の一時停止について</span>
+              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="news/20251105.html" class="news-list__item">
+              <time class="news-list__date" datetime="2025-11-06">2025.11.6</time>
+              <span class="news-list__title">コーポレートサイトをリニューアルしました。</span>
+              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <a href="case.html" class="home-case-preview">
+          <div class="home-case-preview__media">
+            <img src="assets/images/optimized/generated-service-dx.webp" alt="実績紹介イメージ" loading="lazy" decoding="async">
+          </div>
+          <div class="home-case-preview__body">
+            <span class="home-case-preview__label">Case</span>
+            <h3>実績紹介ページは準備中です</h3>
+            <p>公開準備が整い次第、事故なび、AI活用、広告運用、業務システム開発の実績を掲載します。</p>
+            <span class="home-case-preview__link">
+              実績紹介をみる
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="home-final-cta">
+    <div class="container">
+      <div class="home-final-cta__inner reveal">
+        <p class="home-final-cta__label">Contact</p>
+        <h2>サービスや協業のご相談はこちら</h2>
+        <p>事故なび、SNS・広告運用、AI研修、業務システム開発に関するご相談を受け付けています。</p>
+        <div class="home-final-cta__actions">
+          <a href="contact.html" class="btn btn--primary">
+            お問い合わせ
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+          <a href="news/20251201.html" class="btn btn--outline">
+            採用状況を確認
+            <span class="material-symbols-outlined material-symbols-outlined--sm">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <p class="footer__brand">株式会社Opus.net</p>
+          <div class="footer__info">
+            <p>株式会社Opus.net</p>
+            <p>〒111-0053</p>
+            <p>東京都台東区浅草橋5-5-5 6F</p>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <ul class="footer__nav-list">
+            <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
+            <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
+            <li><a href="case.html" class="footer__nav-link">事例紹介</a></li>
+          </ul>
+          <ul class="footer__nav-list">
+            <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
+            <li><a href="news/20251201.html" class="footer__nav-link">採用状況 <span class="material-symbols-outlined material-symbols-outlined--xs">open_in_new</span></a></li>
+            <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 株式会社Opus.net</span>
+        <a href="privacypolicy.html">個人情報保護方針</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

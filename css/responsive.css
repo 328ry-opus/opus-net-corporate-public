@@ -1,0 +1,402 @@
+/* ========================================
+   Responsive — Mobile & Tablet
+   ======================================== */
+
+@media (max-width: 1280px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero__content {
+    max-width: 760px;
+  }
+
+  .hero__title {
+    font-size: 52px;
+  }
+
+  .hero__image-wrap {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .home-services__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-services__intro {
+    min-height: 0;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 980px) {
+  .home-company__inner,
+  .home-updates__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .home-section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* --- Tablet (max-width: 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  /* Header */
+  .header__nav {
+    display: none;
+  }
+
+  .header__actions {
+    display: none;
+  }
+
+  .header__menu-btn {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__inner {
+    padding: 0 16px;
+  }
+
+  .header__logo-mark {
+    max-width: 138px;
+  }
+
+  /* Mobile Nav Overlay */
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .mobile-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav__close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    padding: 8px;
+    font-size: 28px;
+    color: var(--color-text);
+  }
+
+  .mobile-nav__link {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 12px 0;
+  }
+
+  .mobile-nav__link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: calc(var(--header-height) + 36px) 0 86px;
+  }
+
+  .hero__inner {
+    padding: 0 var(--container-padding);
+    gap: 28px;
+  }
+
+  .hero__content {
+    padding: 0;
+  }
+
+  .hero__title {
+    font-size: 40px;
+    line-height: 1.42;
+  }
+
+  .hero__label {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Grid */
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA Section */
+  .cta-section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 32px;
+  }
+
+  /* Footer */
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer__nav {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* Page Header */
+  .page-header {
+    padding: calc(var(--header-height) + 40px) 0 40px;
+  }
+
+  /* Service cards */
+  .service-card {
+    padding: 32px 24px;
+  }
+
+  .service-card__image {
+    margin: -32px -24px 0;
+  }
+
+  /* Company profile table */
+  .profile-table {
+    display: block;
+  }
+
+  .profile-table tr {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  /* Values */
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* News list */
+  .news-list__item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .news-list__date {
+    font-size: 12px;
+  }
+
+  /* Hero image */
+  .hero__image-wrap {
+    margin-right: 0;
+    max-width: none;
+    border-radius: 22px;
+    transform: skewX(-6deg);
+  }
+
+  .hero__image-wrap img {
+    height: 260px;
+    transform: translateY(var(--hero-parallax-y, 0)) skewX(6deg) scale(1.12);
+  }
+
+  .hero__scroll-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  /* Two column layout */
+  .section-two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-company__points {
+    gap: 12px;
+  }
+
+  .home-case-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .home-case-preview__media {
+    height: 180px;
+  }
+
+  .home-final-cta__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Message section */
+  .message-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Service detail */
+  .service-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0;
+  }
+
+  /* Contact form */
+  .contact-form {
+    padding: 24px 16px;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 16px;
+  }
+
+  .form-radio {
+    padding: 6px 0;
+  }
+
+  /* Decorations hidden on mobile */
+  .deco {
+    display: none;
+  }
+
+  .home-services {
+    margin-top: -42px;
+    padding-bottom: 64px;
+  }
+
+  .home-news-bar {
+    align-items: flex-start;
+    gap: 8px 12px;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 16px;
+    flex-wrap: wrap;
+  }
+
+  .home-news-bar__label,
+  .home-news-bar__date,
+  .home-news-bar__arrow {
+    flex: 0 0 auto;
+  }
+
+  .home-news-bar__title {
+    flex-basis: 100%;
+    order: 3;
+    white-space: normal;
+    line-height: 1.6;
+  }
+
+  .home-news-bar__arrow {
+    margin-left: auto;
+  }
+
+  .home-services__panel {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .home-services__intro,
+  .home-service-card {
+    min-height: 0;
+    border-radius: 14px;
+  }
+
+  .home-services__intro {
+    padding: 20px;
+  }
+
+  .home-service-card {
+    padding: 0;
+  }
+
+  .home-service-card__media {
+    height: 132px;
+  }
+
+  .home-service-card__body {
+    padding: 20px;
+  }
+
+  /* Footer touch targets */
+  .footer__nav-link {
+    padding: 6px 0;
+  }
+}
+
+/* --- Small mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .hero__title {
+    font-size: 32px;
+  }
+
+  .service-card__image {
+    margin: -24px -24px 0;
+  }
+
+  .contact-form {
+    padding: 20px 12px;
+  }
+
+  .cta-card {
+    padding: 24px 20px;
+  }
+}
+
+/* --- Desktop nav visible (min-width: 769px) --- */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
