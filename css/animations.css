@@ -18,10 +18,6 @@
   transform: translateX(40px);
 }
 
-.reveal--scale {
-  transform: scale(0.95);
-}
-
 .reveal.is-visible {
   opacity: 1;
   transform: translate(0, 0) scale(1);
@@ -59,27 +55,6 @@
   }
 }
 
-@keyframes heroLine {
-  from { width: 0; }
-  to { width: 60px; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 94, 232, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(59, 94, 232, 0.4); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* Split text character animation */
 .hero__title-line {
   display: block;
@@ -104,88 +79,17 @@
   opacity: 1;
 }
 
-
-.hero__subtitle {
-  animation: heroFadeUp 0.8s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/* Hero label fades in after the title characters settle */
+.hero__label {
   opacity: 0;
+  animation: heroFadeUp 0.7s 1.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.hero__actions {
-  animation: heroFadeUp 0.8s 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 0;
-}
-
-.hero__line {
-  animation: heroLine 0.6s 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* --- Floating Decorations --- */
-@keyframes floatSlow {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(8px, -12px) rotate(3deg); }
-  50% { transform: translate(-4px, -20px) rotate(-2deg); }
-  75% { transform: translate(12px, -8px) rotate(4deg); }
-}
-
-@keyframes floatMedium {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(-10px, -15px) rotate(-5deg); }
-  66% { transform: translate(6px, -25px) rotate(3deg); }
-}
-
-@keyframes floatFast {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(5px, -18px); }
-}
-
-.float-deco {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-}
-
-.float-deco--circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  opacity: 0.06;
-  animation: floatSlow 14s ease-in-out infinite;
-}
-
-.float-deco--ring {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid var(--color-primary);
-  opacity: 0.08;
-  animation: floatMedium 10s ease-in-out infinite;
-}
-
-.float-deco--square {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: var(--color-primary);
-  opacity: 0.05;
-  animation: floatFast 8s ease-in-out infinite;
-  transform-origin: center;
-}
-
-.float-deco--dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  opacity: 0.1;
-  animation: floatMedium 12s ease-in-out infinite;
-}
-
-.float-deco--img {
-  opacity: 0.35;
-  animation: floatSlow 14s ease-in-out infinite;
-  filter: blur(1px);
+/* Hold the hero intro until the page loader has cleared,
+   so first-time visitors actually see it (index only) */
+body:not(.is-loaded) .hero__title-line .char,
+body:not(.is-loaded) .hero__label {
+  animation-play-state: paused;
 }
 
 /* --- Service Detail Large Numbers --- */
@@ -222,14 +126,16 @@
   .reveal,
   .reveal--left,
   .reveal--right,
-  .reveal--scale,
   .reveal-stagger > * {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .float-deco,
-  .deco,
+  .hero__title-line .char,
+  .hero__label {
+    animation-play-state: running !important;
+  }
+
   .cursor-glow,
   .hero__canvas {
     display: none !important;
