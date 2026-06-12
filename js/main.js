@@ -92,13 +92,15 @@ function initScrollReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        // Also reveal elements already scrolled past, so fast flick
+        // scrolling never leaves a section stuck invisible.
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0, rootMargin: '0px 0px -40px 0px' }
   );
 
   reveals.forEach((el) => observer.observe(el));
