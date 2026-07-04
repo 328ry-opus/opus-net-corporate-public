@@ -3,25 +3,6 @@
    ======================================== */
 
 @media (max-width: 1280px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero__content {
-    max-width: 760px;
-  }
-
-  .hero__title {
-    font-size: 52px;
-  }
-
-  .hero__image-wrap {
-    max-width: 860px;
-    margin-left: auto;
-    margin-right: 0;
-  }
-
   .home-services__panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -128,17 +109,21 @@
   }
 
   .hero__inner {
-    padding: 0 var(--container-padding);
-    gap: 28px;
+    gap: 36px;
   }
 
-  .hero__content {
-    padding: 0;
+  .hero__wordmark {
+    font-size: 23.5vw;
+  }
+
+  .hero__copy {
+    align-self: flex-start;
+    margin-right: 0;
   }
 
   .hero__title {
-    font-size: 40px;
-    line-height: 1.42;
+    font-size: clamp(28px, 7.6vw, 38px);
+    line-height: 1.45;
   }
 
   .hero__label {
@@ -270,24 +255,6 @@
     font-size: 12px;
   }
 
-  /* Hero image */
-  .hero__image-wrap {
-    margin-right: 0;
-    max-width: none;
-    border-radius: 22px;
-    transform: skewX(-6deg);
-  }
-
-  .hero__image-wrap img {
-    height: 260px;
-    transform: translateY(var(--hero-parallax-y, 0)) skewX(6deg) scale(1.12);
-  }
-
-  .hero__scroll-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-  }
 
   /* Two column layout */
   .section-two-col {
@@ -461,7 +428,7 @@
   }
 
   .hero__title {
-    font-size: 32px;
+    font-size: 27px;
   }
 
   .service-card__image {

@@ -929,43 +929,17 @@ button {
 }
 
 /* ========================================
-   Hero Section
+   Hero Section (2026-07: full-bleed wordmark
+   + generative dotted flow field)
    ======================================== */
 .hero {
   position: relative;
-  min-height: clamp(560px, 70vh, 720px);
-  padding: calc(var(--header-height) + 34px) 0 116px;
-  background:
-    radial-gradient(circle at 90% 24%, rgba(91, 123, 245, 0.16), transparent 28%),
-    radial-gradient(circle at 4% 80%, rgba(59, 94, 232, 0.1), transparent 30%),
-    linear-gradient(135deg, #fff 0%, #f7faff 48%, #edf5ff 100%);
+  min-height: clamp(620px, 96vh, 920px);
+  padding: calc(var(--header-height) + 16px) 0 92px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 58%, #eef4ff 100%);
   overflow: hidden;
-}
-
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero::before {
-  right: -8vw;
-  bottom: -24vw;
-  width: 58vw;
-  height: 58vw;
-  border: 1px solid rgba(59, 94, 232, 0.12);
-  border-radius: 50%;
-}
-
-.hero::after {
-  left: -12vw;
-  bottom: 4vw;
-  width: 64vw;
-  height: 32vw;
-  background: linear-gradient(115deg, transparent 18%, rgba(59, 94, 232, 0.06), transparent 70%);
-  transform: rotate(-8deg);
 }
 
 .hero__canvas {
@@ -976,106 +950,63 @@ button {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.34;
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
-  width: min(100%, 1680px);
-  margin: 0 auto;
-  padding: 0 clamp(24px, 5vw, 72px);
-  display: grid;
-  grid-template-columns: minmax(470px, 0.72fr) minmax(720px, 1.28fr);
-  align-items: center;
-  gap: clamp(32px, 4vw, 72px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 5vh, 60px);
 }
 
-.hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 620px;
-  padding: 0;
+.hero__wordmark {
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-weight: 500;
+  font-size: 22.5vw;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary-dark) 36%, var(--color-primary) 66%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__copy {
+  align-self: flex-end;
+  max-width: 660px;
+  padding: 0 var(--container-padding);
+  margin-right: clamp(0px, 7vw, 130px);
 }
 
 .hero__title {
   font-family: var(--font-ja);
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.08em;
+  font-size: clamp(30px, 3.3vw, 46px);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
   color: var(--color-dark);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .hero__title-line {
+  display: block;
   white-space: nowrap;
 }
 
 .hero__label {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--color-primary);
-  line-height: 1.9;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  line-height: 2;
+  max-width: 36em;
 }
-
-.hero__image-wrap {
-  position: relative;
-  z-index: 1;
-  justify-self: stretch;
-  margin-right: -28px;
-  overflow: hidden;
-  border-radius: 30px;
-  box-shadow: 0 24px 70px rgba(31, 63, 135, 0.16);
-  transform: skewX(-9deg);
-  transform-origin: center;
-  isolation: isolate;
-}
-
-.hero__image-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.44), transparent 24%, rgba(59, 94, 232, 0.08));
-  pointer-events: none;
-}
-
-.hero__image-wrap img {
-  width: 108%;
-  max-width: none;
-  height: clamp(300px, 27vw, 430px);
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transform: translateY(var(--hero-parallax-y, 0)) skewX(9deg) scale(1.04);
-  transform-origin: center;
-}
-
-.hero__scroll-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 64px;
-  height: 64px;
-  background: var(--color-primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 24px;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
-  z-index: 2;
-}
-
-.hero__scroll-btn:hover {
-  transform: scale(1.08);
-  box-shadow: var(--shadow-lg);
-}
-
 
 /* ========================================
    Two Column Layout

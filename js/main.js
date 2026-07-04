@@ -194,19 +194,19 @@ function initSplitText() {
   });
 }
 
-// --- Hero Canvas (gradient mesh / particles) ---
+// --- Hero Canvas (generative dotted flow field) ---
 function initHeroCanvas() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (window.innerWidth < 768 || reduceMotion) return;
   const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
+  if (!canvas || reduceMotion) return;
 
   const ctx = canvas.getContext('2d');
-  let w, h, mouseX = 0, mouseY = 0;
+  let w, h;
   let rafId = null;
   let running = false;
+  let t = 0;
   const particles = [];
-  const PARTICLE_COUNT = 18;
+  const TRAIL = 9;
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
@@ -218,66 +218,60 @@ function initHeroCanvas() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
+  function spawn(p, edge) {
+    p.x = edge ? -12 : Math.random() * w;
+    p.y = Math.random() * h;
+    p.speed = 0.5 + Math.random() * 1.0;
+    p.alpha = 0.07 + Math.random() * 0.26;
+    p.tick = (Math.random() * 3) | 0;
+    p.trail = [];
+  }
+
   function createParticles() {
     particles.length = 0;
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.1,
-      });
+    const count = Math.round(Math.min(230, Math.max(70, w / 6.5)));
+    for (let i = 0; i < count; i++) {
+      const p = {};
+      spawn(p, false);
+      particles.push(p);
     }
+  }
+
+  // Pseudo curl field: layered sine waves, biased to drift right
+  function fieldAngle(x, y, time) {
+    return (
+      Math.sin(x * 0.0016 + time * 0.00022) * 0.85 +
+      Math.cos(y * 0.0021 - time * 0.00017) * 0.85
+    ) * 0.6;
   }
 
   function draw() {
     if (!running) return;
+    t += 16;
     ctx.clearRect(0, 0, w, h);
 
-    // Draw connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 130) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(59, 94, 232, ${0.06 * (1 - dist / 130)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
+    for (const p of particles) {
+      const a = fieldAngle(p.x, p.y, t);
+      p.x += Math.cos(a) * p.speed * 1.5 + 0.4;
+      p.y += Math.sin(a) * p.speed * 0.9;
+
+      p.tick++;
+      if (p.tick % 3 === 0) {
+        p.trail.push({ x: p.x, y: p.y });
+        if (p.trail.length > TRAIL) p.trail.shift();
+      }
+
+      if (p.x > w + 16 || p.y < -16 || p.y > h + 16) spawn(p, true);
+
+      for (let i = 0; i < p.trail.length; i++) {
+        const q = p.trail[i];
+        const k = (i + 1) / p.trail.length;
+        ctx.beginPath();
+        ctx.arc(q.x, q.y, 0.7 + k * 0.9, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 94, 232, ${p.alpha * k})`;
+        ctx.fill();
       }
     }
-
-    // Draw particles
-    particles.forEach((p) => {
-      // Mouse attraction
-      const dx = mouseX - p.x;
-      const dy = mouseY - p.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 160 && dist > 0) {
-        p.vx += dx / dist * 0.012;
-        p.vy += dy / dist * 0.012;
-      }
-
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vx *= 0.99;
-      p.vy *= 0.99;
-
-      // Bounce
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(59, 94, 232, ${p.opacity})`;
-      ctx.fill();
-    });
 
     rafId = requestAnimationFrame(draw);
   }
@@ -298,11 +292,6 @@ function initHeroCanvas() {
   createParticles();
 
   window.addEventListener('resize', () => { resize(); createParticles(); }, { passive: true });
-  canvas.parentElement.addEventListener('mousemove', (e) => {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-  }, { passive: true });
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {

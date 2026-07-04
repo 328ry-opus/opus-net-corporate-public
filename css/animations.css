@@ -87,7 +87,13 @@
 
 /* Hold the hero intro until the page loader has cleared,
    so first-time visitors actually see it (index only) */
+.hero__wordmark {
+  opacity: 0;
+  animation: heroFadeUp 1s 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 body:not(.is-loaded) .hero__title-line .char,
+body:not(.is-loaded) .hero__wordmark,
 body:not(.is-loaded) .hero__label {
   animation-play-state: paused;
 }
@@ -132,6 +138,7 @@ body:not(.is-loaded) .hero__label {
   }
 
   .hero__title-line .char,
+  .hero__wordmark,
   .hero__label {
     animation-play-state: running !important;
   }
