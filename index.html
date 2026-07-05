@@ -43,8 +43,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -78,7 +77,7 @@
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
           お問い合わせ
-          <span class="material-symbols-outlined material-symbols-outlined--sm">mail</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
       </div>
       <button class="header__menu-btn" aria-label="メニューを開く">
@@ -92,7 +91,7 @@
   <!-- Mobile Nav -->
   <div class="mobile-nav">
     <button class="mobile-nav__close" aria-label="メニューを閉じる">
-      <span class="material-symbols-outlined">close</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
     </button>
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
@@ -118,6 +117,7 @@
         <p class="hero__label">株式会社Opus.netは、交通事故被害者サポート「事故なび」から、SNS・広告運用、映像制作、AI研修、業務システム開発まで、人と企業の「困った」を解決へ導きます。</p>
       </div>
     </div>
+  <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
   </section>
 
   <!-- Scroll Progress Bar -->
@@ -133,7 +133,7 @@
         <span class="home-news-bar__label">News</span>
         <time class="home-news-bar__date" datetime="2026-05-29">2026.05.29</time>
         <span class="home-news-bar__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
-        <span class="material-symbols-outlined home-news-bar__arrow">arrow_forward</span>
+        <svg class="arrow-icon home-news-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
       </a>
       <div class="home-services__panel reveal">
         <div class="home-services__intro">
@@ -149,7 +149,7 @@
             <span class="home-service-card__category">交通事故サポート</span>
             <span class="home-service-card__title">事故なび</span>
             <span class="home-service-card__text">交通事故被害者を支える安心サポート。</span>
-            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </div>
         </a>
         <a href="service.html#sns" class="home-service-card">
@@ -160,7 +160,7 @@
             <span class="home-service-card__category">マーケティング支援</span>
             <span class="home-service-card__title">SNS・広告運用支援</span>
             <span class="home-service-card__text">SNS、Meta広告、リスティング広告を活用した集客支援。</span>
-            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </div>
         </a>
         <a href="service.html#video" class="home-service-card">
@@ -171,7 +171,7 @@
             <span class="home-service-card__category">クリエイティブ制作</span>
             <span class="home-service-card__title">映像制作</span>
             <span class="home-service-card__text">企画・撮影・編集からAI活用まで、動画制作を一貫支援。</span>
-            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </div>
         </a>
         <a href="service.html#ai" class="home-service-card">
@@ -182,7 +182,7 @@
             <span class="home-service-card__category">AI活用支援</span>
             <span class="home-service-card__title">AI研修・導入支援</span>
             <span class="home-service-card__text">現場で使える生成AI活用を研修から導入まで伴走。</span>
-            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </div>
         </a>
         <a href="service.html#system" class="home-service-card">
@@ -193,7 +193,7 @@
             <span class="home-service-card__category">自社プロダクト開発</span>
             <span class="home-service-card__title">業務システム開発</span>
             <span class="home-service-card__text">CRMや業務効率化ツールを自社知見で設計・開発。</span>
-            <span class="material-symbols-outlined home-service-card__arrow">arrow_forward</span>
+            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </div>
         </a>
       </div>
@@ -206,30 +206,32 @@
       <div class="home-company__inner reveal">
         <div class="home-company__content">
           <p class="section-label section-label--sm">Company</p>
-          <h2 class="section-title--ja">知識と誠実さで、<br>事業の前進を支える。</h2>
+          <p class="home-company__mvv-label">Vision</p>
+          <h2 class="section-title--ja">信頼で社会を支える、<br>未来のインフラへ。</h2>
           <p class="section-subtitle">
-            株式会社Opus.netは、交通事故被害者サポート、SNS・広告運用、映像制作、AI活用、業務システム開発を通じて、人と企業の「困った」を解決へ導きます。正確な知識を扱い、誠実に向き合い、現場で使える形まで落とし込むことを大切にしています。
+            テクノロジーと専門知識を活かし、交通事故被害者サポート、マーケティング支援、映像制作、AI活用、業務システム開発といった分野で、人と企業の前進を支える存在を目指します。
           </p>
           <a href="company.html" class="btn btn--ghost mt-24">
-            <span class="material-symbols-outlined">arrow_forward</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             企業情報をみる
           </a>
         </div>
         <div class="home-company__points">
+          <p class="home-company__mvv-label">Our Value</p>
           <div class="home-company__point">
-            <span class="material-symbols-outlined">verified</span>
-            <h3>正確な知識</h3>
-            <p>専門性が必要な領域でも、情報を整理し、判断しやすい形で届けます。</p>
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 5.8v5.4c0 4.2 2.8 7 7 8.8 4.2-1.8 7-4.6 7-8.8V5.8L12 3Z"/><path d="m9 11.8 2.2 2.2L15.2 10"/></svg>
+            <h3>誠実であること。</h3>
+            <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
           </div>
           <div class="home-company__point">
-            <span class="material-symbols-outlined">diversity_1</span>
-            <h3>誠実な伴走</h3>
-            <p>短期的な見栄えではなく、相手の状況に合わせて継続的に支援します。</p>
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 4 7 4 4 5.5v13c3-1.5 6-1.5 8 0 2-1.5 5-1.5 8 0v-13c-3-1.5-6-1.5-8 0Zm0 0v13"/></svg>
+            <h3>知識を磨き、活かすこと。</h3>
+            <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
           </div>
           <div class="home-company__point">
-            <span class="material-symbols-outlined">build_circle</span>
-            <h3>実装する力</h3>
-            <p>AIやシステムを、現場の業務に組み込んで使える状態まで整えます。</p>
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 4.2 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 9.5 9 7.5 9 5c1.5 1 2.2 2.2 2.4 3.6C12.6 7.4 12 5 12 3Z"/></svg>
+            <h3>変化を恐れず、挑戦すること。</h3>
+            <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
           </div>
         </div>
       </div>
@@ -245,7 +247,7 @@
           <h2 class="section-title--ja">お知らせと支援事例</h2>
         </div>
         <a href="news.html" class="btn btn--ghost">
-          <span class="material-symbols-outlined">arrow_forward</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           お知らせ一覧
         </a>
       </div>
@@ -255,36 +257,33 @@
             <a href="news/20260529.html" class="news-list__item">
               <time class="news-list__date" datetime="2026-05-29">2026.05.29</time>
               <span class="news-list__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
-              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             </a>
             <a href="news/20260424.html" class="news-list__item">
               <time class="news-list__date" datetime="2026-04-24">2026.04.24</time>
               <span class="news-list__title">4月の整骨院向けAI活用セミナーを実施しました</span>
-              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             </a>
             <a href="news/20251201.html" class="news-list__item">
               <time class="news-list__date" datetime="2025-12-01">2025.12.01</time>
               <span class="news-list__title">新規採用の一時停止について</span>
-              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             </a>
             <a href="news/20251105.html" class="news-list__item">
               <time class="news-list__date" datetime="2025-11-06">2025.11.06</time>
               <span class="news-list__title">コーポレートサイトをリニューアルしました。</span>
-              <span class="news-list__arrow material-symbols-outlined">arrow_forward</span>
+              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             </a>
           </div>
         </div>
         <a href="case.html" class="home-case-preview">
-          <div class="home-case-preview__media">
-            <img src="assets/images/optimized/generated-service-dx.webp" alt="支援事例イメージ" loading="lazy" decoding="async">
-          </div>
           <div class="home-case-preview__body">
             <span class="home-case-preview__label">Case</span>
             <h3>支援領域・対応例を公開しました</h3>
             <p>事故なび、AI活用、広告運用、映像制作、業務システム開発など、Opus.netが対応できる支援内容を紹介しています。</p>
             <span class="home-case-preview__link">
               支援事例をみる
-              <span class="material-symbols-outlined">arrow_forward</span>
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
             </span>
           </div>
         </a>
@@ -302,11 +301,11 @@
         <div class="home-final-cta__actions">
           <a href="contact.html" class="btn btn--primary">
             お問い合わせ
-            <span class="material-symbols-outlined">mail</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
           <a href="service.html#ai" class="btn btn--outline">
             AI研修・セミナーをみる
-            <span class="material-symbols-outlined material-symbols-outlined--sm">arrow_forward</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
         </div>
       </div>

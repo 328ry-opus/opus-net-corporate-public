@@ -104,8 +104,9 @@
 
   /* Hero */
   .hero {
-    min-height: auto;
-    padding: calc(var(--header-height) + 36px) 0 86px;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: calc(var(--header-height) + 24px) 0 96px;
   }
 
   .hero__inner {

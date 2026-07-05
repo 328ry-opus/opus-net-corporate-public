@@ -20,8 +20,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -46,7 +45,7 @@
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
           お問い合わせ
-          <span class="material-symbols-outlined material-symbols-outlined--sm">mail</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
       </div>
       <button class="header__menu-btn" aria-label="メニューを開く">
@@ -60,7 +59,7 @@
   <!-- Mobile Nav -->
   <div class="mobile-nav">
     <button class="mobile-nav__close" aria-label="メニューを閉じる">
-      <span class="material-symbols-outlined">close</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
     </button>
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
@@ -76,17 +75,26 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1 class="page-header__label reveal">COMPANY</h1>
+      <h1 class="page-header__label reveal">Company</h1>
       <p class="page-header__title reveal">企業情報</p>
     </div>
   </section>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator">&gt;</span>
+      <span>企業情報</span>
+    </div>
+  </div>
+
 
   <!-- MISSION / VISION -->
   <section class="section mission-vision">
     <div class="container">
       <div class="mission-vision__row reveal">
         <div class="mission-vision__label">
-          <p>MISSION</p>
+          <p>Mission</p>
         </div>
         <div class="mission-vision__content">
           <h2 class="mission-vision__title">知識と誠実さで、未来を変える。</h2>
@@ -95,7 +103,7 @@
       </div>
       <div class="mission-vision__row reveal">
         <div class="mission-vision__label">
-          <p>VISION</p>
+          <p>Vision</p>
         </div>
         <div class="mission-vision__content">
           <h2 class="mission-vision__title">信頼で社会を支える、未来のインフラへ。</h2>
@@ -108,7 +116,7 @@
   <!-- MESSAGE -->
   <section class="section">
     <div class="container">
-      <p class="section-label company-section-label reveal">MESSAGE</p>
+      <p class="section-label company-section-label reveal">Message</p>
       <h2 class="section-title section-title--message reveal">「誠実さ」を軸に、社会の仕組みをより良く。</h2>
       <div class="message-section message-section--single reveal">
         <div>
@@ -138,26 +146,26 @@
   <!-- OUR VALUE -->
   <section class="section section--alt">
     <div class="container">
-      <p class="section-label company-section-label reveal">OUR VALUE</p>
+      <p class="section-label company-section-label reveal">Our Value</p>
       <h2 class="section-title reveal">バリュー</h2>
       <div class="values-grid reveal-stagger reveal">
         <div class="value-card">
           <div class="value-card__icon">
-            <span class="material-symbols-outlined">group</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 5.8v5.4c0 4.2 2.8 7 7 8.8 4.2-1.8 7-4.6 7-8.8V5.8L12 3Z"/><path d="m9 11.8 2.2 2.2L15.2 10"/></svg>
           </div>
           <h3 class="value-card__title">誠実であること。</h3>
           <p class="value-card__text">すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
         </div>
         <div class="value-card">
           <div class="value-card__icon">
-            <span class="material-symbols-outlined">directions_boat</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 4 7 4 4 5.5v13c3-1.5 6-1.5 8 0 2-1.5 5-1.5 8 0v-13c-3-1.5-6-1.5-8 0Zm0 0v13"/></svg>
           </div>
           <h3 class="value-card__title">知識を磨き、活かすこと。</h3>
           <p class="value-card__text">専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
         </div>
         <div class="value-card">
           <div class="value-card__icon">
-            <span class="material-symbols-outlined">local_fire_department</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 4.2 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 9.5 9 7.5 9 5c1.5 1 2.2 2.2 2.4 3.6C12.6 7.4 12 5 12 3Z"/></svg>
           </div>
           <h3 class="value-card__title">変化を恐れず、挑戦すること。</h3>
           <p class="value-card__text">社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
@@ -207,14 +215,6 @@
     </div>
   </section>
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <div class="container">
-      <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator">&gt;</span>
-      <span>企業情報</span>
-    </div>
-  </div>
 
   <!-- CTA Section -->
   <section class="cta-section">
@@ -225,7 +225,7 @@
           <p class="cta-card__text">サービスに関するご質問や、取材・パートナーシップのご相談などはこちらからお気軽にご連絡ください。</p>
           <a href="contact.html" class="btn btn--dark">
             お問い合わせはこちら
-            <span class="material-symbols-outlined">arrow_forward</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
         </div>
         <div class="cta-card">
@@ -233,7 +233,7 @@
           <p class="cta-card__text">生成AIを現場で使える形に。研修・導入支援のほか、無料オンラインセミナーも開催しています。</p>
           <a href="service.html#ai" class="btn btn--dark">
             AI研修についてみる
-            <span class="material-symbols-outlined">arrow_forward</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
         </div>
       </div>
