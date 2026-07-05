@@ -2222,7 +2222,7 @@ button {
   margin-bottom: 20px;
 }
 
-.news-detail__body a {
+.news-detail__body a:not(.btn) {
   color: var(--color-primary);
   text-decoration: underline;
 }
@@ -2324,4 +2324,27 @@ button {
 
 .home-company__points .home-company__mvv-label {
   margin-bottom: 2px;
+}
+
+
+/* --- Seminar apply block (service.html #ai) --- */
+.seminar-apply {
+  margin-top: 28px;
+  padding: 24px 26px;
+  border: 1px solid rgba(59, 94, 232, 0.22);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #F6F9FE 0%, #EDF3FD 100%);
+}
+
+.seminar-apply__text {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.seminar-apply__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
