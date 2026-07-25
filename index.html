@@ -51,9 +51,9 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -162,66 +162,56 @@
         <span class="home-news-bar__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
         <svg class="arrow-icon home-news-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
       </a>
-      <div class="home-services__panel reveal">
-        <div class="home-services__intro">
-          <p class="home-services__label">Service</p>
-          <h2 class="home-services__title">サービス</h2>
-          <p class="home-services__text">事故後の安心サポートから、広告・映像・AI・システム活用まで、事業成長を支えるサービスを提供します。</p>
-        </div>
-        <a href="service.html#jikonavi" class="home-service-card">
-          <div class="home-service-card__media">
-            <img src="assets/images/optimized/home-service-jikonavi-sm.webp" srcset="assets/images/optimized/home-service-jikonavi-sm.webp 466w, assets/images/optimized/home-service-jikonavi.webp 640w" sizes="233px" alt="事故なび" class="home-service-card__logo" width="466" height="161" loading="lazy" decoding="async">
-          </div>
-          <div class="home-service-card__body">
-            <span class="home-service-card__category">交通事故サポート</span>
-            <span class="home-service-card__title">事故なび</span>
-            <span class="home-service-card__text">交通事故被害者を支える安心サポート。</span>
-            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </div>
+      <div class="home-services__head reveal">
+        <p class="home-services__label">Service</p>
+        <h2 class="home-services__title">事故のあとの支援から、<br>集客・映像・AI・システムまで手がけています。</h2>
+        <p class="home-services__text">交通事故に遭われた方を支える「事故なび」を軸に、企業の集客と業務を支えるサービスを提供しています。</p>
+      </div>
+      <div class="home-services__list reveal">
+        <a href="service.html#jikonavi" class="home-service-row">
+          <span class="home-service-row__cat">交通事故サポート</span>
+          <span class="home-service-row__body">
+            <span class="home-service-row__title">事故なび</span>
+            <span class="home-service-row__text">事故直後の不安に寄り添い、治療先の相談から修理の手配まで、必要なサポートへつなぎます。</span>
+          </span>
+          <span class="home-service-row__media home-service-row__media--logo"><img src="assets/images/optimized/home-service-jikonavi-sm.webp" srcset="assets/images/optimized/home-service-jikonavi-sm.webp 466w, assets/images/optimized/home-service-jikonavi.webp 640w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="事故なび" class="home-service-row__logo" width="466" height="161" loading="lazy" decoding="async"></span>
+          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
-        <a href="service.html#sns" class="home-service-card">
-          <div class="home-service-card__media">
-            <img src="assets/images/optimized/generated-service-sns-sm.webp" srcset="assets/images/optimized/generated-service-sns-sm.webp 800w, assets/images/optimized/generated-service-sns-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 70px), (max-width: 1280px) 534px, 351px" alt="SNS・広告運用支援" width="1060" height="707" loading="lazy" decoding="async">
-          </div>
-          <div class="home-service-card__body">
-            <span class="home-service-card__category">マーケティング支援</span>
-            <span class="home-service-card__title">SNS・広告運用支援</span>
-            <span class="home-service-card__text">SNS、Meta広告、リスティング広告を活用した集客支援。</span>
-            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </div>
+        <a href="service.html#sns" class="home-service-row">
+          <span class="home-service-row__cat">マーケティング支援</span>
+          <span class="home-service-row__body">
+            <span class="home-service-row__title">SNS・広告運用支援</span>
+            <span class="home-service-row__text">企画・撮影・編集から広告運用、問い合わせにつながる導線設計まで一貫して支援します。</span>
+          </span>
+          <span class="home-service-row__media"><img src="assets/images/optimized/generated-service-sns-sm.webp" srcset="assets/images/optimized/generated-service-sns-sm.webp 800w, assets/images/optimized/generated-service-sns-lg.webp 1060w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="SNS・広告運用支援" width="1060" height="707" loading="lazy" decoding="async"></span>
+          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
-        <a href="service.html#video" class="home-service-card">
-          <div class="home-service-card__media">
-            <img src="assets/images/optimized/generated-service-video-sm.webp" srcset="assets/images/optimized/generated-service-video-sm.webp 800w, assets/images/optimized/generated-service-video-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 70px), (max-width: 1280px) 534px, 351px" alt="映像制作" width="1060" height="579" loading="lazy" decoding="async">
-          </div>
-          <div class="home-service-card__body">
-            <span class="home-service-card__category">クリエイティブ制作</span>
-            <span class="home-service-card__title">映像制作</span>
-            <span class="home-service-card__text">企画・撮影・編集からAI活用まで、動画制作を一貫支援。</span>
-            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </div>
+        <a href="service.html#video" class="home-service-row">
+          <span class="home-service-row__cat">クリエイティブ制作</span>
+          <span class="home-service-row__body">
+            <span class="home-service-row__title">映像制作</span>
+            <span class="home-service-row__text">企画から撮影・編集まで、企業やサービスの魅力が伝わる動画をつくります。</span>
+          </span>
+          <span class="home-service-row__media"><img src="assets/images/optimized/generated-service-video-sm.webp" srcset="assets/images/optimized/generated-service-video-sm.webp 800w, assets/images/optimized/generated-service-video-lg.webp 1060w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="映像制作" width="1060" height="579" loading="lazy" decoding="async"></span>
+          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
-        <a href="service.html#ai" class="home-service-card">
-          <div class="home-service-card__media">
-            <img src="assets/images/optimized/generated-service-dx-sm.webp" srcset="assets/images/optimized/generated-service-dx-sm.webp 800w, assets/images/optimized/generated-service-dx-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 70px), (max-width: 1280px) 534px, 351px" alt="AI研修・導入支援" width="1060" height="707" loading="lazy" decoding="async">
-          </div>
-          <div class="home-service-card__body">
-            <span class="home-service-card__category">AI活用支援</span>
-            <span class="home-service-card__title">AI研修・導入支援</span>
-            <span class="home-service-card__text">現場で使える生成AI活用を研修から導入まで伴走。</span>
-            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </div>
+        <a href="service.html#ai" class="home-service-row">
+          <span class="home-service-row__cat">AI活用支援</span>
+          <span class="home-service-row__body">
+            <span class="home-service-row__title">AI研修・導入支援</span>
+            <span class="home-service-row__text">現場で実際に使えるところまで、研修から社内ルールの整備、日常業務への組み込みを伴走します。</span>
+          </span>
+          <span class="home-service-row__media"><img src="assets/images/optimized/generated-service-dx-sm.webp" srcset="assets/images/optimized/generated-service-dx-sm.webp 800w, assets/images/optimized/generated-service-dx-lg.webp 1060w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="AI研修・導入支援" width="1060" height="707" loading="lazy" decoding="async"></span>
+          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
-        <a href="service.html#system" class="home-service-card">
-          <div class="home-service-card__media">
-            <img src="assets/images/optimized/generated-service-system-sm.webp" srcset="assets/images/optimized/generated-service-system-sm.webp 800w, assets/images/optimized/generated-service-system-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 70px), (max-width: 1280px) 534px, 351px" alt="業務システム開発" width="1060" height="579" loading="lazy" decoding="async">
-          </div>
-          <div class="home-service-card__body">
-            <span class="home-service-card__category">自社プロダクト開発</span>
-            <span class="home-service-card__title">業務システム開発</span>
-            <span class="home-service-card__text">CRMや業務効率化ツールを自社知見で設計・開発。</span>
-            <svg class="arrow-icon home-service-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </div>
+        <a href="service.html#system" class="home-service-row">
+          <span class="home-service-row__cat">自社プロダクト開発</span>
+          <span class="home-service-row__body">
+            <span class="home-service-row__title">業務システム開発</span>
+            <span class="home-service-row__text">自社で運用してきた知見をもとに、CRMや業務効率化ツールを設計・開発します。</span>
+          </span>
+          <span class="home-service-row__media"><img src="assets/images/optimized/generated-service-system-sm.webp" srcset="assets/images/optimized/generated-service-system-sm.webp 800w, assets/images/optimized/generated-service-system-lg.webp 1060w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="業務システム開発" width="1060" height="579" loading="lazy" decoding="async"></span>
+          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
       </div>
     </div>

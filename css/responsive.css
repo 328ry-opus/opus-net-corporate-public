@@ -2,14 +2,10 @@
    Responsive — Mobile & Tablet
    ======================================== */
 
-@media (max-width: 1280px) {
-  .home-services__panel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-services__intro {
-    min-height: 0;
-    grid-column: 1 / -1;
+@media (max-width: 1180px) {
+  .home-service-row {
+    grid-template-columns: 118px minmax(0, 1fr) 230px 24px;
+    gap: 20px;
   }
 }
 
@@ -99,7 +95,7 @@
 
   .mobile-nav__link {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text);
     padding: 12px 0;
   }
@@ -382,32 +378,39 @@
     margin-left: auto;
   }
 
-  .home-services__panel {
-    grid-template-columns: 1fr;
-    padding: 14px;
-    border-radius: 18px;
+  .home-service-row {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 6px 14px;
+    padding: 24px 0;
   }
 
-  .home-services__intro,
-  .home-service-card {
-    min-height: 0;
-    border-radius: 14px;
+  .home-service-row__cat {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0;
   }
 
-  .home-services__intro {
-    padding: 20px;
+  .home-service-row__body {
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  .home-service-card {
-    padding: 0;
+  .home-service-row__media {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 14px;
   }
 
-  .home-service-card__media {
-    height: 132px;
+  .home-service-row__media img,
+  .home-service-row__media--logo {
+    height: 150px;
   }
 
-  .home-service-card__body {
-    padding: 20px;
+  .home-service-row__arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+    margin-top: 2px;
   }
 
   /* Footer touch targets */
