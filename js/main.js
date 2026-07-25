@@ -87,8 +87,10 @@ function initPageLoader() {
     }
     loader.classList.add('is-exit');
 
-    setTimeout(() => document.body.classList.add('is-loaded'), 400);
-  }, 700);
+    setTimeout(() => document.body.classList.add('is-loaded'), 200);
+    // Hold time kept short — first-time visitors used to wait ~1.1s before
+    // any content appeared.
+  }, 260);
 
   loader.addEventListener('transitionend', () => loader.remove(), { once: true });
 }
@@ -142,23 +144,88 @@ function initMobileNav() {
   const menuBtn = document.querySelector('.header__menu-btn');
   const mobileNav = document.querySelector('.mobile-nav');
   const closeBtn = document.querySelector('.mobile-nav__close');
-  const links = document.querySelectorAll('.mobile-nav__link');
+  // Every link in the panel, not just .mobile-nav__link — the contact CTA is a button
+  const links = document.querySelectorAll('.mobile-nav a');
 
   if (!menuBtn || !mobileNav) return;
+
+  const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  if (!mobileNav.id) mobileNav.id = 'mobileNav';
+  mobileNav.setAttribute('role', 'dialog');
+  mobileNav.setAttribute('aria-modal', 'true');
+  mobileNav.setAttribute('aria-label', 'メニュー');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.setAttribute('aria-controls', mobileNav.id);
+
+  function isOpen() {
+    return mobileNav.classList.contains('is-open');
+  }
 
   function open() {
     mobileNav.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    menuBtn.setAttribute('aria-expanded', 'true');
+    // Move focus into the dialog so the keyboard lands somewhere useful.
+    // Deferred past the open transition — visibility only flips to visible at
+    // the end of it, and a hidden element cannot take focus.
+    const first = mobileNav.querySelector(FOCUSABLE);
+    if (first) {
+      mobileNav.addEventListener('transitionend', function once() {
+        mobileNav.removeEventListener('transitionend', once);
+        if (isOpen()) first.focus();
+      });
+      // Fallback if the transition never fires (reduced motion, etc.)
+      setTimeout(() => {
+        if (isOpen() && !mobileNav.contains(document.activeElement)) first.focus();
+      }, 350);
+    }
   }
 
   function close() {
+    if (!isOpen()) return;
     mobileNav.classList.remove('is-open');
     document.body.style.overflow = '';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.focus();
+  }
+
+  // Close without restoring focus — used when a link navigates away
+  function dismiss() {
+    mobileNav.classList.remove('is-open');
+    document.body.style.overflow = '';
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  // Keep Tab inside the dialog while it is open
+  function trapFocus(e) {
+    if (e.key !== 'Tab' || !isOpen()) return;
+    const items = [...mobileNav.querySelectorAll(FOCUSABLE)].filter(
+      (el) => el.offsetWidth || el.offsetHeight || el.getClientRects().length
+    );
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }
 
   menuBtn.addEventListener('click', open);
   if (closeBtn) closeBtn.addEventListener('click', close);
-  links.forEach((link) => link.addEventListener('click', close));
+  links.forEach((link) => link.addEventListener('click', dismiss));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) {
+      e.preventDefault();
+      close();
+    }
+    trapFocus(e);
+  });
 }
 
 // --- Smooth scroll for anchor links ---
@@ -426,7 +493,13 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
     });
 
     form.reset();
-    setContactStatus(status, 'success', 'お問い合わせを受け付けました。担当者よりご連絡いたします。');
+    // no-cors gives us an opaque response, so we cannot confirm the server
+    // accepted it. Say what we actually know, and offer a fallback.
+    setContactStatus(
+      status,
+      'success',
+      'お問い合わせを送信しました。担当者よりご連絡いたします。数日たっても返信が届かない場合は、お手数ですが contact@opus-net.net までご連絡ください。'
+    );
   } catch {
     setContactStatus(status, 'error', '送信できませんでした。メールでのお問い合わせ画面を開きます。');
     openContactMail(form, formData);

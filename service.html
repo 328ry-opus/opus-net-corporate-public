@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="no-js">
 <head>
   <meta charset="utf-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>事業内容 | 株式会社Opus.net</title>
   <meta name="description" content="株式会社Opus.netの事業内容。交通事故被害者サポート「事故なび」、SNS企画・運用支援、Meta広告・リスティング広告運用、映像制作、AI研修・AI導入支援を展開しています。">
@@ -10,35 +11,54 @@
   <meta property="og:description" content="株式会社Opus.netの事業内容。交通事故被害者サポート「事故なび」、SNS企画・運用支援、Meta広告・リスティング広告運用、映像制作、AI研修・AI導入支援を展開しています。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opus-net.net/service.html">
-  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="株式会社Opus.net">
   <meta property="og:site_name" content="株式会社Opus.net">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="事業内容 | 株式会社Opus.net">
   <meta name="twitter:description" content="株式会社Opus.netの事業内容。交通事故被害者サポート「事故なび」、SNS企画・運用支援、Meta広告・リスティング広告運用、映像制作、AI研修・AI導入支援を展開しています。">
-  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://opus-net.net/" },
+      { "@type": "ListItem", "position": 2, "name": "事業内容", "item": "https://opus-net.net/service.html" }
+    ]
+  }
+  </script>
+  <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
+  <a href="#main" class="skip-link">本文へスキップ</a>
+
   <!-- Header -->
   <header class="header">
     <div class="header__inner">
       <a href="index.html" class="header__logo">
-        <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="header__logo-mark">
+        <img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="株式会社Opus.net" class="header__logo-mark" width="706" height="259" fetchpriority="high">
       </a>
-      <nav class="header__nav">
+      <nav class="header__nav" aria-label="メインメニュー">
         <a href="company.html" class="header__nav-link">企業情報</a>
         <a href="service.html" class="header__nav-link header__nav-link--active">事業内容</a>
-        <a href="case.html" class="header__nav-link">支援事例</a>
+        <a href="case.html" class="header__nav-link">支援領域</a>
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
@@ -66,28 +86,39 @@
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
     <a href="service.html" class="mobile-nav__link">事業内容</a>
-    <a href="case.html" class="mobile-nav__link">支援事例</a>
+    <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
     <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
-    <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
-  </div>
-
-  <main>
-
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <div class="container">
-      <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator">&gt;</span>
-      <span>事業内容</span>
+    <div class="mobile-nav__actions">
+      <a href="contact.html" class="btn btn--primary mobile-nav__cta">
+        お問い合わせ
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
+
+  <main id="main">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="page-header__label reveal">Our Service</p>
+      <h1 class="page-header__title reveal">サービス紹介</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="パンくず">
+    <div class="container">
+      <a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
+      <span aria-current="page">事業内容</span>
+    </div>
+  </nav>
 
   <!-- OUR SERVICE -->
   <section class="section section--alt service-intro-section">
     <div class="container">
-      <p class="section-label reveal">Our Service</p>
-      <h1 class="section-title reveal">サービス紹介</h1>
 
       <!-- Service 1: Jikonavi -->
       <div class="service-detail reveal reveal--left" id="jikonavi">
@@ -104,7 +135,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/jikonavi-service-logo.png" alt="事故なびサービスロゴ" class="service-detail__img service-detail__img--logo" loading="lazy">
+          <img src="assets/images/optimized/jikonavi-service-logo.webp" srcset="assets/images/optimized/jikonavi-service-logo.webp 916w, assets/images/optimized/jikonavi-service-logo-lg.webp 1231w" sizes="(max-width: 768px) calc(100vw - 150px), 458px" alt="事故なびサービスロゴ" class="service-detail__img service-detail__img--logo" width="916" height="315" loading="lazy" decoding="async">
           <a href="https://jiko-navi.jp/" target="_blank" rel="noopener noreferrer" class="btn btn--outline mt-24">
             事故なび公式サイト
             <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M9 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
@@ -129,7 +160,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/optimized/generated-service-sns.webp" alt="SNS運用支援イメージ" class="service-detail__img" loading="lazy">
+          <img src="assets/images/optimized/generated-service-sns-lg.webp" srcset="assets/images/optimized/generated-service-sns-sm.webp 800w, assets/images/optimized/generated-service-sns-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 76px), (max-width: 1240px) calc((100vw - 140px) / 2), 530px" alt="SNS運用支援イメージ" class="service-detail__img" width="1060" height="707" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -151,7 +182,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/optimized/generated-service-marketing.webp" alt="集客支援イメージ" class="service-detail__img" loading="lazy">
+          <img src="assets/images/optimized/generated-service-marketing-lg.webp" srcset="assets/images/optimized/generated-service-marketing-sm.webp 800w, assets/images/optimized/generated-service-marketing-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 76px), (max-width: 1240px) calc((100vw - 140px) / 2), 530px" alt="集客支援イメージ" class="service-detail__img" width="1060" height="707" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -175,7 +206,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/optimized/generated-service-video.webp" alt="映像制作イメージ" class="service-detail__img" loading="lazy">
+          <img src="assets/images/optimized/generated-service-video-lg.webp" srcset="assets/images/optimized/generated-service-video-sm.webp 800w, assets/images/optimized/generated-service-video-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 76px), (max-width: 1240px) calc((100vw - 140px) / 2), 530px" alt="映像制作イメージ" class="service-detail__img" width="1060" height="579" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -209,7 +240,7 @@
           </div>
         </div>
         <div>
-          <img src="assets/images/optimized/generated-service-dx.webp" alt="AI研修・AI導入支援イメージ" class="service-detail__img" loading="lazy">
+          <img src="assets/images/optimized/generated-service-dx-lg.webp" srcset="assets/images/optimized/generated-service-dx-sm.webp 800w, assets/images/optimized/generated-service-dx-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 76px), (max-width: 1240px) calc((100vw - 140px) / 2), 530px" alt="AI研修・AI導入支援イメージ" class="service-detail__img" width="1060" height="707" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -229,7 +260,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/optimized/generated-service-system.webp" alt="業務システム開発イメージ" class="service-detail__img" loading="lazy">
+          <img src="assets/images/optimized/generated-service-system-lg.webp" srcset="assets/images/optimized/generated-service-system-sm.webp 800w, assets/images/optimized/generated-service-system-lg.webp 1060w" sizes="(max-width: 768px) calc(100vw - 76px), (max-width: 1240px) calc((100vw - 140px) / 2), 530px" alt="業務システム開発イメージ" class="service-detail__img" width="1060" height="579" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -289,11 +320,11 @@
             <p>東京都台東区浅草橋5-5-5 6F</p>
           </div>
         </div>
-        <nav class="footer__nav">
+        <nav class="footer__nav" aria-label="フッターメニュー">
           <ul class="footer__nav-list">
             <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
             <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
-            <li><a href="case.html" class="footer__nav-link">支援事例</a></li>
+            <li><a href="case.html" class="footer__nav-link">支援領域</a></li>
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>

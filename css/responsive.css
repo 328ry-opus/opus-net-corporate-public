@@ -85,8 +85,14 @@
   .mobile-nav__close {
     position: absolute;
     top: 16px;
-    right: 20px;
-    padding: 8px;
+    right: 16px;
+    /* 34px wide before — below the 44px tap target */
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     font-size: 28px;
     color: var(--color-text);
   }
@@ -102,19 +108,37 @@
     color: var(--color-primary);
   }
 
+  /* Contact block — the menu used to bury 「お問い合わせ」 among plain links */
+  .mobile-nav__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: min(300px, 78%);
+    margin-top: 4px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
   /* Hero */
   .hero {
-    min-height: 100vh;
-    min-height: 100svh;
-    padding: calc(var(--header-height) + 24px) 0 96px;
+    min-height: 78vh;
+    min-height: 78svh;
+    padding: calc(var(--header-height) + 24px) 0 88px;
   }
 
   .hero__inner {
-    gap: 36px;
+    gap: 30px;
   }
 
   .hero__wordmark {
-    font-size: 23.5vw;
+    /* 23.5vw ran flush against the right edge on 390px screens */
+    font-size: 22vw;
   }
 
   .hero__copy {
@@ -130,6 +154,16 @@
   .hero__label {
     font-size: 14px;
     letter-spacing: 0.04em;
+  }
+
+  .hero__actions {
+    margin-top: 22px;
+  }
+
+  /* Same width so both buttons line up */
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Grid */
@@ -250,6 +284,11 @@
   .news-list__item {
     flex-direction: column;
     gap: 4px;
+  }
+
+  /* Prev/next links stack on mobile */
+  .news-detail__nav .news-list__item {
+    align-items: flex-start;
   }
 
   .news-list__date {

@@ -79,10 +79,16 @@
   opacity: 1;
 }
 
-/* Hero label fades in after the title characters settle */
+/* Hero label and buttons follow the title closely — the first screen must be
+   readable and actionable fast, so these delays stay short */
 .hero__label {
   opacity: 0;
-  animation: heroFadeUp 0.7s 1.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: heroFadeUp 0.6s 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero__actions {
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Hold the hero intro until the page loader has cleared,
@@ -94,14 +100,38 @@
 
 .hero__scroll {
   opacity: 0;
-  animation: heroFadeUp 0.8s 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: heroFadeUp 0.8s 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 body:not(.is-loaded) .hero__title-line .char,
 body:not(.is-loaded) .hero__wordmark,
 body:not(.is-loaded) .hero__scroll,
+body:not(.is-loaded) .hero__actions,
 body:not(.is-loaded) .hero__label {
   animation-play-state: paused;
+}
+
+/* Without JS the reveal observer never runs, so everything below the fold
+   would stay at opacity:0. Show it all instead. */
+.no-js .reveal,
+.no-js .reveal--left,
+.no-js .reveal--right,
+.no-js .reveal-stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.no-js .hero__title-line,
+.no-js .hero__label,
+.no-js .hero__actions,
+.no-js .hero__scroll,
+.no-js .hero__wordmark {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.no-js .loader {
+  display: none !important;
 }
 
 /* --- Service Detail Large Numbers --- */
@@ -126,6 +156,13 @@ body:not(.is-loaded) .hero__label {
   user-select: none;
 }
 
+/* On narrow screens the number sat on top of the label and heading */
+@media (max-width: 768px) {
+  .service-detail__number {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -148,6 +185,7 @@ body:not(.is-loaded) .hero__label {
   .hero__wordmark,
   .hero__scroll,
   .hero__scroll::after,
+  .hero__actions,
   .hero__label {
     animation-play-state: running !important;
   }

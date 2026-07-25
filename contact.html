@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="no-js">
 <head>
   <meta charset="utf-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お問い合わせ | 株式会社Opus.net</title>
   <meta name="description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
@@ -10,35 +11,43 @@
   <meta property="og:description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opus-net.net/contact.html">
-  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="株式会社Opus.net">
   <meta property="og:site_name" content="株式会社Opus.net">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="お問い合わせ | 株式会社Opus.net">
   <meta name="twitter:description" content="株式会社Opus.netへのお問い合わせはこちらからお気軽にご連絡ください。">
-  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
+  <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
   <header class="header">
     <div class="header__inner">
       <a href="index.html" class="header__logo">
-        <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="header__logo-mark">
+        <img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="株式会社Opus.net" class="header__logo-mark" width="706" height="259" fetchpriority="high">
       </a>
-      <nav class="header__nav">
+      <nav class="header__nav" aria-label="メインメニュー">
         <a href="company.html" class="header__nav-link">企業情報</a>
         <a href="service.html" class="header__nav-link">事業内容</a>
-        <a href="case.html" class="header__nav-link">支援事例</a>
+        <a href="case.html" class="header__nav-link">支援領域</a>
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
@@ -66,30 +75,35 @@
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
     <a href="service.html" class="mobile-nav__link">事業内容</a>
-    <a href="case.html" class="mobile-nav__link">支援事例</a>
+    <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
     <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
-    <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
+    <div class="mobile-nav__actions">
+      <a href="contact.html" class="btn btn--primary mobile-nav__cta">
+        お問い合わせ
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 
-  <main>
+  <main id="main">
 
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1 class="page-header__label reveal">Contact</h1>
-      <p class="page-header__title reveal">お問い合わせ</p>
+      <p class="page-header__label reveal">Contact</p>
+      <h1 class="page-header__title reveal">お問い合わせ</h1>
     </div>
   </section>
 
   <!-- Breadcrumb -->
-  <div class="breadcrumb">
+  <nav class="breadcrumb" aria-label="パンくず">
     <div class="container">
       <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator">&gt;</span>
-      <span>お問い合わせ</span>
+      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
+      <span aria-current="page">お問い合わせ</span>
     </div>
-  </div>
+  </nav>
 
   <!-- Contact Form -->
   <section class="section">
@@ -97,46 +111,48 @@
       <p class="section-subtitle contact-lead reveal">弊社へのお問い合わせは下記よりご入力ください。お問い合わせ内容の確認後、担当者よりご連絡させていただきます。返信には数日かかる場合もございますので、あらかじめご了承くださいませ。</p>
       <p class="section-subtitle contact-lead reveal">送信できない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
       <form class="contact-form reveal" data-contact-mailto="contact@opus-net.net" data-contact-endpoint="https://script.google.com/macros/s/AKfycbwW14gYzflUsaFup2UvvrTUdYdlwDNup1CScL93ANm0trvELEtfLmiZ0ghQjoIw4Rtl/exec">
-        <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off">
         <div class="form-group">
-          <label class="form-label">お問い合わせ内容</label>
-          <div class="form-radio-group">
-            <label class="form-radio">
-              <input type="radio" name="inquiry_type" value="サービス内容について" required>
-              サービス内容について
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="inquiry_type" value="取材・プレス関連について">
-              取材・プレス関連について
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="inquiry_type" value="採用について">
-              採用について
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="inquiry_type" value="その他">
-              その他
-            </label>
-          </div>
+          <fieldset class="form-fieldset">
+            <legend class="form-label">お問い合わせ内容<span class="sr-only">必須</span></legend>
+            <div class="form-radio-group">
+              <label class="form-radio">
+                <input type="radio" name="inquiry_type" value="サービス内容について" required>
+                サービス内容について
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="inquiry_type" value="取材・プレス関連について">
+                取材・プレス関連について
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="inquiry_type" value="採用について">
+                採用について
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="inquiry_type" value="その他">
+                その他
+              </label>
+            </div>
+          </fieldset>
         </div>
         <div class="form-group">
-          <label class="form-label" for="company_name">法人名・団体名<span class="required">*</span></label>
-          <input type="text" id="company_name" name="company_name" class="form-input" required>
+          <label class="form-label" for="company_name">法人名・団体名（法人の方のみ）</label>
+          <input type="text" id="company_name" name="company_name" class="form-input" autocomplete="organization">
         </div>
         <div class="form-group">
-          <label class="form-label" for="name">お名前<span class="required">*</span></label>
-          <input type="text" id="name" name="name" class="form-input" required>
+          <label class="form-label" for="name">お名前<span class="sr-only">必須</span><span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" autocomplete="name" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="email">ご連絡先メールアドレス<span class="required">*</span></label>
-          <input type="email" id="email" name="email" class="form-input" required>
+          <label class="form-label" for="email">ご連絡先メールアドレス<span class="sr-only">必須</span><span class="required" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" autocomplete="email" required>
         </div>
         <div class="form-group">
           <label class="form-label" for="phone">ご連絡先電話番号</label>
-          <input type="tel" id="phone" name="phone" class="form-input">
+          <input type="tel" id="phone" name="phone" class="form-input" autocomplete="tel">
         </div>
         <div class="form-group">
-          <label class="form-label" for="message">お問い合わせ詳細<span class="required">*</span></label>
+          <label class="form-label" for="message">お問い合わせ詳細<span class="sr-only">必須</span><span class="required" aria-hidden="true">*</span></label>
           <textarea id="message" name="message" class="form-textarea" required></textarea>
         </div>
         <div class="form-group">
@@ -165,11 +181,11 @@
             <p>東京都台東区浅草橋5-5-5 6F</p>
           </div>
         </div>
-        <nav class="footer__nav">
+        <nav class="footer__nav" aria-label="フッターメニュー">
           <ul class="footer__nav-list">
             <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
             <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
-            <li><a href="case.html" class="footer__nav-link">支援事例</a></li>
+            <li><a href="case.html" class="footer__nav-link">支援領域</a></li>
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>

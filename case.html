@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="no-js">
 <head>
   <meta charset="utf-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>支援領域・対応例 | 株式会社Opus.net</title>
   <meta name="description" content="株式会社Opus.netの支援領域と対応例をご紹介します。事故なび、SNS・広告運用、映像制作、AI活用、業務システム開発まで幅広く支援します。">
@@ -10,35 +11,43 @@
   <meta property="og:description" content="株式会社Opus.netの支援領域と対応例をご紹介します。事故なび、SNS・広告運用、映像制作、AI活用、業務システム開発まで幅広く支援します。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opus-net.net/case.html">
-  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta property="og:image" content="https://opus-net.net/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="株式会社Opus.net">
   <meta property="og:site_name" content="株式会社Opus.net">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="支援領域・対応例 | 株式会社Opus.net">
   <meta name="twitter:description" content="株式会社Opus.netの支援領域と対応例をご紹介します。事故なび、SNS・広告運用、映像制作、AI活用、業務システム開発まで幅広く支援します。">
-  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.png">
+  <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
+  <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
   <header class="header">
     <div class="header__inner">
       <a href="index.html" class="header__logo">
-        <img src="assets/images/opus-corporate-logo-transparent.png" alt="株式会社Opus.net" class="header__logo-mark">
+        <img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="株式会社Opus.net" class="header__logo-mark" width="706" height="259" fetchpriority="high">
       </a>
-      <nav class="header__nav">
+      <nav class="header__nav" aria-label="メインメニュー">
         <a href="company.html" class="header__nav-link">企業情報</a>
         <a href="service.html" class="header__nav-link">事業内容</a>
-        <a href="case.html" class="header__nav-link header__nav-link--active">支援事例</a>
+        <a href="case.html" class="header__nav-link header__nav-link--active">支援領域</a>
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
@@ -66,30 +75,35 @@
     <a href="index.html" class="mobile-nav__link">ホーム</a>
     <a href="company.html" class="mobile-nav__link">企業情報</a>
     <a href="service.html" class="mobile-nav__link">事業内容</a>
-    <a href="case.html" class="mobile-nav__link">支援事例</a>
+    <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
     <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
-    <a href="contact.html" class="mobile-nav__link">お問い合わせ</a>
+    <div class="mobile-nav__actions">
+      <a href="contact.html" class="btn btn--primary mobile-nav__cta">
+        お問い合わせ
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 
-  <main>
+  <main id="main">
 
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1 class="page-header__label reveal">Case</h1>
-      <p class="page-header__title reveal">支援領域・対応例</p>
+      <p class="page-header__label reveal">Case</p>
+      <h1 class="page-header__title reveal">支援領域・対応例</h1>
     </div>
   </section>
 
   <!-- Breadcrumb -->
-  <div class="breadcrumb">
+  <nav class="breadcrumb" aria-label="パンくず">
     <div class="container">
       <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator">&gt;</span>
-      <span>支援領域・対応例</span>
+      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
+      <span aria-current="page">支援領域・対応例</span>
     </div>
-  </div>
+  </nav>
 
   <!-- Case Overview -->
   <section class="section">
@@ -106,7 +120,7 @@
             <span class="case-card__category">Traffic Accident Support</span>
             <span class="case-card__number">01</span>
           </div>
-          <h2 class="case-card__title">事故後の不安を、必要な相談先へつなぐ。</h2>
+          <h3 class="case-card__title">事故後の不安を、必要な相談先へつなぐ。</h3>
           <p class="case-card__text">交通事故に遭われた方が、治療先や修理対応などで迷わないよう、状況整理から適切なサポート先への接続までを支援します。</p>
           <ul class="case-card__list">
             <li>事故後の初動相談の整理</li>
@@ -120,7 +134,7 @@
             <span class="case-card__category">Marketing</span>
             <span class="case-card__number">02</span>
           </div>
-          <h2 class="case-card__title">SNS・広告・導線設計を一体で見直す。</h2>
+          <h3 class="case-card__title">SNS・広告・導線設計を一体で見直す。</h3>
           <p class="case-card__text">SNS投稿だけで終わらせず、広告運用、Webサイト、LINE公式アカウントなどを組み合わせ、問い合わせや来店につながる導線を設計します。</p>
           <ul class="case-card__list">
             <li>Instagram・Facebook広告の運用設計</li>
@@ -134,7 +148,7 @@
             <span class="case-card__category">AI Enablement</span>
             <span class="case-card__number">03</span>
           </div>
-          <h2 class="case-card__title">AIを現場業務で使える形に落とし込む。</h2>
+          <h3 class="case-card__title">AIを現場業務で使える形に落とし込む。</h3>
           <p class="case-card__text">生成AIの基礎理解から、社内ルール、業務フローへの組み込み、研修実施まで、現場で無理なく使える運用を支援します。</p>
           <ul class="case-card__list">
             <li>AI活用研修・ハンズオンの実施</li>
@@ -148,7 +162,7 @@
             <span class="case-card__category">Creative / System</span>
             <span class="case-card__number">04</span>
           </div>
-          <h2 class="case-card__title">映像とシステムで、伝達と運用を支える。</h2>
+          <h3 class="case-card__title">映像とシステムで、伝達と運用を支える。</h3>
           <p class="case-card__text">企業の魅力を伝える映像制作と、業務を支えるシステム開発を組み合わせ、情報発信と日々の運用改善を支援します。</p>
           <ul class="case-card__list">
             <li>企業・サービス紹介動画の制作</li>
@@ -165,7 +179,7 @@
     <div class="container">
       <div class="cta-section__inner reveal-stagger reveal">
         <div class="cta-card">
-          <h3 class="cta-card__title">お問い合わせ</h3>
+          <h2 class="cta-card__title">お問い合わせ</h2>
           <p class="cta-card__text">サービスに関するご質問や、取材・パートナーシップのご相談などはこちらからお気軽にご連絡ください。</p>
           <a href="contact.html" class="btn btn--dark">
             お問い合わせはこちら
@@ -173,7 +187,7 @@
           </a>
         </div>
         <div class="cta-card">
-          <h3 class="cta-card__title">AI研修・セミナー</h3>
+          <h2 class="cta-card__title">AI研修・セミナー</h2>
           <p class="cta-card__text">生成AIを現場で使える形に。研修・導入支援のほか、無料オンラインセミナーも開催しています。</p>
           <a href="service.html#ai" class="btn btn--dark">
             AI研修についてみる
@@ -198,11 +212,11 @@
             <p>東京都台東区浅草橋5-5-5 6F</p>
           </div>
         </div>
-        <nav class="footer__nav">
+        <nav class="footer__nav" aria-label="フッターメニュー">
           <ul class="footer__nav-list">
             <li><a href="company.html" class="footer__nav-link">企業情報</a></li>
             <li><a href="service.html" class="footer__nav-link">事業内容</a></li>
-            <li><a href="case.html" class="footer__nav-link">支援事例</a></li>
+            <li><a href="case.html" class="footer__nav-link">支援領域</a></li>
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>

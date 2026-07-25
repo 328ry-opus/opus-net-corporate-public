@@ -2,72 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://opus-net.net/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://opus-net.net/company.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://opus-net.net/service.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://opus-net.net/case.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://opus-net.net/news.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://opus-net.net/contact.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://opus-net.net/privacypolicy.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://opus-net.net/news/20260529.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <loc>https://opus-net.net/news/20260714-seminar-august.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://opus-net.net/news/20260424.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://opus-net.net/news/20251201.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://opus-net.net/news/20251105.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://opus-net.net/news/20260706-seminar-july.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://opus-net.net/news/20260706-seminar-june.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://opus-net.net/news/20260706-renewal.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://opus-net.net/news/20260529.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://opus-net.net/news/20260424.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://opus-net.net/news/20251201.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://opus-net.net/news/20251105.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.5</priority>
   </url>
 </urlset>
