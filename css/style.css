@@ -1482,57 +1482,48 @@ button {
   max-width: 620px;
 }
 
+/* Rules and whitespace instead of three repeated cards */
 .home-company__points {
-  display: grid;
-  gap: 16px;
+  border-top: 1px solid var(--color-dark);
+  border-bottom: 1px solid var(--color-dark);
 }
 
 .home-company__point {
   display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 4px 18px;
-  align-items: start;
-  padding: 22px 24px;
-  border: 1px solid rgba(226, 232, 240, 0.92);
-  border-radius: 18px;
-  background: linear-gradient(135deg, #fff, #f8fbff);
+  grid-template-columns: 42px 1fr;
+  gap: 6px 16px;
+  align-items: baseline;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
 }
 
-.home-company__point .point-icon {
-  grid-row: 1 / span 2;
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-  border-radius: 999px;
-  background: rgba(59, 94, 232, 0.08);
-  color: var(--color-primary);
+.home-company__point:first-child {
+  border-top: 0;
 }
 
-.home-company__point .material-symbols-outlined {
+.home-company__point-n {
   grid-row: 1 / span 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: rgba(59, 94, 232, 0.1);
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
   color: var(--color-primary);
-  font-size: 24px;
 }
 
 .home-company__point h3 {
   color: var(--color-dark);
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
+  font-feature-settings: "palt";
+  letter-spacing: 0.02em;
+  line-height: 1.45;
 }
 
 .home-company__point p {
   color: var(--color-text-secondary);
-  font-size: 13px;
-  line-height: 1.85;
+  font-size: 13.5px;
+  line-height: 1.9;
 }
 
 .home-section-head {
@@ -2419,15 +2410,15 @@ button {
 .home-company__mvv-label {
   font-family: 'Bodoni Moda', 'Didot', serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--color-text-light);
-  margin-bottom: 10px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
 }
 
-.home-company__points .home-company__mvv-label {
-  margin-bottom: 2px;
+.home-company__mvv-label + .home-company__points {
+  margin-top: 2px;
 }
 
 
