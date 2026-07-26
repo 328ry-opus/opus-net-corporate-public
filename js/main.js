@@ -448,6 +448,16 @@ function initParallax() {
 }
 
 // --- Contact form submission ---
+// The endpoint is an Apps Script Web App. Its ContentService responses are served with
+// Access-Control-Allow-Origin: *, so a CORS fetch can read the JSON body and we can tell
+// success from failure. Content-Type text/plain keeps it a simple request (Apps Script
+// cannot answer a CORS preflight). If the response still cannot be read - offline, proxy,
+// Google hiccup - we do not guess: we ask the endpoint whether the submission arrived
+// (JSONP, which is not subject to CORS) before deciding what to tell the visitor.
+const CONTACT_SUBMIT_TIMEOUT_MS = 20000;
+const CONTACT_VERIFY_TIMEOUT_MS = 8000;
+const CONTACT_MAIL_ADDRESS = 'contact@opus-net.net';
+
 function initContactForm() {
   const form = document.querySelector('.contact-form');
   if (!form) return;
@@ -461,7 +471,8 @@ function initContactForm() {
     if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
-    const endpoint = (form.dataset.contactEndpoint || '').trim();
+    // data-contact-endpoint wins; the form's own action is the no-JavaScript fallback.
+    const endpoint = (form.dataset.contactEndpoint || form.getAttribute('action') || '').trim();
 
     if (endpoint) {
       await submitContactToEndpoint(form, formData, endpoint, submitButton, status, startedAt);
@@ -477,38 +488,149 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
 
   const payload = Object.fromEntries(formData.entries());
   payload.elapsed_ms = Date.now() - startedAt;
+  payload.submission_id = createContactSubmissionId();
 
+  clearContactFallback(status);
   setContactStatus(status, 'sending', '送信中です。しばらくお待ちください。');
   if (submitButton) {
     submitButton.disabled = true;
     submitButton.textContent = '送信中';
   }
 
+  let result = null;
   try {
-    await fetch(endpoint, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
-    });
+    result = await postContact(endpoint, payload);
+  } catch (error) {
+    // We do not know whether the server got it. Ask before reporting anything.
+    result = await verifyContactDelivery(endpoint, payload.submission_id);
+  }
 
+  if (result && result.ok) {
     form.reset();
-    // no-cors gives us an opaque response, so we cannot confirm the server
-    // accepted it. Say what we actually know, and offer a fallback.
     setContactStatus(
       status,
       'success',
-      'お問い合わせを送信しました。担当者よりご連絡いたします。数日たっても返信が届かない場合は、お手数ですが contact@opus-net.net までご連絡ください。'
+      'お問い合わせを送信しました。担当者よりご連絡いたします。'
     );
-  } catch {
-    setContactStatus(status, 'error', '送信できませんでした。メールでのお問い合わせ画面を開きます。');
-    openContactMail(form, formData);
-  } finally {
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.textContent = '入力内容を送信';
-    }
+  } else if (result && result.message === 'invalid_payload') {
+    setContactStatus(
+      status,
+      'error',
+      '入力内容に不備があるため送信できませんでした。必須項目をご確認のうえ、もう一度お試しください。'
+    );
+  } else if (result) {
+    setContactStatus(
+      status,
+      'error',
+      `送信に失敗しました。お手数ですが、下のボタンからメールでお送りいただくか、${CONTACT_MAIL_ADDRESS} まで直接ご連絡ください。`
+    );
+    showContactFallback(status, form, formData);
+  } else {
+    setContactStatus(
+      status,
+      'error',
+      `送信できたか確認できませんでした。通信環境をご確認のうえ再度お試しいただくか、下のボタンからメールでお送りください（${CONTACT_MAIL_ADDRESS}）。`
+    );
+    showContactFallback(status, form, formData);
   }
+
+  if (submitButton) {
+    submitButton.disabled = false;
+    submitButton.textContent = '入力内容を送信';
+  }
+}
+
+/**
+ * POST the payload and read the endpoint's JSON answer.
+ * Resolves with the parsed body ({ ok, message }); throws when the outcome is unknown.
+ */
+async function postContact(endpoint, payload) {
+  const controller = typeof AbortController === 'function' ? new AbortController() : null;
+  const timer = controller
+    ? setTimeout(() => controller.abort(), CONTACT_SUBMIT_TIMEOUT_MS)
+    : null;
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      mode: 'cors',
+      redirect: 'follow',
+      // Simple request: no preflight, which Apps Script could not answer anyway.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      signal: controller ? controller.signal : undefined,
+    });
+
+    if (!response.ok) throw new Error(`contact endpoint returned ${response.status}`);
+
+    const text = await response.text();
+    const data = JSON.parse(text);
+    if (!data || typeof data.ok !== 'boolean') throw new Error('unexpected contact response');
+    return data;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+/**
+ * Last resort when the POST response was unreadable: ask the endpoint whether that
+ * submission id arrived. A <script> tag is not subject to CORS, so this still works when
+ * fetch is blocked. Resolves with { ok: true } when confirmed, otherwise null (unknown).
+ */
+function verifyContactDelivery(endpoint, submissionId) {
+  if (!submissionId) return Promise.resolve(null);
+
+  return new Promise((resolve) => {
+    const callbackName = `opusContactCheck_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+    const script = document.createElement('script');
+    let settled = false;
+
+    const finish = (value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      delete window[callbackName];
+      script.remove();
+      resolve(value);
+    };
+
+    const timer = setTimeout(() => finish(null), CONTACT_VERIFY_TIMEOUT_MS);
+
+    window[callbackName] = (data) => finish(data && data.ok ? { ok: true, message: 'received' } : null);
+    script.onerror = () => finish(null);
+    script.src = `${endpoint}?check=${encodeURIComponent(submissionId)}&callback=${callbackName}`;
+    document.head.appendChild(script);
+  });
+}
+
+function createContactSubmissionId() {
+  if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+    return window.crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+/** Offers the mailto fallback without touching the page markup. */
+function showContactFallback(status, form, formData) {
+  if (!status) return;
+  clearContactFallback(status);
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'btn btn--outline contact-fallback-btn';
+  button.dataset.contactFallback = 'true';
+  button.textContent = 'メールソフトで送信する';
+  button.addEventListener('click', () => openContactMail(form, formData));
+
+  status.insertAdjacentElement('afterend', button);
+}
+
+function clearContactFallback(status) {
+  if (!status) return;
+  const existing = status.parentElement
+    ? status.parentElement.querySelector('[data-contact-fallback]')
+    : null;
+  if (existing) existing.remove();
 }
 
 function openContactMail(form, formData) {
