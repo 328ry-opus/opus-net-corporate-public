@@ -1,197 +1,211 @@
-/* ========================================
-   Animations — Scroll reveals & effects
-   ======================================== */
-
-/* --- Scroll Reveal Base --- */
-.reveal {
+/* Reveal */
+.reveal,
+.reveal-stagger {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease);
 }
 
 .reveal--left {
-  transform: translateX(-40px);
+  transform: translate(-30px, 10px);
 }
 
 .reveal--right {
-  transform: translateX(40px);
+  transform: translate(30px, 10px);
 }
 
-.reveal.is-visible {
+.reveal.is-visible,
+.reveal-stagger.is-visible {
   opacity: 1;
-  transform: translate(0, 0) scale(1);
+  transform: none;
 }
-
-/* Staggered children */
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.12s; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.19s; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.26s; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.33s; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; }
 
 .reveal-stagger.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
+  animation: reveal-child .8s var(--ease) both;
 }
 
-/* --- Hero Animations --- */
-@keyframes heroFadeUp {
+.reveal-stagger.is-visible > *:nth-child(2) {
+  animation-delay: .08s;
+}
+
+.reveal-stagger.is-visible > *:nth-child(3) {
+  animation-delay: .16s;
+}
+
+.reveal-stagger.is-visible > *:nth-child(4) {
+  animation-delay: .24s;
+}
+
+@keyframes reveal-child {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
-/* Split text character animation */
-.hero__title-line {
-  display: block;
-  opacity: 0;
+/* Hero entrance */
+.page-home .hero__title-line > span,
+.page-home .hero__title-line > em,
+.page-home .hero__title-line {
+  transform-origin: left bottom;
 }
 
-.hero__title-line .char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(40px) rotateX(-40deg);
-  animation: charReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.page-home .hero__title-line {
+  animation: hero-line .95s var(--ease) both;
 }
 
-@keyframes charReveal {
+.page-home .hero__title-line:nth-child(2) {
+  animation-delay: .12s;
+}
+
+.page-home .hero__label,
+.page-home .hero__actions,
+.page-home .hero__scroll {
+  animation: hero-fade .9s var(--ease) both;
+}
+
+.page-home .hero__label {
+  animation-delay: .34s;
+}
+
+.page-home .hero__actions {
+  animation-delay: .44s;
+}
+
+.page-home .hero__scroll {
+  animation-delay: .62s;
+}
+
+@keyframes hero-line {
+  from {
+    opacity: 0;
+    transform: translateY(105%);
+  }
   to {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg);
+    transform: none;
   }
 }
 
-.hero__title-line.is-split {
-  opacity: 1;
-}
-
-/* Hero label and buttons follow the title closely — the first screen must be
-   readable and actionable fast, so these delays stay short */
-.hero__label {
-  opacity: 0;
-  animation: heroFadeUp 0.6s 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.hero__actions {
-  opacity: 0;
-  animation: heroFadeUp 0.6s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Hold the hero intro until the page loader has cleared,
-   so first-time visitors actually see it (index only) */
-.hero__wordmark {
-  opacity: 0;
-  animation: heroFadeUp 1s 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.hero__scroll {
-  opacity: 0;
-  animation: heroFadeUp 0.8s 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-body:not(.is-loaded) .hero__title-line .char,
-body:not(.is-loaded) .hero__wordmark,
-body:not(.is-loaded) .hero__scroll,
-body:not(.is-loaded) .hero__actions,
-body:not(.is-loaded) .hero__label {
-  animation-play-state: paused;
-}
-
-/* Without JS the reveal observer never runs, so everything below the fold
-   would stay at opacity:0. Show it all instead. */
-.no-js .reveal,
-.no-js .reveal--left,
-.no-js .reveal--right,
-.no-js .reveal-stagger > * {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.no-js .hero__title-line,
-.no-js .hero__label,
-.no-js .hero__actions,
-.no-js .hero__scroll,
-.no-js .hero__wordmark {
-  opacity: 1 !important;
-  animation: none !important;
-}
-
-.no-js .loader {
-  display: none !important;
-}
-
-/* --- Service Detail Large Numbers --- */
-.service-detail {
-  position: relative;
-}
-
-.service-detail__number {
-  position: absolute;
-  top: 20px;
-  left: -20px;
-  font-family: 'Bodoni Moda', 'Didot', serif;
-  font-style: italic;
-  font-size: clamp(90px, 11vw, 160px);
-  font-weight: 500;
-  color: var(--color-primary);
-  opacity: 0.09;
-  line-height: 1;
-  letter-spacing: 0;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-
-/* On narrow screens the number sat on top of the label and heading */
-@media (max-width: 768px) {
-  .service-detail__number {
-    display: none;
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Brand ring: measured geometry from favicon */
+.brand-mark__ring {
+  animation: ring-draw 1.6s var(--ease) both;
+}
+
+.brand-mark__orbit {
+  transform-origin: 256px 256px;
+  animation: orbit-in 1.7s .16s cubic-bezier(.17, .84, .32, 1.22) both;
+}
+
+.brand-mark__breathe {
+  transform-origin: 256px 256px;
+  animation: ring-breathe 7s 1.8s ease-in-out infinite;
+}
+
+.brand-mark__echo {
+  transform-origin: 256px 256px;
+  animation: ring-echo 5s 1.7s ease-out infinite;
+}
+
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: 1257;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes orbit-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-228deg) scale(.3);
+  }
+  68% {
+    opacity: 1;
+    transform: rotate(12deg) scale(1.08);
+  }
+  84% {
+    transform: rotate(-4deg) scale(.96);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes ring-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+@keyframes ring-echo {
+  0% {
+    opacity: .44;
+    transform: scale(.82);
+  }
+  65%,
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes pulse-dot {
+  50% {
+    opacity: .35;
+  }
+}
+
+.home-news-bar__label::before {
+  animation: pulse-dot 2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
+    animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: .001ms !important;
   }
 
   .reveal,
+  .reveal-stagger,
   .reveal--left,
-  .reveal--right,
-  .reveal-stagger > * {
-    opacity: 1 !important;
-    transform: none !important;
+  .reveal--right {
+    opacity: 1;
+    transform: none;
   }
 
-  .hero__title-line .char,
-  .hero__wordmark,
-  .hero__scroll,
-  .hero__scroll::after,
-  .hero__actions,
-  .hero__label {
-    animation-play-state: running !important;
-  }
-
-  .cursor-glow,
-  .hero__canvas {
-    display: none !important;
+  .cursor-glow {
+    display: none;
   }
 }

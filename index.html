@@ -51,25 +51,16 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body class="page-home">
 
   <a href="#main" class="skip-link">本文へスキップ</a>
-
-  <!-- Page Loader -->
-  <div class="loader" id="loader">
-    <div class="loader__bubbles" id="loaderBubbles"></div>
-    <div class="loader__content">
-      <img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="株式会社Opus.net" class="loader__logo-img" width="706" height="259" fetchpriority="high">
-      <p class="loader__tagline">知識と誠実さで、未来を変える。</p>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="header">
@@ -84,7 +75,7 @@
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
-        <a href="service.html#ai" class="btn btn--outline header__cta">
+        <a href="seminar.html" class="btn btn--outline header__cta">
           AI研修・セミナー
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
@@ -110,7 +101,7 @@
     <a href="service.html" class="mobile-nav__link">事業内容</a>
     <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
-    <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
+    <a href="seminar.html" class="mobile-nav__link">AI研修・セミナー</a>
     <div class="mobile-nav__actions">
       <a href="contact.html" class="btn btn--primary mobile-nav__cta">
         お問い合わせ
@@ -123,13 +114,25 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <canvas class="hero__canvas" id="heroCanvas"></canvas>
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 512 512">
+        <g class="brand-mark__breathe">
+          <circle class="brand-mark__echo" cx="256" cy="256" r="214"/>
+          <g id="brandMarkSpin" style="transform-origin: 256px 256px;">
+            <circle class="brand-mark__ring" cx="256" cy="256" r="174" pathLength="1257"/>
+            <g class="brand-mark__orbit">
+              <circle class="brand-mark__dot" cx="371.5" cy="375.5" r="42"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
     <div class="hero__inner">
       <div class="hero__wordmark" aria-hidden="true">Opus.net</div>
       <div class="hero__copy">
         <h1 class="hero__title" data-split>
           <span class="hero__title-line" data-split-line>知識と誠実さで、</span>
-          <span class="hero__title-line" data-split-line>未来を変える。</span>
+          <span class="hero__title-line" data-split-line>未来を<em>変える</em>。</span>
         </h1>
         <p class="hero__label">株式会社Opus.netは、交通事故被害者サポート「事故なび」から、SNS・広告運用、映像制作、AI研修、業務システム開発まで、人と企業の「困った」を解決へ導きます。</p>
         <div class="hero__actions">
@@ -144,8 +147,79 @@
         </div>
       </div>
     </div>
+        <div class="hero-mq" aria-hidden="true"><div class="hero-mq__track">
+          <span>Jiko-Navi<i> ● </i></span><span>SNS &amp; Ads<i> ● </i></span><span>Video Production<i> ● </i></span><span>AI Training<i> ● </i></span><span>System Development<i> ● </i></span>
+          <span>Jiko-Navi<i> ● </i></span><span>SNS &amp; Ads<i> ● </i></span><span>Video Production<i> ● </i></span><span>AI Training<i> ● </i></span><span>System Development<i> ● </i></span>
+        </div></div>
   <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
   </section>
+
+  <div class="container">
+      <section class="nslider" aria-label="お知らせ">
+        <div class="nslider__head reveal">
+          <div>
+            <p class="home-services__label">News</p>
+            <h2 class="section-title--ja" style="margin-top:6px; font-size: clamp(26px, 3vw, 38px);">お知らせ</h2>
+          </div>
+          <div class="nslider__tabs">
+            <button class="nslider__tab is-active" data-filter="all" type="button">All</button>
+            <button class="nslider__tab" data-filter="seminar" type="button">セミナー</button>
+            <button class="nslider__tab" data-filter="info" type="button">お知らせ</button>
+          </div>
+          <div class="nslider__arrows">
+            <button class="nslider__arrow" data-dir="-1" type="button" aria-label="前へ"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button>
+            <button class="nslider__arrow" data-dir="1" type="button" aria-label="次へ"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="nslider__viewport reveal" id="nsliderViewport">
+          <div class="nslider__track">
+          <a href="news/20260714-seminar-august.html" class="nslider-card" data-cat="seminar">
+            <span class="nslider-card__thumb nslider-card__thumb--seminar"><span class="nslider-card__cat">セミナー</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">07.14</span></span>
+            <span class="nslider-card__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+            <span class="nslider-card__meta"><time datetime="2026-07-14">2026.07.14</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20260706-seminar-july.html" class="nslider-card" data-cat="seminar">
+            <span class="nslider-card__thumb nslider-card__thumb--seminar"><span class="nslider-card__cat">セミナー</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">07.06</span></span>
+            <span class="nslider-card__title">7月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+            <span class="nslider-card__meta"><time datetime="2026-07-06">2026.07.06</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20260706-seminar-june.html" class="nslider-card" data-cat="seminar">
+            <span class="nslider-card__thumb nslider-card__thumb--seminar"><span class="nslider-card__cat">セミナー</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">07.06</span></span>
+            <span class="nslider-card__title">6月のAI活用セミナーを実施しました</span>
+            <span class="nslider-card__meta"><time datetime="2026-07-06">2026.07.06</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20260706-renewal.html" class="nslider-card" data-cat="info">
+            <span class="nslider-card__thumb nslider-card__thumb--info"><span class="nslider-card__cat">お知らせ</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">07.06</span></span>
+            <span class="nslider-card__title">コーポレートサイトのデザインをリニューアルしました</span>
+            <span class="nslider-card__meta"><time datetime="2026-07-06">2026.07.06</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20260529.html" class="nslider-card" data-cat="seminar">
+            <span class="nslider-card__thumb nslider-card__thumb--seminar"><span class="nslider-card__cat">セミナー</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">05.29</span></span>
+            <span class="nslider-card__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
+            <span class="nslider-card__meta"><time datetime="2026-05-29">2026.05.29</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20260424.html" class="nslider-card" data-cat="seminar">
+            <span class="nslider-card__thumb nslider-card__thumb--seminar"><span class="nslider-card__cat">セミナー</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">04.24</span></span>
+            <span class="nslider-card__title">4月の整骨院向けAI活用セミナーを実施しました</span>
+            <span class="nslider-card__meta"><time datetime="2026-04-24">2026.04.24</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20251201.html" class="nslider-card" data-cat="info">
+            <span class="nslider-card__thumb nslider-card__thumb--info"><span class="nslider-card__cat">お知らせ</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">12.01</span></span>
+            <span class="nslider-card__title">新規採用の一時停止についてのお知らせ</span>
+            <span class="nslider-card__meta"><time datetime="2025-12-01">2025.12.01</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          <a href="news/20251105.html" class="nslider-card" data-cat="info">
+            <span class="nslider-card__thumb nslider-card__thumb--info"><span class="nslider-card__cat">お知らせ</span><span class="nslider-card__ring" aria-hidden="true"></span><span class="nslider-card__date">11.05</span></span>
+            <span class="nslider-card__title">コーポレートサイトをリニューアルしました</span>
+            <span class="nslider-card__meta"><time datetime="2025-11-05">2025.11.05</time><span class="nslider-card__more">Read More <span class="nslider-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span>
+          </a>
+          </div>
+        </div>
+        <div class="nslider__progress" aria-hidden="true"><div class="nslider__progress-fill" id="nsliderFill"></div><div class="nslider__progress-dot" id="nsliderDot"></div></div>
+        <div class="nslider__foot reveal"><a href="news.html" class="btn btn--primary">お知らせ一覧をみる <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+      </section>
+  </div>
+
 
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -153,16 +227,50 @@
   <!-- Cursor Glow -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- Company Section -->
+  <section class="home-company section" id="company">
+    <div class="container">
+      <div class="home-company__inner reveal">
+        <div class="home-company__content">
+          <p class="section-label section-label--sm">Company</p>
+          <p class="home-company__mvv-label">Vision</p>
+          <h2 class="section-title--ja">信頼で社会を支える、<br>未来のインフラへ。</h2>
+          <p class="section-subtitle">
+            テクノロジーと専門知識を活かし、交通事故被害者サポート、マーケティング支援、映像制作、AI活用、業務システム開発といった分野で、人と企業の前進を支える存在を目指します。
+          </p>
+          <a href="company.html" class="btn btn--ghost mt-24">
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+            企業情報をみる
+          </a>
+        </div>
+        <div class="home-company__values">
+        <p class="home-company__mvv-label">Our Value</p>
+        <div class="home-company__points">
+          <div class="home-company__point">
+            <span class="home-company__point-n" aria-hidden="true">01</span>
+            <h3>誠実であること。</h3>
+            <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
+          </div>
+          <div class="home-company__point">
+            <span class="home-company__point-n" aria-hidden="true">02</span>
+            <h3>知識を磨き、活かすこと。</h3>
+            <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
+          </div>
+          <div class="home-company__point">
+            <span class="home-company__point-n" aria-hidden="true">03</span>
+            <h3>変化を恐れず、挑戦すること。</h3>
+            <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Service Section -->
   <section class="home-services" id="service">
     <div class="container">
-      <a href="news/20260714-seminar-august.html" class="home-news-bar reveal">
-        <span class="home-news-bar__label">News</span>
-        <time class="home-news-bar__date" datetime="2026-07-14">2026.07.14</time>
-        <span class="home-news-bar__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
-        <svg class="arrow-icon home-news-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-      </a>
-      <div class="home-services__head reveal">
+            <div class="home-services__head reveal">
         <p class="home-services__label">Service</p>
         <h2 class="home-services__title">事故のあとの支援から、<br>集客・映像・AI・システムまで手がけています。</h2>
         <p class="home-services__text">交通事故に遭われた方を支える「事故なび」を軸に、企業の集客と業務を支えるサービスを提供しています。</p>
@@ -217,84 +325,21 @@
     </div>
   </section>
 
-  <!-- Company Section -->
-  <section class="home-company section" id="company">
-    <div class="container">
-      <div class="home-company__inner reveal">
-        <div class="home-company__content">
-          <p class="section-label section-label--sm">Company</p>
-          <p class="home-company__mvv-label">Vision</p>
-          <h2 class="section-title--ja">信頼で社会を支える、<br>未来のインフラへ。</h2>
-          <p class="section-subtitle">
-            テクノロジーと専門知識を活かし、交通事故被害者サポート、マーケティング支援、映像制作、AI活用、業務システム開発といった分野で、人と企業の前進を支える存在を目指します。
-          </p>
-          <a href="company.html" class="btn btn--ghost mt-24">
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            企業情報をみる
-          </a>
-        </div>
-        <div class="home-company__values">
-        <p class="home-company__mvv-label">Our Value</p>
-        <div class="home-company__points">
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">01</span>
-            <h3>誠実であること。</h3>
-            <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
-          </div>
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">02</span>
-            <h3>知識を磨き、活かすこと。</h3>
-            <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
-          </div>
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">03</span>
-            <h3>変化を恐れず、挑戦すること。</h3>
-            <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Updates Section -->
   <section class="home-updates section section--alt" id="case-news">
     <div class="container">
       <div class="home-section-head reveal">
         <div>
-          <p class="section-label section-label--sm">Updates</p>
-          <h2 class="section-title--ja">お知らせと支援領域</h2>
+          <p class="section-label section-label--sm">Case</p>
+          <h2 class="section-title--ja">支援領域</h2>
         </div>
-        <a href="news.html" class="btn btn--ghost">
+        <a href="case.html" class="btn btn--ghost">
           <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          お知らせ一覧
+          支援領域をみる
         </a>
       </div>
       <div class="home-updates__grid reveal">
-        <div class="home-updates__news">
-          <div class="news-list">
-            <a href="news/20260714-seminar-august.html" class="news-list__item">
-              <time class="news-list__date" datetime="2026-07-14">2026.07.14</time>
-              <span class="news-list__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
-              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </a>
-            <a href="news/20260706-seminar-july.html" class="news-list__item">
-              <time class="news-list__date" datetime="2026-07-06">2026.07.06</time>
-              <span class="news-list__title">7月のAI活用無料セミナーを開催します（お申込み受付中）</span>
-              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </a>
-            <a href="news/20260706-seminar-june.html" class="news-list__item">
-              <time class="news-list__date" datetime="2026-07-06">2026.07.06</time>
-              <span class="news-list__title">6月のAI活用セミナーを実施しました</span>
-              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </a>
-            <a href="news/20260529.html" class="news-list__item">
-              <time class="news-list__date" datetime="2026-05-29">2026.05.29</time>
-              <span class="news-list__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
-              <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
         <a href="case.html" class="home-case-preview">
           <div class="home-case-preview__body">
             <span class="home-case-preview__label">Case</span>
@@ -353,7 +398,7 @@
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
-            <li><a href="service.html#ai" class="footer__nav-link">AI研修・セミナー</a></li>
+            <li><a href="seminar.html" class="footer__nav-link">AI研修・セミナー</a></li>
             <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
           </ul>
         </nav>
@@ -366,5 +411,37 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var vp = document.getElementById('nsliderViewport');
+      if (!vp) return;
+      var fill = document.getElementById('nsliderFill');
+      var dot = document.getElementById('nsliderDot');
+      var step = 362;
+      document.querySelectorAll('.nslider__arrow').forEach(function (b) {
+        b.addEventListener('click', function () { vp.scrollBy({ left: step * parseInt(b.dataset.dir, 10), behavior: 'smooth' }); });
+      });
+      function prog() {
+        var max = vp.scrollWidth - vp.clientWidth;
+        var r = max > 0 ? vp.scrollLeft / max : 0;
+        var pct = (10 + r * 90);
+        fill.style.width = pct + '%';
+        dot.style.left = pct + '%';
+      }
+      vp.addEventListener('scroll', prog, { passive: true });
+      prog();
+      document.querySelectorAll('.nslider__tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          document.querySelectorAll('.nslider__tab').forEach(function (t) { t.classList.remove('is-active'); });
+          tab.classList.add('is-active');
+          var f = tab.dataset.filter;
+          document.querySelectorAll('.nslider-card').forEach(function (c) {
+            c.classList.toggle('is-hidden', f !== 'all' && c.dataset.cat !== f);
+          });
+          vp.scrollTo({ left: 0 }); prog();
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

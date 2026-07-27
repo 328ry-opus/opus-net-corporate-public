@@ -28,14 +28,14 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body class="page-news">
   <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
@@ -51,7 +51,7 @@
         <a href="news.html" class="header__nav-link header__nav-link--active">お知らせ</a>
       </nav>
       <div class="header__actions">
-        <a href="service.html#ai" class="btn btn--outline header__cta">
+        <a href="seminar.html" class="btn btn--outline header__cta">
           AI研修・セミナー
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
@@ -77,7 +77,7 @@
     <a href="service.html" class="mobile-nav__link">事業内容</a>
     <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
-    <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
+    <a href="seminar.html" class="mobile-nav__link">AI研修・セミナー</a>
     <div class="mobile-nav__actions">
       <a href="contact.html" class="btn btn--primary mobile-nav__cta">
         お問い合わせ
@@ -89,67 +89,187 @@
   <main id="main">
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" data-ghost="News">
     <div class="container">
+      <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator" aria-hidden="true">●</span>
+      <span aria-current="page">お知らせ</span></nav>
       <p class="page-header__label reveal">News</p>
-      <h1 class="page-header__title reveal">お知らせ</h1>
+      <h1 class="page-header__title"><span class="ph-line">お知らせ</span></h1>
     </div>
   </section>
 
   <!-- Breadcrumb -->
-  <nav class="breadcrumb" aria-label="パンくず">
-    <div class="container">
-      <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
-      <span aria-current="page">お知らせ</span>
-    </div>
-  </nav>
+  
 
   <!-- News List -->
   <section class="section">
     <div class="container">
-      <div class="news-list reveal">
-        <a href="news/20260714-seminar-august.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-07-14">2026.07.14</time>
-          <span class="news-list__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+            <div class="news-tabs reveal" role="tablist" aria-label="カテゴリで絞り込み">
+        <button class="news-tab is-active" data-filter="all" type="button">All</button>
+        <button class="news-tab" data-filter="seminar" type="button">セミナー</button>
+        <button class="news-tab" data-filter="info" type="button">お知らせ</button>
+      </div>
+      <div class="news-grid">
+        <a href="news/20260714-seminar-august.html" class="news-card reveal" data-cat="seminar">
+          <span class="news-card__thumb news-card__thumb--seminar">
+            <span class="news-card__thumb-date">07.14</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">セミナー</span>
+          </span>
+          <span class="news-card__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-07-14">2026.07.14</time><i>セミナー</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20260706-seminar-july.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-07-06">2026.07.06</time>
-          <span class="news-list__title">7月のAI活用無料セミナーを開催します（お申込み受付中）</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20260706-seminar-july.html" class="news-card reveal" data-cat="seminar">
+          <span class="news-card__thumb news-card__thumb--seminar">
+            <span class="news-card__thumb-date">07.06</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">セミナー</span>
+          </span>
+          <span class="news-card__title">7月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-07-06">2026.07.06</time><i>セミナー</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20260706-seminar-june.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-07-06">2026.07.06</time>
-          <span class="news-list__title">6月のAI活用セミナーを実施しました</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20260706-seminar-june.html" class="news-card reveal" data-cat="seminar">
+          <span class="news-card__thumb news-card__thumb--seminar">
+            <span class="news-card__thumb-date">07.06</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">セミナー</span>
+          </span>
+          <span class="news-card__title">6月のAI活用セミナーを実施しました</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-07-06">2026.07.06</time><i>セミナー</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20260706-renewal.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-07-06">2026.07.06</time>
-          <span class="news-list__title">コーポレートサイトのデザインをリニューアルしました</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20260706-renewal.html" class="news-card reveal" data-cat="info">
+          <span class="news-card__thumb news-card__thumb--info">
+            <span class="news-card__thumb-date">07.06</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">お知らせ</span>
+          </span>
+          <span class="news-card__title">コーポレートサイトのデザインをリニューアルしました</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-07-06">2026.07.06</time><i>お知らせ</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20260529.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-05-29">2026.05.29</time>
-          <span class="news-list__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20260529.html" class="news-card reveal" data-cat="seminar">
+          <span class="news-card__thumb news-card__thumb--seminar">
+            <span class="news-card__thumb-date">05.29</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">セミナー</span>
+          </span>
+          <span class="news-card__title">5月の整骨院・整体院向けAI活用セミナーを実施しました</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-05-29">2026.05.29</time><i>セミナー</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20260424.html" class="news-list__item">
-          <time class="news-list__date" datetime="2026-04-24">2026.04.24</time>
-          <span class="news-list__title">4月の整骨院向けAI活用セミナーを実施しました</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20260424.html" class="news-card reveal" data-cat="seminar">
+          <span class="news-card__thumb news-card__thumb--seminar">
+            <span class="news-card__thumb-date">04.24</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">セミナー</span>
+          </span>
+          <span class="news-card__title">4月の整骨院向けAI活用セミナーを実施しました</span>
+          <span class="news-card__meta">
+            <span><time datetime="2026-04-24">2026.04.24</time><i>セミナー</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20251201.html" class="news-list__item">
-          <time class="news-list__date" datetime="2025-12-01">2025.12.01</time>
-          <span class="news-list__title">新規採用の一時停止について</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20251201.html" class="news-card reveal" data-cat="info">
+          <span class="news-card__thumb news-card__thumb--info">
+            <span class="news-card__thumb-date">12.01</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">お知らせ</span>
+          </span>
+          <span class="news-card__title">新規採用の一時停止について</span>
+          <span class="news-card__meta">
+            <span><time datetime="2025-12-01">2025.12.01</time><i>お知らせ</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a href="news/20251105.html" class="news-list__item">
-          <time class="news-list__date" datetime="2025-11-06">2025.11.06</time>
-          <span class="news-list__title">コーポレートサイトをリニューアルしました。</span>
-          <svg class="arrow-icon news-list__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        <a href="news/20251105.html" class="news-card reveal" data-cat="info">
+          <span class="news-card__thumb news-card__thumb--info">
+            <span class="news-card__thumb-date">11.06</span>
+            <span class="news-card__thumb-ring" aria-hidden="true"></span>
+            <span class="news-card__thumb-cat">お知らせ</span>
+          </span>
+          <span class="news-card__title">コーポレートサイトをリニューアルしました。</span>
+          <span class="news-card__meta">
+            <span><time datetime="2025-11-06">2025.11.06</time><i>お知らせ</i></span>
+            <span class="news-card__more">Read More
+              <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
       </div>
+      <style>
+        .news-tabs { display: flex; gap: 26px; margin-top: -40px; border-bottom: 1px solid var(--line, #e3e3de); }
+        .news-tab { position: relative; background: none; border: none; cursor: pointer; font-family: inherit; font-feature-settings: "palt"; font-size: 19px; font-weight: 900; color: var(--sub, #70747f); padding: 8px 2px 14px; transition: color .25s; }
+        .news-tab::before { content: ""; position: absolute; left: -12px; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue, #2440ff); opacity: 0; transition: opacity .25s; }
+        .news-tab::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 100%; height: 2px; background: var(--ink, #0e0f12); transform: scaleX(0); transition: transform .3s cubic-bezier(.19,1,.22,1); }
+        .news-tab.is-active { color: var(--ink, #0e0f12); }
+        .news-tab.is-active::before { opacity: 1; }
+        .news-tab.is-active::after { transform: scaleX(1); }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 32px; margin-top: 48px; }
+        .news-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line, #e3e3de); border-radius: 10px; overflow: hidden; transition: transform .35s, box-shadow .35s, border-color .35s; }
+        .news-card:hover { transform: translateY(-5px); border-color: var(--ink, #0e0f12); box-shadow: 0 20px 44px rgba(14,15,18,.09); }
+        .news-card.is-hidden { display: none; }
+        .news-card__thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; display: block; }
+        .news-card__thumb--seminar { background: linear-gradient(135deg, #e8ecff, #f5f7ff); }
+        .news-card__thumb--info { background: linear-gradient(135deg, #ececea, #f7f7f5); }
+        .news-card__thumb-date { position: absolute; left: 20px; bottom: 12px; font-family: "Inter", sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -.02em; color: var(--ink, #0e0f12); line-height: 1; }
+        .news-card__thumb--seminar .news-card__thumb-date { color: var(--blue, #2440ff); }
+        .news-card__thumb-ring { position: absolute; right: -34px; top: -44px; width: 150px; height: 150px; border: 26px solid rgba(36,64,255,.14); border-radius: 50%; }
+        .news-card__thumb--info .news-card__thumb-ring { border-color: rgba(14,15,18,.08); }
+        .news-card__thumb-cat { position: absolute; left: 18px; top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--sub, #70747f); }
+        .news-card__title { font-feature-settings: "palt"; font-size: 17.5px; font-weight: 700; line-height: 1.75; padding: 20px 24px 8px; flex: 1; transition: color .25s; }
+        .news-card:hover .news-card__title { color: var(--blue, #2440ff); }
+        .news-card__meta { display: flex; justify-content: space-between; align-items: center; padding: 6px 20px 18px; font-family: "Inter", sans-serif; font-size: 12px; color: var(--sub, #70747f); }
+        .news-card__meta i { font-style: normal; font-family: "Noto Sans JP", sans-serif; margin-left: 12px; font-size: 11px; }
+        .news-card__more { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink, #0e0f12); }
+        .news-card__circle { width: 34px; height: 34px; border-radius: 50%; background: var(--ink, #0e0f12); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background .3s, transform .3s; }
+        .news-card__circle .arrow-icon { width: 14px; height: 14px; }
+        .news-card:hover .news-card__circle { background: var(--blue, #2440ff); transform: rotate(-45deg); }
+        @media (max-width: 900px) { .news-grid { grid-template-columns: 1fr; } }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var tabs = document.querySelectorAll('.news-tab');
+          var cards = document.querySelectorAll('.news-card');
+          tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+              tabs.forEach(function (t) { t.classList.remove('is-active'); });
+              tab.classList.add('is-active');
+              var f = tab.dataset.filter;
+              cards.forEach(function (card) {
+                card.classList.toggle('is-hidden', f !== 'all' && card.dataset.cat !== f);
+              });
+            });
+          });
+        });
+      </script>
     </div>
   </section>
 
@@ -199,7 +319,7 @@
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
-            <li><a href="service.html#ai" class="footer__nav-link">AI研修・セミナー</a></li>
+            <li><a href="seminar.html" class="footer__nav-link">AI研修・セミナー</a></li>
             <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
           </ul>
         </nav>

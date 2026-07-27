@@ -28,14 +28,14 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body class="page-company">
   <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
@@ -51,7 +51,7 @@
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
-        <a href="service.html#ai" class="btn btn--outline header__cta">
+        <a href="seminar.html" class="btn btn--outline header__cta">
           AI研修・セミナー
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
@@ -77,7 +77,7 @@
     <a href="service.html" class="mobile-nav__link">事業内容</a>
     <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
-    <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
+    <a href="seminar.html" class="mobile-nav__link">AI研修・セミナー</a>
     <div class="mobile-nav__actions">
       <a href="contact.html" class="btn btn--primary mobile-nav__cta">
         お問い合わせ
@@ -89,41 +89,35 @@
   <main id="main">
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" data-ghost="Company">
     <div class="container">
+      <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator" aria-hidden="true">●</span>
+      <span aria-current="page">企業情報</span></nav>
       <p class="page-header__label reveal">Company</p>
-      <h1 class="page-header__title reveal">企業情報</h1>
+      <h1 class="page-header__title"><span class="ph-line">企業情報</span></h1>
     </div>
   </section>
   <!-- Breadcrumb -->
-  <nav class="breadcrumb" aria-label="パンくず">
-    <div class="container">
-      <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
-      <span aria-current="page">企業情報</span>
-    </div>
-  </nav>
+  
 
 
   <!-- MISSION / VISION -->
-  <section class="section mission-vision">
+  <section class="company-hero">
     <div class="container">
-      <div class="mission-vision__row reveal">
-        <div class="mission-vision__label">
-          <p>Mission</p>
-        </div>
-        <div class="mission-vision__content">
-          <h2 class="mission-vision__title">知識と誠実さで、未来を変える。</h2>
-          <p class="mission-vision__text">正確な知識と誠実な行動で、人と社会の"困りごと"を解決へ導きます。<br>信頼できる情報とつながりを通じて、安心して暮らせる社会をつくります。</p>
-        </div>
-      </div>
-      <div class="mission-vision__row reveal">
-        <div class="mission-vision__label">
-          <p>Vision</p>
-        </div>
-        <div class="mission-vision__content">
-          <h2 class="mission-vision__title">信頼で社会を支える、未来のインフラへ。</h2>
-          <p class="mission-vision__text">テクノロジーと専門知識を活かし、交通事故被害者サポート、マーケティング支援、映像制作、AI活用、業務システム開発といった分野で、<br>人と企業の前進を支える存在を目指します。</p>
+      <p class="section-label company-hero__label reveal">Mission</p>
+      <h2 class="company-hero__title reveal">知識と誠実さで、未来を変える。</h2>
+      <p class="company-hero__text reveal">正確な知識と誠実な行動で、人と社会の"困りごと"を解決へ導きます。<br>信頼できる情報とつながりを通じて、安心して暮らせる社会をつくります。</p>
+    </div>
+  </section>
+
+  <section class="vision-panel-wrap">
+    <div class="container">
+      <div class="vision-panel reveal">
+        <p class="section-label">Vision</p>
+        <div class="vision-panel__grid">
+          <h2 class="vision-panel__title">信頼で社会を支える、<br>未来のインフラへ。</h2>
+          <p class="vision-panel__text">テクノロジーと専門知識を活かし、交通事故被害者サポート、マーケティング支援、映像制作、AI活用、業務システム開発といった分野で、人と企業の前進を支える存在を目指します。</p>
         </div>
       </div>
     </div>
@@ -133,7 +127,7 @@
   <section class="section">
     <div class="container">
       <p class="section-label company-section-label reveal">Message</p>
-      <h2 class="section-title section-title--message reveal">「誠実さ」を軸に、社会の仕組みをより良く。</h2>
+      <h2 class="section-title section-title--message reveal">「誠実さ」を軸に、<br>社会の仕組みをより良く。</h2>
       <div class="message-section message-section--single reveal">
         <div>
           <p class="message-section__text">
@@ -164,27 +158,18 @@
     <div class="container">
       <p class="section-label company-section-label reveal">Our Value</p>
       <h2 class="section-title reveal">バリュー</h2>
-      <div class="values-grid reveal-stagger reveal">
-        <div class="value-card">
-          <div class="value-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 5.8v5.4c0 4.2 2.8 7 7 8.8 4.2-1.8 7-4.6 7-8.8V5.8L12 3Z"/><path d="m9 11.8 2.2 2.2L15.2 10"/></svg>
-          </div>
-          <h3 class="value-card__title">誠実であること。</h3>
-          <p class="value-card__text">すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
+      <div class="values-circles">
+        <div class="value-circle reveal">
+          <div class="value-circle__ring"><span class="value-circle__no">01</span><h3 class="value-circle__title">誠実であること。</h3></div>
+          <p class="value-circle__text">すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
         </div>
-        <div class="value-card">
-          <div class="value-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 4 7 4 4 5.5v13c3-1.5 6-1.5 8 0 2-1.5 5-1.5 8 0v-13c-3-1.5-6-1.5-8 0Zm0 0v13"/></svg>
-          </div>
-          <h3 class="value-card__title">知識を磨き、活かすこと。</h3>
-          <p class="value-card__text">専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
+        <div class="value-circle reveal">
+          <div class="value-circle__ring"><span class="value-circle__no">02</span><h3 class="value-circle__title">知識を磨き、活かすこと。</h3></div>
+          <p class="value-circle__text">専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
         </div>
-        <div class="value-card">
-          <div class="value-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 4.2 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 9.5 9 7.5 9 5c1.5 1 2.2 2.2 2.4 3.6C12.6 7.4 12 5 12 3Z"/></svg>
-          </div>
-          <h3 class="value-card__title">変化を恐れず、挑戦すること。</h3>
-          <p class="value-card__text">社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
+        <div class="value-circle reveal">
+          <div class="value-circle__ring"><span class="value-circle__no">03</span><h3 class="value-circle__title">変化を恐れず、挑戦すること。</h3></div>
+          <p class="value-circle__text">社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
         </div>
       </div>
     </div>
@@ -278,7 +263,7 @@
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
-            <li><a href="service.html#ai" class="footer__nav-link">AI研修・セミナー</a></li>
+            <li><a href="seminar.html" class="footer__nav-link">AI研修・セミナー</a></li>
             <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
           </ul>
         </nav>

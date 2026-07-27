@@ -28,14 +28,14 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body class="page-case">
   <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
@@ -51,7 +51,7 @@
         <a href="news.html" class="header__nav-link">お知らせ</a>
       </nav>
       <div class="header__actions">
-        <a href="service.html#ai" class="btn btn--outline header__cta">
+        <a href="seminar.html" class="btn btn--outline header__cta">
           AI研修・セミナー
         </a>
         <a href="contact.html" class="btn btn--primary header__cta">
@@ -77,7 +77,7 @@
     <a href="service.html" class="mobile-nav__link">事業内容</a>
     <a href="case.html" class="mobile-nav__link">支援領域</a>
     <a href="news.html" class="mobile-nav__link">お知らせ</a>
-    <a href="service.html#ai" class="mobile-nav__link">AI研修・セミナー</a>
+    <a href="seminar.html" class="mobile-nav__link">AI研修・セミナー</a>
     <div class="mobile-nav__actions">
       <a href="contact.html" class="btn btn--primary mobile-nav__cta">
         お問い合わせ
@@ -89,24 +89,70 @@
   <main id="main">
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" data-ghost="Case">
     <div class="container">
+      <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a>
+      <span class="breadcrumb__separator" aria-hidden="true">●</span>
+      <span aria-current="page">支援領域・対応例</span></nav>
       <p class="page-header__label reveal">Case</p>
-      <h1 class="page-header__title reveal">支援領域・対応例</h1>
+      <h1 class="page-header__title"><span class="ph-line">支援領域・対応例</span></h1>
     </div>
   </section>
 
-  <!-- Breadcrumb -->
-  <nav class="breadcrumb" aria-label="パンくず">
-    <div class="container">
-      <a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator" aria-hidden="true">&gt;</span>
-      <span aria-current="page">支援領域・対応例</span>
+  <!-- In-page anchors (Frontier-style) -->
+  <div class="anchor-nav">
+    <div class="container anchor-nav__row reveal">
+      <a href="#data" class="anchor-nav__item">実績データ<span class="anchor-nav__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></a>
+      <a href="#partners" class="anchor-nav__item">ご一緒しているみなさま<span class="anchor-nav__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></a>
+      <a href="#cases" class="anchor-nav__item">対応例<span class="anchor-nav__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></a>
+      <a href="#future" class="anchor-nav__item">Opus.netの未来<span class="anchor-nav__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></a>
     </div>
-  </nav>
+  </div>
 
-  <!-- Case Overview -->
-  <section class="section">
+  <!-- Solution panel: data + logos + fields -->
+  <section class="section" id="data">
+    <div class="container">
+      <div class="solution-panel reveal">
+        <span class="solution-panel__ring solution-panel__ring--a" aria-hidden="true"></span>
+        <span class="solution-panel__ring solution-panel__ring--b" aria-hidden="true"></span>
+        <div class="solution-panel__head">
+          <div>
+            <p class="section-label">Solution</p>
+            <h2 class="section-title section-title--ja">実績を、数字でご紹介します。</h2>
+          </div>
+          <p class="solution-panel__intro">創業から積み重ねてきた取り組みを、データで整理しました。</p>
+        </div>
+
+        <div class="num-rows">
+          <div class="num-row reveal"><div class="num-row__label">創業からの歩み<span class="num-row__note">2014年6月創業</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="12">0</span><small>年目</small></div></div>
+          <div class="num-row reveal" data-temp="true"><div class="num-row__label">事故なび 累計サポート<span class="num-row__note">事故直後の相談から手配まで</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="3000">0</span><small>件超</small></div></div>
+          <div class="num-row reveal" data-temp="true"><div class="num-row__label">AIセミナー 累計開催<span class="num-row__note">毎月の無料セミナー・企業研修</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="100">0</span><small>回超</small></div></div>
+          <div class="num-row reveal" data-temp="true"><div class="num-row__label">セミナー・研修 累計参加<span class="num-row__note">経営者・現場担当者のみなさま</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="1000">0</span><small>名超</small></div></div>
+        </div>
+
+        <div class="solution-panel__sub" id="partners">
+          <p class="section-label">Partners</p>
+          <h3 class="solution-panel__subtitle">ご一緒しているみなさま</h3>
+          <div class="logo-wall reveal">
+            <div class="logo-wall__tile"><img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="Opus.net" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="Opus.net" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="Opus.net" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="Opus.net" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/home-service-jikonavi.webp" alt="事故なび" loading="lazy"></div>
+            <div class="logo-wall__tile"><img src="assets/images/optimized/opus-corporate-logo-transparent.webp" alt="Opus.net" loading="lazy"></div>
+          </div>
+          <p class="logo-wall__note">掲載許諾をいただいた企業・ブランドのロゴを掲載します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases -->
+  <section class="section" id="cases">
     <div class="container">
       <div class="case-intro reveal">
         <p class="section-label">Support Area</p>
@@ -120,56 +166,95 @@
             <span class="case-card__category">Traffic Accident Support</span>
             <span class="case-card__number">01</span>
           </div>
-          <h3 class="case-card__title">事故後の不安を、必要な相談先へつなぐ。</h3>
-          <p class="case-card__text">交通事故に遭われた方が、治療先や修理対応などで迷わないよう、状況整理から適切なサポート先への接続までを支援します。</p>
+          <div>
+            <h3 class="case-card__title">事故後の不安を、必要な相談先へつなぐ。</h3>
+            <p class="case-card__text">交通事故に遭われた方が、治療先や修理対応などで迷わないよう、状況整理から適切なサポート先への接続までを支援します。</p>
+          </div>
           <ul class="case-card__list">
             <li>事故後の初動相談の整理</li>
             <li>病院・整骨院などの相談先案内</li>
             <li>修理や各種対応の流れをわかりやすく整理</li>
           </ul>
         </article>
-
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">Marketing</span>
             <span class="case-card__number">02</span>
           </div>
-          <h3 class="case-card__title">SNS・広告・導線設計を一体で見直す。</h3>
-          <p class="case-card__text">SNS投稿だけで終わらせず、広告運用、Webサイト、LINE公式アカウントなどを組み合わせ、問い合わせや来店につながる導線を設計します。</p>
+          <div>
+            <h3 class="case-card__title">SNS・広告・導線設計を一体で見直す。</h3>
+            <p class="case-card__text">SNS投稿だけで終わらせず、広告運用、Webサイト、LINE公式アカウントなどを組み合わせ、問い合わせや来店につながる導線を設計します。</p>
+          </div>
           <ul class="case-card__list">
             <li>Instagram・Facebook広告の運用設計</li>
             <li>リスティング広告の改善提案</li>
             <li>SNS投稿から問い合わせまでの導線整理</li>
           </ul>
         </article>
-
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">AI Enablement</span>
             <span class="case-card__number">03</span>
           </div>
-          <h3 class="case-card__title">AIを現場業務で使える形に落とし込む。</h3>
-          <p class="case-card__text">生成AIの基礎理解から、社内ルール、業務フローへの組み込み、研修実施まで、現場で無理なく使える運用を支援します。</p>
+          <div>
+            <h3 class="case-card__title">AIを現場業務で使える形に落とし込む。</h3>
+            <p class="case-card__text">生成AIの基礎理解から、社内ルール、業務フローへの組み込み、研修実施まで、現場で無理なく使える運用を支援します。</p>
+          </div>
           <ul class="case-card__list">
             <li>AI活用研修・ハンズオンの実施</li>
             <li>社内活用ルールの整備</li>
             <li>日常業務へのAI導入支援</li>
           </ul>
         </article>
-
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">Creative / System</span>
             <span class="case-card__number">04</span>
           </div>
-          <h3 class="case-card__title">映像とシステムで、伝達と運用を支える。</h3>
-          <p class="case-card__text">企業の魅力を伝える映像制作と、業務を支えるシステム開発を組み合わせ、情報発信と日々の運用改善を支援します。</p>
+          <div>
+            <h3 class="case-card__title">映像とシステムで、伝達と運用を支える。</h3>
+            <p class="case-card__text">企業の魅力を伝える映像制作と、業務を支えるシステム開発を組み合わせ、情報発信と日々の運用改善を支援します。</p>
+          </div>
           <ul class="case-card__list">
             <li>企業・サービス紹介動画の制作</li>
             <li>セミナー・イベント動画の編集</li>
             <li>業務管理システム・CRMの設計開発</li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future (numbered statements) -->
+  <section class="section" id="future">
+    <div class="container">
+      <div class="future-head reveal">
+        <p class="section-label future-head__en">Future</p>
+        <h2 class="section-title section-title--ja">Opus.netの未来</h2>
+        <p class="section-subtitle">信頼で社会を支える、未来のインフラへ。テクノロジーと専門知識を活かし、人と企業の前進を支える存在を目指します。</p>
+      </div>
+      <div class="future-panel reveal">
+        <div class="future-item">
+          <span class="future-item__no">1</span>
+          <div>
+            <h3 class="future-item__title">誠実であること。</h3>
+            <p class="future-item__text">すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
+          </div>
+        </div>
+        <div class="future-item">
+          <span class="future-item__no">2</span>
+          <div>
+            <h3 class="future-item__title">知識を磨き、活かすこと。</h3>
+            <p class="future-item__text">専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
+          </div>
+        </div>
+        <div class="future-item">
+          <span class="future-item__no">3</span>
+          <div>
+            <h3 class="future-item__title">変化を恐れず、挑戦すること。</h3>
+            <p class="future-item__text">社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -220,7 +305,7 @@
           </ul>
           <ul class="footer__nav-list">
             <li><a href="news.html" class="footer__nav-link">お知らせ</a></li>
-            <li><a href="service.html#ai" class="footer__nav-link">AI研修・セミナー</a></li>
+            <li><a href="seminar.html" class="footer__nav-link">AI研修・セミナー</a></li>
             <li><a href="contact.html" class="footer__nav-link">お問い合わせ</a></li>
           </ul>
         </nav>
@@ -233,5 +318,26 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          io.unobserve(el);
+          var target = parseInt(el.dataset.count, 10);
+          var t0 = performance.now();
+          var tick = function (now) {
+            var p = Math.min(1, (now - t0) / 1400);
+            el.textContent = Math.round(target * ease(p)).toLocaleString('ja-JP');
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: .6 });
+      document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
