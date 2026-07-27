@@ -72,6 +72,13 @@
   .hero {
     min-height: 82svh;
     padding: calc(var(--header-height) + 40px) 20px 46px;
+    flex-wrap: wrap;
+  }
+
+  /* On narrow screens the marquee can't fit beside the CTA row: give it its own full-width band */
+  .hero-mq {
+    width: 100%;
+    margin-top: 26px;
   }
 
   .hero__title {

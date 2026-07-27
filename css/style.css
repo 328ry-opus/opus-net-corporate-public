@@ -567,6 +567,7 @@ h3 {
 }
 
 .breadcrumb a {
+  white-space: nowrap;
   transition: color .25s;
 }
 
