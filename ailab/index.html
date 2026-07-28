@@ -491,7 +491,7 @@
   @media (max-width:1280px) { nav.g { display:none; } }
   @media (max-width:1200px) { .quicknav, .qn-launcher { display:none !important; } }
   @media (max-width:960px) {
-    .toast { top:100px; font-size:12px; }
+    .toast { top:136px; font-size:12px; }
     .chat { right:10px; bottom:84px; width:min(330px, calc(100vw - 20px)); }
     .chat-launcher { bottom:84px; }
     .dock-in .btn { padding:10px 12px; font-size:11.5px; white-space:nowrap; }
@@ -527,6 +527,170 @@
     .monthly .mrow { grid-template-columns:96px 1fr; padding:15px 18px; }
     .foot-grid { grid-template-columns:1fr 1fr; }
     .dock-in p { display:none; }
+  }
+  /* ── smartphone (<=600px): vertical density, JP line breaking, tap targets ── */
+  @media (max-width:600px) {
+    html { scroll-padding-top:74px; }
+    /* break Japanese headings at phrase boundaries, not mid-word */
+    h1,h2,h3,h4,.sec-title,.pain-answer,.entry-kicker,.roi-kicker,.month-kicker,.steps-note,.proof p,
+    .hero .pitch b,.qcard p,.faq summary,.foot-tagline p,.ecard .t,.price-solo .allin,.qnote,
+    .sem-card__title,.about-grid h3,.subhero h2,.cta-band h2,.diagram .cell { word-break:auto-phrase; }
+
+    /* header — 128px -> 90px so the first view starts higher */
+    .topbar-in { width:calc(100% - 32px); height:34px; }
+    .topbar .mail { font-size:13.5px; gap:6px; }
+    .topbar .mail svg { width:14px; height:14px; }
+    .header-in { width:calc(100% - 32px); height:56px; gap:8px; }
+    .brand .name { font-size:15px; padding:5px 9px; border-width:2px; }
+    .header-cta { margin-left:auto; }
+    .header-cta .btn { padding:10px 13px; font-size:11.5px; }
+    /* toast: full-width strip under the header so it never covers hero copy */
+    .toast { top:90px; left:0; right:0; border-radius:0; justify-content:center;
+             font-size:12px; padding:9px 14px; gap:8px; transform:translateY(-130%); }
+    .toast.is-on { transform:none; }
+    .toast em { font-size:14.5px; }
+    .toast button { position:absolute; right:10px; top:50%; transform:translateY(-50%); }
+
+    /* hero */
+    .hero { padding:58px 0 196px; }
+    .hero .cat { font-size:12.5px; }
+    .hero .name { font-size:clamp(30px,9.4vw,40px); }
+    .hero .pitch { margin-top:14px; }
+    .hero .pitch b { font-size:15px; line-height:1.8; }
+    .hero .pitch p { font-size:12.5px; line-height:1.85; margin-top:6px; }
+    .hero .cta-col { gap:10px; margin-top:20px; }
+    .hero .cta-col .btn { min-height:56px; font-size:12.5px; padding:10px 6px; }
+    .hero .note { font-size:11px; line-height:1.8; margin-top:14px; }
+    .hero-chara { height:186px; }
+    /* medals: one row of three instead of a 2+1 stack */
+    .medals { gap:9px; margin-top:24px; flex-wrap:nowrap; }
+    .medal { width:auto; height:auto; flex:1 1 0; min-width:0; max-width:154px; aspect-ratio:1; border-width:2px;
+             box-shadow:0 8px 20px rgba(9,14,60,.26), inset 0 0 0 5px #fff, inset 0 0 0 7px var(--blue); }
+    .medal b { font-size:clamp(19px,5.6vw,26px); }
+    .medal b small { font-size:clamp(9px,2.6vw,12px); }
+    .medal span { font-size:clamp(7.8px,2.15vw,10.5px); padding:0 6px; line-height:1.5; letter-spacing:-.01em; }
+
+    /* rhythm */
+    section { padding-top:66px; }
+    .band-gray { margin-top:66px; padding:58px 0; }
+    .subhero { padding-top:66px; }
+    .industry-band { padding:34px 0 22px; }
+    .industry-band .track { font-size:13px; gap:2.2em; }
+    .proof { padding-top:36px; }
+    .proof p { font-size:16.5px; line-height:1.85; }
+    .proof p br { display:none; }
+    .sec-title { font-size:23px; }
+    .sec-sub { font-size:12.5px; }
+
+    .subhero .ghostword { font-size:60px; top:22px; left:-6px; color:rgba(36,64,255,.05); }
+    .subhero h2 { font-size:22.5px; line-height:1.6; }
+    .subhero .desc { font-size:13px; }
+    .subhero .btn { min-width:0; width:100%; margin-top:18px; }
+
+    .pain { padding:24px 20px; }
+    .pain h3 { font-size:16px; }
+    .pain h3 br { display:none; }
+    .pain p { font-size:12.5px; }
+    .pain-answer { font-size:20px; margin-top:34px; }
+
+    .about-grid { margin-top:44px; gap:26px; }
+    .about-grid h3 { font-size:21px; }
+    .diagram { padding:18px 14px; }
+    .diagram .row { grid-template-columns:1fr 30px 1fr; gap:6px; padding:7px 0; }
+    .diagram .cell { padding:9px 7px; font-size:12px; }
+    .diagram .cell small { font-size:10.5px; line-height:1.5; }
+    .diagram .link { font-size:15px; }
+
+    /* 6 course cards: 2 columns instead of one very long stack */
+    .courses { grid-template-columns:1fr 1fr; gap:12px; }
+    .course .face { padding:20px 10px 16px; }
+    .course .en-name { font-size:17px; }
+    .course .jp { font-size:11.5px; }
+    .course .tags { padding:10px 2px 0; }
+    .course .tags li { font-size:11.5px; padding:3px 0; line-height:1.7; }
+
+    .pillar { margin-top:28px; padding:22px 18px 26px; gap:22px; }
+    .pillar-img .imgno { left:-2px; top:-20px; font-size:52px; -webkit-text-stroke-width:1.3px; }
+    .pillar h3 { font-size:20px; }
+    .pillar p.desc { font-size:13px; }
+    .pillar li { font-size:13.5px; padding:10px 0 10px 28px; }
+
+    .cta-strip { padding:26px 0; }
+    .cta-strip-in { gap:16px; }
+    .cta-strip p { font-size:16px; }
+    .cta-strip .btn--white { padding:15px 24px; width:100%; }
+
+    .portal-main { width:100%; }
+    .portal-feats { gap:10px; margin-top:28px; }
+    .pfeat .in { padding:11px 12px 14px; }
+    .pfeat h4 { font-size:13px; }
+    .pfeat p { font-size:11px; line-height:1.75; }
+
+    .case-card { margin-top:34px; padding:24px 18px; gap:24px; }
+    .case-card h3 { font-size:21px; }
+    .case-card p.desc { font-size:13px; }
+    .case-facts > div { grid-template-columns:94px 1fr; gap:10px; font-size:12.5px; }
+    .case-shot { padding:9px; }
+
+    .sem-card { margin-top:34px; }
+    .sem-card__visual { min-height:168px; padding:24px 22px; }
+    .sem-card__visual .mo { font-size:66px; }
+    .sem-card__visual .stamp { width:66px; height:66px; font-size:12px; right:18px; top:16px; }
+    .sem-card__title { font-size:19px; }
+    .schedule { margin-top:20px; }
+    .schedule .row { grid-template-columns:80px 1fr; gap:10px; padding:13px 16px; font-size:12.5px; }
+    .schedule .date { font-size:15px; }
+
+    .price-solo { margin-top:44px; padding:30px 20px 26px; }
+    .price-line .num { font-size:58px; }
+    .price-solo .allin { font-size:13px; }
+    .price-solo .btns { flex-direction:column; gap:10px; }
+    .price-solo .btns .btn { width:100%; }
+
+    .steps { gap:12px; margin-top:34px; }
+    .step { padding:22px 18px 24px; }
+    .steps-note { font-size:13.5px; }
+
+    .roi-total { padding:26px 20px; }
+    .roi-r { padding:12px 16px; font-size:13px; }
+    .roi-kicker { font-size:17px; }
+    .monthly .mrow { grid-template-columns:78px 1fr; gap:12px; padding:14px 16px; }
+    .monthly h4 { font-size:14.5px; }
+    .monthly p { font-size:12.5px; }
+
+    .ecard { padding:22px 18px; }
+    .ecard li { font-size:13.5px; }
+    .entry-kicker { font-size:19px; }
+
+    .qgrid { gap:10px; }
+    .qcard { padding:13px 15px; }
+    .qcard p { font-size:13px; }
+
+    .faq details { padding:0 16px; }
+    .faq summary { font-size:13.8px; gap:12px; padding:16px 2px; }
+    .faq .a { padding:0 2px 18px 0; font-size:13px; }
+    .ov-table > div { font-size:13px; }
+
+    .cta-band { margin-top:76px; padding:60px 0; }
+    .cta-band h2 { font-size:25px; }
+    .cta-band p { font-size:13px; }
+    .cta-band .row { flex-direction:column; gap:11px; margin-top:26px; }
+    .cta-band .row .btn { width:100%; }
+
+    footer { padding-top:44px; }
+    .foot-grid { grid-template-columns:1fr 1fr; gap:24px 18px; }
+    .foot-brand { grid-column:1 / -1; }
+    .foot-col li { padding:5px 0; }
+    .foot-tagline { margin-top:34px; padding:26px 0 8px; }
+    .foot-tagline p { font-size:22px; }
+
+    .dock-in { width:calc(100% - 24px); gap:10px; padding:9px 0; }
+    .dock-in .btns { margin-left:0; width:100%; gap:8px; }
+    .dock-in .btn { flex:1; padding:12px 8px; }
+    .chat { right:8px; bottom:78px; width:calc(100vw - 16px); }
+    .chat-launcher { bottom:78px; right:12px; padding:6px 16px 6px 6px; font-size:12px; }
+    .chat-launcher .face { width:34px; height:34px; }
+    .chat-launcher .face img { width:27px; }
   }
   @media (min-width:961px) { .dock { display:none !important; } }
   @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; animation:none !important; } .reveal { opacity:1; transform:none; } }
@@ -1112,6 +1276,10 @@
   const toast = document.getElementById('toast');
   setTimeout(() => toast.classList.add('is-on'), 800);
   document.getElementById('toastClose').addEventListener('click', () => toast.remove());
+  // on phones the toast is a full-width strip — retract it so it stops covering content
+  if (window.matchMedia('(max-width:600px)').matches) {
+    setTimeout(() => toast.classList.remove('is-on'), 7000);
+  }
 
   // quicknav: appears after scrolling past the hero; collapsible to a side tab
   const qn = document.getElementById('quicknav');
