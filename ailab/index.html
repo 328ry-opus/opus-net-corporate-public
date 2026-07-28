@@ -449,6 +449,18 @@
   .chat-opts { margin-top:12px; display:grid; gap:8px; }
   .chat-opts a { display:block; text-align:center; border:2px solid var(--blue); color:var(--blue); border-radius:999px; padding:9px 12px; font-size:12.5px; font-weight:900; transition:background .2s, color .2s; }
   .chat-opts a:hover { background:var(--blue); color:#fff; }
+  .chat-log { display:flex; flex-direction:column; gap:10px; }
+  .chat-log .msg { max-width:86%; border-radius:12px; padding:10px 14px; font-size:12.5px; font-weight:700; line-height:1.75; white-space:pre-line; }
+  .chat-log .msg.bot { background:var(--gray); align-self:flex-start; border-top-left-radius:4px; }
+  .chat-log .msg.user { background:var(--blue); color:#fff; align-self:flex-end; border-top-right-radius:4px; }
+  .chat-chips { display:grid; gap:8px; margin-top:2px; }
+  .chat-chips button, .chat-chips a { display:block; width:100%; text-align:center; border:2px solid var(--blue); color:var(--blue); background:#fff; border-radius:999px; padding:9px 12px; font-size:12.5px; font-weight:900; cursor:pointer; font-family:inherit; transition:background .2s, color .2s; }
+  .chat-chips button:hover, .chat-chips a:hover { background:var(--blue); color:#fff; }
+  .chat-typing { display:inline-flex; gap:4px; padding:12px 14px; background:var(--gray); border-radius:12px; border-top-left-radius:4px; align-self:flex-start; }
+  .chat-typing i { width:6px; height:6px; border-radius:50%; background:var(--sub); animation:chatblink 1s infinite; }
+  .chat-typing i:nth-child(2) { animation-delay:.2s; }
+  .chat-typing i:nth-child(3) { animation-delay:.4s; }
+  @keyframes chatblink { 0%,60%,100% { opacity:.3; } 30% { opacity:1; } }
   .chat-foot { border-top:1px solid var(--line); padding:10px 14px; display:flex; align-items:center; gap:10px; transition:background .2s; }
   .chat-foot:hover { background:var(--blue-tint); }
   .chat-foot span { flex:1; font-size:12.5px; color:var(--blue); font-weight:900; }
@@ -1053,18 +1065,11 @@
 <div class="chat" id="chat">
   <div class="chat-head">
     <span class="face"><img src="images/robo-wave-bust.webp" alt=""></span>
-    <p>AIラボ事務局がご案内します<small>無料セミナー受付中</small></p>
+    <p>AIラボ ご案内ボット<small>タップで質問に答えます</small></p>
     <button class="chat-min" id="chatMin" aria-label="最小化">×</button>
   </div>
   <div class="chat-body">
-    <p class="chat-msg">こんにちは！「仕事で使えるAIラボ」です。気になるボタンをタップしてください。</p>
-    <div class="chat-opts">
-      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer">【無料】セミナーに参加したい</a>
-      <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer">【無料】資料が欲しい</a>
-      <a href="mailto:seminar@opus-net.net">自分の会社で使えるか相談したい</a>
-      <a href="#price">料金が知りたい</a>
-      <a href="#flow">入会の流れを知りたい</a>
-    </div>
+    <div class="chat-log" id="chatLog"></div>
   </div>
   <a class="chat-foot" href="mailto:seminar@opus-net.net">
     <span>メールで相談する（返信でご案内します）</span>
@@ -1115,6 +1120,114 @@
   addEventListener('scroll', updateQn, { passive: true });
   document.getElementById('qnClose').addEventListener('click', () => { qnCollapsed = true; updateQn(); });
   qnLauncher.addEventListener('click', () => { qnCollapsed = false; updateQn(); });
+
+  // chat scenario bot
+  const FORM_URL = "https://opus-ai-forms.pages.dev/";
+  const GUIDE_URL = "https://opus-ai-forms.pages.dev/guide";
+  const SCENARIO = {
+    start: {
+      bot: "こんにちは！「仕事で使えるAIラボ」ご案内ボットです。\n気になることを選んでください。",
+      chips: [
+        { label: "料金について", to: "price" },
+        { label: "どんなサービス？", to: "about" },
+        { label: "無料セミナーについて", to: "seminar" },
+        { label: "資料がほしい", to: "guide" },
+        { label: "相談したい", to: "consult" }
+      ]
+    },
+    price: {
+      bot: "月額9,800円/人（税別）、ひとり1日あたり約330円です。\nセミナー・録画・LINE質問・プロンプト・会員ポータル、すべて込み。プランによる機能の出し分けはありません。\nチーム参加の割引や入会特典など、詳しい料金は資料でご案内しています。",
+      chips: [
+        { label: "資料を受け取る（無料）", url: GUIDE_URL },
+        { label: "ほかの質問をする", to: "menu" },
+        { label: "相談したい", to: "consult" }
+      ]
+    },
+    about: {
+      bot: "毎月の実務テーマと他社の事例を見ながら、自社の仕事を少しずつAIに置き換えていく継続型コミュニティです。\n柱は3つ。月1回の実務セミナー、LINEでいつでも質問（回答は毎週の配信で共有）、24時間の会員ポータルです。",
+      chips: [
+        { label: "料金について", to: "price" },
+        { label: "無料セミナーを見てみたい", to: "seminar" },
+        { label: "資料を受け取る（無料）", url: GUIDE_URL }
+      ]
+    },
+    seminar: {
+      bot: "毎月、無料のAI活用セミナーをオンラインで開催しています。\n各回約1時間、業種を問わずご参加いただけます。ラボの雰囲気を知る一番の近道です。",
+      chips: [
+        { label: "申込フォームをひらく", url: FORM_URL },
+        { label: "ほかの質問をする", to: "menu" }
+      ]
+    },
+    guide: {
+      bot: "サービス資料（無料）をメールでお送りします。\n料金の詳細や、ラボでやること・やらないことも資料にまとめています。",
+      chips: [
+        { label: "資料請求フォームをひらく", url: GUIDE_URL },
+        { label: "ほかの質問をする", to: "menu" }
+      ]
+    },
+    consult: {
+      bot: "「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。\nメールでお気軽にご連絡ください。",
+      chips: [
+        { label: "メールを書く", url: "mailto:seminar@opus-net.net" },
+        { label: "ほかの質問をする", to: "menu" }
+      ]
+    },
+    menu: {
+      bot: "ほかに気になることはありますか？",
+      chips: [
+        { label: "料金について", to: "price" },
+        { label: "どんなサービス？", to: "about" },
+        { label: "無料セミナーについて", to: "seminar" },
+        { label: "資料がほしい", to: "guide" },
+        { label: "相談したい", to: "consult" }
+      ]
+    }
+  };
+  const chatLog = document.getElementById("chatLog");
+  const chatBody = document.querySelector(".chat-body");
+  const scrollChat = () => { chatBody.scrollTop = chatBody.scrollHeight; };
+  function showNode(id) {
+    const node = SCENARIO[id];
+    const typing = document.createElement("div");
+    typing.className = "chat-typing";
+    typing.innerHTML = "<i></i><i></i><i></i>";
+    chatLog.appendChild(typing);
+    scrollChat();
+    setTimeout(() => {
+      typing.remove();
+      const msg = document.createElement("div");
+      msg.className = "msg bot";
+      msg.textContent = node.bot;
+      chatLog.appendChild(msg);
+      const chips = document.createElement("div");
+      chips.className = "chat-chips";
+      node.chips.forEach((c) => {
+        let el;
+        if (c.url) {
+          el = document.createElement("a");
+          el.href = c.url;
+          if (!c.url.startsWith("mailto:")) { el.target = "_blank"; el.rel = "noopener noreferrer"; }
+        } else {
+          el = document.createElement("button");
+          el.type = "button";
+          el.addEventListener("click", () => {
+            chips.remove();
+            const u = document.createElement("div");
+            u.className = "msg user";
+            u.textContent = c.label;
+            chatLog.appendChild(u);
+            scrollChat();
+            showNode(c.to);
+          });
+        }
+        el.textContent = c.label;
+        chips.appendChild(el);
+      });
+      chatLog.appendChild(chips);
+      scrollChat();
+    }, 500);
+  }
+  showNode("start");
 
   // chat: open by default on desktop, launcher on mobile
   const chat = document.getElementById('chat');
