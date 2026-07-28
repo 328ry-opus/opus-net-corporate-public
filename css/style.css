@@ -2153,3 +2153,243 @@ h3 {
 .sem-card__circle .arrow-icon { width: 14px; height: 14px; }
 .sem-card:hover .sem-card__circle { background: var(--blue); transform: rotate(-45deg); }
 @media (max-width: 900px) { .sem-grid { grid-template-columns: 1fr; } }
+
+
+/* ==========================================================================
+   AI Lab band (home) — 主力サービス「仕事で使えるAIラボ」への誘導
+   ========================================================================== */
+.lab-band {
+  position: relative;
+  background: var(--blue);
+  color: var(--white);
+  overflow: hidden;
+  padding: 104px 0 0;
+  margin-top: 40px;
+}
+
+.lab-band__ghost {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  font-size: clamp(90px, 15vw, 220px);
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .09);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.lab-band__inner {
+  position: relative;
+}
+
+.lab-band__cat {
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  color: rgba(255, 255, 255, .78);
+}
+
+.lab-band__name {
+  margin-top: 12px;
+  font-size: clamp(38px, 5.4vw, 76px);
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1.14;
+  font-feature-settings: "palt";
+}
+
+.lab-band__lead {
+  margin-top: 20px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.lab-band__text {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 2;
+  color: rgba(255, 255, 255, .86);
+  max-width: 40em;
+}
+
+.lab-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* character sits on the band's bottom-right edge; text keeps its own breathing room */
+.lab-band__content {
+  max-width: 62%;
+  padding-bottom: 100px;
+}
+
+.lab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 100px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: all .4s var(--ease);
+}
+
+.lab-btn .arrow-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.lab-btn--white {
+  background: var(--white);
+  color: var(--blue);
+}
+
+.lab-btn--white:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.lab-btn--line {
+  border: 1px solid rgba(255, 255, 255, .45);
+  color: var(--white);
+}
+
+.lab-btn--line:hover {
+  background: var(--white);
+  color: var(--blue);
+  border-color: var(--white);
+}
+
+.lab-band__chara {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  z-index: 0;
+}
+
+.lab-band__chara img {
+  display: block;
+  width: min(340px, 26vw);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .lab-band {
+    padding-top: 68px;
+  }
+
+  /* character tucks into the space beside the stacked buttons */
+  .lab-band__chara {
+    right: -20px;
+  }
+
+  .lab-band__chara img {
+    width: 132px;
+  }
+
+  .lab-band__content {
+    position: relative;
+    z-index: 1;
+    max-width: none;
+    padding-bottom: 0;
+  }
+
+  .lab-band__text {
+    max-width: none;
+  }
+
+  .lab-band__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lab-band__actions .lab-btn {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .lab-band__chara {
+    right: -24px;
+  }
+
+  .lab-band__chara img {
+    width: 104px;
+  }
+}
+
+/* AI Lab block (service / seminar pages) */
+.svc-lab {
+  margin-top: 32px;
+  padding: 32px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.svc-lab__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .8);
+}
+
+.svc-lab__name {
+  margin-top: 10px;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 900;
+  letter-spacing: .02em;
+  font-feature-settings: "palt";
+}
+
+.svc-lab__text {
+  margin-top: 12px;
+  max-width: 46em;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, .88);
+}
+
+.svc-lab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+/* wide variant: text left, actions right (used on full-width sections) */
+@media (min-width: 901px) {
+  .svc-lab--wide {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 48px;
+    padding: 40px;
+  }
+
+  .svc-lab--wide .svc-lab__actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0;
+  }
+
+  .svc-lab--wide .lab-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .svc-lab {
+    padding: 24px 20px;
+  }
+}
