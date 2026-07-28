@@ -329,6 +329,60 @@
   .ov-table dd { color:#3c414d; padding:14px 18px; }
   @media (max-width:700px) { .ov-table > div { grid-template-columns:1fr; } .ov-table dd { padding-top:0; } }
 
+  /* entrance vs real value */
+  .entry-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px; }
+  .ecard { border-radius:14px; padding:clamp(24px,3.2vw,42px); }
+  .ecard.not { background:var(--gray); }
+  .ecard.opt { background:var(--blue-tint); }
+  .ecard h4 { font-family:"Inter",sans-serif; font-weight:800; font-size:14px; letter-spacing:.14em; text-transform:uppercase; }
+  .ecard.not h4 { color:var(--sub); }
+  .ecard.opt h4 { color:var(--blue); }
+  .ecard .t { font-size:18px; font-weight:900; margin-top:2px; }
+  .ecard ul { list-style:none; margin-top:12px; }
+  .ecard li { font-size:14px; font-weight:700; padding:9px 0 9px 20px; position:relative; border-bottom:1px solid rgba(14,15,18,.08); }
+  .ecard li::before { content:"—"; position:absolute; left:0; color:var(--ink); }
+  .ecard .after { margin-top:14px; font-size:13.5px; color:var(--sub); font-weight:700; }
+  .ecard .after.strong { color:var(--blue-deep); font-weight:900; }
+  .entry-kicker { text-align:center; font-size:clamp(18px,2.4vw,26px); font-weight:900; margin-top:38px; line-height:1.8; }
+  .entry-kicker em { font-style:normal; color:var(--blue); background:linear-gradient(transparent 68%, rgba(36,64,255,.16) 68% 96%, transparent 96%); }
+
+  /* roi */
+  .roi-grid { display:grid; grid-template-columns:420px 1fr; gap:24px; margin-top:44px; align-items:stretch; }
+  .roi-total { background:var(--blue); color:#fff; border-radius:16px; padding:clamp(28px,3.4vw,40px) 30px; text-align:center; display:flex; flex-direction:column; justify-content:center; }
+  .roi-total .cap { font-size:13.5px; font-weight:900; }
+  .roi-total .amount { display:flex; align-items:baseline; justify-content:center; gap:8px; margin-top:6px; }
+  .roi-total .amount .n { font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(58px,6vw,80px); line-height:1; letter-spacing:-.02em; }
+  .roi-total .amount .u { font-size:16px; font-weight:900; }
+  .roi-total .plus { margin-top:8px; font-size:14px; font-weight:900; }
+  .roi-total .cut { margin-top:14px; font-size:12px; color:rgba(255,255,255,.85); line-height:1.9; }
+  .roi-rows { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .roi-r { display:grid; grid-template-columns:170px 1fr auto; gap:14px; padding:13px 24px; align-items:baseline; font-size:13.5px; }
+  .roi-r + .roi-r { border-top:1px solid var(--line); }
+  .roi-r .name { font-weight:900; }
+  .roi-r .how { color:var(--sub); }
+  .roi-r .worth { font-family:"Inter",sans-serif; font-weight:800; color:var(--blue); white-space:nowrap; }
+  .roi-r .worth small { font-family:"Noto Sans JP"; font-size:11px; color:var(--sub); margin-left:3px; }
+  .roi-kicker { text-align:center; margin-top:32px; font-size:clamp(17px,2.3vw,24px); font-weight:900; }
+  .roi-kicker em { font-style:normal; color:var(--blue); background:linear-gradient(transparent 68%, rgba(36,64,255,.16) 68% 96%, transparent 96%); }
+
+  /* monthly */
+  .monthly { max-width:860px; margin:44px auto 0; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .monthly .mrow { display:grid; grid-template-columns:130px 1fr; gap:18px; padding:17px 26px; align-items:baseline; }
+  .monthly .mrow + .mrow { border-top:1px solid var(--line); }
+  .monthly .freq { font-weight:900; color:var(--blue); font-size:15px; }
+  .monthly h4 { font-size:15.5px; font-weight:900; }
+  .monthly p { font-size:13px; color:var(--sub); margin-top:2px; }
+  .month-kicker { text-align:center; margin-top:30px; font-size:clamp(15px,1.9vw,19px); font-weight:900; }
+  .month-kicker em { font-style:normal; color:var(--blue); }
+
+  /* questions */
+  .qgrid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:44px; }
+  .qcard { background:#fff; border:1px solid var(--line); border-radius:10px; padding:15px 20px; display:flex; gap:12px; align-items:baseline; box-shadow:0 6px 18px rgba(26,26,26,.04); }
+  .qcard .qm { font-family:"Inter",sans-serif; font-weight:800; color:var(--blue); flex:none; }
+  .qcard p { font-size:14px; font-weight:700; line-height:1.8; }
+  .qnote { text-align:center; margin-top:28px; font-size:13.5px; color:var(--sub); line-height:2.1; }
+  .qnote b { color:var(--ink); }
+
   /* cta final */
   .cta-band { margin-top:110px; background:linear-gradient(135deg, var(--blue), var(--blue-deep)); color:#fff; padding:84px 0; position:relative; overflow:hidden; text-align:center; }
   .cta-band .ghostword { position:absolute; left:50%; bottom:-24px; transform:translateX(-50%); font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(80px,13vw,170px); color:rgba(255,255,255,.07); white-space:nowrap; }
@@ -449,6 +503,10 @@
     .sem-card { grid-template-columns:1fr; }
     .schedule .row { grid-template-columns:96px 1fr; }
     .schedule .tag { display:none; }
+    .entry-grid, .qgrid, .roi-grid { grid-template-columns:1fr; }
+    .roi-r { grid-template-columns:1fr auto; }
+    .roi-r .how { grid-column:1 / -1; }
+    .monthly .mrow { grid-template-columns:96px 1fr; padding:15px 18px; }
     .foot-grid { grid-template-columns:1fr 1fr; }
     .dock-in p { display:none; }
   }
@@ -510,9 +568,9 @@
       </div>
     </div>
     <div class="medals reveal">
+      <div class="medal"><b>毎日<small>更新</small></b><span>AIニュースを<br>使いどころ付きで</span></div>
       <div class="medal"><b>月1<small>回</small></b><span>実務セミナー<br>録画アーカイブ付き</span></div>
       <div class="medal"><b>24<small>時間</small></b><span>会員ポータルで<br>自分のペースで学べる</span></div>
-      <div class="medal"><b>週1<small>配信</small></b><span>Q&amp;A・今週の<br>プロンプト</span></div>
     </div>
   </div>
   <div class="hero-chara">
@@ -582,6 +640,38 @@
         <p class="caption">毎月このサイクルを回して、仕事を少しずつAIに置き換えます</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="beyond">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Next Level</span>
+      <h2 class="sec-title">その使い方、<em>入口</em>で止まっていませんか？</h2>
+    </div>
+    <div class="entry-grid">
+      <div class="ecard not reveal">
+        <h4>Entrance</h4>
+        <p class="t">よくある「使えている」</p>
+        <ul>
+          <li>画像や文章を作らせている</li>
+          <li>プロジェクト機能で情報を整理している</li>
+          <li>資料やファイルを作ってもらっている</li>
+        </ul>
+        <p class="after">ここまでは、誰でもすぐたどり着けます。</p>
+      </div>
+      <div class="ecard opt reveal">
+        <h4>Real Value</h4>
+        <p class="t">ラボが目指す「使えている」</p>
+        <ul>
+          <li>毎日の定型業務を、自動化する</li>
+          <li>自社専用の業務ツールを、自分で作る</li>
+          <li>WebサイトやLPを、社内で作りきる</li>
+        </ul>
+        <p class="after strong">外注していた仕事が、社内で終わるレベル。</p>
+      </div>
+    </div>
+    <p class="entry-kicker reveal">この差は、才能ではありません。<em>やり方を知って、続けたか</em>どうかだけです。</p>
   </div>
 </section>
 
@@ -688,8 +778,8 @@
     <div class="portal-stage">
       <img class="portal-main reveal" src="images/portal-home-desktop-light.webp" alt="会員ポータルのホーム画面" loading="lazy">
       <div class="portal-feats">
-        <div class="pfeat reveal"><img src="images/page-videos.webp" alt="動画講座" loading="lazy"><div class="in"><h4>動画講座</h4><p>1本数分。スキマ時間で基礎が揃い、社員教育の「最初の教材」にも。</p></div></div>
-        <div class="pfeat reveal"><img src="images/page-news.webp" alt="AIニュース" loading="lazy"><div class="in"><h4>AIニュース</h4><p>「自分の仕事でどう使えるか」の目線で解説。明日の一手が見つかります。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-videos.webp" alt="動画講座" loading="lazy"><div class="in"><h4>動画講座</h4><p>1本2〜5分。見たらチェックが付き、進み具合は自動で残ります。社員教育の「最初の教材」にも。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-news.webp" alt="AIニュース" loading="lazy"><div class="in"><h4>AIニュース</h4><p>毎日更新。ニュースごとに「仕事でどう使えるか」の解説付きです。</p></div></div>
         <div class="pfeat reveal"><img src="images/page-prompts.webp" alt="プロンプト集" loading="lazy"><div class="in"><h4>プロンプト集</h4><p>コピーして貼るだけで今日から時短。毎週「今週のプロンプト」が届きます。</p></div></div>
         <div class="pfeat reveal"><img src="images/page-qa.webp" alt="Q&A" loading="lazy"><div class="in"><h4>Q&amp;A</h4><p>質問はLINEに送るだけ。過去のQ&amp;Aが検索できる財産になります。</p></div></div>
       </div>
@@ -750,6 +840,33 @@
   </div>
 </section>
 
+<section id="roi">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">ROI</span>
+      <h2 class="sec-title">AIに任せられる仕事、<em>月12万円分</em>。</h2>
+      <p class="sec-sub">ラボで扱ってきた実務テーマのうち、数字にしやすい6つを人件費に換算しました（時間は時給1,500円、LP・動画編集は外注費で試算）。</p>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-total reveal">
+        <p class="cap">任せた仕事を、人件費に直すと</p>
+        <div class="amount"><span class="n">12.3</span><span class="u">万円分 / 月</span></div>
+        <p class="plus">＋ 初回 30万円の制作費</p>
+        <p class="cut">“任せた仕事”は、そのまま人件費の節約になります。数字にしにくいテーマは、ここに入れていません。</p>
+      </div>
+      <div class="roi-rows reveal">
+        <div class="roi-r"><span class="name">LP・サイトを作る</span><span class="how">外注すれば制作費が丸ごと</span><span class="worth">30万円〜<small>初回</small></span></div>
+        <div class="roi-r"><span class="name">議事録</span><span class="how">週2回の会議 × 清書に40分</span><span class="worth">月 0.8万円</span></div>
+        <div class="roi-r"><span class="name">リサーチ・資料読み</span><span class="how">週2時間の調べ物・読み込み</span><span class="worth">月 1.2万円</span></div>
+        <div class="roi-r"><span class="name">動画編集</span><span class="how">外注すれば1本1万円 × 月2本</span><span class="worth">月 2万円</span></div>
+        <div class="roi-r"><span class="name">口コミ返信</span><span class="how">毎日20分、文面に悩む時間</span><span class="worth">月 1.5万円</span></div>
+        <div class="roi-r"><span class="name">しゃべるだけ日報</span><span class="how">スタッフ3人 × 毎日30分の日報タイム</span><span class="worth">月 6.8万円</span></div>
+      </div>
+    </div>
+    <p class="roi-kicker reveal">会費は月9,800円。<em>ひと月にひとつ置き換えるだけで、もとが取れる</em>計算です。</p>
+  </div>
+</section>
+
 <div class="band-gray" id="price">
   <div class="container">
     <div class="sec-head reveal">
@@ -784,6 +901,42 @@
     </div>
     <p class="steps-note reveal">パソコンが得意でなくても大丈夫。<em>現在地に合わせた始め方</em>をご提案します。</p>
     <p class="steps-cta reveal"><a href="mailto:seminar@opus-net.net" class="btn">入会・相談のご連絡はこちら <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<section id="monthly">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Monthly</span>
+      <h2 class="sec-title">入会したら、こんな<em>1ヶ月</em>。</h2>
+    </div>
+    <div class="monthly reveal">
+      <div class="mrow"><span class="freq">週3本</span><div><h4>LINEに届く定期便</h4><p>AIニュース（火・金）＋会員Q&amp;A（日曜朝）。読むだけで流れについていけます。</p></div></div>
+      <div class="mrow"><span class="freq">毎週月曜</span><div><h4>今週のプロンプト</h4><p>コピーしてそのまま使える実務プロンプトが、ポータルで毎週入れ替わります。</p></div></div>
+      <div class="mrow"><span class="freq">月1回</span><div><h4>実務セミナー</h4><p>1.5〜2時間。出られない月は録画と資料がポータルに残ります。</p></div></div>
+      <div class="mrow"><span class="freq">初月</span><div><h4>スタート面談 30分</h4><p>いまの状況を伺い、最初の一歩を一緒に決める個別面談です。</p></div></div>
+    </div>
+    <p class="month-kicker reveal">あなたがやることは、<em>届いたものをひとつ試すだけ</em>。それを毎月くり返します。</p>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Questions</span>
+      <h2 class="sec-title">こんな質問が、毎週届いています。</h2>
+    </div>
+    <div class="qgrid reveal">
+      <div class="qcard"><span class="qm">Q.</span><p>結局、何から始めればいいですか？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>会議の録音から議事録を作ってもらえますか？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>ChatGPTに患者さんやお客様の名前を入れて文章を作ってもいいの？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>AIで作った文章や画像を、チラシや商品に使っても大丈夫？著作権は？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>社員が会社に黙ってAIを使っているようです。禁止したほうがいい？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>会社として導入するなら、個人プランを人数分契約すればいいんですか？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>同じ質問なのに、聞くたびに答えが違います。壊れてる？</p></div>
+      <div class="qcard"><span class="qm">Q.</span><p>ちゃんと答えてくれません。私の質問の仕方が悪いんでしょうか？</p></div>
+    </div>
+    <p class="qnote reveal">すべて、実際に会員のみなさまから届いた質問です。回答つきで会員ポータルに蓄積されています。<br><b>「何がわからないか、わからない」段階の質問こそ歓迎です。</b>他の会員の質問と回答が、毎週あなたにも届きます。</p>
   </div>
 </section>
 
