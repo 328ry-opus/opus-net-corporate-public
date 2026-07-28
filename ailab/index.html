@@ -13,7 +13,7 @@
 <meta property="og:description" content="本当に仕事で使えるところまで、毎月ひとつ実践する。月1回の実務セミナー・LINE質問・会員ポータル・プロンプト配布、すべて込みで月額9,800円（税別）。株式会社Opus.net運営。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://opus-net.net/ailab/">
-<meta property="og:image" content="https://opus-net.net/ailab/images/og.jpg">
+<meta property="og:image" content="https://opus-net.net/ailab/images/og-lab-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="仕事で使えるAIラボ">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="仕事で使えるAIラボ｜中小企業のためのAI活用コミュニティ">
 <meta name="twitter:description" content="本当に仕事で使えるところまで、毎月ひとつ実践する。月額9,800円（税別）、すべて込み。">
-<meta name="twitter:image" content="https://opus-net.net/ailab/images/og.jpg">
+<meta name="twitter:image" content="https://opus-net.net/ailab/images/og-lab-v2.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -461,6 +461,12 @@
   .chat-typing i:nth-child(2) { animation-delay:.2s; }
   .chat-typing i:nth-child(3) { animation-delay:.4s; }
   @keyframes chatblink { 0%,60%,100% { opacity:.3; } 30% { opacity:1; } }
+  .chat-input-row { display:flex; gap:8px; margin-top:2px; }
+  .chat-input-row input, .chat-input-row textarea { flex:1; border:1.5px solid var(--line); border-radius:10px; background:#fff; padding:10px 12px; font-size:13px; font-family:inherit; resize:none; }
+  .chat-input-row input:focus, .chat-input-row textarea:focus { outline:none; border-color:var(--blue); }
+  .chat-input-row button { flex:none; border:none; cursor:pointer; background:var(--blue); color:#fff; font-weight:900; font-size:12.5px; border-radius:10px; padding:0 16px; font-family:inherit; }
+  .chat-input-row button:disabled { opacity:.5; cursor:default; }
+  .chat-ts { margin-top:2px; min-height:66px; }
   .chat-foot { border-top:1px solid var(--line); padding:10px 14px; display:flex; align-items:center; gap:10px; transition:background .2s; }
   .chat-foot:hover { background:var(--blue-tint); }
   .chat-foot span { flex:1; font-size:12.5px; color:var(--blue); font-weight:900; }
@@ -1166,8 +1172,9 @@
       ]
     },
     consult: {
-      bot: "「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。\nメールでお気軽にご連絡ください。",
+      bot: "「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。\nこのままチャットで送れます。",
       chips: [
+        { label: "このままチャットで相談する", form: true },
         { label: "メールを書く", url: "mailto:seminar@opus-net.net" },
         { label: "ほかの質問をする", to: "menu" }
       ]
@@ -1217,7 +1224,7 @@
             u.textContent = c.label;
             chatLog.appendChild(u);
             scrollChat();
-            showNode(c.to);
+            if (c.form) { startConsultForm(); } else { showNode(c.to); }
           });
         }
         el.textContent = c.label;
@@ -1227,6 +1234,147 @@
       scrollChat();
     }, 500);
   }
+  // chat consult form (posts to CRM consult-request API)
+  const CONSULT_API = "https://opus-ai-forms.pages.dev/api/consult-request";
+  const TURNSTILE_SITEKEY = "0x4AAAAAADwFkJptZs1hFxEc";
+  const CONSULT_FIELDS = [
+    { key: "contactName", q: "ありがとうございます。お名前を教えてください。", ph: "山田 太郎" },
+    { key: "companyName", q: "会社名・屋号を教えてください。", ph: "株式会社〇〇 / 〇〇店" },
+    { key: "email", q: "ご返信先のメールアドレスを教えてください。", ph: "example@company.co.jp", type: "email" },
+    { key: "message", q: "ご相談内容をどうぞ。書き終えたら送信を押してください。", ph: "例: 自分の会社でもAIを使えるか相談したい", textarea: true }
+  ];
+  function botSay(text, cb) {
+    const typing = document.createElement("div");
+    typing.className = "chat-typing";
+    typing.innerHTML = "<i></i><i></i><i></i>";
+    chatLog.appendChild(typing);
+    scrollChat();
+    setTimeout(() => {
+      typing.remove();
+      const msg = document.createElement("div");
+      msg.className = "msg bot";
+      msg.textContent = text;
+      chatLog.appendChild(msg);
+      scrollChat();
+      if (cb) cb();
+    }, 500);
+  }
+  function askField(i, data) {
+    if (i >= CONSULT_FIELDS.length) { askTurnstile(data); return; }
+    const f = CONSULT_FIELDS[i];
+    botSay(f.q, () => {
+      const row = document.createElement("form");
+      row.className = "chat-input-row";
+      const input = document.createElement(f.textarea ? "textarea" : "input");
+      if (!f.textarea) input.type = f.type || "text";
+      if (f.textarea) input.rows = 3;
+      input.placeholder = f.ph;
+      input.maxLength = f.key === "message" ? 1000 : 120;
+      const btn = document.createElement("button");
+      btn.type = "submit";
+      btn.textContent = "送信";
+      row.appendChild(input);
+      row.appendChild(btn);
+      row.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const v = input.value.trim();
+        if (!v) return;
+        if (f.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+          botSay("メールアドレスの形式でお願いします。");
+          return;
+        }
+        data[f.key] = v;
+        row.remove();
+        const u = document.createElement("div");
+        u.className = "msg user";
+        u.textContent = v;
+        chatLog.appendChild(u);
+        scrollChat();
+        askField(i + 1, data);
+      });
+      chatLog.appendChild(row);
+      input.focus();
+      scrollChat();
+    });
+  }
+  function askTurnstile(data) {
+    botSay("最後に、ロボットでないことの確認にご協力ください。確認できたらそのまま送信します。", () => {
+      const box = document.createElement("div");
+      box.className = "chat-ts";
+      chatLog.appendChild(box);
+      scrollChat();
+      const render = () => {
+        window.turnstile.render(box, {
+          sitekey: TURNSTILE_SITEKEY,
+          callback: (token) => submitConsult(data, token, box)
+        });
+      };
+      if (window.turnstile) { render(); }
+      else {
+        const s = document.createElement("script");
+        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__labTsReady";
+        window.__labTsReady = render;
+        document.head.appendChild(s);
+      }
+    });
+  }
+  function submitConsult(data, token, box) {
+    botSay("送信しています…", () => {
+      fetch(CONSULT_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, turnstileToken: token })
+      })
+        .then((r) => r.json().then((j) => ({ ok: r.ok && j.ok !== false, j })))
+        .then(({ ok }) => {
+          box.remove();
+          if (ok) {
+            botSay("ご相談を受け付けました！内容を確認して、1営業日以内にメールでご返信します。受付確認のメールもお送りしました。", () => showChipsOnly("menu"));
+          } else {
+            botSay("うまく送信できませんでした。お手数ですが、メールでご連絡ください。", () => showChipsOnly("consultFallback"));
+          }
+        })
+        .catch(() => {
+          box.remove();
+          botSay("うまく送信できませんでした。お手数ですが、メールでご連絡ください。", () => showChipsOnly("consultFallback"));
+        });
+    });
+  }
+  function showChipsOnly(id) {
+    const source = id === "consultFallback"
+      ? [{ label: "メールを書く", url: "mailto:seminar@opus-net.net" }, { label: "ほかの質問をする", to: "menu" }]
+      : SCENARIO.menu.chips;
+    const chips = document.createElement("div");
+    chips.className = "chat-chips";
+    source.forEach((c) => {
+      let el;
+      if (c.url) {
+        el = document.createElement("a");
+        el.href = c.url;
+        if (!c.url.startsWith("mailto:")) { el.target = "_blank"; el.rel = "noopener noreferrer"; }
+      } else {
+        el = document.createElement("button");
+        el.type = "button";
+        el.addEventListener("click", () => {
+          chips.remove();
+          const u = document.createElement("div");
+          u.className = "msg user";
+          u.textContent = c.label;
+          chatLog.appendChild(u);
+          scrollChat();
+          showNode(c.to);
+        });
+      }
+      el.textContent = c.label;
+      chips.appendChild(el);
+    });
+    chatLog.appendChild(chips);
+    scrollChat();
+  }
+  function startConsultForm() {
+    askField(0, {});
+  }
+
   showNode("start");
 
   // chat: open by default on desktop, launcher on mobile
