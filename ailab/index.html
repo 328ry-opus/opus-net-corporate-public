@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仕事で使えるAIラボ｜中小企業のためのAI活用コミュニティ（月1実務セミナー・月額9,800円）</title>
+<meta name="description" content="仕事で使えるAIラボは、毎月の実務テーマと他社の事例を見ながら、自社の仕事を少しずつAIに置き換えていく継続型コミュニティです。月1回の実務セミナー・LINE質問・会員ポータル・プロンプト配布、すべて込みで月額9,800円（税別）。">
+<link rel="canonical" href="https://opus-net.net/ailab/">
+<meta property="og:title" content="仕事で使えるAIラボ｜中小企業のためのAI活用コミュニティ">
+<meta property="og:description" content="本当に仕事で使えるところまで、毎月ひとつ実践する。月1回の実務セミナー・LINE質問・会員ポータル・プロンプト配布、すべて込みで月額9,800円（税別）。株式会社Opus.net運営。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://opus-net.net/ailab/">
+<meta property="og:image" content="https://opus-net.net/ailab/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="仕事で使えるAIラボ">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="仕事で使えるAIラボ｜中小企業のためのAI活用コミュニティ">
+<meta name="twitter:description" content="本当に仕事で使えるところまで、毎月ひとつ実践する。月額9,800円（税別）、すべて込み。">
+<meta name="twitter:image" content="https://opus-net.net/ailab/images/og.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://opus-net.net/#org",
+      "name": "株式会社Opus.net",
+      "url": "https://opus-net.net/",
+      "address": { "@type": "PostalAddress", "addressRegion": "東京都", "addressLocality": "台東区", "streetAddress": "浅草橋" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "email": "seminar@opus-net.net" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://opus-net.net/ailab/#website",
+      "url": "https://opus-net.net/ailab/",
+      "name": "仕事で使えるAIラボ",
+      "publisher": { "@id": "https://opus-net.net/#org" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://opus-net.net/ailab/#service",
+      "name": "仕事で使えるAIラボ",
+      "serviceType": "AI活用コミュニティ・AI研修",
+      "description": "中小企業のための継続型AI活用コミュニティ。毎月の実務テーマと他社の事例を見ながら、自社の仕事を少しずつAIに置き換えていく。月1回の実務セミナー（録画あり）、LINEでの質問、会員ポータル（動画講座・プロンプト集・AIニュース・Q&A）、実務プロンプトの配布を含む。",
+      "provider": { "@id": "https://opus-net.net/#org" },
+      "areaServed": "JP",
+      "audience": { "@type": "BusinessAudience", "name": "中小企業の経営者・現場担当者" },
+      "offers": [ { "@type": "Offer", "name": "スタンダード（月額）", "price": "9800", "priceCurrency": "JPY", "description": "税別・月額9,800円/人。セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて込み。チーム参加の割引など詳細は資料にてご案内。" } ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://opus-net.net/ailab/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "料金には何が含まれますか？", "acceptedAnswer": { "@type": "Answer", "text": "セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。詳しい料金体系は資料にてご案内しています。" } },
+        { "@type": "Question", "name": "社内の複数人で参加できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、同じ会社の複数人でご参加いただけます。社内に広げるほど1人あたりが軽くなるチーム向けの料金をご用意しています。詳しくは資料にてご案内しています。" } },
+        { "@type": "Question", "name": "途中で解約できますか？", "acceptedAnswer": { "@type": "Answer", "text": "最低利用期間は初月を含む3ヶ月です。以降はいつでも解約できます。年間契約の縛りはありません。" } },
+        { "@type": "Question", "name": "パソコンが得意でなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "大丈夫です。入会後30分の個別スタート面談で現在地に合わせた始め方をご提案します。基礎コースの動画から自分のペースで始められます。" } },
+        { "@type": "Question", "name": "個別のコンサルティングもお願いできますか？", "acceptedAnswer": { "@type": "Answer", "text": "ラボには会社別の個別診断・個別伴走は含まれません。必要な会社だけ、個別相談・ハンズオン研修・AI顧問などの個別支援（別料金）をご案内しています。" } },
+        { "@type": "Question", "name": "入会前に雰囲気を知る方法はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "毎月開催している無料のAI活用セミナーにご参加ください。相談だけのご連絡も歓迎です。" } }
+      ]
+    },
+    {
+      "@type": "EventSeries",
+      "@id": "https://opus-net.net/ailab/#seminar-series",
+      "name": "実務に使えるAI活用無料セミナー",
+      "description": "業種を問わず参加できる無料のオンラインセミナー。主要AIツールの違いから、情報整理・資料作成・業務改善への活かし方まで。毎月開催・各回約1時間。",
+      "organizer": { "@id": "https://opus-net.net/#org" },
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "isAccessibleForFree": true,
+      "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" },
+      "subEvent": [
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/4 午前）", "startDate": "2026-08-04T10:00:00+09:00", "endDate": "2026-08-04T11:00:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/4 午後）", "startDate": "2026-08-04T15:30:00+09:00", "endDate": "2026-08-04T16:30:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/6 午前）", "startDate": "2026-08-06T10:00:00+09:00", "endDate": "2026-08-06T11:00:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/6 午後）", "startDate": "2026-08-06T15:30:00+09:00", "endDate": "2026-08-06T16:30:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/25 午前）", "startDate": "2026-08-25T10:00:00+09:00", "endDate": "2026-08-25T11:00:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/25 午後）", "startDate": "2026-08-25T15:30:00+09:00", "endDate": "2026-08-25T16:30:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/26 午前）", "startDate": "2026-08-26T10:00:00+09:00", "endDate": "2026-08-26T11:00:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } },
+        { "@type": "Event", "name": "8月のAI活用無料セミナー（8/26 午後）", "startDate": "2026-08-26T15:30:00+09:00", "endDate": "2026-08-26T16:30:00+09:00", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "location": { "@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/" } }
+      ]
+    }
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:#2440ff; --blue-deep:#1B31C4; --ink:#0e0f12;
+    --gray:#f1f1ed; --white:#FFFFFF; --paper:#fafaf8; --sub:#70747f; --line:#e3e3de; --blue-tint:#e9edff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:104px; }
+  body { font-family:"Noto Sans JP",sans-serif; color:var(--ink); background:var(--paper); line-height:2; overflow-x:clip; }
+  h1,h2,h3,h4 { font-feature-settings:"palt"; letter-spacing:.02em; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  .en { font-family:"Inter",sans-serif; }
+  .container { width:min(90%, 1140px); margin-inline:auto; }
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-in { opacity:1; transform:none; }
+
+  .sec-head { text-align:center; }
+  .sec-head--left { text-align:left; }
+  .sec-label { display:inline-block; background:var(--blue); color:#fff; font-size:12.5px; font-weight:900; letter-spacing:.1em; padding:5px 22px; border-radius:4px; }
+  .sec-title { font-size:clamp(26px,3.3vw,40px); font-weight:900; line-height:1.55; margin-top:16px; text-wrap:balance; }
+  .sec-title em { font-style:normal; color:var(--blue); }
+  .sec-sub { margin-top:12px; color:var(--sub); font-size:13.5px; max-width:44em; margin-inline:auto; }
+  .sec-head--left .sec-sub { margin-inline:0; }
+
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:900; font-size:14px; padding:16px 34px; border-radius:8px; background:var(--blue); color:#fff; box-shadow:0 4px 0 var(--blue-deep); transition:transform .2s, box-shadow .2s, filter .2s; text-align:center; }
+  .btn:hover { transform:translateY(2px); box-shadow:0 2px 0 var(--blue-deep); filter:brightness(1.06); }
+  .btn--white { background:#fff; color:var(--blue); box-shadow:0 4px 0 rgba(14,15,18,.28); }
+  .btn--dark { background:var(--ink); color:#fff; box-shadow:0 4px 0 rgba(14,15,18,.45); }
+  .btn--paper { background:#fff; color:var(--ink); box-shadow:0 4px 0 rgba(14,15,18,.28); }
+  .btn--ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); box-shadow:0 4px 0 var(--ink); }
+  .arrow { width:15px; height:15px; }
+
+  .check::before { content:""; position:absolute; left:2px; top:18px; width:14px; height:8px; border-left:2.5px solid var(--blue); border-bottom:2.5px solid var(--blue); transform:rotate(-48deg); }
+
+  /* topbar + header */
+  .topbar { background:var(--blue); color:#fff; font-size:12px; font-weight:700; }
+  .topbar-in { width:calc(100% - 48px); margin-inline:auto; display:flex; justify-content:space-between; align-items:center; height:40px; gap:14px; }
+  .topbar .mail { font-family:"Inter",sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:.02em; display:inline-flex; align-items:center; gap:7px; }
+  .topbar .mail svg { width:16px; height:16px; }
+  .topbar .right { display:flex; align-items:center; gap:20px; white-space:nowrap; }
+  .topbar .memberlink { color:#fff; }
+  .topbar .memberlink:hover { text-decoration:underline; }
+  .topbar .lead-copy { color:rgba(255,255,255,.85); }
+  header { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--line); }
+  .header-in { display:flex; align-items:center; gap:12px; white-space:nowrap; width:calc(100% - 44px); margin-inline:auto; height:88px; }
+  .brand { display:flex; align-items:baseline; gap:14px; }
+  .brand .name { font-weight:900; font-size:20px; line-height:1.2; border:2.5px solid var(--blue); color:var(--blue); padding:6px 12px; }
+  .brand .tagline { font-size:12.5px; font-weight:900; }
+  .brand .tagline i { font-style:normal; color:var(--blue); }
+  nav.g { margin-left:auto; font-size:13.5px; font-weight:700; white-space:nowrap; display:flex; gap:clamp(6px,1.1vw,26px); margin-right:clamp(8px,1.2vw,24px); }
+  nav.g a { padding:3px 2px; }
+  nav.g a:hover { color:var(--blue); }
+  .header-cta { display:flex; gap:10px; align-items:center; }
+  .header-cta .btn { padding:12px 20px; font-size:12.5px; border-radius:6px; box-shadow:none; }
+  .header-cta .btn--dark:hover, .header-cta .btn:hover { transform:none; filter:brightness(1.1); }
+  .header-cta .btn--frame { background:#fff; color:var(--blue); border:2px solid var(--blue); }
+
+  /* hero — ReadyCrew実測トレース: 色面565px級・名前1行ロゴ級・キャラが面の高さいっぱい */
+  .hero { background:var(--blue); color:#fff; padding:clamp(44px,5.5vw,80px) 0 0; position:relative; }
+  .hero-grid { position:relative; }
+  .hero-copy { max-width:640px; position:relative; z-index:3; }
+  .hero .cat { font-size:clamp(17px,1.95vw,27px); font-weight:900; letter-spacing:.04em; }
+  .hero .name { font-size:clamp(38px,4.95vw,71px); font-weight:900; line-height:1.2; letter-spacing:.02em; margin-top:6px; white-space:nowrap; }
+  .hero .pitch { margin-top:18px; max-width:36em; }
+  .hero .pitch b { display:block; font-size:clamp(14.5px,1.5vw,17px); font-weight:900; line-height:1.9; }
+  .hero .pitch p { font-size:13px; color:rgba(255,255,255,.88); margin-top:4px; line-height:1.9; }
+  .hero .cta-col { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px; max-width:640px; }
+  .hero .cta-col .btn { min-width:0; padding:11px 10px; min-height:64px; font-size:13.5px; line-height:1.55; }
+  .hero .note { margin-top:12px; font-size:11.5px; color:rgba(255,255,255,.75); }
+  .hero-chara { position:absolute; bottom:0; right:calc((100% - min(90%, 1140px)) / 2); height:min(87%, 40vw); z-index:1; }
+  .hero-chara .chara { display:block; height:100%; width:auto; }
+
+  /* medals — RC実測: 直径175px級・面の下端をまたぐ */
+  .medals { display:flex; justify-content:flex-start; gap:20px; margin-top:clamp(22px,2.8vw,42px); margin-bottom:-80px; flex-wrap:wrap; position:relative; z-index:5; }
+  .medal { width:160px; height:160px; border-radius:50%; background:#fff; border:3px solid var(--blue); box-shadow:0 10px 26px rgba(9,14,60,.28), inset 0 0 0 7px #fff, inset 0 0 0 9px var(--blue); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:2px; }
+  .medal b { font-family:"Inter",sans-serif; font-weight:800; font-size:32px; color:var(--blue); line-height:1.1; }
+  .medal b small { font-family:"Noto Sans JP"; font-size:13.5px; font-weight:900; color:var(--ink); }
+  .medal span { font-size:10.5px; color:var(--sub); line-height:1.6; padding:0 14px; font-weight:700; }
+
+  /* 業種帯（ロゴウォール位置）＋実績文 */
+  .industry-band { background:var(--gray); padding:130px 0 26px; overflow:hidden; }
+  .industry-band .track-wrap { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#fff; padding:16px 0; }
+  .industry-band .track { display:flex; gap:2.8em; width:max-content; animation:slide 32s linear infinite; font-size:14.5px; font-weight:900; color:var(--ink); white-space:nowrap; }
+  .industry-band .track i { font-style:normal; color:var(--blue); }
+  @keyframes slide { to { transform:translateX(-50%); } }
+  .proof { text-align:center; padding:56px 0 0; }
+  .proof p { font-size:clamp(17px,2.2vw,26px); font-weight:900; line-height:1.9; }
+  .proof em { font-style:normal; color:var(--blue); }
+  .proof small { display:block; font-size:12px; font-weight:700; color:var(--sub); margin-top:6px; }
+
+  /* サブ訴求（赤見出し＋CM位置） */
+  .subhero { padding:96px 0 0; position:relative; overflow:hidden; }
+  .subhero .ghostword { position:absolute; left:-20px; top:30px; font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(90px,13vw,170px); color:rgba(36,64,255,.06); white-space:nowrap; pointer-events:none; }
+  .subhero-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,60px); align-items:center; position:relative; }
+  .subhero h2 { font-size:clamp(26px,3.2vw,38px); font-weight:900; line-height:1.6; color:var(--blue); }
+  .subhero .desc { font-size:13.5px; margin-top:14px; }
+  .subhero .desc b { font-weight:900; }
+  .subhero .btn { margin-top:22px; min-width:260px; }
+  .subhero-visual { position:relative; }
+  .subhero-visual img { border-radius:8px 8px 0 0; box-shadow:0 20px 50px rgba(14,15,18,.16); }
+  .subhero-visual .band { background:var(--blue); color:#fff; text-align:center; font-weight:900; font-size:14.5px; padding:10px 0; border-radius:0 0 8px 8px; box-shadow:0 20px 50px rgba(14,15,18,.16); }
+
+  section { padding:96px 0 0; }
+  .band-gray { background:var(--gray); margin-top:96px; padding:88px 0; }
+
+  /* pains */
+  .pains { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px; }
+  .pain { background:#fff; border:1px solid var(--line); border-radius:10px; padding:30px 26px; box-shadow:0 6px 18px rgba(26,26,26,.05); text-align:center; }
+  .pain .no { display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; background:var(--blue); color:#fff; font-family:"Inter",sans-serif; font-weight:800; font-size:18px; }
+  .pain h3 { font-size:17.5px; font-weight:900; margin-top:14px; line-height:1.7; }
+  .pain p { font-size:12.5px; color:var(--sub); margin-top:8px; text-align:left; }
+  .pain-answer { text-align:center; font-size:clamp(22px,3vw,33px); font-weight:900; margin-top:48px; line-height:1.7; }
+  .pain-answer em { font-style:normal; color:var(--blue); background:linear-gradient(transparent 68%, rgba(36,64,255,.16) 68% 96%, transparent 96%); }
+
+  /* about diagram */
+  .about-grid { display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(28px,4vw,54px); align-items:center; margin-top:72px; }
+  .about-grid h3 { font-size:clamp(22px,2.6vw,31px); font-weight:900; line-height:1.65; }
+  .about-grid .desc b { font-weight:900; color:var(--ink); }
+  .about-grid h3 em { font-style:normal; color:var(--blue); }
+  .about-grid p.desc { color:var(--sub); font-size:13.5px; margin-top:14px; }
+  .diagram { background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px; box-shadow:0 14px 36px rgba(26,26,26,.08); }
+  .diagram .row { display:grid; grid-template-columns:1fr 46px 1fr; align-items:center; gap:8px; padding:9px 0; }
+  .diagram .cell { background:var(--gray); border-radius:8px; padding:11px 14px; font-size:13px; font-weight:900; text-align:center; }
+  .diagram .cell small { display:block; font-weight:500; font-size:11px; color:var(--sub); }
+  .diagram .link { text-align:center; color:var(--blue); font-family:"Inter"; font-weight:800; font-size:18px; }
+  .diagram .caption { text-align:center; font-size:11.5px; color:var(--sub); margin-top:10px; font-weight:700; }
+
+  /* courses — ReadyCrewカテゴリカード式（薄青面＋ハッシュ項目） */
+  .courses { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,26px); margin-top:44px; }
+  .course { display:flex; flex-direction:column; }
+  .course .face { background:var(--blue-tint); border-radius:12px; padding:28px 24px 22px; text-align:center; transition:background .25s; }
+  .course:hover .face { background:#dde4ff; }
+  .course .en-name { font-family:"Inter",sans-serif; font-weight:800; font-size:23px; color:var(--blue); }
+  .course .jp { font-size:12.5px; font-weight:900; margin-top:2px; }
+  .course .tags { list-style:none; padding:14px 6px 0; }
+  .course .tags li { font-size:12.5px; color:var(--sub); font-weight:700; padding:4px 0; }
+  .course .tags li::before { content:"# "; color:var(--blue); font-family:"Inter",sans-serif; font-weight:800; }
+
+  /* reasons */
+  .pillar { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,60px); align-items:center; margin-top:60px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:clamp(24px,3.4vw,46px); box-shadow:0 14px 36px rgba(26,26,26,.07); }
+  .pillar:nth-of-type(even) .pillar-img { order:2; }
+  .pillar-img { position:relative; }
+  .pillar-img img { border-radius:10px; }
+  .pillar-img .imgno { position:absolute; left:-16px; top:-30px; font-family:"Inter",sans-serif; font-weight:800; font-size:70px; color:transparent; -webkit-text-stroke:1.6px var(--blue); line-height:1; z-index:2; }
+  .pillar .cat { display:inline-block; background:var(--blue); color:#fff; font-size:11.5px; font-weight:900; letter-spacing:.12em; padding:3px 14px; border-radius:4px; text-transform:uppercase; }
+  .pillar h3 { font-size:clamp(20px,2.4vw,28px); font-weight:900; line-height:1.6; margin-top:12px; text-wrap:balance; }
+  .pillar p.desc { color:var(--sub); font-size:13.5px; margin-top:10px; }
+  .pillar ul { list-style:none; margin-top:14px; }
+  .pillar li { position:relative; padding:11px 0 11px 30px; border-bottom:1px solid var(--line); font-size:14px; font-weight:700; }
+  .pillar li small { display:block; font-weight:400; font-size:12px; color:var(--sub); }
+
+  /* cta strip */
+  .cta-strip { background:var(--blue); color:#fff; padding:34px 0; }
+  .cta-strip-in { display:flex; align-items:center; justify-content:center; gap:clamp(16px,3vw,40px); flex-wrap:wrap; text-align:center; }
+  .cta-strip p { font-size:clamp(16px,1.8vw,21px); font-weight:900; }
+  .cta-strip .btn--white { padding:15px 38px; }
+
+  /* portal */
+  .portal-stage { margin-top:46px; position:relative; }
+  .portal-main { position:relative; width:min(860px,92%); margin-inline:auto; border-radius:10px; box-shadow:0 30px 70px rgba(26,26,26,.16); border:1px solid var(--line); }
+  .portal-feats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
+  .pfeat { background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(26,26,26,.05); transition:transform .22s, box-shadow .22s; }
+  .pfeat:hover { transform:translateY(-4px); box-shadow:0 14px 30px rgba(26,26,26,.1); }
+  .pfeat img { aspect-ratio:16/10; object-fit:cover; object-position:top; border-bottom:1px solid var(--line); }
+  .pfeat .in { padding:14px 16px 16px; }
+  .pfeat h4 { font-size:15px; font-weight:900; color:var(--blue); }
+  .pfeat p { font-size:11.5px; color:var(--sub); margin-top:5px; line-height:1.9; }
+
+  /* case — 導入事例カード風 */
+  .case-card { margin-top:44px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 14px 36px rgba(26,26,26,.08); padding:clamp(26px,3.4vw,48px); display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(26px,4vw,54px); align-items:center; }
+  .case-card .rep { display:inline-block; background:var(--blue-tint); color:var(--blue); font-size:11.5px; font-weight:900; letter-spacing:.1em; border-radius:4px; padding:3px 14px; }
+  .case-card h3 { font-size:clamp(22px,2.7vw,31px); font-weight:900; line-height:1.7; margin-top:12px; }
+  .case-card h3 em { font-style:normal; color:var(--blue); }
+  .case-card p.desc { font-size:13.5px; color:var(--sub); margin-top:12px; }
+  .case-facts { margin-top:18px; border-top:2px solid var(--ink); }
+  .case-facts > div { display:grid; grid-template-columns:120px 1fr; gap:14px; padding:11px 2px; font-size:13px; border-bottom:1px solid var(--line); }
+  .case-facts dt { font-weight:900; color:var(--blue); }
+  .case-shot { background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px; box-shadow:0 20px 50px rgba(26,26,26,.13); }
+  .case-shot img { border:1px solid var(--line); border-radius:6px; }
+  .case-shot figcaption { font-size:11px; color:var(--sub); margin-top:8px; }
+
+  /* seminar ＋ 日程リスト（お知らせ行UI） */
+  .sem-card { margin-top:44px; display:grid; grid-template-columns:.85fr 1.15fr; border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 20px 50px rgba(26,26,26,.12); border:1px solid var(--line); }
+  .sem-card__visual { background:linear-gradient(135deg, var(--blue), #5a71ff); color:#fff; position:relative; padding:32px; display:flex; flex-direction:column; justify-content:flex-end; min-height:250px; }
+  .sem-card__visual .mo { font-family:"Inter",sans-serif; font-weight:800; font-size:96px; line-height:1; }
+  .sem-card__visual .free { position:absolute; left:24px; top:20px; font-size:11.5px; font-weight:900; letter-spacing:.06em; }
+  .sem-card__visual .stamp { position:absolute; right:20px; top:18px; width:84px; height:84px; border-radius:50%; background:#fff; color:var(--blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px; transform:rotate(8deg); box-shadow:0 6px 14px rgba(0,0,0,.18); }
+  .sem-card__body { padding:clamp(24px,3.2vw,42px); }
+  .sem-card__title { font-size:clamp(20px,2.2vw,25px); font-weight:900; line-height:1.6; }
+  .sem-card__body .lead { font-size:13px; color:var(--sub); margin-top:8px; }
+  .sem-card__body .btn { margin-top:18px; }
+  .schedule { margin-top:26px; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .schedule .row { display:grid; grid-template-columns:120px 1fr auto; gap:16px; align-items:center; padding:15px 22px; font-size:13.5px; }
+  .schedule .row + .row { border-top:1px solid var(--line); }
+  .schedule .date { font-family:"Inter",sans-serif; font-weight:800; font-size:16px; color:var(--blue); }
+  .schedule .date small { font-family:"Noto Sans JP"; font-size:11.5px; font-weight:900; color:var(--ink); margin-left:4px; }
+  .schedule .row p { font-weight:700; }
+  .schedule .row p small { display:block; font-weight:500; font-size:12px; color:var(--sub); }
+  .schedule .tag { background:var(--blue); color:#fff; font-size:11.5px; font-weight:900; border-radius:999px; padding:3px 14px; white-space:nowrap; }
+
+  /* price — 目玉数字のみ・詳細は資料へ */
+  .price-solo { max-width:640px; margin:52px auto 0; background:#fff; border:2.5px solid var(--blue); border-radius:16px; padding:clamp(32px,4vw,52px) clamp(24px,3.4vw,48px) clamp(28px,3.4vw,44px); position:relative; box-shadow:0 20px 50px rgba(26,26,26,.1); text-align:center; }
+  .price-solo .tag { position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:var(--blue); color:#fff; font-size:12.5px; font-weight:900; border-radius:999px; padding:5px 22px; white-space:nowrap; }
+  .price-line { display:flex; align-items:baseline; justify-content:center; gap:8px; margin-top:8px; }
+  .price-line .num { font-family:"Inter",sans-serif; font-size:clamp(62px,6.4vw,92px); font-weight:800; color:var(--blue); line-height:1; letter-spacing:-.02em; }
+  .price-line .unit { font-size:16px; font-weight:900; }
+  .price-per-day { display:inline-block; margin-top:10px; font-size:13.5px; font-weight:900; background:var(--blue-tint); border-radius:6px; padding:3px 16px; }
+  .price-solo .allin { margin-top:18px; font-size:14px; font-weight:900; line-height:1.9; }
+  .price-solo .more { margin-top:8px; font-size:12.5px; color:var(--sub); }
+  .price-solo .btns { display:flex; gap:12px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
+
+  /* flow */
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:44px; }
+  .step { background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 22px 30px; text-align:center; box-shadow:0 6px 18px rgba(26,26,26,.05); position:relative; }
+  .step::after { content:""; position:absolute; right:-13px; top:calc(50% - 9px); width:11px; height:18px; background:var(--blue); clip-path:polygon(0 0, 100% 50%, 0 100%); z-index:2; }
+  .step:last-child::after { display:none; }
+  .step .n { display:inline-block; background:var(--blue); color:#fff; font-size:11.5px; font-weight:900; letter-spacing:.1em; border-radius:999px; padding:3px 16px; font-family:"Inter",sans-serif; }
+  .step h4 { font-size:16.5px; font-weight:900; margin-top:14px; }
+  .step p { font-size:12.5px; color:var(--sub); margin-top:6px; text-align:left; }
+  .steps-note { text-align:center; margin-top:30px; font-size:14.5px; font-weight:900; }
+  .steps-note em { font-style:normal; color:var(--blue); }
+  .steps-cta { text-align:center; margin-top:24px; }
+
+  /* faq */
+  .faq { margin-top:44px; display:grid; gap:12px; max-width:880px; margin-inline:auto; }
+  .faq details { background:#fff; border:1px solid var(--line); border-radius:10px; padding:0 20px; box-shadow:0 6px 18px rgba(26,26,26,.04); }
+  .faq summary { display:flex; align-items:center; gap:16px; padding:18px 2px; cursor:pointer; list-style:none; font-size:14.5px; font-weight:900; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary .q { flex:none; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:var(--blue); color:#fff; font-family:"Inter",sans-serif; font-weight:800; font-size:14px; }
+  .faq summary .toggle { margin-left:auto; width:28px; height:28px; border-radius:50%; border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--sub); transition:transform .3s, background .3s, color .3s, border-color .3s; flex:none; }
+  .faq details[open] .toggle { transform:rotate(45deg); background:var(--blue); border-color:var(--blue); color:#fff; }
+  .faq .a { padding:0 2px 20px 46px; font-size:13.5px; color:var(--sub); }
+
+  .ov-table { margin-top:44px; border:1px solid var(--line); border-radius:12px; overflow:hidden; max-width:880px; margin-inline:auto; background:#fff; }
+  .ov-table > div { display:grid; grid-template-columns:180px 1fr; font-size:13.5px; }
+  .ov-table > div + div { border-top:1px solid var(--line); }
+  .ov-table dt { font-weight:900; background:var(--gray); padding:14px 18px; }
+  .ov-table dd { color:#3c414d; padding:14px 18px; }
+  @media (max-width:700px) { .ov-table > div { grid-template-columns:1fr; } .ov-table dd { padding-top:0; } }
+
+  /* cta final */
+  .cta-band { margin-top:110px; background:linear-gradient(135deg, var(--blue), var(--blue-deep)); color:#fff; padding:84px 0; position:relative; overflow:hidden; text-align:center; }
+  .cta-band .ghostword { position:absolute; left:50%; bottom:-24px; transform:translateX(-50%); font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(80px,13vw,170px); color:rgba(255,255,255,.07); white-space:nowrap; }
+  .cta-band h2 { font-size:clamp(27px,3.6vw,42px); font-weight:900; line-height:1.6; position:relative; }
+  .cta-band h2 em { font-style:normal; background:linear-gradient(transparent 68%, rgba(255,255,255,.35) 68% 96%, transparent 96%); }
+  .cta-band p { color:rgba(255,255,255,.85); font-size:14px; margin-top:14px; position:relative; }
+  .cta-band .row { display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; justify-content:center; position:relative; }
+  .cta-band .btn--frame { background:transparent; color:#fff; border:2px solid #fff; box-shadow:0 4px 0 rgba(255,255,255,.35); }
+  .cta-band .note { margin-top:16px; font-size:12px; color:rgba(255,255,255,.7); position:relative; }
+
+  /* footer — 多列＋大タグライン */
+  footer { padding:56px 0 0; background:#fff; border-top:1px solid var(--line); }
+  .foot-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr; gap:clamp(20px,3vw,44px); }
+  .foot-brand .name { display:inline-block; font-weight:900; font-size:17px; border:2px solid var(--blue); color:var(--blue); padding:5px 10px; }
+  .foot-brand p { font-size:12.5px; color:var(--sub); margin-top:12px; }
+  .foot-col h5 { font-size:12px; font-weight:900; color:var(--sub); letter-spacing:.1em; }
+  .foot-col ul { list-style:none; margin-top:8px; }
+  .foot-col li { padding:3px 0; }
+  .foot-col a { font-size:13px; font-weight:700; }
+  .foot-col a:hover { color:var(--blue); }
+  .foot-tagline { margin-top:48px; border-top:1px solid var(--line); padding:34px 0 10px; }
+  .foot-tagline p { font-size:clamp(26px,4vw,44px); font-weight:900; line-height:1.4; }
+  .foot-tagline p i { font-style:normal; color:var(--blue); }
+  .foot-bottom { padding:18px 0 22px; display:flex; justify-content:space-between; font-size:11.5px; color:var(--sub); flex-wrap:wrap; gap:8px; }
+
+  /* toast（ヘッダー下・実績/受付中） */
+  .skip-link { position:absolute; left:-9999px; top:0; z-index:300; background:var(--ink); color:#fff; padding:10px 18px; border-radius:0 0 8px 0; font-weight:700; font-size:13px; }
+  .skip-link:focus { left:0; }
+
+  .toast { position:fixed; top:132px; right:0; z-index:99; background:var(--blue); color:#fff; font-size:13px; font-weight:900; padding:10px 14px 10px 20px; display:flex; align-items:center; gap:12px; border-radius:6px 0 0 6px; box-shadow:0 8px 20px rgba(9,14,60,.25); transform:translateX(110%); transition:transform .5s ease; }
+  .toast.is-on { transform:none; }
+  .toast em { font-style:normal; font-family:"Inter",sans-serif; font-size:17px; letter-spacing:.02em; }
+  .toast button { background:none; border:none; color:rgba(255,255,255,.8); font-size:15px; cursor:pointer; padding:2px 4px; }
+
+  /* 左クイックナビ（縦積みミニバナー） */
+  .quicknav { position:fixed; left:16px; top:205px; z-index:94; background:#fff; border-radius:14px; box-shadow:0 16px 44px rgba(14,15,18,.22); padding:34px 14px 14px; width:240px; }
+  .quicknav.is-hidden { display:none; }
+  .qn-launcher { position:fixed; left:0; top:205px; z-index:94; background:#fff; color:var(--blue); border:none; border-radius:0 10px 10px 0; padding:18px 11px; font-size:12.5px; font-weight:900; writing-mode:vertical-rl; letter-spacing:.16em; cursor:pointer; box-shadow:4px 0 16px rgba(14,15,18,.28); display:none; font-family:"Noto Sans JP",sans-serif; }
+  .qn-launcher:hover { background:var(--blue-tint); }
+  .qn-launcher.is-on { display:block; }
+  .quicknav .qn-close { position:absolute; right:9px; top:9px; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; border:none; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .quicknav a { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:2px; border-radius:10px; padding:16px 12px; font-size:15px; font-weight:900; line-height:1.5; margin-bottom:10px; transition:transform .2s, filter .2s; }
+  .quicknav a:hover { transform:translateY(-2px); filter:brightness(1.05); }
+  .quicknav a small { font-size:11.5px; font-weight:700; opacity:.8; }
+  .quicknav a:last-child { margin-bottom:0; }
+  .qn-seminar { background:var(--blue); color:#fff; }
+  .qn-doc { background:var(--ink); color:#fff; }
+  .qn-portal { background:var(--blue-tint); color:var(--ink); }
+  .qn-case { background:#fff; color:var(--ink); border:2px solid var(--blue); }
+  .qn-price { background:var(--gray); color:var(--ink); }
+
+  /* 右チャット（開いた状態で常駐） */
+  .chat { position:fixed; right:18px; bottom:18px; z-index:95; width:330px; background:#fff; border-radius:14px; box-shadow:0 18px 50px rgba(14,15,18,.28); overflow:hidden; display:none; }
+  .chat.is-open { display:block; }
+  .chat-head { background:var(--blue); color:#fff; padding:12px 14px; display:flex; align-items:center; gap:10px; }
+  .chat-head .face { width:38px; height:38px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; flex:none; }
+  .chat-head .face img { width:30px; height:auto; }
+  .chat-head p { font-size:12.5px; font-weight:900; line-height:1.5; }
+  .chat-head p small { display:flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; color:rgba(255,255,255,.85); }
+  .chat-head p small::before { content:""; width:7px; height:7px; border-radius:50%; background:#2FE38A; }
+  .chat-head .chat-min { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.85); font-size:16px; cursor:pointer; padding:4px 6px; }
+  .chat-body { padding:14px; max-height:52vh; overflow-y:auto; }
+  .chat-msg { background:var(--gray); border-radius:10px; padding:10px 14px; font-size:12.5px; font-weight:700; line-height:1.7; }
+  .chat-opts { margin-top:12px; display:grid; gap:8px; }
+  .chat-opts a { display:block; text-align:center; border:2px solid var(--blue); color:var(--blue); border-radius:999px; padding:9px 12px; font-size:12.5px; font-weight:900; transition:background .2s, color .2s; }
+  .chat-opts a:hover { background:var(--blue); color:#fff; }
+  .chat-foot { border-top:1px solid var(--line); padding:10px 14px; display:flex; align-items:center; gap:10px; transition:background .2s; }
+  .chat-foot:hover { background:var(--blue-tint); }
+  .chat-foot span { flex:1; font-size:12.5px; color:var(--blue); font-weight:900; }
+  .chat-foot svg { width:18px; height:18px; color:var(--blue); }
+  .chat-launcher { position:fixed; right:18px; bottom:18px; z-index:95; display:none; align-items:center; gap:10px; background:var(--blue); color:#fff; border:none; border-radius:999px; padding:8px 20px 8px 8px; font-size:13px; font-weight:900; cursor:pointer; box-shadow:0 12px 30px rgba(9,14,60,.35); font-family:"Noto Sans JP",sans-serif; }
+  .chat-launcher.is-on { display:flex; }
+  .chat-launcher .face { width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .chat-launcher .face img { width:32px; height:auto; }
+
+  /* dock */
+  .dock { position:fixed; left:0; right:0; bottom:0; z-index:90; background:rgba(14,15,18,.96); color:#fff; transform:translateY(110%); transition:transform .4s ease; box-shadow:0 -8px 24px rgba(14,15,18,.3); }
+  .dock.is-on { transform:none; }
+  .dock-in { width:calc(100% - 44px); margin-inline:auto; display:flex; align-items:center; gap:18px; padding:11px 0; }
+  .dock-in p { font-size:13px; font-weight:700; }
+  .dock-in .btns { margin-left:auto; display:flex; gap:10px; }
+  .dock-in .btn { padding:11px 22px; font-size:12.5px; box-shadow:none; }
+  .dock-in .btn--frame { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.5); }
+  .dock-close { background:none; border:none; color:#9aa0ac; font-size:18px; cursor:pointer; padding:6px; }
+
+  @media (max-width:1560px) { .brand .tagline { display:none; } }
+  @media (max-width:1400px) { nav.g { font-size:12.5px; gap:8px; } }
+  @media (max-width:1280px) { nav.g { display:none; } }
+  @media (max-width:1200px) { .quicknav, .qn-launcher { display:none !important; } }
+  @media (max-width:960px) {
+    .toast { top:100px; font-size:12px; }
+    .chat { right:10px; bottom:84px; width:min(330px, calc(100vw - 20px)); }
+    .chat-launcher { bottom:84px; }
+    .dock-in .btn { padding:10px 12px; font-size:11.5px; white-space:nowrap; }
+    .topbar .memberlink, .topbar .lead-copy { display:none; }
+    .header-cta .btn--dark { display:none; }
+    .header-cta .btn { padding:10px 14px; font-size:11.5px; }
+    .brand .tagline { display:none; }
+    .brand .name { font-size:16px; }
+    .hero-grid, .about-grid, .subhero-grid, .pillar { grid-template-columns:1fr; }
+    .pillar:nth-of-type(even) .pillar-img { order:0; }
+    .hero .cat { font-size:14px; }
+    .hero .name { font-size:clamp(26px,8.6vw,40px); }
+    .hero .pitch p br { display:none; }
+    .hero .cta-col { grid-template-columns:1fr 1fr; max-width:none; }
+    .hero .cta-col .btn:last-child { grid-column:1 / -1; }
+    .hero { padding-bottom:300px; }
+    .hero-chara { right:50%; transform:translateX(50%); height:290px; }
+    .hero-chara .chara { height:100%; }
+    .medals { justify-content:center; gap:12px; margin-bottom:0; }
+    .medal { width:150px; height:150px; }
+    .industry-band { padding-top:44px; }
+    .courses, .pains { grid-template-columns:1fr; }
+    .case-card { grid-template-columns:1fr; }
+    .portal-feats { grid-template-columns:1fr 1fr; }
+    .steps { grid-template-columns:1fr; }
+    .step::after { right:auto; top:auto; left:calc(50% - 9px); bottom:-13px; width:18px; height:11px; clip-path:polygon(0 0, 100% 0, 50% 100%); }
+    .sem-card { grid-template-columns:1fr; }
+    .schedule .row { grid-template-columns:96px 1fr; }
+    .schedule .tag { display:none; }
+    .foot-grid { grid-template-columns:1fr 1fr; }
+    .dock-in p { display:none; }
+  }
+  @media (min-width:961px) { .dock { display:none !important; } }
+  @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; animation:none !important; } .reveal { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="lead-copy">株式会社Opus.netが運営する、中小企業のためのAI活用コミュニティ</span>
+    <span class="right">
+      <a class="mail" href="mailto:seminar@opus-net.net"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>seminar@opus-net.net</a>
+      <a class="memberlink" href="https://ailab-members-f2e3e3b5.pages.dev" target="_blank" rel="noopener noreferrer">▶ 会員の方はこちら</a>
+    </span>
+  </div>
+</div>
+<header>
+  <div class="header-in">
+    <a href="/ailab/" class="brand"><span class="name">仕事で使えるAIラボ</span><span class="tagline">本当に仕事で使えるところまで、<i>毎月ひとつ。</i></span></a>
+    <nav class="g">
+      <a href="#about">ラボとは</a>
+      <a href="#courses">学べること</a>
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#portal">会員ポータル</a>
+      <a href="#case">実例</a>
+      <a href="#seminar">無料セミナー</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--dark">資料ダウンロード</a>
+      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--frame">無料セミナーに参加</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="cat">中小企業のための継続型AI活用コミュニティ</p>
+        <h1 class="name">仕事で使えるAIラボ</h1>
+        <div class="pitch">
+          <b>本当に仕事で使えるところまで、毎月ひとつ実践する。</b>
+          <p>仕事で使えるAIラボは、毎月の実務テーマと他社の事例を見ながら、<br>自社の仕事を少しずつAIに置き換えていく継続型コミュニティです。</p>
+        </div>
+        <div class="cta-col">
+          <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--dark">資料<br>ダウンロード</a>
+          <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--white">無料セミナーに<br>参加する</a>
+          <a href="mailto:seminar@opus-net.net" class="btn btn--paper">入会・相談の<br>ご連絡</a>
+        </div>
+        <p class="note">「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。</p>
+      </div>
+    </div>
+    <div class="medals reveal">
+      <div class="medal"><b>月1<small>回</small></b><span>実務セミナー<br>録画アーカイブ付き</span></div>
+      <div class="medal"><b>24<small>時間</small></b><span>会員ポータルで<br>自分のペースで学べる</span></div>
+      <div class="medal"><b>週1<small>配信</small></b><span>Q&amp;A・今週の<br>プロンプト</span></div>
+    </div>
+  </div>
+  <div class="hero-chara">
+    <img class="chara" src="images/robo-wave-bust.webp" alt="Opus.net公式キャラクター" width="631" height="585">
+  </div>
+</section>
+
+<div class="industry-band">
+  <div class="track-wrap"><div class="track">
+    <span>製造業<i> ● </i></span><span>建設業<i> ● </i></span><span>小売業<i> ● </i></span><span>飲食業<i> ● </i></span><span>介護・福祉<i> ● </i></span><span>士業<i> ● </i></span><span>不動産<i> ● </i></span><span>自動車販売<i> ● </i></span><span>治療院<i> ● </i></span><span>サービス業<i> ● </i></span>
+    <span>製造業<i> ● </i></span><span>建設業<i> ● </i></span><span>小売業<i> ● </i></span><span>飲食業<i> ● </i></span><span>介護・福祉<i> ● </i></span><span>士業<i> ● </i></span><span>不動産<i> ● </i></span><span>自動車販売<i> ● </i></span><span>治療院<i> ● </i></span><span>サービス業<i> ● </i></span>
+  </div></div>
+  <div class="container proof reveal">
+    <p>無料セミナーは毎月開催。<em>業種を問わず</em>、経営者から現場担当者まで<br>多くの企業様にご参加いただいています</p>
+    <small>※ 業種の例。オンライン開催のため全国からご参加いただけます</small>
+  </div>
+</div>
+
+<div class="subhero" id="about">
+  <div class="ghostword">AI LAB</div>
+  <div class="container subhero-grid">
+    <div class="reveal">
+      <h2>聞いて終わり、にしない。<br>毎月ひとつ、実務に置き換える。</h2>
+      <p class="desc">セミナーで聞いて「なるほど」で終わっていませんか。AIラボは<b>毎月の実務テーマ</b>と<b>他社の事例</b>を見ながら、自社の仕事を少しずつAIに置き換えていく継続型コミュニティです。</p>
+      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn">無料セミナーで体験する <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+    </div>
+    <div class="subhero-visual reveal">
+      <img src="images/team-v2.webp" alt="ラボセッションの様子" loading="lazy">
+      <div class="band">月例ラボセッション 開催中</div>
+    </div>
+  </div>
+</div>
+
+<section id="pains">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Problem</span>
+      <h2 class="sec-title">AI、仕事で使えていますか？</h2>
+    </div>
+    <div class="pains">
+      <div class="pain reveal"><span class="no">01</span><h3>触ってはみたけど、<br>続かない</h3><p>ChatGPTは開いてみた。でも日々の仕事に組み込むところまでは行っていない。</p></div>
+      <div class="pain reveal"><span class="no">02</span><h3>情報が多すぎて、<br>追えない</h3><p>毎日新しいAIの話題。どれが自分の仕事に関係あるのか分からない。</p></div>
+      <div class="pain reveal"><span class="no">03</span><h3>社員に広げたいが、<br>教え方が分からない</h3><p>自分は多少使えても、社内に定着させるのはまた別の難しさ。</p></div>
+    </div>
+    <p class="pain-answer reveal">足りないのは能力ではなく、<em>「続ける仕組み」</em>です。</p>
+    <div class="about-grid">
+      <div class="reveal">
+        <h3>ひとりで頑張らない。<br><em>仕組みの中で</em>続けていく。</h3>
+        <p class="desc">つまずいたら<b>LINEで質問</b>、回答は毎週のQ&amp;A配信で全員に共有。あなたの質問が、次の誰かのヒントになります。</p>
+      </div>
+      <div class="diagram reveal">
+        <div class="row">
+          <div class="cell">あなた<small>経営者・現場担当者</small></div>
+          <div class="link">⇄</div>
+          <div class="cell">AIラボ<small>事務局・会員のみなさま</small></div>
+        </div>
+        <div class="row">
+          <div class="cell">LINEで質問<small>いつでも</small></div>
+          <div class="link">→</div>
+          <div class="cell">毎週のQ&amp;A配信<small>全員に共有</small></div>
+        </div>
+        <div class="row">
+          <div class="cell">月1回の実務セミナー<small>ライブ・録画</small></div>
+          <div class="link">→</div>
+          <div class="cell">自社の実務で実践<small>プロンプト配布付き</small></div>
+        </div>
+        <p class="caption">毎月このサイクルを回して、仕事を少しずつAIに置き換えます</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band-gray" id="courses">
+  <div class="container">
+    <div class="sec-head sec-head--left reveal">
+      <h2 class="sec-title">コース別の動画講座で、<br>基礎から<em>ChatGPT・Claude Code・Codex</em>まで。</h2>
+      <p class="sec-sub">1本数分。コース順に見るだけで迷いません。見終わった動画にはチェックが付き、確認クイズで定着します。</p>
+    </div>
+    <div class="courses reveal">
+      <div class="course">
+        <div class="face"><div class="en-name">Basic</div><p class="jp">基礎コース</p></div>
+        <ul class="tags"><li>生成AIとは？</li><li>主要AIツールの違い</li><li>AIの3つの使い方</li></ul>
+      </div>
+      <div class="course">
+        <div class="face"><div class="en-name">Setup</div><p class="jp">セットアップコース</p></div>
+        <ul class="tags"><li>アカウント作成</li><li>環境づくり</li><li>手元で再現できる手順</li></ul>
+      </div>
+      <div class="course">
+        <div class="face"><div class="en-name">ChatGPT</div><p class="jp">ChatGPT講座</p></div>
+        <ul class="tags"><li>情報整理</li><li>資料作成</li><li>日々の仕事への活かし方</li></ul>
+      </div>
+      <div class="course">
+        <div class="face"><div class="en-name">Claude Code</div><p class="jp">Claude Code講座</p></div>
+        <ul class="tags"><li>導入・初期設定</li><li>AIエージェントへの任せ方</li><li>実務での活用</li></ul>
+      </div>
+      <div class="course">
+        <div class="face"><div class="en-name">Codex</div><p class="jp">Codex講座</p></div>
+        <ul class="tags"><li>導入・初期設定</li><li>作業を丸ごと任せる</li><li>実践まで</li></ul>
+      </div>
+      <div class="course">
+        <div class="face"><div class="en-name">Recipes</div><p class="jp">仕事レシピ</p></div>
+        <ul class="tags"><li>実務の型</li><li>そのまま真似できる手順</li><li>コピーして使える</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="reasons">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Reason</span>
+      <h2 class="sec-title">AIラボが<em>選ばれる理由</em>。</h2>
+    </div>
+
+    <div class="pillar reveal">
+      <div class="pillar-img"><span class="imgno">01</span><img src="images/learn.webp" alt="学ぶ" loading="lazy"></div>
+      <div>
+        <span class="cat">Learn</span>
+        <h3>月にひとつ、実務のテーマを深く。</h3>
+        <p class="desc">「広く浅く」ではなく、毎月ひとつのテーマを仕事で使えるところまで掘り下げます。</p>
+        <ul>
+          <li class="check">月1回の実務セミナー<small>ライブで質問もできます</small></li>
+          <li class="check">録画アーカイブ<small>資料・配布プロンプト付き</small></li>
+          <li class="check">コース別の動画講座<small>基礎からChatGPT・Claude Code・Codexまで</small></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar reveal">
+      <div class="pillar-img"><span class="imgno">02</span><img src="images/continue.webp" alt="続ける" loading="lazy"></div>
+      <div>
+        <span class="cat">Continue</span>
+        <h3>ひとりで止まらない仕組みをつくる。</h3>
+        <p class="desc">続かない一番の原因は、つまずいたときに聞ける相手がいないこと。仕組みで解決します。</p>
+        <ul>
+          <li class="check">LINEでいつでも質問<small>回答は毎週のQ&amp;A配信で共有</small></li>
+          <li class="check">実務プロンプトの配布<small>コピーしてそのまま使える形で</small></li>
+          <li class="check">AIニュース配信<small>「仕事での使いどころ」付き</small></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar reveal">
+      <div class="pillar-img"><span class="imgno">03</span><img src="images/expand.webp" alt="広げる" loading="lazy"></div>
+      <div>
+        <span class="cat">Expand</span>
+        <h3>他社の実例から、次の一手をもらう。</h3>
+        <p class="desc">自社だけで考えると行き詰まります。業種の違う会社の使い方が、一番のヒントになります。</p>
+        <ul>
+          <li class="check">他社のAI活用事例<small>同じ規模感の会社のリアル</small></li>
+          <li class="check">活用事例セミナー<small>再現できる手順に分解して紹介</small></li>
+          <li class="check">オフライン交流会・勉強会<small>会員同士のつながりが生まれる場</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip" style="margin-top:96px;">
+  <div class="container cta-strip-in">
+    <p>資料を見て、自社に合うかゆっくり検討したい方はこちら。</p>
+    <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--white">資料ダウンロード（無料）</a>
+  </div>
+</div>
+
+<div class="band-gray" id="portal" style="margin-top:0;">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Member Portal</span>
+      <h2 class="sec-title">24時間、自分のペースで学べる場所。</h2>
+      <p class="sec-sub">動画・プロンプト・ニュース・Q&amp;Aを1か所に。スマホでもそのまま使えます。6問のかんたん診断で「いま始めるべき一歩」もすぐ分かります。</p>
+    </div>
+    <div class="portal-stage">
+      <img class="portal-main reveal" src="images/portal-home-desktop-light.webp" alt="会員ポータルのホーム画面" loading="lazy">
+      <div class="portal-feats">
+        <div class="pfeat reveal"><img src="images/page-videos.webp" alt="動画講座" loading="lazy"><div class="in"><h4>動画講座</h4><p>1本数分。スキマ時間で基礎が揃い、社員教育の「最初の教材」にも。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-news.webp" alt="AIニュース" loading="lazy"><div class="in"><h4>AIニュース</h4><p>「自分の仕事でどう使えるか」の目線で解説。明日の一手が見つかります。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-prompts.webp" alt="プロンプト集" loading="lazy"><div class="in"><h4>プロンプト集</h4><p>コピーして貼るだけで今日から時短。毎週「今週のプロンプト」が届きます。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-qa.webp" alt="Q&A" loading="lazy"><div class="in"><h4>Q&amp;A</h4><p>質問はLINEに送るだけ。過去のQ&amp;Aが検索できる財産になります。</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="case">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Live Session</span>
+      <h2 class="sec-title">その場で作って、その場で公開する。</h2>
+    </div>
+    <div class="case-card reveal">
+      <div>
+        <span class="rep">SESSION REPORT｜2026年7月</span>
+        <h3>「90分のライブ制作で、<br>申込ページを<em>公開まで</em>やり切る。」</h3>
+        <p class="desc">2026年7月の月例セッションでは、飲食店のキャンペーン申込ページをAIエージェントでゼロからライブ制作。参加者が見ている90分の中で、公開までやり切りました。</p>
+        <dl class="case-facts">
+          <div><dt>作ったもの</dt><dd>和食店のキャンペーン申込ページ（写真もAIで生成）</dd></div>
+          <div><dt>かかった時間</dt><dd>企画・デザイン・フォーム・公開まで約90分</dd></div>
+          <div><dt>次のセッション</dt><dd>参加者と一緒に作るテーマへ続きます</dd></div>
+        </dl>
+      </div>
+      <figure class="case-shot">
+        <img src="images/session-demo.jpg" alt="セッション中に公開した実例ページ（和食店のキャンペーン申込ページ）" loading="lazy">
+        <figcaption>実際にセッション中に公開したページ（デモ用の架空店舗です）</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="seminar">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Free Seminar</span>
+      <h2 class="sec-title">毎月開催、<em>無料</em>のAI活用セミナー。</h2>
+      <p class="sec-sub">業種を問わずご参加いただける「実務に使えるAI活用無料セミナー」を、毎月オンラインで開催しています。主要AIツールの違いから、情報整理・資料作成・業務改善への活かし方まで、明日から実務で使える生成AIの活用方法をご紹介します。</p>
+    </div>
+    <div class="sem-card reveal">
+      <div class="sem-card__visual">
+        <span class="free">オンライン・参加無料</span>
+        <span class="stamp">受付中</span>
+        <span class="mo">08</span>
+      </div>
+      <div class="sem-card__body">
+        <h3 class="sem-card__title">8月のAI活用無料セミナー</h3>
+        <p class="lead">各回約1時間・内容は同じです。ご都合のよい回にご参加ください。</p>
+        <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn">お申込みフォームはこちら <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="schedule reveal">
+      <div class="row"><span class="date">08.04<small>火</small></span><p>8月のAI活用無料セミナー<small>10:00〜11:00 ／ 15:30〜16:30</small></p><span class="tag">受付中</span></div>
+      <div class="row"><span class="date">08.06<small>木</small></span><p>8月のAI活用無料セミナー<small>10:00〜11:00 ／ 15:30〜16:30</small></p><span class="tag">受付中</span></div>
+      <div class="row"><span class="date">08.25<small>火</small></span><p>8月のAI活用無料セミナー<small>10:00〜11:00 ／ 15:30〜16:30</small></p><span class="tag">受付中</span></div>
+      <div class="row"><span class="date">08.26<small>水</small></span><p>8月のAI活用無料セミナー<small>10:00〜11:00 ／ 15:30〜16:30</small></p><span class="tag">受付中</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band-gray" id="price">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Price</span>
+      <h2 class="sec-title">ひとり、1日あたり<em>330円</em>ほど。</h2>
+    </div>
+    <div class="price-solo reveal">
+      <span class="tag">スタンダード（税別・月額）</span>
+      <div class="price-line"><span class="num">9,800</span><span class="unit">円 / 人</span></div>
+      <span class="price-per-day">ひとり1日あたり 約330円</span>
+      <p class="allin">セミナー・録画・LINE質問・プロンプト・会員ポータル、すべて込み。</p>
+      <p class="more">チーム参加の割引や入会特典など、詳しい料金と含まれる内容は資料でご確認ください。</p>
+      <div class="btns">
+        <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn">資料ダウンロード（無料） <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg></a>
+        <a href="mailto:seminar@opus-net.net" class="btn btn--ghost">メールで相談する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="flow">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Flow</span>
+      <h2 class="sec-title">面談から始まるので、迷いません。</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="n">STEP 1</span><h4>お申し込み</h4><p>「入会希望」とご連絡いただくだけ。申込書をお送りします。</p></div>
+      <div class="step reveal"><span class="n">STEP 2</span><h4>ご案内</h4><p>会員用LINEの友だち追加と、会員ポータルへの招待。</p></div>
+      <div class="step reveal"><span class="n">STEP 3</span><h4>スタート面談 30分</h4><p>いまの状況を伺い、最初の一歩を一緒に決めます。</p></div>
+      <div class="step reveal"><span class="n">STEP 4</span><h4>毎月の実践へ</h4><p>月1セミナーとLINE・ポータルで続けていきます。</p></div>
+    </div>
+    <p class="steps-note reveal">パソコンが得意でなくても大丈夫。<em>現在地に合わせた始め方</em>をご提案します。</p>
+    <p class="steps-cta reveal"><a href="mailto:seminar@opus-net.net" class="btn">入会・相談のご連絡はこちら <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">FAQ</span>
+      <h2 class="sec-title">よくある質問</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary><span class="q">Q</span>料金には何が含まれますか？<span class="toggle">＋</span></summary><p class="a">セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。詳しい料金体系は資料にてご案内しています。</p></details>
+      <details><summary><span class="q">Q</span>社内の複数人で参加できますか？<span class="toggle">＋</span></summary><p class="a">はい、同じ会社の複数人でご参加いただけます。社内に広げるほど1人あたりが軽くなるチーム向けの料金をご用意しています。詳しくは資料にてご案内しています。</p></details>
+      <details><summary><span class="q">Q</span>途中で解約できますか？<span class="toggle">＋</span></summary><p class="a">最低利用期間は初月を含む3ヶ月です。以降はいつでも解約できます。年間契約の縛りはありません。</p></details>
+      <details><summary><span class="q">Q</span>パソコンが得意でなくても大丈夫ですか？<span class="toggle">＋</span></summary><p class="a">大丈夫です。入会後30分の個別「スタート面談」で今の状況を伺い、現在地に合わせた始め方をご提案します。基礎コースの動画から自分のペースで始められます。</p></details>
+      <details><summary><span class="q">Q</span>個別のコンサルティングもお願いできますか？<span class="toggle">＋</span></summary><p class="a">ラボには会社別の個別診断・個別伴走は含まれません。必要な会社だけ、個別相談・ハンズオン研修・AI顧問などの個別支援（別料金）をご案内しています。</p></details>
+      <details><summary><span class="q">Q</span>入会前に雰囲気を知る方法はありますか？<span class="toggle">＋</span></summary><p class="a">毎月開催している無料のAI活用セミナーにぜひご参加ください。「自分の会社で使えるか相談したい」というご連絡だけでも歓迎です。無理な営業は一切いたしません。</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="overview" aria-label="サービス概要">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">Overview</span>
+      <h2 class="sec-title">サービス概要</h2>
+    </div>
+    <dl class="ov-table reveal">
+      <div><dt>サービス名</dt><dd>仕事で使えるAIラボ</dd></div>
+      <div><dt>形態</dt><dd>中小企業のための継続型AI活用コミュニティ（オンライン）</dd></div>
+      <div><dt>内容</dt><dd>月1回の実務セミナー（録画あり）／LINEでの質問（回答は毎週のQ&A配信で共有）／会員ポータル（動画講座・プロンプト集・AIニュース・Q&A）／実務プロンプトの配布</dd></div>
+      <div><dt>料金</dt><dd>月額9,800円/人（税別）〜 ※詳しい料金体系・含まれる内容は資料をご覧ください</dd></div>
+      <div><dt>運営</dt><dd>株式会社Opus.net（東京都台東区浅草橋）</dd></div>
+      <div><dt>お問い合わせ</dt><dd>seminar@opus-net.net</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="ghostword">AI LAB</div>
+  <div class="container">
+    <h2>まずは、<em>話を聞くだけ</em>でも。</h2>
+    <p>「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。</p>
+    <div class="row">
+      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--white">無料セミナーに参加する <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+      <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--frame">資料ダウンロード</a>
+      <a href="mailto:seminar@opus-net.net" class="btn btn--frame">メールで相談する</a>
+    </div>
+    <p class="note">お問い合わせ: seminar@opus-net.net</p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="name">仕事で使えるAIラボ</span>
+        <p>運営: 株式会社Opus.net<br>東京都台東区浅草橋<br>seminar@opus-net.net</p>
+      </div>
+      <div class="foot-col">
+        <h5>サービス</h5>
+        <ul>
+          <li><a href="#about">ラボとは</a></li>
+          <li><a href="#courses">学べること</a></li>
+          <li><a href="#reasons">選ばれる理由</a></li>
+          <li><a href="#portal">会員ポータル</a></li>
+          <li><a href="#case">実例</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>ご検討中の方</h5>
+        <ul>
+          <li><a href="#seminar">無料セミナー</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer">資料ダウンロード</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>会員・運営</h5>
+        <ul>
+          <li><a href="https://ailab-members-f2e3e3b5.pages.dev" target="_blank" rel="noopener noreferrer">会員ログイン</a></li>
+          <li><a href="https://opus-net.net/" target="_blank" rel="noopener noreferrer">コーポレートサイト</a></li>
+          <li><a href="mailto:seminar@opus-net.net">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-tagline">
+      <p>本当に仕事で使えるところまで、<i>毎月ひとつ。</i></p>
+    </div>
+    <div class="foot-bottom">
+      <span>© 株式会社Opus.net</span>
+      <a href="https://ailab-members-f2e3e3b5.pages.dev" target="_blank" rel="noopener noreferrer">会員ログイン</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <span><em>8月</em>の無料セミナー、受付中です</span>
+  <button id="toastClose" aria-label="閉じる">×</button>
+</div>
+
+<div class="quicknav is-hidden" id="quicknav">
+  <button class="qn-close" id="qnClose" aria-label="閉じる">×</button>
+  <a class="qn-seminar" href="#seminar">無料セミナー<small>8月分 受付中</small></a>
+  <a class="qn-doc" href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer">資料ダウンロード<small>無料・3分でわかる</small></a>
+  <a class="qn-portal" href="#portal">会員ポータル<small>画面を見てみる</small></a>
+  <a class="qn-case" href="#case">ライブ制作の実例<small>90分で公開まで</small></a>
+  <a class="qn-price" href="#price">料金<small>月9,800円/人</small></a>
+</div>
+<button class="qn-launcher" id="qnLauncher">クイックメニュー</button>
+
+<div class="chat" id="chat">
+  <div class="chat-head">
+    <span class="face"><img src="images/robo-wave-bust.webp" alt=""></span>
+    <p>AIラボ事務局がご案内します<small>無料セミナー受付中</small></p>
+    <button class="chat-min" id="chatMin" aria-label="最小化">×</button>
+  </div>
+  <div class="chat-body">
+    <p class="chat-msg">こんにちは！「仕事で使えるAIラボ」です。気になるボタンをタップしてください。</p>
+    <div class="chat-opts">
+      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer">【無料】セミナーに参加したい</a>
+      <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer">【無料】資料が欲しい</a>
+      <a href="mailto:seminar@opus-net.net">自分の会社で使えるか相談したい</a>
+      <a href="#price">料金が知りたい</a>
+      <a href="#flow">入会の流れを知りたい</a>
+    </div>
+  </div>
+  <a class="chat-foot" href="mailto:seminar@opus-net.net">
+    <span>メールで相談する（返信でご案内します）</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+  </a>
+</div>
+<button class="chat-launcher" id="chatLauncher">
+  <span class="face"><img src="images/robo-wave-bust.webp" alt=""></span>
+  相談してみる
+</button>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p>本当に仕事で使えるところまで、毎月ひとつ実践する。— 仕事で使えるAIラボ</p>
+    <div class="btns">
+      <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--frame">資料ダウンロード</a>
+      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--white">無料セミナーに参加する</a>
+    </div>
+    <button class="dock-close" id="dockClose" aria-label="閉じる">×</button>
+  </div>
+</div>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const dock = document.getElementById('dock');
+  let dockClosed = false;
+  addEventListener('scroll', () => {
+    if (dockClosed) return;
+    dock.classList.toggle('is-on', scrollY > 900 && scrollY < document.body.scrollHeight - innerHeight - 700);
+  }, { passive: true });
+  document.getElementById('dockClose').addEventListener('click', () => { dockClosed = true; dock.classList.remove('is-on'); });
+
+  // toast
+  const toast = document.getElementById('toast');
+  setTimeout(() => toast.classList.add('is-on'), 800);
+  document.getElementById('toastClose').addEventListener('click', () => toast.remove());
+
+  // quicknav: appears after scrolling past the hero; collapsible to a side tab
+  const qn = document.getElementById('quicknav');
+  const qnLauncher = document.getElementById('qnLauncher');
+  let qnCollapsed = false;
+  const updateQn = () => {
+    const on = scrollY > 500;
+    qn.classList.toggle('is-hidden', !on || qnCollapsed);
+    qnLauncher.classList.toggle('is-on', on && qnCollapsed);
+  };
+  addEventListener('scroll', updateQn, { passive: true });
+  document.getElementById('qnClose').addEventListener('click', () => { qnCollapsed = true; updateQn(); });
+  qnLauncher.addEventListener('click', () => { qnCollapsed = false; updateQn(); });
+
+  // chat: open by default on desktop, launcher on mobile
+  const chat = document.getElementById('chat');
+  const launcher = document.getElementById('chatLauncher');
+  const isDesktop = matchMedia('(min-width: 961px)').matches;
+  if (isDesktop) { setTimeout(() => chat.classList.add('is-open'), 1900); }
+  else { launcher.classList.add('is-on'); }
+  document.getElementById('chatMin').addEventListener('click', () => { chat.classList.remove('is-open'); launcher.classList.add('is-on'); });
+  launcher.addEventListener('click', () => { chat.classList.add('is-open'); launcher.classList.remove('is-on'); });
+</script>
+</body>
+</html>
