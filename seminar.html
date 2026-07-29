@@ -110,7 +110,7 @@
         <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top: 24px;">お申込みフォームはこちら <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
       </div>
       <div class="sem-grid">
-        <a href="news/20260714-seminar-august.html" class="sem-card reveal">
+        <a href="news/20260714-seminar-august.html" class="sem-card reveal" data-seminar-month="2026-08">
           <span class="sem-card__thumb sem-card__thumb--open">
             <span class="sem-card__ring" aria-hidden="true"></span>
             <span class="sem-card__month">08</span>
@@ -123,7 +123,7 @@
             <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
           </span>
         </a>
-        <a href="news/20260706-seminar-july.html" class="sem-card reveal">
+        <a href="news/20260706-seminar-july.html" class="sem-card reveal" data-seminar-month="2026-07">
           <span class="sem-card__thumb sem-card__thumb--closed">
             <span class="sem-card__ring" aria-hidden="true"></span>
             <span class="sem-card__month">07</span>
@@ -136,7 +136,7 @@
             <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
           </span>
         </a>
-        <a href="news/20260706-seminar-june.html" class="sem-card reveal">
+        <a href="news/20260706-seminar-june.html" class="sem-card reveal" data-seminar-month="2026-06">
           <span class="sem-card__thumb sem-card__thumb--closed">
             <span class="sem-card__ring" aria-hidden="true"></span>
             <span class="sem-card__month">06</span>
@@ -149,7 +149,7 @@
             <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
           </span>
         </a>
-        <a href="news/20260529.html" class="sem-card reveal">
+        <a href="news/20260529.html" class="sem-card reveal" data-seminar-month="2026-05">
           <span class="sem-card__thumb sem-card__thumb--closed">
             <span class="sem-card__ring" aria-hidden="true"></span>
             <span class="sem-card__month">05</span>
@@ -162,7 +162,7 @@
             <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
           </span>
         </a>
-        <a href="news/20260424.html" class="sem-card reveal">
+        <a href="news/20260424.html" class="sem-card reveal" data-seminar-month="2026-04">
           <span class="sem-card__thumb sem-card__thumb--closed">
             <span class="sem-card__ring" aria-hidden="true"></span>
             <span class="sem-card__month">04</span>
@@ -229,6 +229,79 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Seminar dates are owned by the CRM (the application form reads the same API).
+    // Fetch them so this page never drifts from what is actually open for entry.
+    // On any failure we leave the hand-written markup untouched.
+    (function () {
+      var API = 'https://opus-ai-forms.pages.dev/api/events';
+      var WEEK = ['日', '月', '火', '水', '木', '金', '土'];
+
+      var parts = function (date) {
+        var a = date.split('-').map(Number);
+        return { y: a[0], m: a[1], d: a[2], w: WEEK[new Date(a[0], a[1] - 1, a[2]).getDay()] };
+      };
+      var hhmm = function (t) { return t.slice(0, 5); };
+      var range = function (e) { return hhmm(e.startsAt) + '〜' + hhmm(e.endsAt); };
+
+      var byDate = function (events) {
+        var map = {};
+        var order = [];
+        events.forEach(function (e) {
+          if (!map[e.eventDate]) { map[e.eventDate] = []; order.push(e.eventDate); }
+          map[e.eventDate].push(e);
+        });
+        order.sort();
+        return order.map(function (d) {
+          return { date: d, times: map[d].sort(function (a, b) { return a.startsAt < b.startsAt ? -1 : 1; }).map(range) };
+        });
+      };
+
+      // "2026年8月4日(火)・6日(木)<br>各日 10:00〜11:00 ／ 15:30〜16:30"
+      // Falls back to per-day lines when the time slots differ by day.
+      var describe = function (groups) {
+        var first = parts(groups[0].date);
+        var uniform = groups.every(function (g) { return g.times.join() === groups[0].times.join(); });
+        if (uniform) {
+          var days = groups.map(function (g, i) {
+            var p = parts(g.date);
+            return (i === 0 ? p.y + '年' + p.m + '月' : '') + p.d + '日(' + p.w + ')';
+          });
+          return days.join('・') + '<br>各日 ' + groups[0].times.join(' ／ ');
+        }
+        return groups.map(function (g, i) {
+          var p = parts(g.date);
+          return (i === 0 ? p.y + '年' : '') + p.m + '月' + p.d + '日(' + p.w + ') ' + g.times.join(' ／ ');
+        }).join('<br>');
+      };
+
+      var apply = function (events) {
+        var cards = document.querySelectorAll('.sem-card[data-seminar-month]');
+        Array.prototype.forEach.call(cards, function (card) {
+          var month = card.getAttribute('data-seminar-month');
+          var mine = events.filter(function (e) { return e.eventDate.slice(0, 7) === month; });
+          if (!mine.length) return; // 受付中の枠なし＝手打ちの「開催終了」のまま
+          var dateEl = card.querySelector('.sem-card__date');
+          var statusEl = card.querySelector('.sem-card__status');
+          var thumbEl = card.querySelector('.sem-card__thumb');
+          if (dateEl) dateEl.innerHTML = describe(byDate(mine));
+          if (statusEl) {
+            statusEl.textContent = '受付中';
+            statusEl.classList.remove('sem-card__status--closed');
+            statusEl.classList.add('sem-card__status--open');
+          }
+          if (thumbEl) {
+            thumbEl.classList.remove('sem-card__thumb--closed');
+            thumbEl.classList.add('sem-card__thumb--open');
+          }
+        });
+      };
+
+      fetch(API)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (events) { if (Array.isArray(events) && events.length) apply(events); })
+        .catch(function () { /* 手打ちの内容を残す */ });
+    })();
+
     (function () {
       var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
       var io = new IntersectionObserver(function (entries) {
