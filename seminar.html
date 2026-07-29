@@ -266,7 +266,9 @@
             var p = parts(g.date);
             return (i === 0 ? p.y + '年' + p.m + '月' : '') + p.d + '日(' + p.w + ')';
           });
-          return days.join('・') + '<br>各日 ' + groups[0].times.join(' ／ ');
+          // 1日だけの月に「各日」は付けない
+          var prefix = groups.length > 1 ? '各日 ' : '';
+          return days.join('・') + '<br>' + prefix + groups[0].times.join(' ／ ');
         }
         return groups.map(function (g, i) {
           var p = parts(g.date);
@@ -274,25 +276,73 @@
         }).join('<br>');
       };
 
+      var markOpen = function (card, groups) {
+        var dateEl = card.querySelector('.sem-card__date');
+        var statusEl = card.querySelector('.sem-card__status');
+        var thumbEl = card.querySelector('.sem-card__thumb');
+        if (dateEl) dateEl.innerHTML = describe(groups);
+        if (statusEl) {
+          statusEl.textContent = '受付中';
+          statusEl.classList.remove('sem-card__status--closed');
+          statusEl.classList.add('sem-card__status--open');
+        }
+        if (thumbEl) {
+          thumbEl.classList.remove('sem-card__thumb--closed');
+          thumbEl.classList.add('sem-card__thumb--open');
+        }
+      };
+
+      // お知らせ記事がまだ無い月のカードを、既存カードを複製して作る。
+      // 記事を書いてカードを手で追加すれば、そちらが data-seminar-month で
+      // 拾われるのでこの生成は止まる。
+      var buildCard = function (template, month, groups) {
+        var card = template.cloneNode(true);
+        var m = Number(month.split('-')[1]);
+        card.setAttribute('data-seminar-month', month);
+        card.setAttribute('href', 'https://opus-ai-forms.pages.dev/');
+        card.setAttribute('target', '_blank');
+        card.setAttribute('rel', 'noopener noreferrer');
+        // reveal は読み込み時に一度だけ監視登録されるので、後から足す要素は自分で可視にする
+        card.classList.add('is-visible');
+
+        var monthEl = card.querySelector('.sem-card__month');
+        if (monthEl) monthEl.textContent = ('0' + m).slice(-2);
+        var titleEl = card.querySelector('.sem-card__title');
+        if (titleEl) titleEl.textContent = m + '月のAI活用無料セミナー（お申込み受付中）';
+        var moreEl = card.querySelector('.sem-card__more');
+        if (moreEl && moreEl.firstChild && moreEl.firstChild.nodeType === 3) {
+          moreEl.firstChild.nodeValue = 'お申込みへ ';
+        }
+        markOpen(card, groups);
+        return card;
+      };
+
       var apply = function (events) {
         var cards = document.querySelectorAll('.sem-card[data-seminar-month]');
+        if (!cards.length) return;
+
+        var known = {};
         Array.prototype.forEach.call(cards, function (card) {
           var month = card.getAttribute('data-seminar-month');
+          known[month] = true;
           var mine = events.filter(function (e) { return e.eventDate.slice(0, 7) === month; });
           if (!mine.length) return; // 受付中の枠なし＝手打ちの「開催終了」のまま
-          var dateEl = card.querySelector('.sem-card__date');
-          var statusEl = card.querySelector('.sem-card__status');
-          var thumbEl = card.querySelector('.sem-card__thumb');
-          if (dateEl) dateEl.innerHTML = describe(byDate(mine));
-          if (statusEl) {
-            statusEl.textContent = '受付中';
-            statusEl.classList.remove('sem-card__status--closed');
-            statusEl.classList.add('sem-card__status--open');
-          }
-          if (thumbEl) {
-            thumbEl.classList.remove('sem-card__thumb--closed');
-            thumbEl.classList.add('sem-card__thumb--open');
-          }
+          markOpen(card, byDate(mine));
+        });
+
+        // 既存カードが無い月（＝記事より先に日程が入った月）を追加する
+        var months = [];
+        events.forEach(function (e) {
+          var m = e.eventDate.slice(0, 7);
+          if (!known[m] && months.indexOf(m) === -1) months.push(m);
+        });
+        if (!months.length) return;
+
+        var grid = cards[0].parentNode;
+        months.sort(); // 昇順にprependすると新しい月が先頭に残る
+        months.forEach(function (month) {
+          var mine = events.filter(function (e) { return e.eventDate.slice(0, 7) === month; });
+          grid.insertBefore(buildCard(cards[0], month, byDate(mine)), grid.firstChild);
         });
       };
 
