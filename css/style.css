@@ -1676,6 +1676,29 @@ h3 {
   clip: rect(0, 0, 0, 0) !important;
 }
 
+.contact-turnstile {
+  max-width: 420px;
+}
+
+.contact-turnstile .form-help {
+  margin: 0 0 10px;
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.contact-turnstile .cf-turnstile {
+  width: 100%;
+  min-height: 65px;
+}
+
+@media (max-width: 332px) {
+  .contact-turnstile {
+    width: 300px;
+    margin-left: calc((100% - 300px) / 2);
+  }
+}
+
 .form-submit {
   display: inline-flex;
   min-width: 220px;
