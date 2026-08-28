@@ -304,6 +304,15 @@ function initContactForm() {
     if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
+    if (!formData.get('cf-turnstile-response')) {
+      setContactStatus(
+        status,
+        'error',
+        'スパム防止の確認が完了していません。少し待ってから、もう一度送信してください。確認欄が表示されない場合は、下のボタンからメールでお送りください。'
+      );
+      showContactFallback(status, form, formData);
+      return;
+    }
     const endpoint = (form.dataset.contactEndpoint || form.getAttribute('action') || '').trim();
 
     if (endpoint) {
@@ -338,18 +347,33 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
 
   if (result && result.ok) {
     form.reset();
+    resetContactTurnstile(form);
     setContactStatus(
       status,
       'success',
       'お問い合わせを送信しました。担当者よりご連絡いたします。'
     );
+  } else if (result && (
+    result.message === 'turnstile_required'
+    || result.message === 'turnstile_failed'
+    || result.message === 'turnstile_unavailable'
+  )) {
+    resetContactTurnstile(form);
+    setContactStatus(
+      status,
+      'error',
+      'スパム防止の確認ができませんでした。画面を更新してもう一度お試しいただくか、下のボタンからメールでお送りください。'
+    );
+    showContactFallback(status, form, formData);
   } else if (result && result.message === 'invalid_payload') {
+    resetContactTurnstile(form);
     setContactStatus(
       status,
       'error',
       '入力内容に不備があるため送信できませんでした。必須項目をご確認のうえ、もう一度お試しください。'
     );
   } else if (result) {
+    resetContactTurnstile(form);
     setContactStatus(
       status,
       'error',
@@ -357,6 +381,7 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
     );
     showContactFallback(status, form, formData);
   } else {
+    resetContactTurnstile(form);
     setContactStatus(
       status,
       'error',
@@ -368,6 +393,17 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
   if (submitButton) {
     submitButton.disabled = false;
     submitButton.textContent = '入力内容を送信';
+  }
+}
+
+function resetContactTurnstile(form) {
+  if (!window.turnstile || typeof window.turnstile.reset !== 'function') return;
+  if (!form.querySelector('.cf-turnstile')) return;
+  try {
+    // This page has one implicit widget. Omitting the id resets every rendered widget.
+    window.turnstile.reset();
+  } catch (error) {
+    // The widget may not have finished rendering yet. A page reload remains available.
   }
 }
 
