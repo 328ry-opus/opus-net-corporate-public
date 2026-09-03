@@ -51,15 +51,15 @@
       "provider": { "@id": "https://opus-net.net/#org" },
       "areaServed": "JP",
       "audience": { "@type": "BusinessAudience", "name": "中小企業の経営者・現場担当者" },
-      "offers": [ { "@type": "Offer", "name": "スタンダード（月額）", "price": "9800", "priceCurrency": "JPY", "description": "税別・月額9,800円/人。セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて込み。チーム参加の割引など詳細は資料にてご案内。" } ]
+      "offers": [ { "@type": "Offer", "name": "スタンダード（月額）", "price": "9800", "priceCurrency": "JPY", "url": "https://opus-ai-forms.pages.dev/lab/apply", "availability": "https://schema.org/InStock", "description": "税別・月額9,800円/人。セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて込み。チーム参加の割引など詳細は資料にてご案内。" } ]
     },
     {
       "@type": "FAQPage",
       "@id": "https://opus-net.net/ailab/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "料金には何が含まれますか？", "acceptedAnswer": { "@type": "Answer", "text": "セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。詳しい料金体系は資料にてご案内しています。" } },
+        { "@type": "Question", "name": "料金には何が含まれますか？", "acceptedAnswer": { "@type": "Answer", "text": "セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。入会金9,800円（税別）が参加者ごとに初回のみかかり、最低3回分のカード決済です。詳しい料金体系は資料にてご案内しています。" } },
         { "@type": "Question", "name": "社内の複数人で参加できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、同じ会社の複数人でご参加いただけます。社内に広げるほど1人あたりが軽くなるチーム向けの料金をご用意しています。詳しくは資料にてご案内しています。" } },
-        { "@type": "Question", "name": "途中で解約できますか？", "acceptedAnswer": { "@type": "Answer", "text": "最低利用期間は初月を含む3ヶ月です。以降はいつでも解約できます。年間契約の縛りはありません。" } },
+        { "@type": "Question", "name": "途中で解約できますか？", "acceptedAnswer": { "@type": "Answer", "text": "最低利用期間は契約成立日から3回分の決済（3か月）です。退会は次回課金日の前日までにご連絡ください。年間契約の縛りはありません。" } },
         { "@type": "Question", "name": "パソコンが得意でなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "大丈夫です。入会後30分の個別スタート面談で現在地に合わせた始め方をご提案します。基礎コースの動画から自分のペースで始められます。" } },
         { "@type": "Question", "name": "個別のコンサルティングもお願いできますか？", "acceptedAnswer": { "@type": "Answer", "text": "ラボには会社別の個別診断・個別伴走は含まれません。必要な会社だけ、個別相談・ハンズオン研修・AI顧問などの個別支援（別料金）をご案内しています。" } },
         { "@type": "Question", "name": "入会前に雰囲気を知る方法はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "毎月開催している無料のAI活用セミナーにご参加ください。相談だけのご連絡も歓迎です。" } }
@@ -298,7 +298,10 @@
   .price-per-day { display:inline-block; margin-top:10px; font-size:13.5px; font-weight:900; background:var(--blue-tint); border-radius:6px; padding:3px 16px; }
   .price-solo .allin { margin-top:18px; font-size:14px; font-weight:900; line-height:1.9; }
   .price-solo .more { margin-top:8px; font-size:12.5px; color:var(--sub); }
+  .price-solo .more a { color:var(--blue); font-weight:700; text-decoration:underline; }
   .price-solo .btns { display:flex; gap:12px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
+  /* primary CTA on its own row so the 3 buttons never orphan-wrap */
+  @media (min-width:601px) { .price-solo .btns > .btn:first-child { flex:0 0 100%; } }
 
   /* flow */
   .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:44px; }
@@ -433,6 +436,7 @@
   .qn-portal { background:var(--blue-tint); color:var(--ink); }
   .qn-case { background:#fff; color:var(--ink); border:2px solid var(--blue); }
   .qn-price { background:var(--gray); color:var(--ink); }
+  .qn-apply { background:var(--blue); color:#fff; box-shadow:0 4px 0 var(--blue-deep); }
 
   /* 右チャット（開いた状態で常駐） */
   .chat { position:fixed; right:18px; bottom:18px; z-index:95; width:330px; background:#fff; border-radius:14px; box-shadow:0 18px 50px rgba(14,15,18,.28); overflow:hidden; display:none; }
@@ -720,6 +724,7 @@
       <a href="#case">実例</a>
       <a href="#seminar">無料セミナー</a>
       <a href="#price">料金</a>
+      <a href="https://opus-ai-forms.pages.dev/lab/apply" target="_blank" rel="noopener noreferrer">入会申込</a>
       <a href="#faq">よくある質問</a>
     </nav>
     <div class="header-cta">
@@ -1058,11 +1063,16 @@
     <div class="price-solo reveal">
       <span class="tag">スタンダード（税別・月額）</span>
       <div class="price-line"><span class="num">9,800</span><span class="unit">円 / 人</span></div>
-      <span class="price-per-day">ひとり1日あたり 約330円</span>
+      <span class="price-per-day">税込10,780円 / 人</span>
       <p class="allin">セミナー・録画・LINE質問・プロンプト・会員ポータル、すべて込み。</p>
-      <p class="more">チーム参加の割引や入会特典など、詳しい料金と含まれる内容は資料でご確認ください。</p>
+      <p class="more">同一会社の2人目以降はチーム追加枠：月額5,500円 / 人（税別・税込6,050円）。</p>
+      <p class="more">入会金9,800円 / 人（税別・税込10,780円・参加者1名ごと・初回のみ・返金不可）。</p>
+      <p class="more">最低利用期間は契約成立日から3回分の決済（3か月）。お支払いはクレジットカード自動決済です。</p>
+      <p class="more">退会は次回課金日の前日までにご連絡ください。</p>
+      <p class="more">詳しい料金と含まれる内容は資料でご確認いただけます。<a href="https://opus-net.net/tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a></p>
       <div class="btns">
-        <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn">資料ダウンロード（無料） <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg></a>
+        <a href="https://opus-ai-forms.pages.dev/lab/apply" target="_blank" rel="noopener noreferrer" class="btn">今すぐ入会する <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+        <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">資料ダウンロード（無料） <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg></a>
         <a href="https://opus-ai-forms.pages.dev/contact" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">お問い合わせ</a>
       </div>
     </div>
@@ -1076,7 +1086,7 @@
       <h2 class="sec-title">面談から始まるので、迷いません。</h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><span class="n">STEP 1</span><h4>お申し込み</h4><p>「入会希望」とご連絡いただくだけ。申込書をお送りします。</p></div>
+      <div class="step reveal"><span class="n">STEP 1</span><h4>お申し込み</h4><p>Webの申込フォームから、規約に同意してカード決済まで完了します。</p></div>
       <div class="step reveal"><span class="n">STEP 2</span><h4>ご案内</h4><p>会員用LINEの友だち追加と、会員ポータルへの招待。</p></div>
       <div class="step reveal"><span class="n">STEP 3</span><h4>スタート面談 30分</h4><p>いまの状況を伺い、最初の一歩を一緒に決めます。</p></div>
       <div class="step reveal"><span class="n">STEP 4</span><h4>毎月の実践へ</h4><p>月1セミナーとLINE・ポータルで続けていきます。</p></div>
@@ -1129,9 +1139,9 @@
       <h2 class="sec-title">よくある質問</h2>
     </div>
     <div class="faq reveal">
-      <details><summary><span class="q">Q</span>料金には何が含まれますか？<span class="toggle">＋</span></summary><p class="a">セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。詳しい料金体系は資料にてご案内しています。</p></details>
+      <details><summary><span class="q">Q</span>料金には何が含まれますか？<span class="toggle">＋</span></summary><p class="a">セミナー・録画・LINE質問・プロンプト配布・会員ポータル、すべて月額に含まれます。プランによる機能の出し分けはありません。入会金9,800円（税別）が参加者ごとに初回のみかかり、最低3回分のカード決済です。詳しい料金体系は資料にてご案内しています。</p></details>
       <details><summary><span class="q">Q</span>社内の複数人で参加できますか？<span class="toggle">＋</span></summary><p class="a">はい、同じ会社の複数人でご参加いただけます。社内に広げるほど1人あたりが軽くなるチーム向けの料金をご用意しています。詳しくは資料にてご案内しています。</p></details>
-      <details><summary><span class="q">Q</span>途中で解約できますか？<span class="toggle">＋</span></summary><p class="a">最低利用期間は初月を含む3ヶ月です。以降はいつでも解約できます。年間契約の縛りはありません。</p></details>
+      <details><summary><span class="q">Q</span>途中で解約できますか？<span class="toggle">＋</span></summary><p class="a">最低利用期間は契約成立日から3回分の決済（3か月）です。退会は次回課金日の前日までにご連絡ください。年間契約の縛りはありません。</p></details>
       <details><summary><span class="q">Q</span>パソコンが得意でなくても大丈夫ですか？<span class="toggle">＋</span></summary><p class="a">大丈夫です。入会後30分の個別「スタート面談」で今の状況を伺い、現在地に合わせた始め方をご提案します。基礎コースの動画から自分のペースで始められます。</p></details>
       <details><summary><span class="q">Q</span>個別のコンサルティングもお願いできますか？<span class="toggle">＋</span></summary><p class="a">ラボには会社別の個別診断・個別伴走は含まれません。必要な会社だけ、個別相談・ハンズオン研修・AI顧問などの個別支援（別料金）をご案内しています。</p></details>
       <details><summary><span class="q">Q</span>入会前に雰囲気を知る方法はありますか？<span class="toggle">＋</span></summary><p class="a">毎月開催している無料のAI活用セミナーにぜひご参加ください。「自分の会社で使えるか相談したい」というご連絡だけでも歓迎です。無理な営業は一切いたしません。</p></details>
@@ -1149,7 +1159,7 @@
       <div><dt>サービス名</dt><dd>仕事で使えるAIラボ</dd></div>
       <div><dt>形態</dt><dd>中小企業のための継続型AI活用コミュニティ（オンライン）</dd></div>
       <div><dt>内容</dt><dd>月1回の実務セミナー（録画あり）／LINEでの質問（回答は毎週のQ&A配信で共有）／会員ポータル（動画講座・プロンプト集・AIニュース・Q&A）／実務プロンプトの配布</dd></div>
-      <div><dt>料金</dt><dd>月額9,800円/人（税別）〜 ※詳しい料金体系・含まれる内容は資料をご覧ください</dd></div>
+      <div><dt>料金</dt><dd>月額9,800円/人（税別）〜。入会金9,800円（税別）が参加者ごとに初回のみかかり、最低3回分のカード決済です。※詳しい料金体系・含まれる内容は資料をご覧ください</dd></div>
       <div><dt>運営</dt><dd>株式会社Opus.net（東京都台東区浅草橋）</dd></div>
       <div><dt>お問い合わせ</dt><dd>seminar@opus-net.net</dd></div>
     </dl>
@@ -1193,6 +1203,7 @@
         <ul>
           <li><a href="#seminar">無料セミナー</a></li>
           <li><a href="#price">料金</a></li>
+          <li><a href="https://opus-ai-forms.pages.dev/lab/apply" target="_blank" rel="noopener noreferrer">入会申込</a></li>
           <li><a href="#faq">よくある質問</a></li>
           <li><a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer">資料ダウンロード</a></li>
         </ul>
@@ -1230,6 +1241,7 @@
   <a class="qn-portal" href="#portal">会員ポータル<small>画面を見てみる</small></a>
   <a class="qn-case" href="#case">ライブ制作の実例<small>90分で公開まで</small></a>
   <a class="qn-price" href="#price">料金<small>月9,800円/人</small></a>
+  <a class="qn-apply" href="https://opus-ai-forms.pages.dev/lab/apply" target="_blank" rel="noopener noreferrer">入会する<small>カード決済で完了</small></a>
 </div>
 <button class="qn-launcher" id="qnLauncher">クイックメニュー</button>
 
@@ -1310,7 +1322,7 @@
       ]
     },
     price: {
-      bot: "月額9,800円/人（税別）、ひとり1日あたり約330円です。\nセミナー・録画・LINE質問・プロンプト・会員ポータル、すべて込み。プランによる機能の出し分けはありません。\nチーム参加の割引や入会特典など、詳しい料金は資料でご案内しています。",
+      bot: "月額9,800円/人（税別）、ひとり1日あたり約330円です。\nセミナー・録画・LINE質問・プロンプト・会員ポータル、すべて込み。プランによる機能の出し分けはありません。\n入会金9,800円（税別）が参加者ごとに初回のみかかり、最低3回分のカード決済です。\nチーム参加の割引や入会特典など、詳しい料金は資料でご案内しています。",
       chips: [
         { label: "資料を受け取る（無料）", url: GUIDE_URL },
         { label: "ほかの質問をする", to: "menu" },
