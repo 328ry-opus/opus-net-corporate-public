@@ -238,11 +238,13 @@
 
   /* portal */
   .portal-stage { margin-top:46px; position:relative; }
-  .portal-main { position:relative; width:min(860px,92%); margin-inline:auto; border-radius:10px; box-shadow:0 30px 70px rgba(26,26,26,.16); border:1px solid var(--line); }
+  .portal-picture { display:block; width:min(860px,92%); margin-inline:auto; }
+  .portal-caption { text-align:center; color:var(--sub); font-size:11px; margin-top:16px; }
+  .portal-main { position:relative; width:100%; height:auto; border-radius:10px; box-shadow:0 30px 70px rgba(26,26,26,.16); border:1px solid var(--line); }
   .portal-feats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
   .pfeat { background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(26,26,26,.05); transition:transform .22s, box-shadow .22s; }
   .pfeat:hover { transform:translateY(-4px); box-shadow:0 14px 30px rgba(26,26,26,.1); }
-  .pfeat img { aspect-ratio:16/10; object-fit:cover; object-position:top; border-bottom:1px solid var(--line); }
+  .pfeat img { height:auto; aspect-ratio:16/10; object-fit:cover; object-position:top; border-bottom:1px solid var(--line); }
   .pfeat .in { padding:14px 16px 16px; }
   .pfeat h4 { font-size:15px; font-weight:900; color:var(--blue); }
   .pfeat p { font-size:11.5px; color:var(--sub); margin-top:5px; line-height:1.9; }
@@ -615,7 +617,7 @@
     .cta-strip p { font-size:16px; }
     .cta-strip .btn--white { padding:15px 24px; width:100%; }
 
-    .portal-main { width:100%; }
+    .portal-picture { width:min(340px,100%); }
     .portal-feats { gap:10px; margin-top:28px; }
     .pfeat .in { padding:11px 12px 14px; }
     .pfeat h4 { font-size:13px; }
@@ -951,15 +953,21 @@
     <div class="sec-head reveal">
       <span class="sec-label">Member Portal</span>
       <h2 class="sec-title">24時間、自分のペースで学べる場所。</h2>
-      <p class="sec-sub">動画・プロンプト・ニュース・Q&amp;Aを1か所に。スマホでもそのまま使えます。6問のかんたん診断で「いま始めるべき一歩」もすぐ分かります。</p>
+      <p class="sec-sub">動画・教科書・活用事例を、まとめて検索。スマホでも自分のペースで学べます。</p>
     </div>
     <div class="portal-stage">
-      <img class="portal-main reveal" src="images/portal-home-desktop-light.webp" alt="会員ポータルのホーム画面" loading="lazy">
+      <figure>
+        <picture class="portal-picture reveal">
+          <source media="(max-width:600px)" srcset="images/portal-home-mobile-202609.webp" width="780" height="1688">
+          <img class="portal-main" src="images/portal-home-desktop-202609.webp" width="2880" height="2000" alt="会員ポータルのホーム画面。教材検索、続きから学ぶ、AIニュースをまとめて確認できます" loading="lazy">
+        </picture>
+        <figcaption class="portal-caption">2026年9月時点の画面です。表示名はサンプルです。</figcaption>
+      </figure>
       <div class="portal-feats">
-        <div class="pfeat reveal"><img src="images/page-videos.webp" alt="動画講座" loading="lazy"><div class="in"><h4>動画講座</h4><p>1本2〜5分。見たらチェックが付き、進み具合は自動で残ります。社員教育の「最初の教材」にも。</p></div></div>
-        <div class="pfeat reveal"><img src="images/page-news.webp" alt="AIニュース" loading="lazy"><div class="in"><h4>AIニュース</h4><p>毎日更新。ニュースごとに「仕事でどう使えるか」の解説付きです。</p></div></div>
-        <div class="pfeat reveal"><img src="images/page-prompts.webp" alt="プロンプト集" loading="lazy"><div class="in"><h4>プロンプト集</h4><p>コピーして貼るだけで今日から時短。毎週「今週のプロンプト」が届きます。</p></div></div>
-        <div class="pfeat reveal"><img src="images/page-qa.webp" alt="Q&A" loading="lazy"><div class="in"><h4>Q&amp;A</h4><p>質問はLINEに送るだけ。過去のQ&amp;Aが検索できる財産になります。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-videos-202609.webp" width="2560" height="1600" alt="動画講座" loading="lazy"><div class="in"><h4>動画講座</h4><p>1本2〜5分。見たらチェックが付き、進み具合は自動で残ります。社員教育の「最初の教材」にも。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-news-202609.webp" width="2560" height="1600" alt="AIニュース" loading="lazy"><div class="in"><h4>AIニュース</h4><p>毎日更新。ニュースごとに「仕事でどう使えるか」の解説付きです。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-prompts-202609.webp" width="2560" height="1600" alt="プロンプト集" loading="lazy"><div class="in"><h4>プロンプト集</h4><p>コピーして貼るだけで今日から時短。毎週「今週のプロンプト」が届きます。</p></div></div>
+        <div class="pfeat reveal"><img src="images/page-qa-202609.webp" width="2560" height="1600" alt="Q&A" loading="lazy"><div class="in"><h4>Q&amp;A</h4><p>質問箱や会員用LINEから相談できます。過去のQ&amp;Aはキーワードやカテゴリで探せます。</p></div></div>
       </div>
     </div>
   </div>
