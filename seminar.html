@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <script>document.documentElement.classList.remove('no-js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>セミナー情報 | 株式会社Opus.net</title>
-  <meta name="description" content="株式会社Opus.netが毎月オンラインで開催している、実務に使えるAI活用無料セミナーのご案内です。業種を問わずご参加いただけます。参加費無料。">
+  <title>AIセミナー一覧 | 株式会社Opus.net</title>
+  <meta name="description" content="AI活用の無料オンラインセミナー、共催セミナー、下北沢でのハンズオンなど、開催予定の日時・参加方法・料金を一覧でご案内します。">
   <link rel="canonical" href="https://opus-net.net/seminar.html">
-  <meta property="og:title" content="セミナー情報 | 株式会社Opus.net">
-  <meta property="og:description" content="株式会社Opus.netが毎月オンラインで開催している、実務に使えるAI活用無料セミナーのご案内です。業種を問わずご参加いただけます。参加費無料。">
+  <meta property="og:title" content="AIセミナー一覧 | 株式会社Opus.net">
+  <meta property="og:description" content="AI活用の無料オンラインセミナー、共催セミナー、下北沢でのハンズオンなど、開催予定の日時・参加方法・料金を一覧でご案内します。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opus-net.net/seminar.html">
   <meta property="og:image" content="https://opus-net.net/assets/images/og-image-v2.jpg">
@@ -19,8 +19,8 @@
   <meta property="og:site_name" content="株式会社Opus.net">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="セミナー情報 | 株式会社Opus.net">
-  <meta name="twitter:description" content="株式会社Opus.netが毎月オンラインで開催している、実務に使えるAI活用無料セミナーのご案内です。業種を問わずご参加いただけます。参加費無料。">
+  <meta name="twitter:title" content="AIセミナー一覧 | 株式会社Opus.net">
+  <meta name="twitter:description" content="AI活用の無料オンラインセミナー、共催セミナー、下北沢でのハンズオンなど、開催予定の日時・参加方法・料金を一覧でご案内します。">
   <meta name="twitter:image" content="https://opus-net.net/assets/images/og-image-v2.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
@@ -34,8 +34,9 @@
   <link rel="stylesheet" href="css/style.css?v=20260729">
   <link rel="stylesheet" href="css/animations.css?v=20260729">
   <link rel="stylesheet" href="css/responsive.css?v=20260729">
+  <link rel="stylesheet" href="css/seminar-list.css?v=20260918">
 </head>
-<body class="page-case">
+<body class="page-case page-seminar">
   <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- Header -->
@@ -89,94 +90,76 @@
   </div>
 
   <main id="main">
-
-  <!-- Page Header -->
   <section class="page-header" data-ghost="Seminar">
     <div class="container">
-      <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a>
-      <span class="breadcrumb__separator" aria-hidden="true">●</span>
-      <span aria-current="page">セミナー情報</span></nav>
-      <p class="page-header__label reveal">Seminar</p>
-      <h1 class="page-header__title"><span class="ph-line">セミナー情報</span></h1>
+      <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a><span class="breadcrumb__separator" aria-hidden="true">●</span><span aria-current="page">AIセミナー一覧</span></nav>
+      <p class="page-header__label">Seminar</p>
+      <h1 class="page-header__title">AIセミナー一覧</h1>
+      <p class="seminar-intro">経営や業務に役立つAI活用のセミナー・勉強会をご案内します。</p>
     </div>
   </section>
-
-  <section class="section">
+  <section class="seminar-section">
     <div class="container">
-      <div class="reveal">
-        <p class="section-label">AI Seminar</p>
-        <h2 class="section-title section-title--ja">実務に使えるAI活用無料セミナーを、毎月開催しています。</h2>
-        <p class="section-subtitle">生成AIを現場で使える形に。研修・導入支援のほか、無料オンラインセミナーも開催しています。主要AIツールの違いから、情報整理・資料作成・業務改善への活かし方まで、明日から実務で使える生成AIの活用方法をご紹介します。</p>
-        <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top: 24px;">お申込みフォームはこちら <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+      <h2>今後の開催予定</h2>
+      <div id="upcoming-seminars" class="seminar-list">
+        <article class="seminar-event" data-series="shukyaku-epark" data-starts-at="2026-09-28T21:30:00+09:00">
+          <time class="seminar-event__date" datetime="2026-09-28" aria-label="2026年9月28日"><span class="seminar-event__year">2026</span><span class="seminar-event__day">9/28</span><span class="seminar-event__weekday">（月）</span></time>
+          <div class="seminar-event__body">
+            <p class="seminar-event__kind">共催セミナー・ヘルスケア施設向け</p>
+            <h3>AI検索時代の集客・AI活用セミナー</h3>
+            <p class="seminar-event__description">EPARK接骨・鍼灸との共催。AI検索で選ばれるための対策と、AIを使った集客素材の作り方をご紹介します。</p>
+            <p class="seminar-event__details"><span class="seminar-event__time">21:30〜23:00</span><span class="seminar-event__venue">オンライン</span></p>
+          </div>
+          <div class="seminar-event__action">
+            <p class="seminar-event__price">参加無料</p>
+            <a class="btn btn--primary seminar-event__link" aria-label="詳細・お申し込み：AI検索時代の集客・AI活用セミナー" href="https://opus-ai-forms.pages.dev/s/shukyaku-epark">詳細・お申し込み <span aria-hidden="true">→</span></a>
+            <p class="seminar-event__status">受付状況は詳細ページをご確認ください</p>
+          </div>
+        </article>
+        <article class="seminar-event" data-series="ai-katsuyo" data-starts-at="2026-09-29T15:00:00+09:00">
+          <time class="seminar-event__date" datetime="2026-09-29" aria-label="2026年9月29日"><span class="seminar-event__year">2026</span><span class="seminar-event__day">9/29</span><span class="seminar-event__weekday">（火）</span></time>
+          <div class="seminar-event__body">
+            <p class="seminar-event__kind">無料セミナー・入門</p>
+            <h3>実務に使えるAI活用無料セミナー</h3>
+            <p class="seminar-event__description">主要AIツールの使い分けから、文章や資料の作成など、明日の仕事に使える活用例を60分でご紹介します。</p>
+            <p class="seminar-event__details"><span class="seminar-event__time">15:00〜16:00</span><span class="seminar-event__venue">オンライン</span></p>
+          </div>
+          <div class="seminar-event__action">
+            <p class="seminar-event__price">参加無料</p>
+            <a class="btn btn--primary seminar-event__link" aria-label="詳細・お申し込み：実務に使えるAI活用無料セミナー" href="https://opus-ai-forms.pages.dev/s/ai-katsuyo">詳細・お申し込み <span aria-hidden="true">→</span></a>
+            <p class="seminar-event__status">受付状況は詳細ページをご確認ください</p>
+          </div>
+        </article>
+        <article class="seminar-event" data-series="ai-lab-handson" data-starts-at="2026-10-24T13:00:00+09:00">
+          <time class="seminar-event__date" datetime="2026-10-24" aria-label="2026年10月24日"><span class="seminar-event__year">2026</span><span class="seminar-event__day">10/24</span><span class="seminar-event__weekday">（土）</span></time>
+          <div class="seminar-event__body">
+            <p class="seminar-event__kind">ハンズオン・下北沢</p>
+            <h3>自社専用のツールを、1日で作成しよう。</h3>
+            <p class="seminar-event__description">仕事の困りごとを整理し、AIでツールづくりに挑戦します。会場ではエンジニアがサポート。オンラインはトークと成果共有をご視聴いただけます。</p>
+            <p class="seminar-event__details"><span class="seminar-event__time">13:00〜18:00</span><span class="seminar-event__venue">coen（下北沢）＋オンライン</span></p>
+          </div>
+          <div class="seminar-event__action">
+            <p class="seminar-event__price">会場 5,000円（税込）
+オンライン無料</p>
+            <a class="btn btn--primary seminar-event__link" aria-label="詳細・お申し込み：自社専用のツールを、1日で作成しよう。" href="https://opus-ai-forms.pages.dev/s/ai-lab-handson">詳細・お申し込み <span aria-hidden="true">→</span></a>
+            <p class="seminar-event__status">受付状況は詳細ページをご確認ください</p>
+          </div>
+        </article>
       </div>
-      <div class="sem-grid">
-        <a href="news/20260714-seminar-august.html" class="sem-card reveal" data-seminar-month="2026-08">
-          <span class="sem-card__thumb sem-card__thumb--open">
-            <span class="sem-card__ring" aria-hidden="true"></span>
-            <span class="sem-card__month">08</span>
-            <span class="sem-card__free">オンライン・無料</span>
-          </span>
-          <span class="sem-card__body">
-            <span class="sem-card__status sem-card__status--open">受付中</span>
-            <span class="sem-card__date">2026年8月4日(火)・6日(木)・25日(火)・26日(水)<br>各日 10:00〜11:00 ／ 15:30〜16:30</span>
-            <span class="sem-card__title">8月のAI活用無料セミナー（お申込み受付中）</span>
-            <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
-          </span>
-        </a>
-        <a href="news/20260706-seminar-july.html" class="sem-card reveal" data-seminar-month="2026-07">
-          <span class="sem-card__thumb sem-card__thumb--closed">
-            <span class="sem-card__ring" aria-hidden="true"></span>
-            <span class="sem-card__month">07</span>
-            <span class="sem-card__free">オンライン・無料</span>
-          </span>
-          <span class="sem-card__body">
-            <span class="sem-card__status sem-card__status--closed">開催終了</span>
-            <span class="sem-card__date">2026年7月開催</span>
-            <span class="sem-card__title">7月のAI活用無料セミナー</span>
-            <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
-          </span>
-        </a>
-        <a href="news/20260706-seminar-june.html" class="sem-card reveal" data-seminar-month="2026-06">
-          <span class="sem-card__thumb sem-card__thumb--closed">
-            <span class="sem-card__ring" aria-hidden="true"></span>
-            <span class="sem-card__month">06</span>
-            <span class="sem-card__free">オンライン・無料</span>
-          </span>
-          <span class="sem-card__body">
-            <span class="sem-card__status sem-card__status--closed">開催終了</span>
-            <span class="sem-card__date">2026年6月開催</span>
-            <span class="sem-card__title">6月のAI活用セミナー</span>
-            <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
-          </span>
-        </a>
-        <a href="news/20260529.html" class="sem-card reveal" data-seminar-month="2026-05">
-          <span class="sem-card__thumb sem-card__thumb--closed">
-            <span class="sem-card__ring" aria-hidden="true"></span>
-            <span class="sem-card__month">05</span>
-            <span class="sem-card__free">オンライン・無料</span>
-          </span>
-          <span class="sem-card__body">
-            <span class="sem-card__status sem-card__status--closed">開催終了</span>
-            <span class="sem-card__date">2026年5月開催</span>
-            <span class="sem-card__title">5月の整骨院・整体院向けAI活用セミナー</span>
-            <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
-          </span>
-        </a>
-        <a href="news/20260424.html" class="sem-card reveal" data-seminar-month="2026-04">
-          <span class="sem-card__thumb sem-card__thumb--closed">
-            <span class="sem-card__ring" aria-hidden="true"></span>
-            <span class="sem-card__month">04</span>
-            <span class="sem-card__free">オンライン・無料</span>
-          </span>
-          <span class="sem-card__body">
-            <span class="sem-card__status sem-card__status--closed">開催終了</span>
-            <span class="sem-card__date">2026年4月開催</span>
-            <span class="sem-card__title">4月の整骨院向けAI活用セミナー</span>
-            <span class="sem-card__more">Read More <span class="sem-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span>
-          </span>
-        </a>
-      </div>
-      <div class="svc-lab svc-lab--wide reveal">
+      <p id="seminar-empty" class="seminar-empty" aria-live="polite" hidden>現在、受付中のセミナーはありません。次回の開催が決まり次第、このページでご案内します。</p>
+      <p class="seminar-note">参加方法・料金・対象者はセミナーごとに異なります。詳しくは各案内ページをご確認ください。</p>
+      <noscript><p class="seminar-note">最新の日程・受付状況は、各案内ページでご確認ください。</p></noscript>
+      <details class="seminar-archive">
+        <summary>過去の開催実績</summary>
+        <ul>
+          <li><a href="news/20260714-seminar-august.html"><time datetime="2026-08">2026年8月</time><span>AI活用無料セミナー</span></a></li>
+          <li><a href="news/20260706-seminar-july.html"><time datetime="2026-07">2026年7月</time><span>AI活用無料セミナー</span></a></li>
+          <li><a href="news/20260706-seminar-june.html"><time datetime="2026-06">2026年6月</time><span>AI活用セミナー</span></a></li>
+          <li><a href="news/20260529.html"><time datetime="2026-05">2026年5月</time><span>整骨院・整体院向けAI活用セミナー</span></a></li>
+          <li><a href="news/20260424.html"><time datetime="2026-04">2026年4月</time><span>整骨院向けAI活用セミナー</span></a></li>
+        </ul>
+      </details>
+      <div class="svc-lab svc-lab--wide">
         <div class="svc-lab__body">
           <p class="svc-lab__label">セミナーのあとに</p>
           <p class="svc-lab__name">仕事で使えるAIラボ</p>
@@ -191,7 +174,6 @@
       </div>
     </div>
   </section>
-
   </main>
 
   <!-- Footer -->
@@ -229,149 +211,6 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    // Seminar dates are owned by the CRM (the application form reads the same API).
-    // Fetch them so this page never drifts from what is actually open for entry.
-    // On any failure we leave the hand-written markup untouched.
-    (function () {
-      var API = 'https://opus-ai-forms.pages.dev/api/events';
-      var WEEK = ['日', '月', '火', '水', '木', '金', '土'];
-
-      var parts = function (date) {
-        var a = date.split('-').map(Number);
-        return { y: a[0], m: a[1], d: a[2], w: WEEK[new Date(a[0], a[1] - 1, a[2]).getDay()] };
-      };
-      var hhmm = function (t) { return t.slice(0, 5); };
-      var range = function (e) { return hhmm(e.startsAt) + '〜' + hhmm(e.endsAt); };
-
-      var byDate = function (events) {
-        var map = {};
-        var order = [];
-        events.forEach(function (e) {
-          if (!map[e.eventDate]) { map[e.eventDate] = []; order.push(e.eventDate); }
-          map[e.eventDate].push(e);
-        });
-        order.sort();
-        return order.map(function (d) {
-          return { date: d, times: map[d].sort(function (a, b) { return a.startsAt < b.startsAt ? -1 : 1; }).map(range) };
-        });
-      };
-
-      // "2026年8月4日(火)・6日(木)<br>各日 10:00〜11:00 ／ 15:30〜16:30"
-      // Falls back to per-day lines when the time slots differ by day.
-      var describe = function (groups) {
-        var first = parts(groups[0].date);
-        var uniform = groups.every(function (g) { return g.times.join() === groups[0].times.join(); });
-        if (uniform) {
-          var days = groups.map(function (g, i) {
-            var p = parts(g.date);
-            return (i === 0 ? p.y + '年' + p.m + '月' : '') + p.d + '日(' + p.w + ')';
-          });
-          // 1日だけの月に「各日」は付けない
-          var prefix = groups.length > 1 ? '各日 ' : '';
-          return days.join('・') + '<br>' + prefix + groups[0].times.join(' ／ ');
-        }
-        return groups.map(function (g, i) {
-          var p = parts(g.date);
-          return (i === 0 ? p.y + '年' : '') + p.m + '月' + p.d + '日(' + p.w + ') ' + g.times.join(' ／ ');
-        }).join('<br>');
-      };
-
-      var markOpen = function (card, groups) {
-        var dateEl = card.querySelector('.sem-card__date');
-        var statusEl = card.querySelector('.sem-card__status');
-        var thumbEl = card.querySelector('.sem-card__thumb');
-        if (dateEl) dateEl.innerHTML = describe(groups);
-        if (statusEl) {
-          statusEl.textContent = '受付中';
-          statusEl.classList.remove('sem-card__status--closed');
-          statusEl.classList.add('sem-card__status--open');
-        }
-        if (thumbEl) {
-          thumbEl.classList.remove('sem-card__thumb--closed');
-          thumbEl.classList.add('sem-card__thumb--open');
-        }
-      };
-
-      // お知らせ記事がまだ無い月のカードを、既存カードを複製して作る。
-      // 記事を書いてカードを手で追加すれば、そちらが data-seminar-month で
-      // 拾われるのでこの生成は止まる。
-      var buildCard = function (template, month, groups) {
-        var card = template.cloneNode(true);
-        var m = Number(month.split('-')[1]);
-        card.setAttribute('data-seminar-month', month);
-        card.setAttribute('href', 'https://opus-ai-forms.pages.dev/');
-        card.setAttribute('target', '_blank');
-        card.setAttribute('rel', 'noopener noreferrer');
-        // reveal は読み込み時に一度だけ監視登録されるので、後から足す要素は自分で可視にする
-        card.classList.add('is-visible');
-
-        var monthEl = card.querySelector('.sem-card__month');
-        if (monthEl) monthEl.textContent = ('0' + m).slice(-2);
-        var titleEl = card.querySelector('.sem-card__title');
-        if (titleEl) titleEl.textContent = m + '月のAI活用無料セミナー（お申込み受付中）';
-        var moreEl = card.querySelector('.sem-card__more');
-        if (moreEl && moreEl.firstChild && moreEl.firstChild.nodeType === 3) {
-          moreEl.firstChild.nodeValue = 'お申込みへ ';
-        }
-        markOpen(card, groups);
-        return card;
-      };
-
-      var apply = function (events) {
-        var cards = document.querySelectorAll('.sem-card[data-seminar-month]');
-        if (!cards.length) return;
-
-        var known = {};
-        Array.prototype.forEach.call(cards, function (card) {
-          var month = card.getAttribute('data-seminar-month');
-          known[month] = true;
-          var mine = events.filter(function (e) { return e.eventDate.slice(0, 7) === month; });
-          if (!mine.length) return; // 受付中の枠なし＝手打ちの「開催終了」のまま
-          markOpen(card, byDate(mine));
-        });
-
-        // 既存カードが無い月（＝記事より先に日程が入った月）を追加する
-        var months = [];
-        events.forEach(function (e) {
-          var m = e.eventDate.slice(0, 7);
-          if (!known[m] && months.indexOf(m) === -1) months.push(m);
-        });
-        if (!months.length) return;
-
-        var grid = cards[0].parentNode;
-        months.sort(); // 昇順にprependすると新しい月が先頭に残る
-        months.forEach(function (month) {
-          var mine = events.filter(function (e) { return e.eventDate.slice(0, 7) === month; });
-          grid.insertBefore(buildCard(cards[0], month, byDate(mine)), grid.firstChild);
-        });
-      };
-
-      fetch(API)
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (events) { if (Array.isArray(events) && events.length) apply(events); })
-        .catch(function () { /* 手打ちの内容を残す */ });
-    })();
-
-    (function () {
-      var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          io.unobserve(el);
-          var target = parseInt(el.dataset.count, 10);
-          var t0 = performance.now();
-          var tick = function (now) {
-            var p = Math.min(1, (now - t0) / 1400);
-            el.textContent = Math.round(target * ease(p)).toLocaleString('ja-JP');
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        });
-      }, { threshold: .6 });
-      document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
-    })();
-  </script>
+  <script src="js/seminar-list.js?v=20260918" defer></script>
 </body>
 </html>
