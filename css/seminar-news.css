@@ -1,0 +1,8 @@
+.page-seminar-news .news-detail__title{max-width:none;font-size:clamp(22px,3.3vw,38px);line-height:1.45;word-break:auto-phrase;text-wrap:balance}
+.page-seminar-news .news-detail__body{max-width:none;font-size:16px;color:var(--ink)}
+.page-seminar-news .news-detail__body h2{font-size:22px;word-break:auto-phrase;text-wrap:balance}
+.seminar-news-facts{margin:24px 0;border-top:1px solid var(--line)}
+.seminar-news-facts>div{display:grid;grid-template-columns:8em 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.seminar-news-facts dt{font-weight:700}.seminar-news-facts dd{margin:0}
+@media(max-width:600px){.page-seminar-news .news-detail__title{font-size:22px;line-height:1.5}.page-seminar-news .news-detail__body{font-size:15px;margin-top:32px}.page-seminar-news .news-detail__body h2{font-size:20px}.seminar-news-facts>div{grid-template-columns:1fr;gap:4px;padding:14px 0}.page-seminar-news .news-detail__eyecatch{margin-top:28px}}
+@media(max-width:360px){.page-seminar-news .news-detail__title{font-size:18px;word-break:normal}}
