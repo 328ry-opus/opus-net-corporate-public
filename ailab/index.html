@@ -273,6 +273,18 @@
   .sem-card__date { margin-top:12px; color:var(--blue); font-size:clamp(17px,2vw,22px); font-weight:900; line-height:1.6; }
   .sem-card__body .lead { font-size:13px; color:var(--sub); margin-top:8px; }
   .sem-card__body .btn { margin-top:18px; }
+  .sem-actions { display:flex; flex-wrap:wrap; align-items:center; gap:4px 22px; }
+  .sem-more { margin-top:18px; font-size:13.5px; font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+  .sem-events { list-style:none; margin-top:6px; display:none; }
+  #seminar[data-state="open"] .sem-events { display:block; }
+  #seminar[data-state="open"] #semLead, #seminar[data-state="open"] .sem-actions { display:none; }
+  #seminar[data-state="error"] .sem-actions .btn { display:none; }
+  .sem-ev { padding:16px 0; border-top:1px solid var(--line); }
+  .sem-ev:last-child { padding-bottom:0; }
+  .sem-ev__when { color:var(--blue); font-weight:900; font-size:clamp(16px,1.8vw,19px); line-height:1.6; }
+  .sem-ev__name { font-weight:900; font-size:14.5px; line-height:1.7; margin-top:2px; }
+  .sem-ev__meta { font-size:12.5px; color:var(--sub); line-height:1.7; }
+  .sem-ev .btn { margin-top:10px; padding:11px 22px; font-size:13px; }
   .schedule { margin-top:26px; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
   .schedule .row { display:grid; grid-template-columns:120px 1fr auto; gap:16px; align-items:center; padding:15px 22px; font-size:13.5px; }
   .schedule .row + .row { border-top:1px solid var(--line); }
@@ -343,21 +355,15 @@
   .entry-kicker em { font-style:normal; color:var(--blue); background:linear-gradient(transparent 68%, rgba(36,64,255,.16) 68% 96%, transparent 96%); }
 
   /* roi */
-  .roi-grid { display:grid; grid-template-columns:420px 1fr; gap:24px; margin-top:44px; align-items:stretch; }
-  .roi-total { background:var(--blue); color:#fff; border-radius:16px; padding:clamp(28px,3.4vw,40px) 30px; text-align:center; display:flex; flex-direction:column; justify-content:center; }
-  .roi-total .cap { font-size:13.5px; font-weight:900; }
-  .roi-total .amount { display:flex; align-items:baseline; justify-content:center; gap:8px; margin-top:6px; }
-  .roi-total .amount .n { font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(58px,6vw,80px); line-height:1; letter-spacing:-.02em; }
-  .roi-total .amount .u { font-size:16px; font-weight:900; }
-  .roi-total .plus { margin-top:8px; font-size:14px; font-weight:900; }
-  .roi-total .cut { margin-top:14px; font-size:12px; color:rgba(255,255,255,.85); line-height:1.9; }
-  .roi-rows { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
-  .roi-r { display:grid; grid-template-columns:170px 1fr auto; gap:14px; padding:13px 24px; align-items:baseline; font-size:13.5px; }
-  .roi-r + .roi-r { border-top:1px solid var(--line); }
-  .roi-r .name { font-weight:900; }
-  .roi-r .how { color:var(--sub); }
-  .roi-r .worth { font-family:"Inter",sans-serif; font-weight:800; color:var(--blue); white-space:nowrap; }
-  .roi-r .worth small { font-family:"Noto Sans JP"; font-size:11px; color:var(--sub); margin-left:3px; }
+  .roi-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:44px; }
+  .roi-c { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 24px 20px; display:flex; flex-direction:column; }
+  .roi-c .name { font-size:17px; font-weight:900; line-height:1.5; word-break:auto-phrase; }
+  .roi-c .now, .roi-c .ex { word-break:auto-phrase; }
+  .roi-c .now { font-size:13px; color:var(--sub); margin-top:4px; line-height:1.7; }
+  .roi-c .worth { margin-top:14px; font-size:14px; font-weight:900; display:flex; align-items:baseline; flex-wrap:wrap; gap:0 4px; }
+  .roi-c .worth small { width:100%; font-size:11.5px; color:var(--sub); font-weight:700; }
+  .roi-c .worth b { white-space:nowrap; font-family:"Inter",sans-serif; font-weight:800; font-size:clamp(32px,3.2vw,40px); color:var(--blue); line-height:1.15; letter-spacing:-.01em; }
+  .roi-c .ex { margin-top:auto; padding-top:12px; border-top:1px dashed var(--line); font-size:12.5px; font-weight:700; line-height:1.7; }
   .roi-kicker { text-align:center; margin-top:32px; font-size:clamp(17px,2.3vw,24px); font-weight:900; }
   .roi-kicker em { font-style:normal; color:var(--blue); background:linear-gradient(transparent 68%, rgba(36,64,255,.16) 68% 96%, transparent 96%); }
 
@@ -518,9 +524,8 @@
     .sem-card { grid-template-columns:1fr; }
     .schedule .row { grid-template-columns:96px 1fr; }
     .schedule .tag { display:none; }
-    .entry-grid, .qgrid, .roi-grid { grid-template-columns:1fr; }
-    .roi-r { grid-template-columns:1fr auto; }
-    .roi-r .how { grid-column:1 / -1; }
+    .entry-grid, .qgrid { grid-template-columns:1fr; }
+    .roi-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .monthly .mrow { grid-template-columns:96px 1fr; padding:15px 18px; }
     .foot-grid { grid-template-columns:1fr 1fr; }
     .dock-in p { display:none; }
@@ -648,8 +653,13 @@
     .step { padding:22px 18px 24px; }
     .steps-note { font-size:13.5px; }
 
-    .roi-total { padding:26px 20px; }
-    .roi-r { padding:12px 16px; font-size:13px; }
+    .roi-cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:32px; }
+    .roi-c { padding:16px 14px 14px; border-radius:12px; }
+    .roi-c .name { font-size:15px; }
+    .roi-c .now { font-size:12px; }
+    .roi-c .worth { margin-top:10px; font-size:12px; }
+    .roi-c .worth b { font-size:26px; }
+    .roi-c .ex { font-size:11.5px; padding-top:10px; }
     .roi-kicker { font-size:17px; }
     .monthly .mrow { grid-template-columns:78px 1fr; gap:12px; padding:14px 16px; }
     .monthly h4 { font-size:14.5px; }
@@ -690,6 +700,9 @@
     .chat-launcher .face img { width:27px; }
   }
   @media (min-width:961px) { .dock { display:none !important; } }
+  /* phones: the bottom dock already offers 資料/お問い合わせ, so drop the floating chat */
+  @media (max-width:600px) { .chat, .chat-launcher { display:none !important; } }
+  @media (max-width:360px) { .roi-cards { grid-template-columns:1fr !important; } .roi-kicker { font-size:15px !important; } }
   @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; animation:none !important; } .reveal { opacity:1; transform:none; } }
 </style>
 </head>
@@ -741,7 +754,7 @@
         </div>
         <div class="cta-col">
           <a href="https://opus-ai-forms.pages.dev/guide" target="_blank" rel="noopener noreferrer" class="btn btn--dark">資料<br>ダウンロード</a>
-          <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--white">無料セミナーの<br>日程を見る</a>
+          <a href="#seminar" class="btn btn--white js-seminar-cta" data-free="無料セミナーの&lt;br&gt;日程を見る" data-open="セミナーの&lt;br&gt;日程を見る" data-none="セミナーの&lt;br&gt;お知らせを受け取る">無料セミナーの<br>日程を見る</a>
           <a href="https://opus-ai-forms.pages.dev/contact" target="_blank" rel="noopener noreferrer" class="btn btn--paper">入会・相談の<br>ご連絡</a>
         </div>
         <p class="note">「自分の会社で使えるか相談したい」だけでも歓迎です。無理な営業は一切いたしません。</p>
@@ -775,7 +788,7 @@
     <div class="reveal">
       <h2>聞いて終わり、にしない。<br>毎月ひとつ、実務に置き換える。</h2>
       <p class="desc">セミナーで聞いて「なるほど」で終わっていませんか。AIラボは<b>毎月の実務テーマ</b>と<b>他社の事例</b>を見ながら、自社の仕事を少しずつAIに置き換えていく継続型コミュニティです。</p>
-      <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn">無料セミナーの日程を見る <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+      <a href="#seminar" class="btn"><span class="js-seminar-cta" data-free="無料セミナーの日程を見る" data-open="セミナーの日程を見る" data-none="セミナーのお知らせを受け取る">無料セミナーの日程を見る</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
     </div>
     <div class="subhero-visual reveal">
       <img src="images/team-v2.webp" alt="ラボセッションの様子" loading="lazy">
@@ -1013,8 +1026,12 @@
       </div>
       <div class="sem-card__body">
         <h3 class="sem-card__title">AI活用無料セミナー</h3>
-        <p class="lead">日程・時間・受付状況は、<br>案内ページをご確認ください。</p>
-        <a href="https://opus-ai-forms.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn">開催日程・詳細を見る <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+        <p class="lead" id="semLead">次回の日程は、決まり次第AIラボ公式LINEでお知らせします。</p>
+        <div class="sem-actions">
+          <a href="https://line.me/R/ti/p/@450mjzdd" target="_blank" rel="noopener noreferrer" class="btn">LINEで開催のお知らせを受け取る</a>
+          <a href="../seminar.html" class="sem-more">セミナー一覧を見る</a>
+        </div>
+        <ul class="sem-events" id="semEvents"></ul>
       </div>
     </div>
   </div>
@@ -1024,26 +1041,18 @@
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-label">ROI</span>
-      <h2 class="sec-title">AIに任せられる仕事、<em>月12万円分</em>。</h2>
-      <p class="sec-sub">ラボで扱ってきた実務テーマのうち、数字にしやすい6つを人件費に換算しました（時間は時給1,500円、LP・動画編集は外注費で試算）。</p>
+      <h2 class="sec-title">ひとつの仕事を、<em>AIに置き換えたら</em>。</h2>
+      <p class="sec-sub">ラボで扱ってきた実務テーマから、数字にしやすい6つを1回あたりの費用に換算しました（時間は時給1,500円、制作は外注費で試算）。発生する回数は会社ごとに異なるため、自社の業務頻度に当てはめて試算してみてください。</p>
     </div>
-    <div class="roi-grid">
-      <div class="roi-total reveal">
-        <p class="cap">任せた仕事を、人件費に直すと</p>
-        <div class="amount"><span class="n">12.3</span><span class="u">万円分 / 月</span></div>
-        <p class="plus">＋ 初回 30万円の制作費</p>
-        <p class="cut">“任せた仕事”は、そのまま人件費の節約になります。数字にしにくいテーマは、ここに入れていません。</p>
-      </div>
-      <div class="roi-rows reveal">
-        <div class="roi-r"><span class="name">LP・サイトを作る</span><span class="how">外注すれば制作費が丸ごと</span><span class="worth">30万円〜<small>初回</small></span></div>
-        <div class="roi-r"><span class="name">議事録</span><span class="how">週2回の会議 × 清書に40分</span><span class="worth">月 0.8万円</span></div>
-        <div class="roi-r"><span class="name">リサーチ・資料読み</span><span class="how">週2時間の調べ物・読み込み</span><span class="worth">月 1.2万円</span></div>
-        <div class="roi-r"><span class="name">動画編集</span><span class="how">外注すれば1本1万円 × 月2本</span><span class="worth">月 2万円</span></div>
-        <div class="roi-r"><span class="name">口コミ返信</span><span class="how">毎日20分、文面に悩む時間</span><span class="worth">月 1.5万円</span></div>
-        <div class="roi-r"><span class="name">しゃべるだけ日報</span><span class="how">スタッフ3人 × 毎日30分の日報タイム</span><span class="worth">月 6.8万円</span></div>
-      </div>
+    <div class="roi-cards">
+      <div class="roi-c reveal"><h3 class="name">LP・サイトを作る</h3><p class="now">外注すると、制作費が30万円〜</p><p class="worth"><small>1サイト</small><b>30万円〜</b></p><p class="ex">外注していた分がそのまま浮く計算</p></div>
+      <div class="roi-c reveal"><h3 class="name">議事録</h3><p class="now">会議のあとの清書に40分</p><p class="worth"><small>1回あたり</small><b>1,000</b>円分</p><p class="ex">週2回の会議なら、月8,000円ほど</p></div>
+      <div class="roi-c reveal"><h3 class="name">リサーチ・資料読み</h3><p class="now">調べ物と読み込みに2時間</p><p class="worth"><small>1回あたり</small><b>3,000</b>円分</p><p class="ex">週1回なら、月12,000円ほど</p></div>
+      <div class="roi-c reveal"><h3 class="name">動画編集</h3><p class="now">外注すると、1本1万円</p><p class="worth"><small>1本あたり</small><b>10,000</b>円</p><p class="ex">月2本なら、月2万円</p></div>
+      <div class="roi-c reveal"><h3 class="name">口コミ返信</h3><p class="now">文面に悩む時間が、1日20分</p><p class="worth"><small>1日あたり</small><b>500</b>円分</p><p class="ex">毎日なら、月15,000円ほど</p></div>
+      <div class="roi-c reveal"><h3 class="name">しゃべるだけ日報</h3><p class="now">1人30分の日報タイム</p><p class="worth"><small>1人1日あたり</small><b>750</b>円分</p><p class="ex">3人×営業日22日なら、月5万円ほど</p></div>
     </div>
-    <p class="roi-kicker reveal">会費は月9,800円。<em>ひと月にひとつ置き換えるだけで、もとが取れる</em>計算です。</p>
+    <p class="roi-kicker reveal">会費は月9,800円（税別）。<em>回数が多い仕事から置き換えると、効果が大きいです</em>。</p>
   </div>
 </section>
 
@@ -1076,7 +1085,7 @@
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-label">Flow</span>
-      <h2 class="sec-title">面談から始まるので、迷いません。</h2>
+      <h2 class="sec-title">最初の一歩は、一緒に決めます。</h2>
     </div>
     <div class="steps">
       <div class="step reveal"><span class="n">STEP 1</span><h4>お申し込み</h4><p>Webの申込フォームから、規約に同意してカード決済まで完了します。</p></div>
@@ -1279,45 +1288,108 @@
   }, { passive: true });
   document.getElementById('dockClose').addEventListener('click', () => { dockClosed = true; dock.classList.remove('is-on'); });
 
-  // Keep static HTML evergreen; add the scheduled event only before it ends.
-  const scheduledSeminar = {"@type": "Event", "name": "実務に使えるAI活用無料セミナー", "startDate": "2026-09-29T15:00:00+09:00", "endDate": "2026-09-29T16:00:00+09:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "isAccessibleForFree": true, "organizer": {"@id": "https://opus-net.net/#org"}, "location": {"@type": "VirtualLocation", "url": "https://opus-ai-forms.pages.dev/"}, "url": "https://opus-net.net/ailab/#seminar"};
-  function refreshSeminarSchedule(now = Date.now()) {
+  // Seminar dates come from the forms API (same source as /seminar.html); the static HTML is the "no dates" state.
+  const SEMINAR_API = 'https://opus-ai-forms.pages.dev/api/events?series=';
+  const SEMINAR_SERIES = [
+    { key: 'ai-katsuyo', label: '無料セミナー', url: 'https://opus-ai-forms.pages.dev/s/ai-katsuyo' },
+    { key: 'ai-lab-handson', label: 'ハンズオン', url: 'https://opus-ai-forms.pages.dev/s/ai-lab-handson' }
+  ];
+  const WEEK = ['日', '月', '火', '水', '木', '金', '土'];
+  const startsAt = (e) => Date.parse(e.eventDate + 'T' + e.startsAt + '+09:00');
+  const isUpcoming = (e, now) => e && /^\d{4}-\d{2}-\d{2}$/.test(e.eventDate) && /^\d{2}:\d{2}/.test(e.startsAt) && /^\d{2}:\d{2}/.test(e.endsAt) &&
+    Number.isFinite(startsAt(e)) && startsAt(e) > now && !e.isFull && !e.isClosed;
+  const dayLabel = (e) => {
+    const [, m, d] = e.eventDate.split('-').map(Number);
+    return m + '/' + d + '（' + WEEK[new Date(e.eventDate + 'T12:00:00+09:00').getUTCDay()] + '）';
+  };
+  const venueLabel = (e) => e.format === 'online' ? 'オンライン' : (e.venueName || '会場') + (e.format === 'hybrid' ? '＋オンライン' : '');
+  const priceLabel = (e) => {
+    if (e.format === 'online') return '参加無料';
+    const venue = Number.isFinite(e.venuePriceYen) && e.venuePriceYen > 0 ? '会場 ' + e.venuePriceYen.toLocaleString('ja-JP') + '円（税込）' : '会場参加無料';
+    return e.format === 'hybrid' ? venue + '・オンライン無料' : venue;
+  };
+  const shortTitle = (e) => (e.title || '').replace(/^仕事で使えるAIラボ\s*/, '');
+
+  function renderSeminars(events) {
     const section = document.getElementById('seminar');
-    const upcoming = now < Date.parse(scheduledSeminar.endDate);
-    const open = now < Date.parse(scheduledSeminar.startDate);
-    section.querySelector('.stamp').textContent = upcoming ? (open ? '受付中' : '開催中') : '業種不問';
-    section.querySelector('.mo').textContent = upcoming ? '09.29' : 'AI';
-    section.querySelector('.sem-card__title').textContent = upcoming ? '9月のAI活用無料セミナー' : 'AI活用無料セミナー';
-    let date = section.querySelector('.sem-card__date');
-    if (upcoming && !date) {
-      date = document.createElement('p');
-      date.className = 'sem-card__date';
-      date.innerHTML = '<time datetime="2026-09-29T15:00:00+09:00">2026年9月29日（火）<br>15:00〜16:00</time>';
-      section.querySelector('.sem-card__title').after(date);
-    } else if (!upcoming) date?.remove();
-    const notice = document.querySelector('#toast a');
-    if (notice) notice.textContent = upcoming ? '無料セミナー 9/29（火）15:00〜' : '無料セミナーの日程・詳細はこちら';
-    document.querySelector('.qn-seminar small').textContent = upcoming ? '9/29（火）15:00〜' : '日程・詳細を見る';
+    section.dataset.state = events.length ? 'open' : 'none';
+    const toast = document.getElementById('toast');
+    const ctas = document.querySelectorAll('.js-seminar-cta');
+    const qnSmall = document.querySelector('.qn-seminar small');
+    if (!events.length) {
+      ctas.forEach((a) => { a.innerHTML = a.dataset.none; });
+      if (qnSmall) qnSmall.textContent = 'お知らせを受け取る';
+      return;
+    }
+    const first = events[0];
+    const hasFree = events.some((e) => e.series.key === 'ai-katsuyo');
+    ctas.forEach((a) => { a.innerHTML = hasFree ? a.dataset.free : a.dataset.open; });
+    section.querySelector('.free').textContent = first.format === 'online' ? 'オンライン・参加無料' : '会場＋オンライン';
+    section.querySelector('.stamp').textContent = '受付中';
+    section.querySelector('.mo').textContent = first.eventDate.slice(5).replace('-', '.');
+    section.querySelector('.sem-card__title').textContent = '受付中のセミナー';
+    const list = document.getElementById('semEvents');
+    list.replaceChildren(...events.map((e) => {
+      const li = document.createElement('li');
+      li.className = 'sem-ev';
+      const when = document.createElement('p'); when.className = 'sem-ev__when';
+      const time = document.createElement('time'); time.dateTime = e.eventDate + 'T' + e.startsAt.slice(0, 5) + '+09:00';
+      time.textContent = dayLabel(e) + ' ' + e.startsAt.slice(0, 5) + '〜' + e.endsAt.slice(0, 5);
+      when.append(time);
+      const name = document.createElement('p'); name.className = 'sem-ev__name'; name.textContent = shortTitle(e);
+      const meta = document.createElement('p'); meta.className = 'sem-ev__meta'; meta.textContent = venueLabel(e) + '｜' + priceLabel(e);
+      const link = document.createElement('a'); link.className = 'btn'; link.href = e.series.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      link.textContent = '詳細・お申し込み';
+      li.append(when, name, meta, link);
+      return li;
+    }));
+    if (toast) {
+      toast.querySelector('a').textContent = first.series.label + ' ' + dayLabel(first) + ' ' + first.startsAt.slice(0, 5) + '〜';
+      setTimeout(() => toast.classList.add('is-on'), 800);
+      // on phones the toast is a full-width strip — retract it so it stops covering content
+      if (window.matchMedia('(max-width:600px)').matches) setTimeout(() => toast.classList.remove('is-on'), 7000);
+    }
+    if (qnSmall) qnSmall.textContent = dayLabel(first) + ' ' + first.startsAt.slice(0, 5) + '〜';
     const schema = document.querySelector('script[type="application/ld+json"]');
     const data = JSON.parse(schema.textContent);
-    const series = data['@graph'].find(item => item['@id'] === 'https://opus-net.net/ailab/#seminar-series');
-    if (series) {
-      if (upcoming) series.subEvent = [scheduledSeminar];
-      else delete series.subEvent;
+    const series = data['@graph'].find((item) => item['@id'] === 'https://opus-net.net/ailab/#seminar-series');
+    const free = events.filter((e) => e.series.key === 'ai-katsuyo');
+    if (series && free.length) {
+      series.subEvent = free.map((e) => ({
+        '@type': 'Event', name: '実務に使えるAI活用無料セミナー',
+        startDate: e.eventDate + 'T' + e.startsAt.slice(0, 5) + ':00+09:00', endDate: e.eventDate + 'T' + e.endsAt.slice(0, 5) + ':00+09:00',
+        eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode', isAccessibleForFree: true,
+        organizer: { '@id': 'https://opus-net.net/#org' }, location: { '@type': 'VirtualLocation', url: e.series.url }, url: 'https://opus-net.net/ailab/#seminar'
+      }));
+      schema.textContent = JSON.stringify(data);
     }
-    schema.textContent = JSON.stringify(data);
   }
-  refreshSeminarSchedule();
-  setInterval(refreshSeminarSchedule, 60_000);
 
-  // toast
-  const toast = document.getElementById('toast');
-  setTimeout(() => toast.classList.add('is-on'), 800);
-  document.getElementById('toastClose').addEventListener('click', () => toast.remove());
-  // on phones the toast is a full-width strip — retract it so it stops covering content
-  if (window.matchMedia('(max-width:600px)').matches) {
-    setTimeout(() => toast.classList.remove('is-on'), 7000);
-  }
+  (async () => {
+    const now = Date.now();
+    const results = await Promise.all(SEMINAR_SERIES.map(async (series) => {
+      try {
+        const options = typeof AbortSignal.timeout === 'function' ? { signal: AbortSignal.timeout(10000) } : {};
+        const res = await fetch(SEMINAR_API + encodeURIComponent(series.key), options);
+        if (!res.ok) throw new Error('unavailable');
+        const list = await res.json();
+        if (!Array.isArray(list)) throw new Error('invalid');
+        return list.filter((e) => isUpcoming(e, now)).map((e) => ({ ...e, series }));
+      } catch (_) {
+        return null;
+      }
+    }));
+    const events = results.filter(Boolean).flat().sort((a, b) => startsAt(a) - startsAt(b));
+    // If every request failed, keep the static "no dates" state but point to the list page instead of LINE-only.
+    if (results.every((r) => r === null)) {
+      document.getElementById('seminar').dataset.state = 'error';
+      document.getElementById('semLead').textContent = '開催予定を読み込めませんでした。最新の日程はセミナー一覧でご確認ください。';
+      return;
+    }
+    renderSeminars(events);
+  })();
+
+  document.getElementById('toastClose').addEventListener('click', () => document.getElementById('toast').remove());
 
   // quicknav: appears after scrolling past the hero; collapsible to a side tab
   const qn = document.getElementById('quicknav');
