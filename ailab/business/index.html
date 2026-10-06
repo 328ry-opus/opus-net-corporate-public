@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実務で役立つAI担当が育つコミュニティ｜仕事で使えるAIラボ by Opus.net</title>
+<meta name="description" content="中小企業向けの継続型AI活用コミュニティです。月1回の実演、LINEでの質問対応、短い動画講座で社内にAI担当が育ちます。初月の個別面談付きで、1名から始められます。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://opus-net.net/ailab/business/">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:title" content="実務で役立つAI担当が育つコミュニティ｜仕事で使えるAIラボ by Opus.net">
+<meta property="og:description" content="中小企業向けの継続型AI活用コミュニティです。月1回の実演、LINEでの質問対応、短い動画講座で社内にAI担当が育ちます。初月の個別面談付きで、1名から始められます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://opus-net.net/ailab/business/">
+<meta property="og:image" content="https://opus-net.net/ailab/business/images/og-business.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="仕事で使えるAIラボ by Opus.net">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* 見た目＝ネコノテ型（白×ロイヤルブルー×黒・人物1人＋青いリボン・薄い流線）。書体はサービスサイトと同じ Noto Sans JP 900＋Inter
+     訴求の強さ＝AIデザインフェスティバル型（FV直下の帯・光るボタンの反復・番組・特典・追従ボタン）
+     寸法は --u（列幅÷500・cqw基準） */
+  :root {
+    --blue:#1F4BFF; --blue-deep:#1435c9; --blue-2:#3a63ff; --ink:#111318; --sub:#4a4f5c; --pale:#eef3ff; --pale2:#dfe8ff; --line:#dfe5f5;
+    --jp:"Noto Sans JP", system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    /* 見出しもサービスサイトと同じ極太ゴシック（旧：明朝） */
+    --serif:var(--jp);
+    --num:"Inter", var(--jp);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--jp); color:var(--ink); background:#e9eefb; -webkit-text-size-adjust:100%; }
+  .lp { width:min(500px, 100%); margin:0 auto; container-type:inline-size; background:#fff; overflow:hidden; box-shadow:0 0 50px rgba(20,40,120,.12); }
+  .lp * { --u:calc(100cqw / 500); --t:min(calc(100cqw / 400), 1px); }
+  img { display:block; max-width:100%; height:auto; }
+  a { color:inherit; }
+  :focus-visible { outline:3px solid var(--blue); outline-offset:2px; }
+  .pad { padding-inline:calc(20 * var(--u)); }
+  .nw { white-space:nowrap; }
+  h1, h2, h3 { word-break:auto-phrase; text-wrap:balance; font-feature-settings:"palt"; }
+
+  /* 見出し：明朝・両脇に細線 */
+  .sec { position:relative; padding-block:calc(48 * var(--u)) calc(44 * var(--u)); }
+  .sec-title { font-family:var(--serif); font-weight:900; text-align:center; font-size:calc(23 * var(--t)); line-height:1.5; letter-spacing:.02em; display:flex; align-items:center; justify-content:center; gap:calc(12 * var(--u)); }
+  .sec-title::before, .sec-title::after { content:""; flex:none; width:calc(24 * var(--u)); height:2px; background:var(--blue); }
+  .sec-title em { font-style:normal; color:var(--blue); }
+  .sec-sub { text-align:center; font-size:max(12px, calc(13 * var(--t))); color:var(--sub); font-weight:700; margin-top:calc(8 * var(--u)); line-height:1.7; word-break:auto-phrase; }
+  .label { display:inline-block; background:var(--ink); color:#fff; font-family:var(--serif); font-weight:900; font-size:max(12px, calc(14 * var(--u))); padding:calc(5 * var(--u)) calc(18 * var(--u)); transform:skewX(-14deg); box-shadow:calc(6 * var(--u)) 0 0 var(--blue); }
+  .label span { display:inline-block; transform:skewX(14deg); letter-spacing:.06em; }
+  .flow-bg { position:absolute; inset:0; z-index:0; pointer-events:none; width:100%; height:100%; }
+
+  /* ---------- ヘッダー・FV ---------- */
+  header { display:flex; align-items:center; justify-content:space-between; padding:calc(14 * var(--u)) calc(18 * var(--u)); position:relative; z-index:5; background:#fff; }
+  .brand { font-weight:900; font-size:max(12px, calc(17 * var(--t))); letter-spacing:.02em; line-height:1.1; text-decoration:none; }
+  .brand small { display:block; font-family:var(--num); font-weight:800; font-size:max(12px, calc(11 * var(--t))); letter-spacing:.04em; color:var(--sub); margin-top:calc(3 * var(--u)); }
+  .brand em { font-style:normal; color:var(--blue); }
+  .hbtn { background:var(--ink); color:#fff; font-weight:800; font-size:max(12px, calc(13 * var(--t))); padding:calc(9 * var(--u)) calc(14 * var(--u)); border-radius:calc(4 * var(--u)); text-decoration:none; }
+  .fv { position:relative; height:calc(640 * var(--u)); overflow:hidden; }
+  .fv .photo { position:absolute; right:calc(-70 * var(--u)); top:calc(40 * var(--u)); width:calc(450 * var(--u)); z-index:1;
+    -webkit-mask:linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 14%); -webkit-mask-composite:source-in;
+    mask:linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 14%); mask-composite:intersect; }
+  .copy { position:absolute; left:calc(20 * var(--u)); top:calc(26 * var(--u)); z-index:3; }
+  .fv h1 { font-family:var(--serif); font-weight:900; color:var(--ink); line-height:1.2; margin-top:calc(18 * var(--u)); letter-spacing:.01em; }
+  .fv h1 .l1 { display:block; font-size:calc(30 * var(--u)); }
+  .fv h1 .big { display:block; font-size:calc(70 * var(--u)); color:var(--blue); letter-spacing:-.01em; line-height:1.1; margin-top:calc(4 * var(--u)); white-space:nowrap; }
+  .fv h1 .big .ai { font-size:1.08em; }
+  .fv h1 .l3 { display:block; font-size:calc(30 * var(--u)); margin-top:calc(6 * var(--u)); white-space:nowrap; }
+  .fv h1 .l3 small { font-size:max(12px, .62em); margin-left:calc(4 * var(--u)); }
+  .fv h1 .p1 { display:block; font-size:calc(28 * var(--u)); white-space:nowrap; line-height:1.05; }
+  .fv h1 .p1 b { font-family:var(--num); font-weight:900; font-size:calc(62 * var(--u)); color:var(--blue); letter-spacing:-.02em; margin-inline:calc(2 * var(--u)); }
+  .fv h1 .q { display:block; font-size:calc(34 * var(--u)); line-height:1.3; white-space:nowrap; }
+  .fv h1 .q + .q { margin-top:calc(2 * var(--u)); }
+  .fv h1 .p1 + .q { margin-top:calc(8 * var(--u)); }
+  .fv h1 .q em { font-style:normal; color:var(--blue); }
+  .fv .taxnote { position:absolute; right:calc(12 * var(--u)); top:calc(522 * var(--u)); z-index:3; text-align:right; font-size:12px; font-weight:700; color:#fff; line-height:1.6; text-shadow:0 1px 3px rgba(5,20,110,.55); }
+  .fv .subh { margin-top:calc(14 * var(--u)); font-size:max(12px, calc(15 * var(--t))); font-weight:900; line-height:1.7; color:var(--ink); white-space:nowrap; }
+  .fv .rule { width:calc(110 * var(--u)); height:calc(3 * var(--u)); margin-top:calc(16 * var(--u)); background:linear-gradient(90deg, var(--blue) 0 40%, var(--line) 40%); }
+  .fv .sub { word-break:auto-phrase; margin-top:calc(14 * var(--u)); font-size:max(12px, calc(14 * var(--t))); font-weight:700; line-height:1.85; color:var(--sub); width:calc(250 * var(--u)); }
+  .fv .pre { position:absolute; left:calc(20 * var(--u)); bottom:calc(24 * var(--u)); z-index:3; font-size:max(12px, calc(12 * var(--t))); font-weight:800; color:var(--blue-deep); background:#fff; border:1px solid var(--pale2); border-radius:999px; padding:calc(4 * var(--u)) calc(12 * var(--u)); white-space:nowrap; }
+  .fv .pre .nbr { display:none; }
+  @container (max-width:379px) { .fv .pre { bottom:calc(6 * var(--u)); white-space:normal; border-radius:calc(14 * var(--u)); line-height:1.5; } .fv .pre .nbr { display:inline; } .fv .taxnote { top:calc(490 * var(--u)); } }
+
+  /* ---------- FV直下の帯（強い訴求） ---------- */
+  .band-blue { background:linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); padding:calc(16 * var(--u)) calc(14 * var(--u)) calc(18 * var(--u)); display:grid; grid-template-columns:repeat(3, 1fr); gap:calc(8 * var(--u)); text-align:center; position:relative; overflow:hidden; }
+  .band-blue::before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(-45deg, rgba(255,255,255,.06) 0 calc(8 * var(--u)), transparent calc(8 * var(--u)) calc(16 * var(--u))); }
+  .band-blue div { position:relative; background:#fff; border-radius:calc(8 * var(--u)); padding:calc(9 * var(--u)) calc(4 * var(--u)) calc(10 * var(--u)); box-shadow:0 calc(5 * var(--u)) 0 rgba(8,20,110,.35); }
+  .band-blue small { display:block; font-size:max(12px, calc(12.5 * var(--t))); color:var(--blue); font-weight:900; letter-spacing:.04em; }
+  .band-blue strong { display:block; font-family:var(--serif); font-size:calc(30 * var(--t)); line-height:1.15; margin-top:calc(2 * var(--u)); font-weight:800; color:var(--ink); }
+  .band-blue span { display:block; font-size:max(12px, calc(11.5 * var(--t))); font-weight:800; color:var(--sub); margin-top:calc(3 * var(--u)); }
+  .band-black { background:var(--ink); color:#fff; text-align:center; font-weight:900; font-size:max(12px, calc(17 * var(--t))); padding:calc(14 * var(--u)) calc(18 * var(--u)); }
+  .band-black em { font-style:normal; color:#8fb0ff; }
+  .band-price { position:relative; text-align:center; padding:calc(16 * var(--u)) calc(10 * var(--u)) calc(14 * var(--u)); background:#fff; }
+  .band-price .lead { display:inline-block; font-family:var(--serif); font-weight:900; font-size:max(12px, calc(15 * var(--t))); color:var(--sub); }
+  .band-price .lead::before, .band-price .lead::after { content:""; display:inline-block; width:calc(18 * var(--u)); height:2px; background:var(--blue); vertical-align:middle; margin-inline:calc(8 * var(--u)); }
+  .band-price p { white-space:nowrap; font-family:var(--serif); font-weight:900; font-size:calc(20 * var(--t)); margin-top:calc(4 * var(--u)); }
+  .band-price b { font-family:var(--num); font-weight:900; font-size:calc(52 * var(--u)); color:var(--blue); letter-spacing:-.01em; line-height:1; margin-inline:calc(2 * var(--u)); }
+  .band-price small { display:block; margin-top:calc(2 * var(--u)); font-size:max(12px, calc(13 * var(--t))); color:var(--sub); font-family:var(--jp); font-weight:700; }
+
+  /* ---------- ボタン（光る・何度も出す） ---------- */
+  .ctawrap { padding:calc(20 * var(--u)); text-align:center; background:var(--pale); }
+  .cta { position:relative; display:flex; align-items:stretch; overflow:hidden; text-decoration:none; border-radius:calc(8 * var(--u)); background:linear-gradient(180deg, var(--blue-2), var(--blue-deep)); color:#fff; box-shadow:0 calc(6 * var(--u)) 0 #0d2499, 0 calc(14 * var(--u)) calc(24 * var(--u)) rgba(20,50,200,.25); transition:transform .15s; }
+  .cta:hover { transform:translateY(calc(2 * var(--u))); }
+  .cta .tag { background:var(--ink); color:#fff; font-weight:900; font-size:max(12px, calc(17 * var(--t))); writing-mode:vertical-rl; letter-spacing:.14em; padding:calc(8 * var(--u)) calc(9 * var(--u)); display:grid; place-items:center; }
+  .cta .txt { flex:1; padding:calc(13 * var(--u)) calc(10 * var(--u)); font-weight:900; line-height:1.35; }
+  .cta .txt small { display:block; font-size:max(12px, calc(14 * var(--t))); opacity:.95; }
+  .cta .txt strong { display:block; font-size:calc(26 * var(--t)); letter-spacing:.02em; }
+  .cta::after { content:""; position:absolute; top:-50%; left:-30%; width:18%; height:200%; background:rgba(255,255,255,.45); transform:rotate(25deg); animation:shine 3s ease-in-out infinite; }
+  @keyframes shine { 0%,60% { left:-30%; } 100% { left:130%; } }
+  .ctanote { font-size:max(12px, calc(12.5 * var(--t))); color:var(--sub); margin-top:calc(10 * var(--u)); font-weight:700; }
+  .ctasub { display:block; margin-top:calc(10 * var(--u)); font-size:max(12px, calc(14.5 * var(--t))); font-weight:800; color:var(--blue-deep); text-underline-offset:calc(4 * var(--u)); }
+  .ctasolo { display:inline-flex; align-items:center; min-height:44px; margin-top:calc(2 * var(--u)); font-size:max(12px, calc(13 * var(--t))); font-weight:700; color:var(--sub); text-underline-offset:calc(4 * var(--u)); }
+
+  /* ---------- 会員の質問 ---------- */
+  .bubbles { display:grid; gap:calc(12 * var(--u)); margin-top:calc(24 * var(--u)); }
+  .bub { background:#fff; border:1px solid var(--line); border-radius:calc(14 * var(--u)) calc(14 * var(--u)) calc(14 * var(--u)) calc(3 * var(--u)); padding:calc(13 * var(--u)) calc(16 * var(--u)); font-weight:800; font-size:max(12px, calc(16 * var(--t))); line-height:1.6; width:90%; box-shadow:0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(20,50,160,.08); word-break:auto-phrase; }
+  .bub:nth-child(even) { margin-left:auto; border-radius:calc(14 * var(--u)) calc(14 * var(--u)) calc(3 * var(--u)) calc(14 * var(--u)); }
+  .bub small { display:block; font-size:max(12px, calc(11.5 * var(--t))); color:var(--blue); letter-spacing:.06em; margin-bottom:calc(3 * var(--u)); }
+  .qs-note { margin-top:calc(16 * var(--u)); font-size:max(12px, calc(13 * var(--t))); color:var(--sub); line-height:1.8; text-align:center; font-weight:700; word-break:auto-phrase; }
+
+  /* ---------- 考え方 ---------- */
+  .policy { background:linear-gradient(180deg, #fff 0%, var(--pale) 100%); }
+  .policy h2 { font-family:var(--serif); font-weight:900; font-size:calc(23 * var(--t)); line-height:1.45; margin-top:calc(14 * var(--u)); }
+  .policy h2 em { font-style:normal; color:var(--blue); }
+  .policy .bar { width:calc(80 * var(--u)); height:calc(3 * var(--u)); background:var(--blue); margin-top:calc(14 * var(--u)); }
+  .policy .lead { margin-top:calc(14 * var(--u)); font-size:max(12px, calc(14 * var(--t))); font-weight:700; color:var(--sub); }
+  .facts { list-style:none; display:grid; gap:calc(10 * var(--u)); margin-top:calc(18 * var(--u)); }
+  .facts li { display:grid; grid-template-columns:calc(40 * var(--u)) 1fr; gap:calc(12 * var(--u)); align-items:start; background:#fff; border-radius:calc(10 * var(--u)); padding:calc(14 * var(--u)); box-shadow:0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(20,50,160,.08); font-size:max(12px, calc(15 * var(--t))); font-weight:700; line-height:1.7; word-break:auto-phrase; }
+  .facts .n { font-family:var(--num); font-weight:900; font-size:calc(30 * var(--t)); color:var(--blue); line-height:1; text-align:center; }
+  .facts b { color:var(--blue-deep); }
+
+  /* ---------- 番組（各回） ---------- */
+  .shows { background:var(--pale); }
+  .show { margin-top:calc(30 * var(--u)); background:#fff; border-radius:calc(12 * var(--u)); padding:calc(16 * var(--u)); box-shadow:0 calc(10 * var(--u)) calc(24 * var(--u)) rgba(20,50,160,.10); }
+  .show-head { display:flex; align-items:center; gap:calc(12 * var(--u)); }
+  .show-head .day { display:inline-block; background:var(--ink); color:#fff; font-weight:800; font-size:max(12px, calc(13 * var(--t))); padding:calc(3 * var(--u)) calc(12 * var(--u)); transform:skewX(-14deg); box-shadow:calc(4 * var(--u)) 0 0 var(--blue); }
+  .show-head .day span { display:inline-block; transform:skewX(14deg); }
+  .show-head .date { font-family:var(--num); font-weight:900; font-size:calc(36 * var(--t)); color:var(--blue); line-height:1; letter-spacing:.01em; }
+  .thumb { margin-top:0; border-radius:calc(6 * var(--u)); overflow:hidden; box-shadow:0 calc(6 * var(--u)) calc(16 * var(--u)) rgba(20,30,90,.18); }
+  .points { list-style:none; margin-top:calc(14 * var(--u)); display:grid; gap:calc(6 * var(--u)); }
+  .points li { position:relative; padding-left:calc(20 * var(--u)); font-size:max(12px, calc(15 * var(--t))); font-weight:800; line-height:1.65; word-break:auto-phrase; }
+  .points li::before { content:""; position:absolute; left:0; top:calc(8 * var(--u)); width:calc(10 * var(--u)); height:calc(10 * var(--u)); border:calc(3 * var(--u)) solid var(--blue); border-radius:50%; }
+  .points b { color:var(--blue); }
+
+  /* ---------- 注意（黒×青の斜線） ---------- */
+  .notice { position:relative; background:var(--ink); color:#fff; text-align:center; padding:calc(40 * var(--u)) calc(22 * var(--u)); }
+  .notice::before, .notice::after { content:""; position:absolute; left:0; right:0; height:calc(12 * var(--u)); background:repeating-linear-gradient(-45deg, var(--blue) 0 calc(12 * var(--u)), var(--ink) calc(12 * var(--u)) calc(24 * var(--u))); }
+  .notice::before { top:0; } .notice::after { bottom:0; }
+  .notice .warn { width:calc(96 * var(--u)); margin:0 auto calc(4 * var(--u)); }
+  .notice h2 { font-family:var(--serif); font-weight:900; font-size:calc(22 * var(--t)); line-height:1.5; }
+  .notice h2 em { font-style:normal; color:#8fb0ff; }
+  .notice p { margin-top:calc(10 * var(--u)); font-size:max(12px, calc(14 * var(--t))); font-weight:700; line-height:1.8; color:#d9deea; word-break:auto-phrase; }
+
+  /* ---------- 毎月届くもの（青い面） ---------- */
+  .monthly { background:linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%); color:#fff; }
+  .monthly .sec-title { color:#fff; }
+  .monthly .sec-title::before, .monthly .sec-title::after { background:#fff; }
+  .monthly .sec-sub { color:#dfe6ff; }
+  .sched { list-style:none; display:grid; gap:calc(8 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .sched li { background:#fff; color:var(--ink); border-radius:calc(8 * var(--u)); display:grid; grid-template-columns:calc(104 * var(--u)) 1fr; align-items:stretch; overflow:hidden; }
+  .sched .when { background:var(--ink); color:#fff; font-weight:900; text-align:center; font-size:max(12px, calc(14.5 * var(--t))); line-height:1.3; padding:calc(12 * var(--u)) calc(4 * var(--u)); display:grid; place-items:center; }
+  .sched .what { padding:calc(10 * var(--u)) calc(14 * var(--u)); }
+  .sched .what b { display:block; font-family:var(--serif); font-size:max(12px, calc(18 * var(--t))); font-weight:800; }
+  .sched .what span { word-break:auto-phrase; display:block; font-size:max(12px, calc(12.5 * var(--t))); color:var(--sub); font-weight:700; line-height:1.6; }
+  .monthly .ctawrap { background:transparent; padding:calc(22 * var(--u)) 0 0; }
+  .monthly .cta { background:#fff; color:var(--blue-deep); box-shadow:0 calc(6 * var(--u)) 0 rgba(5,15,90,.4); }
+  .monthly .cta::after { background:rgba(31,75,255,.15); }
+  .monthly .ctasub { color:#fff; }
+  .monthly .ctasolo { color:#e3e9ff; }
+
+  /* ---------- 会員になると使えるもの ---------- */
+  .gifts { background:#fff; }
+  .gifts .big { text-align:center; font-family:var(--serif); font-weight:900; font-size:calc(31 * var(--u)); white-space:nowrap; color:var(--blue); line-height:1.2; margin-top:calc(6 * var(--u)); }
+  .gift-grid { display:grid; grid-template-columns:1fr 1fr; gap:calc(10 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .gift { background:#fff; border-radius:calc(10 * var(--u)); overflow:hidden; box-shadow:0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(20,50,160,.10); border:1px solid var(--line); display:flex; flex-direction:column; }
+  .gift-no { display:block; font-family:var(--num); font-weight:900; font-size:max(12px, calc(12 * var(--t))); letter-spacing:.14em; color:var(--blue); padding:calc(8 * var(--u)) calc(10 * var(--u)) 0; }
+  .gift-img { margin:calc(6 * var(--u)) calc(10 * var(--u)) 0; background:var(--pale); border-radius:calc(6 * var(--u)); aspect-ratio:16 / 10; overflow:hidden; }
+  .gift-img img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .gift-img--robo { display:grid; place-items:center; }
+  .gift-img--robo img { width:70%; height:auto; object-fit:contain; }
+  .gift h3 { font-size:max(12px, calc(15 * var(--t))); font-weight:900; color:var(--ink); margin:calc(10 * var(--u)) calc(10 * var(--u)) 0; line-height:1.45; }
+  .gift p { font-size:max(12px, calc(12 * var(--t))); color:var(--sub); font-weight:700; line-height:1.65; padding:calc(4 * var(--u)) calc(10 * var(--u)) calc(12 * var(--u)); word-break:auto-phrase; }
+
+  /* ---------- チーム料金（格上げ：黒×青×明朝） ---------- */
+  .team { background:var(--ink); color:#fff; text-align:center; overflow:hidden; }
+  .team .orn { font-family:var(--num); color:#8fb0ff; font-size:max(12px, calc(13 * var(--t))); letter-spacing:.3em; font-weight:800; }
+  .team .orn::before, .team .orn::after { content:""; display:inline-block; width:calc(60 * var(--u)); height:1px; background:#8fb0ff; vertical-align:middle; margin-inline:calc(10 * var(--u)); }
+  .team h2 { font-family:var(--serif); font-weight:900; font-size:calc(25 * var(--t)); margin-top:calc(12 * var(--u)); line-height:1.45; }
+  .team h2 em { font-style:normal; color:#8fb0ff; }
+  .tprice { display:grid; grid-template-columns:1fr 1fr; gap:calc(10 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .tprice div { border:1px solid rgba(143,176,255,.5); border-radius:calc(8 * var(--u)); padding:calc(14 * var(--u)) calc(6 * var(--u)); background:rgba(255,255,255,.04); }
+  .tprice small { display:block; font-size:max(12px, calc(12.5 * var(--t))); color:#8fb0ff; font-weight:800; }
+  .tprice b { font-family:var(--num); font-weight:900; font-size:calc(38 * var(--t)); line-height:1.1; display:block; margin-top:calc(4 * var(--u)); }
+  .tprice span { font-size:max(12px, calc(13 * var(--t))); font-weight:800; }
+  .tprice i { display:block; font-style:normal; font-size:max(12px, calc(12 * var(--t))); color:#b9bfd0; margin-top:calc(2 * var(--u)); }
+  .ttable-wrap { margin-top:calc(16 * var(--u)); background:#fff; color:var(--ink); border-radius:calc(8 * var(--u)); overflow:hidden; }
+  .ttable { width:100%; border-collapse:collapse; font-size:max(12px, calc(14 * var(--t))); font-variant-numeric:tabular-nums; }
+  .ttable caption { background:var(--blue); color:#fff; font-weight:900; padding:calc(6 * var(--u)); font-size:max(12px, calc(13.5 * var(--t))); }
+  .ttable th, .ttable td { padding:calc(9 * var(--u)) calc(12 * var(--u)); border-bottom:1px solid #eceef6; text-align:right; white-space:nowrap; }
+  .ttable th:first-child, .ttable td:first-child { text-align:left; }
+  .ttable thead th { font-size:max(12px, calc(12 * var(--t))); color:var(--sub); }
+  .ttable tbody tr:last-child td { border-bottom:none; }
+  .ttable td b { font-family:var(--num); font-weight:800; font-size:max(12px, calc(17 * var(--t))); }
+  .incl { list-style:none; margin-top:calc(16 * var(--u)); display:grid; gap:calc(6 * var(--u)); text-align:left; font-size:max(12px, calc(14 * var(--t))); font-weight:700; }
+  .incl li { word-break:auto-phrase; display:flex; gap:calc(8 * var(--u)); align-items:flex-start; line-height:1.6; }
+  .incl svg { flex:none; width:calc(17 * var(--u)); height:calc(17 * var(--u)); margin-top:calc(4 * var(--u)); color:#8fb0ff; }
+  .terms { margin-top:calc(14 * var(--u)); text-align:left; font-size:max(12px, calc(12 * var(--t))); color:#b9bfd0; line-height:1.8; }
+  .terms a { color:#fff; }
+
+  /* ---------- 会員の声 ---------- */
+  .voices { background:var(--pale); }
+
+  /* ---------- 運営会社 ---------- */
+  .profile { background:#fff; }
+  .profile .ph { width:calc(150 * var(--u)); height:calc(150 * var(--u)); margin:calc(20 * var(--u)) auto 0; border-radius:50%; border:calc(3 * var(--u)) solid var(--blue); background:var(--pale); display:grid; place-items:center; overflow:hidden; }
+  .profile .ph img { width:86%; }
+  .profile .name { text-align:center; font-family:var(--serif); font-size:calc(22 * var(--t)); font-weight:800; margin-top:calc(12 * var(--u)); }
+  .profile .name small { display:block; font-family:var(--jp); font-size:max(12px, calc(12.5 * var(--t))); color:var(--sub); font-weight:700; }
+  .plist { list-style:none; margin-top:calc(16 * var(--u)); display:grid; gap:calc(8 * var(--u)); }
+  .plist li { font-size:max(12px, calc(14 * var(--t))); font-weight:800; line-height:1.65; padding-left:calc(16 * var(--u)); position:relative; word-break:auto-phrase; }
+  .plist li::before { content:""; position:absolute; left:0; top:calc(9 * var(--u)); width:calc(8 * var(--u)); height:calc(8 * var(--u)); background:var(--blue); }
+  .plist b { color:var(--blue-deep); }
+  .profile .more { display:block; text-align:center; margin-top:calc(14 * var(--u)); font-size:max(12px, calc(13.5 * var(--t))); font-weight:800; color:var(--blue-deep); }
+
+  /* ---------- 流れ・FAQ ---------- */
+  .flow { background:linear-gradient(180deg, var(--pale) 0%, #fff 100%); }
+  .steps { list-style:none; counter-reset:s; display:grid; gap:calc(8 * var(--u)); margin-top:calc(20 * var(--u)); }
+  .steps li { counter-increment:s; display:grid; grid-template-columns:calc(40 * var(--u)) 1fr; gap:calc(10 * var(--u)); align-items:center; background:#fff; border-radius:calc(8 * var(--u)); padding:calc(12 * var(--u)); box-shadow:0 calc(6 * var(--u)) calc(14 * var(--u)) rgba(20,50,160,.08); }
+  .steps li::before { content:counter(s); width:calc(34 * var(--u)); height:calc(34 * var(--u)); border-radius:50%; background:var(--blue); color:#fff; display:grid; place-items:center; font-family:var(--num); font-weight:900; font-size:max(12px, calc(15 * var(--t))); }
+  .steps b { display:block; font-size:max(12px, calc(15.5 * var(--t))); font-weight:900; }
+  .steps span span { display:block; font-size:max(12px, calc(12.5 * var(--t))); color:var(--sub); font-weight:700; line-height:1.6; word-break:auto-phrase; }
+  .noforce { text-align:center; font-weight:900; font-size:max(12px, calc(14.5 * var(--t))); margin-top:calc(14 * var(--u)); color:var(--blue-deep); }
+  .faq { margin-top:calc(22 * var(--u)); display:grid; gap:calc(8 * var(--u)); }
+  .faq details { border:1px solid var(--line); border-radius:calc(8 * var(--u)); background:#fff; }
+  .faq summary { list-style:none; cursor:pointer; font-weight:900; font-size:max(12px, calc(14.5 * var(--t))); padding:calc(12 * var(--u)) calc(40 * var(--u)) calc(12 * var(--u)) calc(14 * var(--u)); position:relative; line-height:1.6; word-break:auto-phrase; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:""; position:absolute; right:calc(16 * var(--u)); top:50%; width:calc(12 * var(--u)); height:2px; background:var(--blue); }
+  .faq summary::before { content:""; position:absolute; right:calc(21 * var(--u)); top:calc(50% - 5 * var(--u)); width:2px; height:calc(12 * var(--u)); background:var(--blue); }
+  .faq details[open] summary::before { display:none; }
+  .faq p { font-size:max(12px, calc(13.5 * var(--t))); color:var(--sub); font-weight:700; line-height:1.7; padding:0 calc(14 * var(--u)) calc(12 * var(--u)); }
+
+  /* ---------- 締め（青い面） ---------- */
+  .final { position:relative; background:linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%); color:#fff; padding:calc(40 * var(--u)) calc(20 * var(--u)) calc(26 * var(--u)); overflow:hidden; }
+  .final h2 { font-family:var(--serif); font-weight:900; font-size:calc(22 * var(--t)); line-height:1.5; }
+  .final p.lead { margin-top:calc(12 * var(--u)); font-size:max(12px, calc(13.5 * var(--t))); line-height:1.8; color:#e3e9ff; font-weight:700; }
+  .final .ctawrap { background:transparent; padding:calc(20 * var(--u)) 0 0; }
+  .final .cta { background:#fff; color:var(--blue-deep); box-shadow:0 calc(6 * var(--u)) 0 rgba(5,15,90,.4); }
+  .final .cta::after { background:rgba(31,75,255,.15); }
+  .final .ctanote { color:#e3e9ff; }
+  .final .ctasub { color:#fff; }
+  .final .ctasolo { color:#e3e9ff; }
+  .final .peek { position:absolute; right:calc(-10 * var(--u)); top:calc(14 * var(--u)); width:calc(90 * var(--u)); transform:rotate(-10deg); opacity:.95; }
+
+  footer { background:#fff; color:var(--sub); font-size:max(12px, calc(12 * var(--t))); text-align:center; padding:calc(20 * var(--u)) calc(16 * var(--u)) calc(110 * var(--u)); border-top:1px solid var(--line); }
+  footer nav { display:flex; flex-wrap:wrap; justify-content:center; gap:calc(6 * var(--u)) calc(16 * var(--u)); }
+  footer a { text-decoration:none; }
+  footer p { margin-top:calc(10 * var(--u)); }
+
+  /* 追従ボタン：最初のボタンを過ぎたら出し、最後のボタンが見えたら消す */
+  .dock { position:fixed; left:50%; bottom:0; width:min(500px, 100%); transform:translate(-50%, 110%); transition:transform .25s; z-index:60; background:rgba(255,255,255,.94); border-top:1px solid var(--line); container-type:inline-size; }
+  .dock-in { --u:calc(100cqw / 500); --t:min(calc(100cqw / 400), 1px); padding:calc(8 * var(--u)) calc(12 * var(--u)) calc(8 * var(--u) + env(safe-area-inset-bottom)); }
+  .dock-in * { --u:calc(100cqw / 500); --t:min(calc(100cqw / 400), 1px); }
+  .dock.is-on { transform:translate(-50%, 0); }
+  .dock .cta { align-items:center; justify-content:center; gap:calc(12 * var(--u)); padding-block:calc(12 * var(--u)); }
+  .dock .cta .txt { flex:none; padding:0; }
+  .dock .cta .txt strong { font-size:calc(22 * var(--t)); }
+  .dock .cta .tag { writing-mode:horizontal-tb; font-size:max(12px, calc(14 * var(--t))); letter-spacing:.08em; padding:calc(3 * var(--u)) calc(9 * var(--u)); border-radius:calc(4 * var(--u)); line-height:1.4; }
+
+  /* ---------- PC：左右の固定欄（幅1100px以上のときだけ） ---------- */
+  .side { display:none; }
+  @media (min-width:1100px) {
+    .side { display:grid; place-items:center; position:fixed; top:0; bottom:0; width:calc((100vw - 500px) / 2); padding:24px 32px; z-index:5; --u:1px; --t:1px; }
+    .side-l { left:0; }
+    .side-r { right:0; }
+    .side-in { width:min(300px, 100%); }
+    .s-brand { font-weight:900; font-size:20px; line-height:1.2; color:var(--ink); }
+    .s-brand em { font-style:normal; color:var(--blue); }
+    .s-brand small { display:block; margin-top:4px; font-family:var(--num); font-size:12px; font-weight:800; color:var(--sub); letter-spacing:.04em; }
+    .s-catch { margin-top:28px; font-weight:900; font-size:clamp(20px, 1.9vw, 27px); line-height:1.35; white-space:nowrap; }
+    .s-catch b { font-family:var(--num); font-weight:900; font-size:1.9em; color:var(--blue); letter-spacing:-.02em; margin-inline:2px; line-height:1; }
+    .s-catch em { font-style:normal; color:var(--blue); }
+    .s-rule { width:64px; height:3px; margin-top:16px; background:linear-gradient(90deg, var(--blue) 0 50%, var(--line) 50%); }
+    .s-sub { margin-top:14px; font-size:clamp(12px, 1.2vw, 14px); font-weight:800; line-height:1.75; color:var(--ink); white-space:nowrap; }
+    .side-l .cta { margin-top:24px; align-items:center; gap:12px; padding:14px 16px; }
+    .side-l .cta .tag { flex:none; white-space:nowrap; writing-mode:horizontal-tb; font-size:13px; letter-spacing:.08em; padding:3px 9px; border-radius:4px; line-height:1.4; }
+    .side-l .cta .txt { padding:0; }
+    .side-l .cta .txt small { font-size:12px; }
+    .side-l .cta .txt strong { font-size:clamp(16px, 1.45vw, 20px); white-space:nowrap; }
+    .side-l .ctasub { text-align:center; margin-top:14px; }
+    .s-note { margin-top:14px; font-size:12px; font-weight:500; line-height:1.6; color:var(--sub); }
+    .s-label { display:flex; align-items:center; gap:10px; font-weight:900; font-size:15px; color:var(--ink); margin-bottom:10px; }
+    .s-label::after { content:""; flex:1; height:1px; background:var(--line); }
+    .s-nav { list-style:none; display:grid; gap:2px; counter-reset:n; }
+    .s-nav a { display:flex; align-items:center; gap:12px; min-height:44px; padding:0 14px; border-radius:8px; font-weight:800; font-size:14px; color:var(--sub); text-decoration:none; transition:background .2s, color .2s; }
+    .s-nav a::before { counter-increment:n; content:counter(n, decimal-leading-zero); font-family:var(--num); font-weight:900; font-size:12px; color:var(--blue); }
+    .s-nav a:hover { background:rgba(255,255,255,.6); color:var(--ink); }
+    .s-nav a.is-cur { background:#fff; color:var(--ink); box-shadow:0 4px 14px rgba(20,40,120,.08); }
+    .lp h2[id], #faq { scroll-margin-top:24px; }
+    .dock { display:none; }
+  }
+  @media (prefers-reduced-motion:reduce) { .cta::after { animation:none; display:none; } html { scroll-behavior:auto; } * { transition:none !important; } }
+
+  /* 不安つぶしの一行 */
+  .strip { background:var(--ink); color:#fff; text-align:center; font-weight:900; font-size:max(12px, calc(14 * var(--t))); padding:calc(8 * var(--u)) 0; letter-spacing:.04em; }
+  .strip em { font-style:normal; color:#8fb0ff; margin-inline:calc(4 * var(--u)); }
+  /* 考え方＝黒地の宣言＋数字 */
+  .policy { background:var(--ink) radial-gradient(ellipse at 50% 0%, rgba(31,75,255,.35) 0%, transparent 60%); color:#fff; }
+  .policy .label { background:#fff; color:var(--ink); }
+  .policy h2 { color:#fff; }
+  .policy h2 em { color:#8fb0ff; }
+  .policy .bar { background:#8fb0ff; }
+  .policy .lead { color:#d6dcea; }
+  .stats { display:grid; grid-template-columns:1fr 1fr; gap:calc(8 * var(--u)); margin-top:calc(18 * var(--u)); }
+  .stats div { background:rgba(255,255,255,.06); border:1px solid rgba(143,176,255,.35); border-radius:calc(10 * var(--u)); padding:calc(12 * var(--u)) calc(14 * var(--u)); }
+  .stats small { display:block; font-size:max(12px, calc(13 * var(--t))); font-weight:800; color:#8fb0ff; }
+  .stats b { font-family:var(--num); font-weight:900; font-size:calc(52 * var(--u)); line-height:1; letter-spacing:-.02em; }
+  .stats span { font-size:max(12px, calc(16 * var(--t))); font-weight:900; margin-left:calc(4 * var(--u)); }
+  .asof { word-break:auto-phrase; margin-top:calc(10 * var(--u)); font-size:max(12px, calc(12 * var(--t))); color:#aab3c8; font-weight:700; }
+  .asof--light { color:var(--sub); text-align:center; }
+  .policy .facts li { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); box-shadow:none; color:#fff; }
+  .policy .facts .n { color:#8fb0ff; }
+  .policy .facts b { color:#8fb0ff; }
+  /* 特典＝表紙を大きく1列 */
+  .covers { display:grid; gap:calc(16 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .cover { margin:0; background:#fff; border-radius:calc(10 * var(--u)); overflow:hidden; box-shadow:0 calc(10 * var(--u)) calc(22 * var(--u)) rgba(20,50,160,.14); }
+  .cover img { width:100%; }
+  .cover figcaption { padding:calc(12 * var(--u)) calc(16 * var(--u)) calc(14 * var(--u)); font-size:max(12px, calc(14 * var(--t))); font-weight:700; line-height:1.7; color:var(--sub); word-break:auto-phrase; }
+
+  /* ---- 欄の作り込み（v8） ---- */
+  .qs { background:linear-gradient(180deg, #fff 0%, var(--pale) 100%); overflow:hidden; }
+  .qs-icon { position:absolute; right:calc(-10 * var(--u)); top:calc(10 * var(--u)); width:calc(110 * var(--u)); transform:rotate(12deg); opacity:.95; z-index:0; }
+  .qs > *:not(.qs-icon) { position:relative; z-index:1; }
+  .bub { display:flex; gap:calc(12 * var(--u)); align-items:flex-start; }
+  .qmark { flex:none; width:calc(34 * var(--u)); height:calc(34 * var(--u)); border-radius:50%; background:var(--blue); color:#fff; font-family:var(--num); font-weight:900; font-size:max(12px, calc(17 * var(--t))); display:grid; place-items:center; box-shadow:0 calc(4 * var(--u)) 0 #0d2499; }
+  .bub:nth-child(even) .qmark { background:var(--ink); box-shadow:0 calc(4 * var(--u)) 0 #000; }
+  .answer { display:flex; align-items:center; gap:calc(10 * var(--u)); margin-top:calc(16 * var(--u)); }
+  .answer img { width:calc(78 * var(--u)); flex:none; }
+  .answer p { position:relative; background:var(--blue); color:#fff; font-weight:900; font-size:max(12px, calc(15 * var(--t))); padding:calc(12 * var(--u)) calc(16 * var(--u)); border-radius:calc(14 * var(--u)); line-height:1.6; word-break:auto-phrase; }
+  .answer p::before { content:""; position:absolute; left:calc(-8 * var(--u)); top:50%; transform:translateY(-50%); border:calc(8 * var(--u)) solid transparent; border-left:0; border-right-color:var(--blue); }
+  .mcards { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:calc(10 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .mcards li { position:relative; background:#fff; color:var(--ink); border-radius:calc(12 * var(--u)); padding:calc(14 * var(--u)) calc(14 * var(--u)) calc(16 * var(--u)); box-shadow:0 calc(6 * var(--u)) 0 rgba(5,15,90,.35); overflow:hidden; min-height:calc(170 * var(--u)); }
+  .mcards img { position:absolute; right:calc(-8 * var(--u)); top:calc(-6 * var(--u)); width:calc(84 * var(--u)); transform:rotate(10deg); opacity:.95; }
+  .mcards .when { display:inline-block; background:var(--ink); color:#fff; font-weight:900; font-size:max(12px, calc(13 * var(--t))); padding:calc(3 * var(--u)) calc(10 * var(--u)); transform:skewX(-12deg); box-shadow:calc(4 * var(--u)) 0 0 var(--blue); }
+  .mcards b { display:block; position:relative; font-weight:900; font-size:max(12px, calc(19 * var(--t))); margin-top:calc(34 * var(--u)); line-height:1.35; }
+  .mcards .desc { display:block; position:relative; font-size:max(12px, calc(12.5 * var(--t))); color:var(--sub); font-weight:700; line-height:1.6; margin-top:calc(6 * var(--u)); word-break:auto-phrase; }
+  .vlist { display:grid; gap:calc(14 * var(--u)); margin-top:calc(22 * var(--u)); }
+  .vcard { position:relative; margin:0; background:#fff; border-radius:calc(12 * var(--u)); padding:calc(22 * var(--u)) calc(18 * var(--u)) calc(16 * var(--u)); box-shadow:0 calc(10 * var(--u)) calc(22 * var(--u)) rgba(20,50,160,.10); }
+  .vcard .quote { position:absolute; left:calc(14 * var(--u)); top:calc(-14 * var(--u)); font-family:Georgia, serif; font-size:calc(70 * var(--u)); line-height:1; color:var(--blue); }
+  .vcard blockquote { word-break:auto-phrase; margin:0; font-size:max(12px, calc(15 * var(--t))); font-weight:700; line-height:1.8; color:var(--sub); }
+  .vcard figcaption { display:flex; align-items:center; gap:calc(10 * var(--u)); margin-top:calc(12 * var(--u)); padding-top:calc(12 * var(--u)); border-top:1px solid var(--line); }
+  .vcard .face svg { width:55%; height:55%; }
+  .vcard .face { width:calc(44 * var(--u)); height:calc(44 * var(--u)); border-radius:50%; background:var(--pale); display:grid; place-items:center; font-weight:900; color:var(--blue); font-size:max(12px, calc(13 * var(--t))); flex:none; }
+  .vcard figcaption b { display:block; font-size:max(12px, calc(14 * var(--t))); }
+  .vcard figcaption small { display:block; font-size:max(12px, calc(12 * var(--t))); color:var(--sub); font-weight:700; }
+  .pcard { margin-top:calc(22 * var(--u)); background:#fff; border-radius:calc(14 * var(--u)); overflow:hidden; box-shadow:0 calc(12 * var(--u)) calc(26 * var(--u)) rgba(20,50,160,.14); }
+  .pcard-head { position:relative; background:linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); color:#fff; padding:calc(22 * var(--u)) calc(20 * var(--u)); min-height:calc(130 * var(--u)); overflow:hidden; }
+  .pcard-head::before { content:""; position:absolute; inset:0; background:radial-gradient(circle, rgba(255,255,255,.16) 1.5px, transparent 1.8px) 0 0 / calc(16 * var(--u)) calc(16 * var(--u)); }
+  .pcard-bld { position:absolute; right:calc(70 * var(--u)); bottom:calc(-10 * var(--u)); width:calc(110 * var(--u)); }
+  .pcard-robo { position:absolute; right:calc(-14 * var(--u)); bottom:calc(-26 * var(--u)); width:calc(110 * var(--u)); }
+  .pcard .name { position:relative; text-align:left; color:#fff; font-size:max(12px, calc(22 * var(--t))); margin:0; }
+  .pcard .name small { color:#dfe6ff; }
+  .pstats { display:grid; grid-template-columns:1fr 1fr; gap:calc(8 * var(--u)); padding:calc(16 * var(--u)) calc(16 * var(--u)) 0; }
+  .pstats div { background:var(--pale); border-radius:calc(10 * var(--u)); padding:calc(12 * var(--u)); }
+  .pstats b { font-family:var(--num); font-weight:900; font-size:calc(40 * var(--u)); color:var(--blue); line-height:1; }
+  .pstats span { font-weight:900; font-size:max(12px, calc(16 * var(--t))); color:var(--blue); margin-left:calc(2 * var(--u)); }
+  .pstats small { display:block; font-size:max(12px, calc(12 * var(--t))); font-weight:800; color:var(--sub); margin-top:calc(6 * var(--u)); line-height:1.5; word-break:auto-phrase; }
+  .pcard .plist { padding:calc(4 * var(--u)) calc(18 * var(--u)) 0; }
+  .pcard .more { margin-bottom:calc(6 * var(--u)); }
+  .steps { position:relative; }
+  .steps::before { content:""; position:absolute; left:calc(31 * var(--u)); top:calc(30 * var(--u)); bottom:calc(30 * var(--u)); border-left:calc(2 * var(--u)) dashed var(--pale2); }
+  .steps li { position:relative; grid-template-columns:calc(40 * var(--u)) 1fr calc(54 * var(--u)); }
+  .steps li img { grid-column:3; grid-row:1; width:calc(54 * var(--u)); }
+  .steps li > span { grid-column:2; grid-row:1; }
+  .steps li::before { grid-column:1; grid-row:1; }
+  .final { min-height:calc(400 * var(--u)); }
+  .final .final-photo { position:absolute; right:calc(-30 * var(--u)); bottom:0; width:calc(300 * var(--u)); opacity:.85; mix-blend-mode:multiply; z-index:0; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 14%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 14%); mask-composite:intersect; }
+  .final > *:not(.final-photo) { position:relative; z-index:1; }
+
+  /* 押す場所を44px以上に */
+  .brand { display:inline-block; padding-block:6px; min-height:44px; }
+  .hbtn { display:inline-flex; align-items:center; min-height:44px; }
+  .ctasub { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding-inline:calc(8 * var(--u)); }
+  .profile .more { display:flex; align-items:center; justify-content:center; min-height:44px; }
+  .terms a { display:inline-flex; align-items:center; min-height:44px; }
+  footer nav a { display:inline-flex; align-items:center; min-height:44px; padding-inline:calc(4 * var(--u)); }
+  .faq summary { min-height:48px; display:flex; align-items:center; }
+</style>
+<script src="../../js/ailab-meta-pixel.js" defer></script>
+</head>
+<body>
+<div class="lp">
+<p class="strip">PCが苦手でも大丈夫<em>×</em>1人から<em>×</em>基礎の動画から</p>
+<header>
+  <a class="brand" href="../">仕事で使える<em>AI</em>ラボ<small>by Opus.net</small></a>
+  <a class="hbtn" href="https://opus-ai-forms.pages.dev/contact">無料で相談する</a>
+</header>
+<main>
+  <section class="fv" aria-label="仕事で使えるAIラボ">
+    <svg class="flow-bg" viewBox="0 0 500 640" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-20 520 C 120 430, 200 600, 330 520 S 520 340, 540 260" fill="none" stroke="#d9e3ff" stroke-width="34" stroke-linecap="round"/>
+      <path d="M-30 600 C 140 560, 240 660, 380 580 S 520 480, 560 430" fill="none" stroke="#e8eeff" stroke-width="22" stroke-linecap="round"/>
+      <path d="M-20 200 C 80 140, 140 260, 240 210" fill="none" stroke="#eef2ff" stroke-width="16" stroke-linecap="round"/>
+    </svg>
+    <img class="photo" src="images/ribbon-w.webp" alt="" width="1000" height="1250" fetchpriority="high">
+    <div class="copy">
+      <span class="label"><span>仕事でAIを使いたい方へ</span></span>
+      <h1><span class="p1">月額<b>9,800</b>円で、</span><span class="q">社内に<em>AI人材</em>を。</span></h1>
+      <div class="rule"></div>
+      <p class="subh">実務で役立つ<span class="nw">AI担当</span>が<br>無理なく育つスクール型コミュニティ</p>
+    </div>
+    <p class="taxnote">※税別／税込10,780円。<br>別途、入会金がかかります。</p>
+    <p class="pre">小規模事業主、<br class="nbr">中小企業のための継続型AI活用コミュニティ</p>
+  </section>
+
+  <div class="band-blue">
+    <div><small>月1回</small><strong>実演</strong><span>録画と資料つき</span></div>
+    <div><small>いつでも</small><strong>質問</strong><span>LINEで相談</span></div>
+    <div><small>初月</small><strong>面談</strong><span>30分で一歩目を</span></div>
+  </div>
+  <p class="band-black">短い動画で、<em>仕事の合間</em>に学べます</p>
+  <div class="band-price">
+    <span class="lead">スタッフと一緒なら</span>
+    <p>同じ会社の2人目から 月<b>5,500</b>円</p>
+    <small>（税別／税込6,050円）</small>
+  </div>
+  <div class="ctawrap">
+    <a class="cta" id="first-cta" href="https://opus-ai-forms.pages.dev/contact"><span class="tag">無料</span><span class="txt"><small>どの仕事にAIが使えるか</small><strong>まずは無料で相談する</strong></span></a>
+    <p class="ctanote">「うちでも使えるか」のご相談だけでも歓迎です。</p>
+    <a class="ctasub" href="https://opus-ai-forms.pages.dev/guide">資料をダウンロード（無料）</a>
+    <a class="ctasolo" href="https://opus-ai-forms.pages.dev/lab/apply">相談せずにすぐ入会したい方はこちら</a>
+  </div>
+
+  <section class="sec pad qs" aria-labelledby="qs-title">
+    <img class="qs-icon" src="images/ic-speech-bubble.webp" alt="" width="320" height="320" loading="lazy">
+    <h2 class="sec-title" id="qs-title">会員から届く質問</h2>
+    <p class="sec-sub">AI導入で多くの会社が迷う疑問に、毎週の配信でお答えしています</p>
+    <div class="bubbles">
+      <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>社員が会社に黙ってAIを使っているようです。禁止したほうがいい？</span></p>
+      <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>会社として導入するなら、個人プランを人数分契約すればいいんですか？</span></p>
+      <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>ChatGPTに患者さんやお客様の名前を入れて文章を作ってもいいの？</span></p>
+      <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>結局、何から始めればいいですか？</span></p>
+    </div>
+    <div class="answer"><img src="images/stand_wave.webp" alt="" width="640" height="640" loading="lazy"><p>ほかの会社の質問が、自社のヒントになります。</p></div>
+    <p class="qs-note">すべて会員から実際に届いた質問です。回答は会員ポータルにたまり、毎週のQ&amp;A配信で会員全員に届きます。</p>
+  </section>
+
+  <section class="sec pad policy" aria-labelledby="policy-title">
+    <span class="label"><span>AIラボの考え方</span></span>
+    <h2 id="policy-title">実務でAIを使える人を、<br><em>毎月の実演と質問対応</em>で育てます</h2>
+    <div class="bar"></div>
+    <p class="lead">すべて毎月のラボで実際に行っています。</p>
+    <ul class="facts">
+      <li><span class="n">1</span><span>毎月1回のラボセッションで、<b>実際の業務を題材に</b>AIで作るところまで実演します</span></li>
+      <li><span class="n">2</span><span>つまずいたら<b>LINEでいつでも質問</b>でき、回答は毎週の配信で会員全員に共有します</span></li>
+      <li><span class="n">3</span><span><b>毎週月曜日に更新されるプロンプト集</b>や基礎動画で、現場ですぐ<span class="nw">試せる環境を整えます</span></span></li>
+    </ul>
+  </section>
+
+  <section class="sec pad shows" aria-labelledby="shows-title">
+    <h2 class="sec-title" id="shows-title">これまでのラボセッション</h2>
+    <p class="sec-sub">実際の業務を題材に、AIで作る流れを毎月実演します</p>
+
+    <article class="show">
+      <img class="thumb" src="images/lab01-rich.webp" alt="ラボセッション「キャンペーンLPを作成しよう」2026年7月23日（木）ライブ実演" width="1280" height="720" loading="lazy">
+      <ul class="points">
+        <li>飲食店のキャンペーン申込ページを、<b>AIエージェントに日本語で頼んで</b>制作</li>
+        <li>ページに使う<b>写真もAIで生成</b></li>
+        <li>企画からデザイン・フォーム・公開まで<b>約90分</b></li>
+      </ul>
+    </article>
+
+    <article class="show">
+      <img class="thumb" src="images/lab02-rich.webp" alt="ラボセッション「売上管理をAIに丸投げしよう」2026年8月20日（木）ライブ実演" width="1280" height="720" loading="lazy">
+      <ul class="points">
+        <li>売上を記録する<b>スプレッドシートを作成</b></li>
+        <li>注文を入力する<b>レジ画面をアプリ化</b></li>
+        <li>たまった記録から<b>売上の分析</b>までをライブで実演</li>
+      </ul>
+    </article>
+
+    <article class="show">
+      <img class="thumb" src="images/lab03-rich.webp" alt="ラボセッション「お客様の情報を守るAI活用ルールを作ろう」2026年10月7日（水）ライブ実演" width="1280" height="720" loading="lazy">
+      <ul class="points">
+        <li>AIに渡す情報を<b>「入れてよい・伏せる・入れない」</b>に分ける</li>
+        <li>ChatGPT・Claude・Geminiで<b>学習に使わせない設定</b>を確認</li>
+        <li>社内の<b>AI利用ルールを1枚</b>にまとめる</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="notice" aria-labelledby="notice-title">
+    <img class="warn" src="images/robo_ch2.webp" alt="" width="640" height="640" loading="lazy">
+    <h2 id="notice-title">参加できない月も、<br><em>録画と配布資料</em>で確認できます</h2>
+    <p>ラボセッションは毎月ちがうテーマです。<br>当日に出られなくても、会員ページで追いつけます。</p>
+  </section>
+
+  <section class="sec pad monthly" aria-labelledby="monthly-title">
+    <h2 class="sec-title" id="monthly-title">毎月届くもの</h2>
+    <p class="sec-sub">毎週のLINE配信と毎月のセッションで学びが続きます</p>
+    <ul class="mcards">
+      <li><img src="images/ic-document.webp" alt="" width="320" height="320" loading="lazy"><span class="when">火・金</span><b>AIニュース</b><span class="desc">LINEに届く。読むだけで流れについていけます</span></li>
+      <li><img src="images/ic-speech-bubble.webp" alt="" width="320" height="320" loading="lazy"><span class="when">日曜の朝</span><b>会員Q&amp;A</b><span class="desc">ほかの会社の質問と回答がLINEに届きます</span></li>
+      <li><img src="images/ic-pencil-doc.webp" alt="" width="320" height="320" loading="lazy"><span class="when">毎週月曜</span><b>今週のプロンプト</b><span class="desc">コピーしてそのまま使える実務プロンプト</span></li>
+      <li><img src="images/ic-laptop.webp" alt="" width="320" height="320" loading="lazy"><span class="when">月1回</span><b>ラボセッション</b><span class="desc">オンラインで実演。録画と資料が残ります</span></li>
+    </ul>
+    <div class="ctawrap">
+      <a class="cta" href="https://opus-ai-forms.pages.dev/contact"><span class="tag">無料</span><span class="txt"><small>どの仕事にAIが使えるか</small><strong>まずは無料で相談する</strong></span></a>
+      <a class="ctasub" href="https://opus-ai-forms.pages.dev/guide">資料をダウンロード（無料）</a>
+    <a class="ctasolo" href="https://opus-ai-forms.pages.dev/lab/apply">相談せずにすぐ入会したい方はこちら</a>
+    </div>
+  </section>
+
+  <section class="sec pad gifts" aria-labelledby="gifts-title">
+    <h2 class="sec-title" id="gifts-title">会員になると使えるもの</h2>
+    <p class="big">すべて月額費用に含まれます</p>
+    <p class="sec-sub">追加料金なしで、入会当日からすべての機能を使えます</p>
+    <div class="covers">
+      <figure class="cover"><img src="images/gift-1.webp" alt="01 コース別に学べる動画講座 43本 10コース" width="800" height="500" loading="lazy"><figcaption>1本2〜5分。基礎から順に見られ、見終わった動画にはチェックが付きます。</figcaption></figure>
+      <figure class="cover"><img src="images/gift-2.webp" alt="02 コピーしてすぐ使えるプロンプト集 45本 毎週月曜に更新" width="800" height="500" loading="lazy"><figcaption>メール・議事録・資料づくりに、そのまま使える指示文です。</figcaption></figure>
+      <figure class="cover"><img src="images/gift-3.webp" alt="03 毎日更新のAIニュース 127本 7月から配信" width="800" height="500" loading="lazy"><figcaption>仕事に関係のある動きだけを、短くまとめてお届けします。</figcaption></figure>
+      <figure class="cover"><img src="images/gift-4.webp" alt="04 ほかの会社の質問と回答 会員Q&amp;A 49件 毎週の配信で共有" width="800" height="500" loading="lazy"><figcaption>自分で質問しなくても、ほかの会員の質問と回答をまとめて読めます。</figcaption></figure>
+      <figure class="cover"><img src="images/gift-5.webp" alt="05 Wordのひな形と記入例 AI利用ルールのひな形 8項目 自社向けに埋めるプロンプト付き" width="800" height="500" loading="lazy"><figcaption>プロンプトを使えば、自社向けのAI利用ルールを1枚にまとめられます。</figcaption></figure>
+      <figure class="cover"><img src="images/gift-6.webp" alt="06 入会した月にスタート面談 30分 最初の一歩を一緒に" width="800" height="500" loading="lazy"><figcaption>入会した月に、最初にAIに任せる仕事を一緒に決めます。</figcaption></figure>
+    </div>
+    <p class="asof asof--light">数は2026年10月6日時点で、会員ポータルに公開しているものです。</p>
+  </section>
+
+  <section class="sec pad team" aria-labelledby="team-title">
+    <p class="orn">TEAM</p>
+    <h2 id="team-title">同じ会社の2人目からは<br><em>月5,500円</em>で一緒に学べます</h2>
+    <div class="tprice">
+      <div><small>1人目</small><b>9,800</b><span>円 / 月</span><i>税込10,780円</i></div>
+      <div><small>2人目から（同じ会社）</small><b>5,500</b><span>円 / 月</span><i>税込6,050円</i></div>
+    </div>
+    <div class="ttable-wrap">
+      <table class="ttable">
+        <caption>人数ごとの月額の例</caption>
+        <thead><tr><th scope="col">人数</th><th scope="col">月額（税別）</th><th scope="col">税込</th></tr></thead>
+        <tbody>
+          <tr><td>1人</td><td><b>9,800</b>円</td><td>10,780円</td></tr>
+          <tr><td>3人</td><td><b>20,800</b>円</td><td>22,880円</td></tr>
+          <tr><td>5人</td><td><b>31,800</b>円</td><td>34,980円</td></tr>
+          <tr><td>10人</td><td><b>59,300</b>円</td><td>65,230円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="incl">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>月1回のラボセッション（録画・資料つき）</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>LINEでの質問（回答は毎週のQ&amp;A配信で共有）</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>会員ポータル（動画講座・プロンプト集・AIニュース・Q&amp;A）</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>初月のスタート面談（30分）</li>
+    </ul>
+    <p class="terms">入会金：参加者1人につき9,800円（税別／税込10,780円・初回のみ・返金不可）<br>最低利用期間：契約成立日から3回分の決済（3か月）<br>お支払い：クレジットカードによる自動決済<br><a href="../../tokushoho.html">特定商取引法に基づく表記</a></p>
+  </section>
+
+  <section class="sec pad voices" id="voices" aria-labelledby="voices-title">
+    <h2 class="sec-title" id="voices-title">会員の声</h2>
+    <p class="sec-sub">会員アンケートに寄せられた感想を、原文のまま匿名で掲載しています</p>
+    <div class="vlist">
+      <figure class="vcard"><span class="quote" aria-hidden="true">“</span><blockquote>作品展のDMを作りましたが、その後印刷をするところで行き詰まっていたのですが、Codexにお願いしてみたら、全部解決してくれて、印刷の入稿が完了しました。ありがたかったです。</blockquote><figcaption><span class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span><b>個人事業主（ものづくり）</b><small>入会後のアンケートより</small></span></figcaption></figure>
+      <figure class="vcard"><span class="quote" aria-hidden="true">“</span><blockquote>改めてコードを細かく書けなくても、AIと対話しながら業務で使える仕組みを作れることが分かり、自社業務への活用イメージを具体的に持てました！</blockquote><figcaption><span class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span><b>整体院の管理職</b><small>8月のラボセッションの感想より</small></span></figcaption></figure>
+      <figure class="vcard"><span class="quote" aria-hidden="true">“</span><blockquote>リアルタイムで出来上がっていくのがわかりやすかった</blockquote><figcaption><span class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span><b>飲食店の経営者</b><small>7月のラボセッションの感想より</small></span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec pad profile" aria-labelledby="profile-title">
+    <h2 class="sec-title" id="profile-title">運営会社</h2>
+    <p class="sec-sub">システム開発とAI研修を行う株式会社Opus.netが運営</p>
+    <div class="pcard">
+      <div class="pcard-head">
+        <img class="pcard-bld" src="images/ic-building.webp" alt="" width="320" height="320" loading="lazy">
+        <img class="pcard-robo" src="images/stand_wave.webp" alt="" width="640" height="640" loading="lazy">
+        <p class="name">株式会社Opus.net<small>東京都台東区浅草橋</small></p>
+      </div>
+      <div class="pstats">
+        <div><b>50</b><span>回以上</span><small>AI活用セミナー開催数<br>（2026年10月時点）</small></div>
+        <div><b>450</b><span>名以上</span><small>セミナーの延べ受講者数<br>（2026年10月時点）</small></div>
+      </div>
+      <ul class="plist">
+        <li><b>AI研修・AI導入支援</b>を<span class="nw">小規模事業者・中小企業向けに</span>行っています</li>
+        <li>企業から受託した<b>業務システム・Webサイトの開発</b></li>
+        <li><b>整骨院・整体院向け</b>の<span class="nw">AI活用セミナーも</span><span class="nw">開催実績あり</span></li>
+        <li>「仕事で使えるAIラボ」の運営</li>
+      </ul>
+      <a class="more" href="../../company.html">会社概要を見る</a>
+    </div>
+  </section>
+
+  <section class="sec pad flow" aria-labelledby="flow-title">
+    <h2 class="sec-title" id="flow-title">ご相談の流れ</h2>
+    <p class="sec-sub">AIを使える業務の提案を聞いてから、納得して入会できます</p>
+    <ol class="steps">
+      <li><img src="images/ic-paper-plane.webp" alt="" width="320" height="320" loading="lazy"><span><b>お問い合わせ</b><span>フォームに、業種とご相談の内容をご記入ください。</span></span></li>
+      <li><img src="images/ic-envelope.webp" alt="" width="320" height="320" loading="lazy"><span><b>担当者からご連絡</b><span>内容を確認し、メールでご連絡します。</span></span></li>
+      <li><img src="images/ic-magnifier.webp" alt="" width="320" height="320" loading="lazy"><span><b>使い方のご提案</b><span>お仕事の中で、AIに任せられそうなことをご提案します。</span></span></li>
+      <li><img src="images/ic-certificate.webp" alt="" width="320" height="320" loading="lazy"><span><b>ご納得いただけたら入会</b><span>申込フォームからお手続きいただき、初月にスタート面談を行います。</span></span></li>
+    </ol>
+    <p class="noforce">無理な営業はいたしません。</p>
+    <div class="faq" id="faq">
+      <details><summary>個人事業主や一人会社でも申し込めますか？</summary><p>はい、1人から申し込めます。同じ会社の2人目以降は、月額5,500円（税別）です。</p></details>
+      <details><summary>社員一人ひとりの申し込みが必要ですか？</summary><p>参加する方ごとに1人分のご契約になります。セッションへの参加、LINEでの質問、会員ポータルは、参加する方それぞれがご利用いただけます。</p></details>
+      <details><summary>AIをほとんど使ったことがなくても大丈夫ですか？</summary><p>大丈夫です。基礎の動画講座から順に進められ、分からないことはLINEで質問できます。</p></details>
+      <details><summary>途中でやめられますか？</summary><p>最低利用期間（3か月）のあとは、次回の課金日の前日までにご連絡いただければ退会できます。</p></details>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <img class="final-photo" src="images/ribbon-w.webp" alt="" width="1000" height="1250" loading="lazy">
+    <h2 id="final-title">自社で活かせる場面を、<br>無料相談で一緒に探しませんか？</h2>
+    <p class="lead">「うちの会社でも使えるのか」「自分の仕事でも使えるのか」を聞くだけでも歓迎です。業種と、日々どんな仕事をしているかを教えてください。</p>
+    <div class="ctawrap" id="final-cta">
+      <a class="cta" href="https://opus-ai-forms.pages.dev/contact"><span class="tag">無料</span><span class="txt"><small>どの仕事にAIが使えるか</small><strong>まずは無料で相談する</strong></span></a>
+      <a class="ctasub" href="https://opus-ai-forms.pages.dev/guide">資料をダウンロード（無料）</a>
+    <a class="ctasolo" href="https://opus-ai-forms.pages.dev/lab/apply">相談せずにすぐ入会したい方はこちら</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <nav aria-label="関連ページ">
+    <a href="../">サービスの紹介ページ</a>
+    <a href="../../tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="../../privacypolicy.html">プライバシーポリシー</a>
+    <a href="../../">運営会社</a>
+  </nav>
+  <p>&copy; Opus.net Inc.</p>
+</footer>
+</div>
+
+<aside class="side side-l" aria-label="お申し込みの案内">
+  <div class="side-in">
+    <p class="s-brand">仕事で使える<em>AI</em>ラボ<small>by Opus.net</small></p>
+    <p class="s-catch">月額<b>9,800</b>円で、<br>社内に<em>AI人材</em>を。</p>
+    <div class="s-rule"></div>
+    <p class="s-sub">実務で役立つAI担当が<br>無理なく育つスクール型コミュニティ</p>
+    <a class="cta" href="https://opus-ai-forms.pages.dev/contact"><span class="tag">無料</span><span class="txt"><small>どの仕事にAIが使えるか</small><strong>まずは無料で相談する</strong></span></a>
+    <a class="ctasub" href="https://opus-ai-forms.pages.dev/guide">資料をダウンロード（無料）</a>
+    <p class="s-note">※税別／税込10,780円。<br>別途、入会金がかかります。</p>
+  </div>
+</aside>
+<nav class="side side-r" aria-label="目次">
+  <div class="side-in">
+    <p class="s-label">目次</p>
+    <ol class="s-nav">
+      <li><a href="#qs-title">会員から届く質問</a></li>
+      <li><a href="#policy-title">AIラボの考え方</a></li>
+      <li><a href="#shows-title">これまでのラボセッション</a></li>
+      <li><a href="#monthly-title">毎月届くもの</a></li>
+      <li><a href="#gifts-title">会員になると使えるもの</a></li>
+      <li><a href="#team-title">料金</a></li>
+      <li><a href="#voices-title">会員の声</a></li>
+      <li><a href="#profile-title">運営会社</a></li>
+      <li><a href="#flow-title">ご相談の流れ</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+    </ol>
+  </div>
+</nav>
+
+<div class="dock" id="dock" aria-hidden="true"><div class="dock-in">
+  <a class="cta" href="https://opus-ai-forms.pages.dev/contact" tabindex="-1"><span class="tag">無料</span><span class="txt"><strong>まずは無料で相談する</strong></span></a>
+</div></div>
+
+<script>
+  // 追従ボタン：最初のボタンを過ぎたら出し、最後のボタンが画面に入ったら消す（ボタンの二重表示を防ぐ）
+  (() => {
+    const dock = document.getElementById('dock');
+    const first = document.getElementById('first-cta');
+    const last = document.getElementById('final-cta');
+    if (!('IntersectionObserver' in window)) return;
+    let pastFirst = false, lastVisible = false;
+    const update = () => {
+      const on = pastFirst && !lastVisible;
+      dock.classList.toggle('is-on', on);
+      dock.setAttribute('aria-hidden', String(!on));
+      dock.querySelector('a').tabIndex = on ? 0 : -1;
+    };
+    new IntersectionObserver(([e]) => { pastFirst = !e.isIntersecting && e.boundingClientRect.top < 0; update(); }).observe(first);
+    new IntersectionObserver(([e]) => { lastVisible = e.isIntersecting; update(); }).observe(last);
+  })();
+</script>
+<script>
+  // PCの目次：いま見ている欄に印を付ける
+  (() => {
+    const links = [...document.querySelectorAll('.s-nav a')];
+    if (!links.length) return;
+    const targets = links.map((a) => document.querySelector(a.getAttribute('href')));
+    const update = () => {
+      const line = innerHeight * 0.35;
+      let cur = -1;
+      targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < line) cur = i; });
+      links.forEach((a, i) => a.classList.toggle('is-cur', i === cur));
+    };
+    addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+</body>
+</html>
