@@ -1,6 +1,13 @@
-/* Self-hosted subset of Noto Sans JP (site characters only, see scripts/fonts/).
-   Characters outside the subset fall back to Google's "Noto Sans JP" on seminar.html
-   (its list is loaded at runtime) and to the system font elsewhere. */
+/* Self-hosted font subsets (see scripts/fonts/build-subset.py). Characters outside the
+   Noto subset render in the system font; seminar.html loads them from Google Fonts. */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-subset.woff2") format("woff2");
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Opus Noto Sans JP";
   src: url("../assets/fonts/noto-sans-jp-subset.woff2") format("woff2");
@@ -2046,6 +2053,7 @@ h3 {
 
 /* company page — Frontier-style structure */
 .company-hero { position: relative; background: url("../assets/images/company-office.jpg") center / cover no-repeat; color: var(--ink); padding: 120px 0 200px; overflow: hidden; }
+.company-hero { background-image: image-set(url("../assets/images/optimized/company-office-2304.webp") type("image/webp"), url("../assets/images/company-office.jpg") type("image/jpeg")); }
 .company-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(250, 250, 248, .95) 0%, rgba(250, 250, 248, .82) 40%, rgba(250, 250, 248, .18) 100%); }
 .company-hero .container { position: relative; }
 .company-hero__label { color: var(--blue); }

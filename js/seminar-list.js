@@ -102,7 +102,25 @@
     list.dataset.loaded = 'true';
     loaded = true;
     prune();
+    loadMissingGlyphs(list.textContent);
   });
+  // Venue names come from the API and may use characters outside the self-hosted
+  // font subset; fetch just those glyphs from Google Fonts so they match.
+  function loadMissingGlyphs(text) {
+    fetch('assets/fonts/noto-sans-jp-subset.chars.txt').then(function (response) {
+      return response.ok ? response.text() : '';
+    }).then(function (covered) {
+      if (!covered) return;
+      var missing = Array.from(new Set(Array.from(text))).filter(function (c) {
+        return c.charCodeAt(0) > 0x7f && !/\s/.test(c) && covered.indexOf(c) < 0;
+      }).join('');
+      if (!missing) return;
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap&text=' + encodeURIComponent(missing);
+      document.head.appendChild(link);
+    }).catch(function () {});
+  }
   document.addEventListener('visibilitychange', function () { if (!document.hidden) prune(); });
   setInterval(prune, 60000);
 })();
