@@ -1,6 +1,15 @@
 # 株式会社Opus.net / 仕事で使えるAIラボ
 
-> 株式会社Opus.net（東京都台東区浅草橋・2014年6月創業）は、交通事故被害者サポート「事故なび」、SNS・広告運用支援、映像制作、AI研修・導入支援、業務システム開発を手がける会社。コーポレートサイト: https://opus-net.net/
+> 株式会社Opus.net（東京都台東区浅草橋・2014年6月創業）は、AI研修・導入支援、交通事故被害者サポート「事故なび」、Web制作・AI検索対策、映像制作、業務システム開発、Web広告運用支援を手がける会社。コーポレートサイト: https://opus-net.net/
+
+## 株式会社Opus.netの事業（https://opus-net.net/service.html）
+- AI研修・AI導入支援: 生成AIの実務向け研修、業務フローに合わせたAI導入設計、社内活用ルールの整備。主力サービスは「仕事で使えるAIラボ」（下記）
+- 交通事故被害者サポート「事故なび」（https://jiko-navi.jp/）: 交通事故に遭われた方を、整骨院・病院や修理工場など必要なサポートへつなぐ
+- Web制作・AI検索対策: ホームページ・LPの制作と改善、ChatGPTやGeminiなどのAI検索での表示状況の調査、構造化データの整備などのAI検索・SEO対策
+- 映像制作: 企画・構成から撮影・編集まで
+- 業務システム開発: 顧客管理システム（CRM）や業務管理ツールの受託開発、AIを活用した業務の自動化
+- Web広告運用支援: Meta広告（Instagram・Facebook）、Google・Yahoo!のリスティング広告の運用代行と効果分析
+- 会社概要: https://opus-net.net/company.html ／ お問い合わせ: https://opus-net.net/contact.html ／ AIセミナー一覧: https://opus-net.net/seminar.html
 
 ## 仕事で使えるAIラボ（https://opus-net.net/ailab/）
 

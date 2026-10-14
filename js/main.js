@@ -20,17 +20,7 @@ function ensureGlobalEffects() {
     document.body.appendChild(progress);
   }
 
-  let cursor = document.getElementById('cursorGlow');
-  if (!cursor) {
-    cursor = document.createElement('div');
-    cursor.id = 'cursorGlow';
-    cursor.className = 'cursor-glow';
-    cursor.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(cursor);
-  }
-
   initScrollProgress(progress);
-  initCursor(cursor);
 }
 
 function initScrollReveal() {
@@ -180,45 +170,6 @@ function initScrollProgress(progress) {
   update();
 }
 
-function initCursor(cursor) {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
-  if (reduceMotion || !finePointer || window.innerWidth <= 900) return;
-
-  let currentX = -100;
-  let currentY = -100;
-  let targetX = -100;
-  let targetY = -100;
-  let running = true;
-
-  document.addEventListener('mousemove', (event) => {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    cursor.classList.add('is-active');
-  }, { passive: true });
-
-  document.addEventListener('mouseleave', () => cursor.classList.remove('is-active'));
-  document.querySelectorAll('a, button, input, textarea, label').forEach((element) => {
-    element.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-    element.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-  });
-
-  const animate = () => {
-    if (!running) return;
-    currentX += (targetX - currentX) * .22;
-    currentY += (targetY - currentY) * .22;
-    cursor.style.left = `${currentX}px`;
-    cursor.style.top = `${currentY}px`;
-    requestAnimationFrame(animate);
-  };
-
-  document.addEventListener('visibilitychange', () => {
-    running = document.visibilityState === 'visible';
-    if (running) requestAnimationFrame(animate);
-  });
-  requestAnimationFrame(animate);
-}
-
 function initBrandMark() {
   const spin = document.getElementById('brandMarkSpin');
   if (!spin) return;
@@ -249,12 +200,9 @@ function initServiceMedia() {
   let targetX = -300;
   let targetY = -300;
   let activeMedia = null;
+  let frame = 0;
 
-  document.addEventListener('mousemove', (event) => {
-    targetX = Math.min(window.innerWidth - 282, Math.max(12, event.clientX + 28));
-    targetY = Math.min(window.innerHeight - 182, Math.max(12, event.clientY - 85));
-  }, { passive: true });
-
+  // Follow the pointer only while a row is hovered; stay idle otherwise.
   const animate = () => {
     currentX += (targetX - currentX) * .12;
     currentY += (targetY - currentY) * .12;
@@ -262,17 +210,39 @@ function initServiceMedia() {
       activeMedia.style.left = `${currentX}px`;
       activeMedia.style.top = `${currentY}px`;
     }
-    requestAnimationFrame(animate);
+    const settled = Math.abs(targetX - currentX) < .5 && Math.abs(targetY - currentY) < .5;
+    frame = activeMedia && !settled ? requestAnimationFrame(animate) : 0;
   };
-  requestAnimationFrame(animate);
+  const wake = () => {
+    if (activeMedia && !frame) frame = requestAnimationFrame(animate);
+  };
+
+  const aim = (event) => {
+    targetX = Math.min(window.innerWidth - 282, Math.max(12, event.clientX + 28));
+    targetY = Math.min(window.innerHeight - 182, Math.max(12, event.clientY - 85));
+  };
+
+  document.addEventListener('mousemove', (event) => {
+    aim(event);
+    wake();
+  }, { passive: true });
 
   rows.forEach((row) => {
     const media = row.querySelector('.home-service-row__media');
     if (!media) return;
-    row.addEventListener('mouseenter', () => {
+    row.addEventListener('mouseenter', (event) => {
       if (activeMedia && activeMedia !== media) activeMedia.classList.remove('is-floating');
+      aim(event);
+      if (!activeMedia) {
+        // Start at the pointer instead of gliding in from the last position.
+        currentX = targetX;
+        currentY = targetY;
+        media.style.left = `${currentX}px`;
+        media.style.top = `${currentY}px`;
+      }
       activeMedia = media;
       media.classList.add('is-floating');
+      wake();
     });
     row.addEventListener('mouseleave', () => {
       media.classList.remove('is-floating');

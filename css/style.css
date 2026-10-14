@@ -1,3 +1,14 @@
+/* Self-hosted subset of Noto Sans JP (site characters only, see scripts/fonts/).
+   Characters outside the subset fall back to Google's "Noto Sans JP" on seminar.html
+   (its list is loaded at runtime) and to the system font elsewhere. */
+@font-face {
+  font-family: "Opus Noto Sans JP";
+  src: url("../assets/fonts/noto-sans-jp-subset.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #fafaf8;
   --ink: #0e0f12;
@@ -30,7 +41,7 @@ body {
   overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Opus Noto Sans JP", "Noto Sans JP", sans-serif;
   font-size: 14px;
   line-height: 2;
   text-rendering: optimizeLegibility;
@@ -157,31 +168,9 @@ h3 {
   pointer-events: none;
 }
 
-.cursor-glow {
-  position: fixed;
-  z-index: 240;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  background: var(--blue);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  transition:
-    width .25s,
-    height .25s,
-    opacity .25s;
-}
-
-.cursor-glow.is-active {
-  opacity: 1;
-}
-
-.cursor-glow.is-hover {
-  width: 46px;
-  height: 46px;
-  opacity: .25;
+/* Wrap a heading only between these phrases, never inside a word. */
+.u-phrase {
+  display: inline-block;
 }
 
 /* Header */
@@ -190,10 +179,8 @@ h3 {
   inset: 0 0 auto;
   z-index: 200;
   height: var(--header-height);
-  background: rgba(250, 250, 248, .93);
+  background: rgba(250, 250, 248, .97);
   border-bottom: 1px solid transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   transition:
     height .35s var(--ease),
     border-color .35s,
@@ -680,10 +667,22 @@ h3 {
   pointer-events: none;
 }
 
+.brand-mark__breathe {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* Transform the outer <svg> boxes (not shapes inside them) so the browser can
+   animate them on the compositor instead of repainting the whole ring each frame. */
 .brand-mark svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   overflow: visible;
+  transform-origin: 50% 50%;
+  will-change: transform;
 }
 
 .brand-mark__ring {
@@ -2082,7 +2081,7 @@ h3 {
 .num-row__label { font-size: clamp(18px, 2.2vw, 26px); font-weight: 900; font-feature-settings: "palt"; letter-spacing: .02em; }
 .num-row__note { display: block; font-size: 12px; font-weight: 400; color: var(--sub); margin-top: 6px; }
 .num-row__value { font-family: "Inter", sans-serif; font-weight: 800; font-size: clamp(52px, 7vw, 96px); line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; letter-spacing: -.01em; white-space: nowrap; }
-.num-row__value small { font-family: "Noto Sans JP", sans-serif; font-size: .32em; font-weight: 900; color: var(--ink); margin-left: .35em; letter-spacing: .02em; }
+.num-row__value small { font-family: "Opus Noto Sans JP", "Noto Sans JP", sans-serif; font-size: .32em; font-weight: 900; color: var(--ink); margin-left: .35em; letter-spacing: .02em; }
 .logo-wall { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 46px; }
 .logo-wall__tile { background: #fff; border: 1px solid var(--line); border-radius: 8px; aspect-ratio: 21/10; display: flex; align-items: center; justify-content: center; padding: 18px 22px; transition: transform .3s, border-color .3s; }
 .logo-wall__tile:hover { transform: translateY(-3px); border-color: var(--ink); }

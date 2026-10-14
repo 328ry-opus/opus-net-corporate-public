@@ -115,12 +115,11 @@
 }
 
 .brand-mark__breathe {
-  transform-origin: 256px 256px;
   animation: ring-breathe 7s 1.8s ease-in-out infinite;
 }
 
-.brand-mark__echo {
-  transform-origin: 256px 256px;
+.brand-mark__echo-layer {
+  opacity: 0;
   animation: ring-echo 5s 1.7s ease-out infinite;
 }
 
@@ -205,7 +204,4 @@
     transform: none;
   }
 
-  .cursor-glow {
-    display: none;
-  }
 }

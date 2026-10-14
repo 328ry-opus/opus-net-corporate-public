@@ -25,15 +25,36 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://opus-net.net/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "お知らせ",
+        "item": "https://opus-net.net/news.html"
+      }
+    ]
+  }
+  </script>
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/style.css?v=20260729">
-  <link rel="stylesheet" href="css/animations.css?v=20260729">
-  <link rel="stylesheet" href="css/responsive.css?v=20260729">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css?v=20261014">
+  <link rel="stylesheet" href="css/animations.css?v=20261014">
+  <link rel="stylesheet" href="css/responsive.css?v=20261014">
 </head>
 <body class="page-news">
   <a class="skip-link" href="#main">本文へスキップ</a>
@@ -124,7 +145,7 @@
  <span class="news-card__title">10/24開催：AIで自社専用ツールを作るハンズオン</span><span class="news-card__meta"><span><time datetime="2026-09-27">2026.09.27</time><i>セミナー</i></span><span class="news-card__more">Read More <span class="news-card__circle"><svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></span></span></a>
         <a href="news/20260714-seminar-august.html" class="news-card reveal" data-cat="seminar">
           <span class="news-card__thumb news-card__thumb--seminar"><img src="assets/images/news/news-seminar-august-lg.webp" srcset="assets/images/news/news-seminar-august-sm.webp 640w, assets/images/news/news-seminar-august-lg.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 380px" alt="" class="news-card__img" width="1200" height="675" loading="lazy" decoding="async"></span>
-          <span class="news-card__title">8月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+          <span class="news-card__title">8月のAI活用無料セミナーを開催しました（受付終了）</span>
           <span class="news-card__meta">
             <span><time datetime="2026-07-14">2026.07.14</time><i>セミナー</i></span>
             <span class="news-card__more">Read More
@@ -134,7 +155,7 @@
         </a>
         <a href="news/20260706-seminar-july.html" class="news-card reveal" data-cat="seminar">
           <span class="news-card__thumb news-card__thumb--seminar"><img src="assets/images/news/news-seminar-july-lg.webp" srcset="assets/images/news/news-seminar-july-sm.webp 640w, assets/images/news/news-seminar-july-lg.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 380px" alt="" class="news-card__img" width="1200" height="675" loading="lazy" decoding="async"></span>
-          <span class="news-card__title">7月のAI活用無料セミナーを開催します（お申込み受付中）</span>
+          <span class="news-card__title">7月のAI活用無料セミナーを開催しました（受付終了）</span>
           <span class="news-card__meta">
             <span><time datetime="2026-07-06">2026.07.06</time><i>セミナー</i></span>
             <span class="news-card__more">Read More
@@ -223,7 +244,7 @@
         .news-card__title { font-feature-settings: "palt"; font-size: 17.5px; font-weight: 700; line-height: 1.75; padding: 20px 24px 8px; flex: 1; transition: color .25s; }
         .news-card:hover .news-card__title { color: var(--blue, #2440ff); }
         .news-card__meta { display: flex; justify-content: space-between; align-items: center; padding: 6px 20px 18px; font-family: "Inter", sans-serif; font-size: 12px; color: var(--sub, #70747f); }
-        .news-card__meta i { font-style: normal; font-family: "Noto Sans JP", sans-serif; margin-left: 12px; font-size: 11px; }
+        .news-card__meta i { font-style: normal; font-family: "Opus Noto Sans JP", "Noto Sans JP", sans-serif; margin-left: 12px; font-size: 11px; }
         .news-card__more { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink, #0e0f12); }
         .news-card__circle { width: 34px; height: 34px; border-radius: 50%; background: var(--ink, #0e0f12); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background .3s, transform .3s; }
         .news-card__circle .arrow-icon { width: 14px; height: 14px; }
@@ -309,6 +330,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261014"></script>
 </body>
 </html>
