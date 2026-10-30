@@ -143,11 +143,11 @@
         </div>
 
         <div class="num-rows">
-          <div class="num-row reveal"><div class="num-row__label">創業からの歩み<span class="num-row__note">2014年6月創業</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="12">0</span><small>年目</small></div></div>
-          <div class="num-row reveal"><div class="num-row__label">サービス利用数<span class="num-row__note">事故なび・SNS・映像・Web制作・AI支援を含む全サービス</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="4300">0</span><small>店舗超</small></div></div>
-          <div class="num-row reveal"><div class="num-row__label">事故なび 累計サポート<span class="num-row__note">事故直後の相談から手配まで</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="21000">0</span><small>件超</small></div></div>
-          <div class="num-row reveal" data-temp="true"><div class="num-row__label">AIセミナー 累計開催<span class="num-row__note">毎月の無料セミナー・企業研修</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="100">0</span><small>回超</small></div></div>
-          <div class="num-row reveal" data-temp="true"><div class="num-row__label">セミナー・研修 累計参加<span class="num-row__note">経営者・現場担当者のみなさま</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="1000">0</span><small>名超</small></div></div>
+          <div class="num-row reveal"><div class="num-row__label">創業からの歩み<span class="num-row__note">2014年6月創業</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="13" data-founded="2014-06">13</span><small>年目</small></div></div>
+          <div class="num-row reveal"><div class="num-row__label">サービス利用数<span class="num-row__note">事故なび・Web制作・映像・AI支援など、これまでに提供した全サービス</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="4300">4,300</span><small>店舗超</small></div></div>
+          <div class="num-row reveal"><div class="num-row__label">事故なび 累計サポート<span class="num-row__note">事故直後の相談から手配まで</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="21000">21,000</span><small>件超</small></div></div>
+          <div class="num-row reveal"><div class="num-row__label">AIセミナー 累計開催<span class="num-row__note">毎月の無料セミナー・企業研修</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="100">100</span><small>回超</small></div></div>
+          <div class="num-row reveal"><div class="num-row__label">セミナー・研修 累計参加<span class="num-row__note">経営者・現場担当者のみなさま</span></div><span class="num-row__leader" aria-hidden="true"></span><div class="num-row__value"><span data-count="1000">1,000</span><small>名超</small></div></div>
         </div>
 
         <div class="solution-panel__sub" id="partners">
@@ -358,7 +358,12 @@
           requestAnimationFrame(tick);
         });
       }, { threshold: .6 });
-      document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+      // Years since founding (June 2014 = year 1); the HTML keeps the real numbers for crawlers.
+      document.querySelectorAll('[data-founded]').forEach(function (el) {
+        var f = el.dataset.founded.split('-'), now = new Date();
+        el.dataset.count = now.getFullYear() - Number(f[0]) + (now.getMonth() + 1 >= Number(f[1]) ? 1 : 0);
+      });
+      document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = '0'; io.observe(el); });
     })();
   </script>
 </body>

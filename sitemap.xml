@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://opus-net.net/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -22,15 +22,16 @@
   </url>
   <url>
     <loc>https://opus-net.net/seminar.html</loc>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://opus-net.net/case.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://opus-net.net/news.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -83,9 +84,10 @@
     <lastmod>2026-07-07</lastmod>
     <priority>0.5</priority>
   </url>
-  <url><loc>https://opus-net.net/news/20260922-seminar-epark.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://opus-net.net/news/20260922-seminar-september.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://opus-net.net/news/20260922-seminar-handson.html</loc><lastmod>2026-09-27</lastmod></url>
+  <url><loc>https://opus-net.net/news/20261030-seminar-november.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://opus-net.net/news/20260922-seminar-epark.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://opus-net.net/news/20260922-seminar-september.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://opus-net.net/news/20260922-seminar-handson.html</loc><lastmod>2026-10-30</lastmod></url>
   <url>
     <loc>https://opus-net.net/tokushoho.html</loc>
     <lastmod>2026-08-03</lastmod>
