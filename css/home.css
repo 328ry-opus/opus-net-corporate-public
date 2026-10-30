@@ -250,6 +250,26 @@
   object-position: top left;
 }
 
+/* AI Lab card: the AI Lab main visual, bottom-aligned on the same blue (its lower edge cuts through the float ring) */
+.home-product__media--ailab {
+  display: flex;
+  padding: 0;
+  align-items: flex-end;
+  background: #2340fe;
+}
+
+.home-product__visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .5s var(--ease);
+  transform-origin: center bottom;
+}
+
+.home-product:hover .home-product__visual {
+  transform: scale(1.02);
+}
+
 .home-product__body {
   display: flex;
   padding: 32px 36px 36px;
@@ -618,6 +638,10 @@
 
   .home-product__media {
     padding: 28px 0 0 28px;
+  }
+
+  .home-product__media--ailab {
+    padding: 0;
   }
 
   .home-product__body {
