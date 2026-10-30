@@ -48,9 +48,9 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-subset.woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031">
+  <link rel="stylesheet" href="css/style.css?v=20261031b">
   <link rel="stylesheet" href="css/animations.css?v=20261014b">
-  <link rel="stylesheet" href="css/responsive.css?v=20261014b">
+  <link rel="stylesheet" href="css/responsive.css?v=20261031b">
 </head>
 <body class="page-case">
   <a class="skip-link" href="#main">本文へスキップ</a>
@@ -108,7 +108,7 @@
   <main id="main">
 
   <!-- Page Header -->
-  <section class="page-header" data-ghost="Case">
+  <section class="page-header">
     <div class="container">
       <nav class="breadcrumb--in-header" aria-label="パンくず"><a href="index.html">ホーム</a>
       <span class="breadcrumb__separator" aria-hidden="true">●</span>
@@ -180,7 +180,6 @@
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">AI Enablement</span>
-            <span class="case-card__number">01</span>
           </div>
           <div>
             <h3 class="case-card__title">AIを現場業務で使える形に落とし込む。</h3>
@@ -195,7 +194,6 @@
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">Traffic Accident Support</span>
-            <span class="case-card__number">02</span>
           </div>
           <div>
             <h3 class="case-card__title">事故後の不安を、必要な相談先へつなぐ。</h3>
@@ -210,7 +208,6 @@
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">Creative / System</span>
-            <span class="case-card__number">03</span>
           </div>
           <div>
             <h3 class="case-card__title">映像とシステムで、伝達と運用を支える。</h3>
@@ -225,7 +222,6 @@
         <article class="case-card reveal">
           <div class="case-card__head">
             <span class="case-card__category">Web / Marketing</span>
-            <span class="case-card__number">04</span>
           </div>
           <div>
             <h3 class="case-card__title"><span class="u-phrase">Web制作・</span><span class="u-phrase">AI検索対策・</span><span class="u-phrase">広告運用を</span><span class="u-phrase">組み合わせ、</span><span class="u-phrase">問い合わせに</span><span class="u-phrase">つながる</span><span class="u-phrase">導線をつくる。</span></h3>
@@ -241,7 +237,7 @@
     </div>
   </section>
 
-  <!-- Future (numbered statements) -->
+  <!-- Future -->
   <section class="section" id="future">
     <div class="container">
       <div class="future-head reveal">
@@ -249,52 +245,46 @@
         <h2 class="section-title section-title--ja">Opus.netの未来</h2>
         <p class="section-subtitle">信頼で社会を支える、未来のインフラへ。テクノロジーと専門知識を活かし、人と企業の前進を支える存在を目指します。</p>
       </div>
-      <div class="future-panel reveal">
-        <div class="future-item">
-          <span class="future-item__no">1</span>
-          <div>
-            <h3 class="future-item__title">誠実であること。</h3>
-            <p class="future-item__text">すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
-          </div>
+      <div class="value-cols reveal">
+        <div class="value-cols__item">
+          <h3>誠実であること。</h3>
+          <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
         </div>
-        <div class="future-item">
-          <span class="future-item__no">2</span>
-          <div>
-            <h3 class="future-item__title">知識を磨き、活かすこと。</h3>
-            <p class="future-item__text">専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
-          </div>
+        <div class="value-cols__item">
+          <h3>知識を磨き、活かすこと。</h3>
+          <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
         </div>
-        <div class="future-item">
-          <span class="future-item__no">3</span>
-          <div>
-            <h3 class="future-item__title">変化を恐れず、挑戦すること。</h3>
-            <p class="future-item__text">社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
-          </div>
+        <div class="value-cols__item">
+          <h3>変化を恐れず、挑戦すること。</h3>
+          <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
+  <!-- Contact: three entry points by purpose -->
+  <section class="contact-band" aria-labelledby="contactBandTitle">
     <div class="container">
-      <div class="cta-section__inner reveal-stagger reveal">
-        <div class="cta-card">
-          <h2 class="cta-card__title">お問い合わせ</h2>
-          <p class="cta-card__text">サービスに関するご質問や、取材・パートナーシップのご相談などはこちらからお気軽にご連絡ください。</p>
-          <a href="contact.html" class="btn btn--dark">
-            お問い合わせはこちら
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-        </div>
-        <div class="cta-card">
-          <h2 class="cta-card__title">AI研修・セミナー</h2>
-          <p class="cta-card__text">生成AIを現場で使える形に。研修・導入支援のほか、無料オンラインセミナーも開催しています。</p>
-          <a href="service.html#ai" class="btn btn--dark">
-            AI研修についてみる
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-        </div>
+      <div class="contact-band__head reveal">
+        <p class="contact-band__label">Contact</p>
+        <h2 id="contactBandTitle">ご相談・お問い合わせはこちらから承ります</h2>
+      </div>
+      <div class="contact-band__list reveal">
+        <a href="contact.html" class="contact-band__item">
+          <span class="contact-band__name">サービス・協業の相談</span>
+          <span class="contact-band__text">事業のご相談やお見積もり、協業に関するお問い合わせを承ります。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="seminar.html" class="contact-band__item">
+          <span class="contact-band__name">AIセミナーへの参加</span>
+          <span class="contact-band__text">毎月開催しているAI活用セミナーの日程を確認し、お申し込みいただけます。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="ailab/" target="_blank" rel="noopener noreferrer" class="contact-band__item">
+          <span class="contact-band__name">仕事で使えるAIラボ</span>
+          <span class="contact-band__text">会員向けの内容を確認でき、入会のお申し込みもいただけます。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
   </section>

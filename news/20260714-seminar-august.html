@@ -84,9 +84,9 @@
   <link rel="preload" as="image" href="../assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-subset.woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=20261014b">
+  <link rel="stylesheet" href="../css/style.css?v=20261031b">
   <link rel="stylesheet" href="../css/animations.css?v=20261014b">
-  <link rel="stylesheet" href="../css/responsive.css?v=20261014b">
+  <link rel="stylesheet" href="../css/responsive.css?v=20261031b">
 </head>
 <body class="page-news-detail">
 
@@ -191,26 +191,29 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
+  <!-- Contact: three entry points by purpose -->
+  <section class="contact-band" aria-labelledby="contactBandTitle">
     <div class="container">
-      <div class="cta-section__inner reveal-stagger reveal">
-        <div class="cta-card">
-          <h3 class="cta-card__title">お問い合わせ</h3>
-          <p class="cta-card__text">サービスに関するご質問や、取材・パートナーシップのご相談などはこちらからお気軽にご連絡ください。</p>
-          <a href="../contact.html" class="btn btn--dark">
-            お問い合わせはこちら
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-        </div>
-        <div class="cta-card">
-          <h3 class="cta-card__title">AI研修・セミナー</h3>
-          <p class="cta-card__text">生成AIを現場で使える形に。研修・導入支援のほか、無料オンラインセミナーも開催しています。</p>
-          <a href="../service.html#ai" class="btn btn--dark">
-            AI研修についてみる
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-        </div>
+      <div class="contact-band__head reveal">
+        <p class="contact-band__label">Contact</p>
+        <h2 id="contactBandTitle">ご相談・お問い合わせはこちらから承ります</h2>
+      </div>
+      <div class="contact-band__list reveal">
+        <a href="../contact.html" class="contact-band__item">
+          <span class="contact-band__name">サービス・協業の相談</span>
+          <span class="contact-band__text">事業のご相談やお見積もり、協業に関するお問い合わせを承ります。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="../seminar.html" class="contact-band__item">
+          <span class="contact-band__name">AIセミナーへの参加</span>
+          <span class="contact-band__text">毎月開催しているAI活用セミナーの日程を確認し、お申し込みいただけます。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="../ailab/" target="_blank" rel="noopener noreferrer" class="contact-band__item">
+          <span class="contact-band__name">仕事で使えるAIラボ</span>
+          <span class="contact-band__text">会員向けの内容を確認でき、入会のお申し込みもいただけます。</span>
+          <svg class="arrow-icon contact-band__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
   </section>

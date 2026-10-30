@@ -18,7 +18,7 @@
   }
 
   .service-detail {
-    grid-template-columns: max-content minmax(0, 1fr) minmax(270px, .8fr);
+    grid-template-columns: minmax(0, 1fr) minmax(270px, .8fr);
     gap: 32px;
   }
 
@@ -159,13 +159,6 @@
 
   .service-detail > div:last-child {
     grid-column: 1;
-  }
-
-  .service-detail__number {
-    position: static;
-    grid-row: auto;
-    font-size: 72px;
-    margin-bottom: -6px;
   }
 
   .case-intro {
@@ -313,12 +306,6 @@
     gap: 24px;
   }
 
-  .service-detail__number {
-    position: static;
-    grid-row: auto;
-    font-size: 58px;
-  }
-
   .service-detail > div:last-child {
     grid-column: 1;
   }
@@ -340,10 +327,6 @@
   .case-card__head {
     align-items: center;
     flex-direction: row;
-  }
-
-  .case-card__number {
-    font-size: 40px;
   }
 
   .case-card__list {
@@ -388,23 +371,6 @@
 
   .form-radio-group {
     grid-template-columns: 1fr;
-  }
-
-  .cta-section__inner {
-    padding: 60px 0 70px;
-    grid-template-columns: 1fr;
-  }
-
-  .cta-card,
-  .cta-card + .cta-card {
-    padding: 0;
-  }
-
-  .cta-card + .cta-card {
-    margin-top: 48px;
-    padding-top: 48px;
-    border-top: 1px solid var(--line);
-    border-left: 0;
   }
 
   .footer__inner {
