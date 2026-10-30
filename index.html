@@ -143,6 +143,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261014b">
   <link rel="stylesheet" href="css/animations.css?v=20261014b">
   <link rel="stylesheet" href="css/responsive.css?v=20261014b">
+  <link rel="stylesheet" href="css/home.css?v=20261031">
 </head>
 <body class="page-home">
 
@@ -200,48 +201,55 @@
 
   <main id="main">
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="brand-mark" aria-hidden="true">
-      <div class="brand-mark__breathe">
-        <svg class="brand-mark__echo-layer" viewBox="0 0 512 512">
-          <circle class="brand-mark__echo" cx="256" cy="256" r="214"/>
-        </svg>
-        <svg class="brand-mark__spin" id="brandMarkSpin" viewBox="0 0 512 512">
-          <circle class="brand-mark__ring" cx="256" cy="256" r="174" pathLength="1257"/>
-          <g class="brand-mark__orbit">
-            <circle class="brand-mark__dot" cx="371.5" cy="375.5" r="42"/>
-          </g>
-        </svg>
-      </div>
+  <!-- Hero: mission copy on the left, the Opus ring mark extruded in 3D on the right -->
+  <section class="home-hero" id="hero">
+    <div class="home-hero__strips" aria-hidden="true">
+      <span class="home-hero__strip home-hero__strip--1"></span>
+      <span class="home-hero__strip home-hero__strip--2"></span>
+      <span class="home-hero__strip home-hero__strip--3"></span>
+      <span class="home-hero__strip home-hero__strip--4"></span>
     </div>
-    <div class="hero__inner">
-      <div class="hero__wordmark" aria-hidden="true">Opus.net</div>
-      <div class="hero__copy">
-        <h1 class="hero__title" data-split>
-          <span class="hero__title-line" data-split-line>知識と誠実さで、</span>
-          <span class="hero__title-line" data-split-line>未来を<em>変える</em>。</span>
+    <div class="home-hero__inner">
+      <div class="home-hero__copy">
+        <p class="home-hero__eyebrow">Opus.net</p>
+        <h1 class="home-hero__title">
+          <span class="home-hero__line">知識と誠実さで、</span>
+          <span class="home-hero__line">未来を<em>変える</em>。</span>
         </h1>
-        <p class="hero__label">株式会社Opus.netは、AI研修・導入支援から、交通事故被害者サポート「事故なび」、Web制作・AI検索対策、映像制作、業務システム開発、Web広告運用まで、人と企業の「困った」を解決へ導きます。</p>
-        <div class="hero__actions">
-          <a href="contact.html" class="btn btn--primary hero__btn">
+        <p class="home-hero__lead">株式会社Opus.netは、AI研修・導入支援から、交通事故被害者サポート「事故なび」、Web制作・AI検索対策、映像制作、業務システム開発、Web広告運用まで、人と企業の「困った」を解決へ導きます。</p>
+        <div class="home-hero__actions">
+          <a href="contact.html" class="btn btn--primary home-hero__btn">
             お問い合わせ
             <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
-          <a href="service.html#ai" class="btn btn--outline hero__btn">
-            AI研修・セミナーをみる
+          <a href="service.html" class="btn btn--outline home-hero__btn">
+            事業内容をみる
             <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
         </div>
       </div>
+      <div class="home-hero__visual" aria-hidden="true">
+        <div class="home-hero__stage">
+          <span class="home-hero__shadow"></span>
+          <div class="home-hero__spin" id="heroRing">
+            <svg class="home-hero__layer" viewBox="0 0 512 512">
+              <defs>
+                <linearGradient id="heroRingFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a73ff"/><stop offset=".55" stop-color="#2440ff"/><stop offset="1" stop-color="#1a2fcf"/></linearGradient>
+                <linearGradient id="heroDotFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fd0ff"/><stop offset="1" stop-color="#2b9fe0"/></linearGradient>
+              </defs>
+              <circle cx="256" cy="256" r="174" fill="none" stroke="url(#heroRingFace)" stroke-width="68" pathLength="1257" stroke-dasharray="1089 168" transform="rotate(70 256 256)"/>
+              <circle cx="371.5" cy="375.5" r="42" fill="url(#heroDotFace)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
-        <div class="hero-mq" aria-hidden="true"><div class="hero-mq__track">
-          <span>AI Training<i> ● </i></span><span>Jiko-Navi<i> ● </i></span><span>Web &amp; AI Search<i> ● </i></span><span>Video Production<i> ● </i></span><span>System Development<i> ● </i></span><span>Web Ads<i> ● </i></span>
-          <span>AI Training<i> ● </i></span><span>Jiko-Navi<i> ● </i></span><span>Web &amp; AI Search<i> ● </i></span><span>Video Production<i> ● </i></span><span>System Development<i> ● </i></span><span>Web Ads<i> ● </i></span>
-        </div></div>
-  <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
   </section>
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- News -->
   <div class="container">
       <section class="nslider" aria-label="お知らせ">
         <div class="nslider__head reveal">
@@ -320,48 +328,76 @@
       </section>
   </div>
 
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Cursor Glow -->
-
-  <!-- Company Section -->
-  <section class="home-company section" id="company">
+  <!-- Partners -->
+  <section class="home-partners section section--alt" aria-labelledby="homePartnersTitle">
     <div class="container">
-      <div class="home-company__inner reveal">
-        <div class="home-company__content">
-          <p class="section-label section-label--sm">Company</p>
-          <p class="home-company__mvv-label">Vision</p>
-          <h2 class="section-title--ja">信頼で社会を支える、<br>未来のインフラへ。</h2>
-          <p class="section-subtitle">
-            テクノロジーと専門知識を活かし、AI活用、交通事故被害者サポート、映像制作、業務システム開発、マーケティング支援といった分野で、人と企業の前進を支える存在を目指します。
-          </p>
-          <a href="company.html" class="btn btn--ghost mt-24">
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            企業情報をみる
-          </a>
+      <div class="home-section-head reveal">
+        <div>
+          <p class="section-label">Partners</p>
+          <h2 class="section-title--ja" id="homePartnersTitle">ご一緒しているみなさま</h2>
         </div>
-        <div class="home-company__values">
-        <p class="home-company__mvv-label">Our Value</p>
-        <div class="home-company__points">
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">01</span>
-            <h3>誠実であること。</h3>
-            <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
+        <a href="case.html#partners" class="btn btn--ghost">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+          実績をくわしくみる
+        </a>
+      </div>
+      <div class="logo-wall home-partners__logos reveal">
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/epark-sekkotsu.webp" alt="EPARK接骨・鍼灸" width="480" height="201" loading="lazy"></div>
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/coen.svg" alt="coen（株式会社Party）" width="268" height="50" loading="lazy"></div>
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/omg-partners.webp" alt="株式会社OMGホールディングス（OMG PARTNERS）" width="352" height="50" loading="lazy"></div>
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/kaigo-next.webp" alt="株式会社介護NEXT" width="411" height="46" loading="lazy"></div>
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/nihon-hoken-seikyu-zaidan.webp" alt="一般財団法人日本保険請求財団" width="370" height="40" loading="lazy"></div>
+        <div class="logo-wall__tile"><img src="assets/images/optimized/partners/cilgrace.webp" alt="CILGRACE（株式会社Beauty Professional）" width="262" height="70" loading="lazy"></div>
+      </div>
+      <p class="logo-wall__note">掲載許諾をいただいた企業・ブランドのロゴを掲載しています。</p>
+    </div>
+  </section>
+
+  <!-- Own products -->
+  <section class="home-products section" id="products" aria-labelledby="homeProductsTitle">
+    <div class="container">
+      <div class="home-products__head reveal">
+        <p class="section-label">Products</p>
+        <h2 class="section-title--ja" id="homeProductsTitle">自社で企画・運営するサービス</h2>
+        <p class="section-subtitle">Opus.netは、交通事故にあった方を支える「事故なび」と、仕事でAIを使えるようになるためのコミュニティ「仕事で使えるAIラボ」を、自社で企画・運営しています。</p>
+      </div>
+      <div class="home-products__list">
+        <article class="home-product reveal">
+          <div class="home-product__media">
+            <svg class="home-product__ring" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="174" fill="none" stroke="currentColor" stroke-width="68" pathLength="1257" stroke-dasharray="1089 168" transform="rotate(70 256 256)"/><circle cx="371.5" cy="375.5" r="42" fill="currentColor"/></svg>
+            <div class="home-product__window">
+              <span class="home-product__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img src="assets/images/optimized/home-product-jikonavi-sm.webp" srcset="assets/images/optimized/home-product-jikonavi-sm.webp 720w, assets/images/optimized/home-product-jikonavi.webp 1280w" sizes="(max-width: 900px) calc(100vw - 80px), 560px" alt="事故なびのサイトのトップページ" width="1280" height="800" loading="lazy" decoding="async">
+            </div>
           </div>
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">02</span>
-            <h3>知識を磨き、活かすこと。</h3>
-            <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
+          <div class="home-product__body">
+            <p class="home-product__cat">交通事故被害者サポート</p>
+            <h3 class="home-product__name"><img src="assets/images/optimized/jikonavi-service-logo.webp" alt="事故なび" width="916" height="315" loading="lazy" decoding="async"></h3>
+            <p class="home-product__text">交通事故にあった方の通院先（病院・整骨院）探しから保険会社とのやりとりまで、無料でサポートします。</p>
+            <a href="https://jiko-navi.jp/" target="_blank" rel="noopener noreferrer" class="btn btn--primary home-product__btn">
+              事故なびのサイトへ
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
           </div>
-          <div class="home-company__point">
-            <span class="home-company__point-n" aria-hidden="true">03</span>
-            <h3>変化を恐れず、挑戦すること。</h3>
-            <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
+        </article>
+        <article class="home-product reveal">
+          <div class="home-product__media">
+            <svg class="home-product__ring" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="174" fill="none" stroke="currentColor" stroke-width="68" pathLength="1257" stroke-dasharray="1089 168" transform="rotate(70 256 256)"/><circle cx="371.5" cy="375.5" r="42" fill="currentColor"/></svg>
+            <div class="home-product__window">
+              <span class="home-product__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img src="assets/images/optimized/home-product-ailab-sm.webp" srcset="assets/images/optimized/home-product-ailab-sm.webp 720w, assets/images/optimized/home-product-ailab.webp 1440w" sizes="(max-width: 900px) calc(100vw - 80px), 560px" alt="仕事で使えるAIラボの会員ポータルの画面" width="1440" height="1000" loading="lazy" decoding="async">
+            </div>
           </div>
-        </div>
-        </div>
+          <div class="home-product__body">
+            <p class="home-product__cat">AI活用の継続型コミュニティ</p>
+            <h3 class="home-product__name home-product__name--text">仕事で使えるAIラボ</h3>
+            <p class="home-product__text">毎月の実務テーマと他社の事例を見ながら、会員が自社の仕事を少しずつAIに置き換えていくコミュニティです。</p>
+            <a href="ailab/" target="_blank" rel="noopener noreferrer" class="btn btn--primary home-product__btn">
+              仕事で使えるAIラボのサイトへ
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -369,10 +405,10 @@
   <!-- Service Section -->
   <section class="home-services" id="service">
     <div class="container">
-            <div class="home-services__head reveal">
+      <div class="home-services__head reveal">
         <p class="home-services__label">Service</p>
-        <h2 class="home-services__title"><span class="u-phrase">AI活用支援や</span><span class="u-phrase">「事故なび」を</span><span class="u-phrase">中心に、</span><span class="u-phrase">Web制作から</span><span class="u-phrase">システム開発・</span><span class="u-phrase">広告運用まで</span><span class="u-phrase">幅広く</span><span class="u-phrase">提供しています。</span></h2>
-        <p class="home-services__text">生成AIの研修・導入支援と、交通事故に遭われた方を支える「事故なび」を軸に、企業の集客と業務を支えるサービスを提供しています。</p>
+        <h2 class="home-services__title">企業向けの支援サービス</h2>
+        <p class="home-services__text">自社サービスの開発・運用で培った実践的なノウハウをもとに、企業のAI活用や集客、業務システムの構築を支援します。</p>
       </div>
       <div class="home-services__list reveal">
         <a href="service.html#ai" class="home-service-row">
@@ -382,15 +418,6 @@
             <span class="home-service-row__text">現場で実際に使えるところまで、研修から社内ルールの整備、日常業務への組み込みを伴走します。</span>
           </span>
           <span class="home-service-row__media"><img src="assets/images/optimized/generated-service-dx-sm.webp" srcset="assets/images/optimized/generated-service-dx-sm.webp 800w, assets/images/optimized/generated-service-dx-lg.webp 1060w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="AI研修・導入支援" width="1060" height="707" loading="lazy" decoding="async"></span>
-          <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-        </a>
-        <a href="service.html#jikonavi" class="home-service-row">
-          <span class="home-service-row__cat">交通事故サポート</span>
-          <span class="home-service-row__body">
-            <span class="home-service-row__title">事故なび</span>
-            <span class="home-service-row__text">事故直後の不安に寄り添い、治療先の相談から修理の手配まで、必要なサポートへつなぎます。</span>
-          </span>
-          <span class="home-service-row__media home-service-row__media--logo"><img src="assets/images/optimized/home-service-jikonavi-sm.webp" srcset="assets/images/optimized/home-service-jikonavi-sm.webp 466w, assets/images/optimized/home-service-jikonavi.webp 640w" sizes="(max-width: 900px) calc(100vw - 40px), 320px" alt="事故なび" class="home-service-row__logo" width="466" height="161" loading="lazy" decoding="async"></span>
           <svg class="arrow-icon home-service-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
         </a>
         <a href="service.html#web" class="home-service-row">
@@ -433,78 +460,66 @@
     </div>
   </section>
 
-
-
-  <!-- AI Lab Section -->
-  <section class="lab-band" id="ailab">
-    <div class="lab-band__ghost" aria-hidden="true">AI LAB</div>
-    <div class="lab-band__chara" aria-hidden="true">
-      <img src="ailab/images/robo-wave-bust.webp" alt="" width="631" height="585" loading="lazy" decoding="async">
-    </div>
+  <!-- Company: vision statement and values -->
+  <section class="home-about" id="company" aria-labelledby="homeAboutTitle">
+    <svg class="home-about__ring" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="174" fill="none" stroke="currentColor" stroke-width="68" pathLength="1257" stroke-dasharray="1089 168" transform="rotate(70 256 256)"/><circle cx="371.5" cy="375.5" r="42" fill="currentColor"/></svg>
     <div class="container">
-      <div class="lab-band__inner reveal">
-        <div class="lab-band__content">
-          <p class="lab-band__cat">AI活用支援の主力サービス</p>
-          <h2 class="lab-band__name">仕事で使えるAIラボ</h2>
-          <p class="lab-band__lead">本当に仕事で使えるところまで、毎月ひとつ実践する。</p>
-          <p class="lab-band__text">研修を受けて終わり、にしないための場所です。毎月の実務テーマと他社の事例を見ながら、自社の仕事を少しずつAIに置き換えていく継続型コミュニティを運営しています。</p>
-          <div class="lab-band__actions">
-            <a href="ailab/" target="_blank" rel="noopener noreferrer" class="lab-btn lab-btn--white">
-              仕事で使えるAIラボをくわしくみる
-              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Updates Section -->
-  <section class="home-updates section section--alt" id="case-news">
-    <div class="container">
-      <div class="home-section-head reveal">
+      <div class="home-about__vision reveal">
         <div>
-          <p class="section-label section-label--sm">Case</p>
-          <h2 class="section-title--ja">支援領域</h2>
+          <p class="section-label">Vision</p>
+          <h2 class="home-about__title" id="homeAboutTitle">信頼で社会を支える、<br>未来のインフラへ。</h2>
         </div>
-        <a href="case.html" class="btn btn--ghost">
-          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          支援領域をみる
-        </a>
+        <div class="home-about__side">
+          <p class="home-about__text">テクノロジーと専門知識を活かし、AI活用、交通事故被害者サポート、映像制作、業務システム開発、マーケティング支援といった分野で、人と企業の前進を支える存在を目指します。</p>
+          <a href="company.html" class="btn btn--ghost home-about__btn">
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+            企業情報をみる
+          </a>
+        </div>
       </div>
-      <div class="home-updates__grid reveal">
-        <a href="case.html" class="home-case-preview">
-          <div class="home-case-preview__body">
-            <span class="home-case-preview__label">Case</span>
-            <h3>支援領域・対応例を公開しました</h3>
-            <p>AI活用、事故なび、映像制作、業務システム開発、広告運用など、Opus.netが対応できる支援内容を紹介しています。</p>
-            <span class="home-case-preview__link">
-              支援領域をみる
-              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-            </span>
+      <div class="home-about__values reveal">
+        <p class="home-about__kicker">Our Value</p>
+        <div class="home-about__value-list">
+          <div class="home-about__value">
+            <h3>誠実であること。</h3>
+            <p>すべての判断と行動の基準は「正しいかどうか」。短期的な利益より、長期的な信頼を大切にします。</p>
           </div>
-        </a>
+          <div class="home-about__value">
+            <h3>知識を磨き、活かすこと。</h3>
+            <p>専門性を高め続け、正確な情報で人を支える。学びを止めず、社会に還元します。</p>
+          </div>
+          <div class="home-about__value">
+            <h3>変化を恐れず、挑戦すること。</h3>
+            <p>社会が抱える課題に真摯に向き合い、創造的な発想で、より良い社会の実現を目指し続けます。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="home-final-cta">
+  <!-- Contact: three entry points by purpose -->
+  <section class="home-contact" aria-labelledby="homeContactTitle">
     <div class="container">
-      <div class="home-final-cta__inner reveal">
-        <p class="home-final-cta__label">Contact</p>
-        <h2>サービスや協業のご相談はこちら</h2>
-        <p>AI研修、事故なび、Web制作・AI検索対策、映像制作、業務システム開発、Web広告運用に関するご相談を受け付けています。</p>
-        <div class="home-final-cta__actions">
-          <a href="contact.html" class="btn btn--primary">
-            お問い合わせ
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-          <a href="service.html#ai" class="btn btn--outline">
-            AI研修・セミナーをみる
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
-          </a>
-        </div>
+      <div class="home-contact__head reveal">
+        <p class="home-contact__label">Contact</p>
+        <h2 id="homeContactTitle">ご相談・お問い合わせはこちらから承ります</h2>
+      </div>
+      <div class="home-contact__list reveal">
+        <a href="contact.html" class="home-contact__item">
+          <span class="home-contact__name">サービス・協業の相談</span>
+          <span class="home-contact__text">事業のご相談やお見積もり、協業に関するお問い合わせを承ります。</span>
+          <svg class="arrow-icon home-contact__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="seminar.html" class="home-contact__item">
+          <span class="home-contact__name">AIセミナーへの参加</span>
+          <span class="home-contact__text">毎月開催しているAI活用セミナーの日程を確認し、お申し込みいただけます。</span>
+          <svg class="arrow-icon home-contact__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="ailab/" target="_blank" rel="noopener noreferrer" class="home-contact__item">
+          <span class="home-contact__name">仕事で使えるAIラボ</span>
+          <span class="home-contact__text">会員向けの内容を確認でき、入会のお申し込みもいただけます。</span>
+          <svg class="arrow-icon home-contact__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -546,6 +561,7 @@
   </footer>
 
   <script src="js/main.js?v=20261014b"></script>
+  <script src="js/home.js?v=20261031"></script>
   <script>
     (function () {
       var vp = document.getElementById('nsliderViewport');
