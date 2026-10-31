@@ -62,9 +62,9 @@
   <link rel="preload" as="image" href="assets/images/optimized/opus-corporate-logo-transparent.webp" fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-subset.woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031d">
+  <link rel="stylesheet" href="css/style.css?v=20261031e">
   <link rel="stylesheet" href="css/animations.css?v=20261014b">
-  <link rel="stylesheet" href="css/responsive.css?v=20261031d">
+  <link rel="stylesheet" href="css/responsive.css?v=20261031e">
   <link rel="preconnect" href="https://challenges.cloudflare.com">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="js/analytics.js" defer></script>
@@ -140,9 +140,23 @@
 
   <!-- Contact Form -->
   <section class="section">
-    <div class="container">
-      <p class="section-subtitle contact-lead reveal">弊社へのお問い合わせは下記よりご入力ください。お問い合わせ内容の確認後、担当者よりご連絡させていただきます。返信には数日かかる場合もございますので、あらかじめご了承くださいませ。</p>
-      <p class="section-subtitle contact-lead reveal">送信できない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
+    <div class="container contact-layout">
+      <div class="contact-side reveal">
+        <p class="contact-side__lead">サービスのご相談や協業のご提案、取材のご依頼などは、こちらのフォームから受け付けています。内容を確認したうえで、担当者からご連絡します。返信まで数日いただく場合があります。</p>
+        <p class="contact-side__mail">送信できない場合は、<a href="mailto:contact@opus-net.net">contact@opus-net.net</a> まで直接ご連絡ください。</p>
+        <div class="contact-side__links">
+          <a href="seminar.html" class="contact-side__link">
+            <span class="contact-side__name">セミナーのお申し込み</span>
+            <span class="contact-side__text">開催予定のセミナー一覧から、各セミナーの詳細ページに進んでお申し込みください。</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a href="ailab/" target="_blank" rel="noopener noreferrer" class="contact-side__link">
+            <span class="contact-side__name">仕事で使えるAIラボへのご参加</span>
+            <span class="contact-side__text">内容の確認や入会のご相談は、仕事で使えるAIラボのサイトで受け付けています。</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
       <form class="contact-form reveal" method="post" action="https://script.google.com/macros/s/AKfycbwW14gYzflUsaFup2UvvrTUdYdlwDNup1CScL93ANm0trvELEtfLmiZ0ghQjoIw4Rtl/exec" data-contact-mailto="contact@opus-net.net" data-contact-endpoint="https://script.google.com/macros/s/AKfycbwW14gYzflUsaFup2UvvrTUdYdlwDNup1CScL93ANm0trvELEtfLmiZ0ghQjoIw4Rtl/exec">
         <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off">
         <div class="form-group">

@@ -22,12 +22,24 @@
 .seminar-event__link{font-size:13px;white-space:nowrap;min-height:44px;padding:12px 18px}
 .seminar-note{font-size:13px;color:var(--sub);line-height:1.8;margin-top:20px}
 .seminar-empty{padding:32px 0;font-size:15px;line-height:1.8}
-.seminar-archive{margin-top:64px}
-.seminar-archive summary{font-size:18px;font-weight:700;cursor:pointer;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.seminar-archive ul{list-style:none;padding:0;margin:12px 0}
-.seminar-archive li{border-bottom:1px solid var(--line)}
-.seminar-archive a{display:flex;gap:24px;padding:18px 0;font-size:14px;line-height:1.8;text-decoration:none}
-.seminar-archive time{flex-shrink:0;color:var(--sub);font-variant-numeric:tabular-nums}
-.seminar-archive a:hover{color:var(--blue)}
+.seminar-section__lead{max-width:44em;margin:-8px 0 0;color:var(--sub);font-size:15px;line-height:1.9}
+.seminar-section--past{padding-top:72px;border-top:1px solid var(--line)}
+.seminar-training{padding-top:72px;border-top:1px solid var(--line)}
+.seminar-training__inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:56px;align-items:start}
+.seminar-training__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.seminar-training__actions .btn{font-size:13px;min-height:48px;padding:12px 22px}
+.seminar-training__list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.seminar-training__list li{padding:18px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:700;line-height:1.7}
+.seminar-section--lab{padding-top:0}
+.seminar-lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.seminar-lab__media{display:flex;align-items:flex-end;background:#2340fe}
+.seminar-lab__media img{display:block;width:100%;height:auto}
+.seminar-lab__body{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:40px 44px}
+.seminar-lab__label{margin:0;color:var(--blue);font-size:12.5px;font-weight:700;letter-spacing:.04em}
+.seminar-section .seminar-lab__name{margin:0;font-size:clamp(22px,2.4vw,28px)}
+.seminar-lab__text{margin:0 0 8px;color:var(--sub);font-size:14px;line-height:1.9}
+.seminar-lab .btn{font-size:13px;min-height:48px;padding:12px 22px}
 @media(max-width:900px){.seminar-event{grid-template-columns:96px minmax(0,1fr);gap:18px 24px}.seminar-event__action{grid-column:2;flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px 20px}.seminar-event__status{width:100%;order:3}.seminar-event__price{flex:1}.seminar-event__link{flex-shrink:0}}
-@media(max-width:540px){.page-seminar .page-header{padding-bottom:20px}.page-seminar .page-header::before{display:none}.seminar-intro{font-size:14px;margin-top:14px}.seminar-section{padding-top:24px;padding-bottom:48px}.seminar-event{grid-template-columns:1fr;gap:12px;padding:24px 0}.seminar-event__date{display:flex;align-items:baseline;gap:8px}.seminar-event__year,.seminar-event__day,.seminar-event__weekday{display:inline;margin:0}.seminar-event__day{font-size:28px}.seminar-event__action{grid-column:1}.seminar-event__kind{font-size:11px}.seminar-event h3{font-size:20px}.seminar-event__details{font-size:13px;gap:3px 14px}.seminar-event__description{font-size:13px;margin-bottom:10px}.seminar-archive a{gap:12px;font-size:13px}.seminar-archive{margin-top:40px}}
+@media(max-width:540px){.page-seminar .page-header{padding-bottom:20px}.page-seminar .page-header::before{display:none}.seminar-intro{font-size:14px;margin-top:14px}.seminar-section{padding-top:24px;padding-bottom:48px}.seminar-event{grid-template-columns:1fr;gap:12px;padding:24px 0}.seminar-event__date{display:flex;align-items:baseline;gap:8px}.seminar-event__year,.seminar-event__day,.seminar-event__weekday{display:inline;margin:0}.seminar-event__day{font-size:28px}.seminar-event__action{grid-column:1}.seminar-event__kind{font-size:11px}.seminar-event h3{font-size:20px}.seminar-event__details{font-size:13px;gap:3px 14px}.seminar-event__description{font-size:13px;margin-bottom:10px}}
+@media(max-width:900px){.seminar-training__inner,.seminar-lab{grid-template-columns:1fr;gap:32px}.seminar-lab{gap:0}.seminar-lab__body{padding:28px 22px}}
+@media(max-width:540px){.seminar-section--past,.seminar-training{padding-top:48px}.seminar-section__lead{font-size:14px}}

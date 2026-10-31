@@ -9,7 +9,7 @@
 - 映像制作: 企画・構成から撮影・編集まで
 - 業務システム開発: 顧客管理システム（CRM）や業務管理ツールの受託開発、AIを活用した業務の自動化
 - Web広告運用支援: Meta広告（Instagram・Facebook）、Google・Yahoo!のリスティング広告の運用代行と効果分析
-- 会社概要: https://opus-net.net/company.html ／ お問い合わせ: https://opus-net.net/contact.html ／ AIセミナー一覧: https://opus-net.net/seminar.html
+- 会社概要: https://opus-net.net/company.html ／ お問い合わせ: https://opus-net.net/contact.html ／ セミナー: https://opus-net.net/seminar.html
 
 ## 仕事で使えるAIラボ（https://opus-net.net/ailab/）
 
