@@ -323,6 +323,8 @@ async function submitContactToEndpoint(form, formData, endpoint, submitButton, s
       'success',
       'お問い合わせを送信しました。担当者よりご連絡いたします。'
     );
+    // Count the completed inquiry in Google Analytics (js/analytics.js); nothing typed in the form is sent.
+    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { form_name: 'contact' });
   } else if (result && (
     result.message === 'turnstile_required'
     || result.message === 'turnstile_failed'
