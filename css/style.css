@@ -39,6 +39,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 24px);
 }
@@ -509,6 +510,10 @@ h3 {
   letter-spacing: .01em;
   line-height: 1.15;
   overflow: hidden;
+}
+
+.page-header__title {
+  overflow-wrap: anywhere;
 }
 
 .page-header__title > .ph-line {

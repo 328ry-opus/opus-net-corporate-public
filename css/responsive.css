@@ -208,6 +208,10 @@
     font-size: clamp(50px, 14vw, 82px);
   }
 
+  .page-header__title--long {
+    font-size: clamp(34px, 10vw, 82px);
+  }
+
   .page-header::after {
     right: -150px;
     bottom: -160px;
@@ -464,5 +468,12 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
+  }
+}
+
+/* Very narrow phones (320px): keep six-character page names such as お問い合わせ on one line. */
+@media (max-width: 340px) {
+  .page-header__title:not(.page-header__title--long) {
+    font-size: 44px;
   }
 }
