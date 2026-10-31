@@ -9,11 +9,13 @@
   // Ad parameters carried over to the forms site, so a Lead there can be tied back to the ad.
   var AD_PARAMS = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
-  // Meta's standard base code (queueing stub + async loader).
+  // Meta's standard base code (queueing stub + async loader). The ~200KB pixel itself is fetched after
+  // the page has loaded so it does not slow the first view; fbq calls made before then wait in the queue.
   !function (f, b, e, v, n, t, s) {
     if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
     if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
-    t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    function load() { t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }
+    if (b.readyState === 'complete') load(); else f.addEventListener('load', load, { once: true });
   }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
   // Must come before init: stops the pixel from reading button text and form fields on its own.
   fbq('set', 'autoConfig', false, PIXEL_ID);

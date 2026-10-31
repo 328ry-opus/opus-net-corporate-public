@@ -78,15 +78,19 @@
   ]
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-subset.woff2" crossorigin>
 <style>
+  /* Self-hosted subsets shared with the corporate pages (scripts/fonts/build-subset.py). */
+  @font-face { font-family:"Inter"; src:url("../assets/fonts/inter-subset.woff2") format("woff2"); font-weight:500 900; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Opus Noto Sans JP"; src:url("../assets/fonts/noto-sans-jp-subset.woff2") format("woff2"); font-weight:400 900; font-style:normal; font-display:swap; }
   :root {
     --blue:#2440ff; --blue-deep:#1B31C4; --ink:#0e0f12;
     --gray:#f1f1ed; --white:#FFFFFF; --paper:#fafaf8; --sub:#666a75; --line:#e3e3de; --blue-tint:#e9edff;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; scroll-padding-top:104px; }
-  body { font-family:"Noto Sans JP",sans-serif; color:var(--ink); background:var(--paper); line-height:2; overflow-x:clip; }
+  body { font-family:"Opus Noto Sans JP","Noto Sans JP",sans-serif; color:var(--ink); background:var(--paper); line-height:2; overflow-x:clip; }
   h1,h2,h3,h4 { font-feature-settings:"palt"; letter-spacing:.02em; }
   a { color:inherit; text-decoration:none; }
   img { max-width:100%; display:block; }
@@ -155,7 +159,7 @@
   .medals { display:flex; justify-content:flex-start; gap:20px; margin-top:clamp(22px,2.8vw,42px); margin-bottom:-80px; flex-wrap:wrap; position:relative; z-index:5; }
   .medal { width:160px; height:160px; border-radius:50%; background:#fff; border:3px solid var(--blue); box-shadow:0 10px 26px rgba(9,14,60,.28), inset 0 0 0 7px #fff, inset 0 0 0 9px var(--blue); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:2px; }
   .medal b { font-family:"Inter",sans-serif; font-weight:800; font-size:32px; color:var(--blue); line-height:1.1; }
-  .medal b small { font-family:"Noto Sans JP"; font-size:13.5px; font-weight:900; color:var(--ink); }
+  .medal b small { font-family:"Opus Noto Sans JP","Noto Sans JP"; font-size:13.5px; font-weight:900; color:var(--ink); }
   .medal span { font-size:10.5px; color:var(--sub); line-height:1.6; padding:0 14px; font-weight:700; }
 
   /* 業種帯（ロゴウォール位置）＋実績文 */
@@ -290,7 +294,7 @@
   .schedule .row { display:grid; grid-template-columns:120px 1fr auto; gap:16px; align-items:center; padding:15px 22px; font-size:13.5px; }
   .schedule .row + .row { border-top:1px solid var(--line); }
   .schedule .date { font-family:"Inter",sans-serif; font-weight:800; font-size:16px; color:var(--blue); }
-  .schedule .date small { font-family:"Noto Sans JP"; font-size:11.5px; font-weight:900; color:var(--ink); margin-left:4px; }
+  .schedule .date small { font-family:"Opus Noto Sans JP","Noto Sans JP"; font-size:11.5px; font-weight:900; color:var(--ink); margin-left:4px; }
   .schedule .row p { font-weight:700; }
   .schedule .row p small { display:block; font-weight:500; font-size:12px; color:var(--sub); }
   .schedule .tag { background:var(--blue); color:#fff; font-size:11.5px; font-weight:900; border-radius:999px; padding:3px 14px; white-space:nowrap; }
@@ -424,7 +428,7 @@
   /* 左クイックナビ（縦積みミニバナー） */
   .quicknav { position:fixed; left:16px; top:205px; z-index:94; background:#fff; border-radius:14px; box-shadow:0 16px 44px rgba(14,15,18,.22); padding:34px 14px 14px; width:240px; }
   .quicknav.is-hidden { display:none; }
-  .qn-launcher { position:fixed; left:0; top:205px; z-index:94; background:#fff; color:var(--blue); border:none; border-radius:0 10px 10px 0; padding:18px 11px; font-size:12.5px; font-weight:900; writing-mode:vertical-rl; letter-spacing:.16em; cursor:pointer; box-shadow:4px 0 16px rgba(14,15,18,.28); display:none; font-family:"Noto Sans JP",sans-serif; }
+  .qn-launcher { position:fixed; left:0; top:205px; z-index:94; background:#fff; color:var(--blue); border:none; border-radius:0 10px 10px 0; padding:18px 11px; font-size:12.5px; font-weight:900; writing-mode:vertical-rl; letter-spacing:.16em; cursor:pointer; box-shadow:4px 0 16px rgba(14,15,18,.28); display:none; font-family:"Opus Noto Sans JP","Noto Sans JP",sans-serif; }
   .qn-launcher:hover { background:var(--blue-tint); }
   .qn-launcher.is-on { display:block; }
   .quicknav .qn-close { position:absolute; right:9px; top:9px; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; border:none; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
@@ -477,7 +481,7 @@
   .chat-foot:hover { background:var(--blue-tint); }
   .chat-foot span { flex:1; font-size:12.5px; color:var(--blue); font-weight:900; }
   .chat-foot svg { width:18px; height:18px; color:var(--blue); }
-  .chat-launcher { position:fixed; right:18px; bottom:18px; z-index:95; display:none; align-items:center; gap:10px; background:var(--blue); color:#fff; border:none; border-radius:999px; padding:8px 20px 8px 8px; font-size:13px; font-weight:900; cursor:pointer; box-shadow:0 12px 30px rgba(9,14,60,.35); font-family:"Noto Sans JP",sans-serif; }
+  .chat-launcher { position:fixed; right:18px; bottom:18px; z-index:95; display:none; align-items:center; gap:10px; background:var(--blue); color:#fff; border:none; border-radius:999px; padding:8px 20px 8px 8px; font-size:13px; font-weight:900; cursor:pointer; box-shadow:0 12px 30px rgba(9,14,60,.35); font-family:"Opus Noto Sans JP","Noto Sans JP",sans-serif; }
   .chat-launcher.is-on { display:flex; }
   .chat-launcher .face { width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; }
   .chat-launcher .face img { width:32px; height:auto; }
@@ -795,7 +799,7 @@
       <a href="#seminar" class="btn"><span class="js-seminar-cta" data-free="無料セミナーの日程を見る" data-open="セミナーの日程を見る" data-none="セミナーのお知らせを受け取る">無料セミナーの日程を見る</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
     </div>
     <div class="subhero-visual reveal">
-      <img src="business/images/lab01-rich.webp" alt="ラボセッションの番組サムネイル（2026年7月「キャンペーンLPを作成しよう」）" loading="lazy">
+      <img src="business/images/lab01-rich.webp" srcset="business/images/lab01-rich-720.webp 720w, business/images/lab01-rich.webp 1280w" sizes="(max-width: 900px) 90vw, 545px" alt="ラボセッションの番組サムネイル（2026年7月「キャンペーンLPを作成しよう」）" width="1280" height="720" loading="lazy">
       <div class="band">ラボセッション 毎月開催</div>
     </div>
   </div>
@@ -1008,7 +1012,7 @@
         </dl>
       </div>
       <figure class="case-shot">
-        <img src="images/session-demo.jpg" alt="セッション中に公開した実例ページ（和食店のキャンペーン申込ページ）" loading="lazy">
+        <img src="images/session-demo.jpg" alt="セッション中に公開した実例ページ（和食店のキャンペーン申込ページ）" width="1250" height="900" loading="lazy">
         <figcaption>実際にセッション中に公開したページ（デモ用の架空店舗です）</figcaption>
       </figure>
     </div>
@@ -1316,6 +1320,20 @@
   };
   const shortTitle = (e) => (e.title || '').replace(/^仕事で使えるAIラボ\s*/, '');
 
+  // Seminar and venue names come from the API and may use characters outside the self-hosted
+  // font subset; fetch just those glyphs from Google Fonts so they match (same as js/seminar-list.js).
+  function loadMissingGlyphs(text) {
+    fetch('../assets/fonts/noto-sans-jp-subset.chars.txt').then((res) => (res.ok ? res.text() : '')).then((covered) => {
+      if (!covered) return;
+      const missing = [...new Set(text)].filter((c) => c.charCodeAt(0) > 0x7f && !/\s/.test(c) && !covered.includes(c)).join('');
+      if (!missing) return;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap&text=' + encodeURIComponent(missing);
+      document.head.appendChild(link);
+    }).catch(() => {});
+  }
+
   function renderSeminars(events) {
     const section = document.getElementById('seminar');
     section.dataset.state = events.length ? 'open' : 'none';
@@ -1349,6 +1367,7 @@
       li.append(when, name, meta, link);
       return li;
     }));
+    loadMissingGlyphs(list.textContent);
     if (toast) {
       toast.querySelector('a').textContent = first.series.label + ' ' + dayLabel(first) + ' ' + first.startsAt.slice(0, 5) + '〜';
       setTimeout(() => toast.classList.add('is-on'), 800);

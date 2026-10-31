@@ -20,16 +20,18 @@
 <meta property="og:site_name" content="仕事で使えるAIラボ by Opus.net">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/noto-sans-jp-subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/inter-subset.woff2" crossorigin>
 <style>
+  /* Self-hosted subsets shared with the corporate pages (scripts/fonts/build-subset.py). */
+  @font-face { font-family:"Inter"; src:url("../../assets/fonts/inter-subset.woff2") format("woff2"); font-weight:500 900; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Opus Noto Sans JP"; src:url("../../assets/fonts/noto-sans-jp-subset.woff2") format("woff2"); font-weight:400 900; font-style:normal; font-display:swap; }
   /* 見た目＝ネコノテ型（白×ロイヤルブルー×黒・人物1人＋青いリボン・薄い流線）。書体はサービスサイトと同じ Noto Sans JP 900＋Inter
      訴求の強さ＝AIデザインフェスティバル型（FV直下の帯・光るボタンの反復・番組・特典・追従ボタン）
      寸法は --u（列幅÷500・cqw基準） */
   :root {
     --blue:#2440ff; --blue-deep:#1B31C4; --blue-2:#3a63ff; --ink:#0e0f12; --sub:#4a4f5c; --pale:#eef3ff; --pale2:#dfe8ff; --line:#dfe5f5;
-    --jp:"Noto Sans JP", system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    --jp:"Opus Noto Sans JP", "Noto Sans JP", system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     /* 見出しもサービスサイトと同じ極太ゴシック（旧：明朝） */
     --serif:var(--jp);
     --num:"Inter", var(--jp);
@@ -407,7 +409,7 @@
       <path d="M-30 600 C 140 560, 240 660, 380 580 S 520 480, 560 430" fill="none" stroke="#e8eeff" stroke-width="22" stroke-linecap="round"/>
       <path d="M-20 200 C 80 140, 140 260, 240 210" fill="none" stroke="#eef2ff" stroke-width="16" stroke-linecap="round"/>
     </svg>
-    <img class="photo" src="images/ribbon-w.webp" alt="" width="1000" height="1250" fetchpriority="high">
+    <img class="photo" src="images/ribbon-w.webp" srcset="images/ribbon-w-720.webp 720w, images/ribbon-w.webp 1000w" sizes="(max-width: 500px) 90vw, 450px" alt="" width="1000" height="1250" fetchpriority="high">
     <div class="copy">
       <span class="label"><span>仕事でAIを使いたい方へ</span></span>
       <h1><span class="p1">月額<b>9,800</b>円で、</span><span class="q">社内に<em>AI人材</em>を。</span></h1>
@@ -446,7 +448,7 @@
       <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>ChatGPTに患者さんやお客様の名前を入れて文章を作ってもいいの？</span></p>
       <p class="bub"><span class="qmark">Q</span><span><small>会員から届いた質問</small>結局、何から始めればいいですか？</span></p>
     </div>
-    <div class="answer"><img src="images/stand_wave.webp" alt="" width="640" height="640" loading="lazy"><p>ほかの会社の質問が、自社のヒントになります。</p></div>
+    <div class="answer"><img src="images/stand_wave.webp" srcset="images/stand_wave-240.webp 240w, images/stand_wave.webp 640w" sizes="80px" alt="" width="640" height="640" loading="lazy"><p>ほかの会社の質問が、自社のヒントになります。</p></div>
     <p class="qs-note">すべて会員から実際に届いた質問です。回答は会員ポータルにたまり、Q&amp;A配信で会員全員に届きます。</p>
   </section>
 
@@ -467,7 +469,7 @@
     <p class="sec-sub">実際の業務を題材に、AIで作る流れを毎月実演します</p>
 
     <article class="show">
-      <img class="thumb" src="images/lab01-rich.webp" alt="ラボセッション「キャンペーンLPを作成しよう」2026年7月23日（木）ライブ実演" width="1280" height="720" loading="lazy">
+      <img class="thumb" src="images/lab01-rich.webp" srcset="images/lab01-rich-720.webp 720w, images/lab01-rich.webp 1280w" sizes="(max-width: 500px) 86vw, 428px" alt="ラボセッション「キャンペーンLPを作成しよう」2026年7月23日（木）ライブ実演" width="1280" height="720" loading="lazy">
       <ul class="points">
         <li>飲食店のキャンペーン申込ページを、<b>AIエージェントに日本語で頼んで</b>制作</li>
         <li>ページに使う<b>写真もAIで生成</b></li>
@@ -476,7 +478,7 @@
     </article>
 
     <article class="show">
-      <img class="thumb" src="images/lab02-rich.webp" alt="ラボセッション「売上管理をAIに丸投げしよう」2026年8月20日（木）ライブ実演" width="1280" height="720" loading="lazy">
+      <img class="thumb" src="images/lab02-rich.webp" srcset="images/lab02-rich-720.webp 720w, images/lab02-rich.webp 1280w" sizes="(max-width: 500px) 86vw, 428px" alt="ラボセッション「売上管理をAIに丸投げしよう」2026年8月20日（木）ライブ実演" width="1280" height="720" loading="lazy">
       <ul class="points">
         <li>売上を記録する<b>スプレッドシートを作成</b></li>
         <li>注文を入力する<b>レジ画面をアプリ化</b></li>
@@ -485,7 +487,7 @@
     </article>
 
     <article class="show">
-      <img class="thumb" src="images/lab03-rich.webp" alt="ラボセッション「お客様の情報を守るAI活用ルールを作ろう」2026年10月7日（水）ライブ実演" width="1280" height="720" loading="lazy">
+      <img class="thumb" src="images/lab03-rich.webp" srcset="images/lab03-rich-720.webp 720w, images/lab03-rich.webp 1280w" sizes="(max-width: 500px) 86vw, 428px" alt="ラボセッション「お客様の情報を守るAI活用ルールを作ろう」2026年10月7日（水）ライブ実演" width="1280" height="720" loading="lazy">
       <ul class="points">
         <li>AIに渡す情報を<b>「入れてよい・伏せる・入れない」</b>に分ける</li>
         <li>ChatGPT・Claude・Geminiで<b>学習に使わせない設定</b>を確認</li>
@@ -495,7 +497,7 @@
   </section>
 
   <section class="notice" aria-labelledby="notice-title">
-    <img class="warn" src="images/robo_ch2.webp" alt="" width="640" height="640" loading="lazy">
+    <img class="warn" src="images/robo_ch2.webp" srcset="images/robo_ch2-240.webp 240w, images/robo_ch2.webp 640w" sizes="96px" alt="" width="640" height="640" loading="lazy">
     <h2 id="notice-title">参加できない月も、<br><em>録画と配布資料</em>で確認できます</h2>
     <p>ラボセッションは毎月ちがうテーマです。<br>当日に出られなくても、会員ページで追いつけます。</p>
   </section>
@@ -575,7 +577,7 @@
     <div class="pcard">
       <div class="pcard-head">
         <img class="pcard-bld" src="images/ic-building.webp" alt="" width="320" height="320" loading="lazy">
-        <img class="pcard-robo" src="images/stand_wave.webp" alt="" width="640" height="640" loading="lazy">
+        <img class="pcard-robo" src="images/stand_wave.webp" srcset="images/stand_wave-240.webp 240w, images/stand_wave.webp 640w" sizes="110px" alt="" width="640" height="640" loading="lazy">
         <p class="name">株式会社Opus.net<small>東京都台東区浅草橋</small></p>
       </div>
       <div class="pstats">
@@ -611,7 +613,7 @@
   </section>
 
   <section class="final" aria-labelledby="final-title">
-    <img class="final-photo" src="images/ribbon-w.webp" alt="" width="1000" height="1250" loading="lazy">
+    <img class="final-photo" src="images/ribbon-w.webp" srcset="images/ribbon-w-720.webp 720w, images/ribbon-w.webp 1000w" sizes="(max-width: 500px) 60vw, 300px" alt="" width="1000" height="1250" loading="lazy">
     <h2 id="final-title">自社で活かせる場面を、<br>無料相談で一緒に探しませんか？</h2>
     <p class="lead">「うちの会社でも使えるのか」「自分の仕事でも使えるのか」を聞くだけでも歓迎です。業種と、日々どんな仕事をしているかを教えてください。</p>
     <div class="ctawrap" id="final-cta">
