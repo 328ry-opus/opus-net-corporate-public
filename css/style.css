@@ -1981,12 +1981,15 @@ h3 {
 .num-row__note { display: block; font-size: 12px; font-weight: 400; color: var(--sub); margin-top: 6px; }
 .num-row__value { font-family: "Inter", sans-serif; font-weight: 800; font-size: clamp(52px, 7vw, 96px); line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; letter-spacing: -.01em; white-space: nowrap; }
 .num-row__value small { font-family: "Opus Noto Sans JP", "Noto Sans JP", sans-serif; font-size: .32em; font-weight: 900; color: var(--ink); margin-left: .35em; letter-spacing: .02em; }
-.logo-wall { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 46px; }
-.logo-wall__tile { background: #fff; border: 1px solid var(--line); border-radius: 8px; aspect-ratio: 21/10; display: flex; align-items: center; justify-content: center; padding: 18px 22px; transition: transform .3s, border-color .3s; }
+.logo-wall { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 46px; }
+.logo-wall__tile { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 8px; aspect-ratio: 21/10; padding: 18px 22px; transition: transform .3s, border-color .3s; }
 .logo-wall__tile:hover { transform: translateY(-3px); border-color: var(--ink); }
-.logo-wall__tile img { max-width: 82%; max-height: 60%; object-fit: contain; }
+/* Logo is out of flow so it never sizes the tile: WebKit (every iOS browser) ignores a % max-height inside an
+   aspect-ratio box, so the img kept its height attribute and stretched the tile. Size still comes from the width/height
+   attributes, capped at 82% / 60% of the content box, and object-fit keeps the logo's proportions. */
+.logo-wall__tile img { position: absolute; inset: 0; margin: auto; max-width: calc((100% - 44px) * .82); max-height: calc((100% - 36px) * .6); object-fit: contain; }
 .logo-wall__note { margin-top: 14px; font-size: 11.5px; color: var(--sub); }
-.logo-wall--3 { grid-template-columns: repeat(3, 1fr); }
+.logo-wall--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .word-band { margin-top: 10px; font-feature-settings: "palt"; letter-spacing: .04em; font-weight: 900; font-size: clamp(30px, 4.6vw, 58px); line-height: 1.75; }
 .word-band span { margin-right: .85em; white-space: nowrap; }
 .word-band span:nth-child(3n) { color: var(--blue); }
@@ -2005,9 +2008,9 @@ h3 {
 .case-card__list li { position: relative; border-bottom: 1px solid var(--line); padding: 13px 0 13px 20px; font-size: 12.5px; }
 .case-card__list li::before { content: ""; position: absolute; left: 0; top: 23px; width: 9px; height: 1.5px; background: var(--blue); }
 @media (max-width: 900px) {
-  .logo-wall, .logo-wall--3 { grid-template-columns: repeat(2, 1fr); }
+  .logo-wall, .logo-wall--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .logo-wall__tile { padding: 12px 10px; }
-  .logo-wall__tile img { max-width: 92%; max-height: 74%; }
+  .logo-wall__tile img { max-width: calc((100% - 20px) * .92); max-height: calc((100% - 24px) * .74); }
   .logo-wall__tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .num-row { grid-template-columns: 1fr; gap: 8px; }
   .case-card { grid-template-columns: 1fr; gap: 18px; }
