@@ -56,3 +56,27 @@
   }
   if (document.readyState === 'complete') load(); else window.addEventListener('load', load, { once: true });
 })();
+
+// Links to the forms site carry the page they were used on (?from=/seminar.html), so an application can be
+// traced back to the page of this site it started from: across sites the browser only sends this site's
+// origin as the referrer, never the page (privacypolicy.html, section 5). Only the path goes, no query
+// string. The link is rewritten at the moment of use so links added later (the seminar list is fetched
+// after load) are covered too; contextmenu/touchstart cover "open in new tab" and "copy link" menus.
+// This part is not analytics and has no third party, so it also runs on local previews.
+(function () {
+  'use strict';
+  var FORMS_ORIGIN = 'https://opus-ai-forms.pages.dev';
+  function addFrom(event) {
+    var link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+    if (!link || link.href.indexOf(FORMS_ORIGIN + '/') !== 0) return;
+    var url;
+    try { url = new URL(link.href); } catch (e) { return; }
+    if (url.searchParams.has('from')) return;
+    url.searchParams.set('from', location.pathname);
+    link.href = url.toString();
+  }
+  document.addEventListener('click', addFrom, true);
+  document.addEventListener('auxclick', addFrom, true);
+  document.addEventListener('contextmenu', addFrom, true);
+  document.addEventListener('touchstart', addFrom, { capture: true, passive: true });
+})();
